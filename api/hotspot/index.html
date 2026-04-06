@@ -1,0 +1,5456 @@
+<!DOCTYPE html><html lang="en" class="no-js"><head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Technical guides for using RansNet products.">
+      
+      
+        <meta name="author" content="RansNet Singapore Pte Ltd">
+      
+      
+        <link rel="canonical" href="https://docs.ransnet.com/api/hotspot/">
+      
+      
+        <link rel="prev" href="../setup/">
+      
+      
+        <link rel="next" href="../rmm/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../images/RansNet_logo.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Hotspot API - RansNet Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
+        </style></head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#hotspot-api" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="RansNet Documentation" class="md-header__button md-logo" aria-label="RansNet Documentation" data-md-component="logo">
+      
+  <img src="../../images/RansNet_logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            RansNet Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Hotspot API
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom" aria-label="Switch to dark mode" type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden="">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="custom" aria-label="Switch to light mode" type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden="">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required="">
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix="">
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="RansNet Documentation" class="md-nav__button md-logo" aria-label="RansNet Documentation" data-md-component="logo">
+      
+  <img src="../../images/RansNet_logo.png" alt="logo">
+
+    </a>
+    RansNet Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix="">
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../start/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_1" id="__nav_1_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Getting Started
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../start/overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Product Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_3">
+        
+          
+          <label class="md-nav__link" for="__nav_1_3" id="__nav_1_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    mfusion Overview
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    mfusion Overview
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../start/mfusion/features/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Features
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../start/mfusion/security/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../start/mfusion/admin/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Admin
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_4">
+        
+          
+          <label class="md-nav__link" for="__nav_1_4" id="__nav_1_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Device Setup
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Device Setup
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../start/device/bootstrap/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bootstrapping
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../start/device/provision/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Provisioning
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../start/device/onboard/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Onboarding
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../start/device/harden/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Hardening
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../monitor/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Device Monitoring
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Device Monitoring
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../monitor/dashboard/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Dashboard
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../monitor/hosts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Hosts
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../monitor/topo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Topology
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../monitor/wifi/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Wireless
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../monitor/netflow.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Netflow
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../monitor/alerts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Alerts
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../monitor/settings/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Settings
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../config/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Network Settings
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Network Settings
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2">
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Interfaces
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Interfaces
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../config/iface/ethernet/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ethernet
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../config/iface/vlaniface/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VLAN
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../config/iface/bridge/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bridge
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../config/iface/wwan/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    WWAN
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../config/iface/pppoe/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PPPoE
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../config/iface/wfiwan.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    WiFi as WAN
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../config/dhcp/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    DHCP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../routing/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Routing
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_4" id="__nav_3_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Routing
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../routing/static/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Static
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../routing/ospf/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    OSPF
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../routing/bgp/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    BGP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../config/vrrp.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VRRP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../config/wifi/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Wireless
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../config/tracking/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tracking
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../sdwan/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SD-WAN
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    SD-WAN
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../config/vpn.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VPN Protocols
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../config/vpninstance.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VPN Instance
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../config/mwan.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Multi-WAN
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../config/pbr.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Traffic Steering
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../config/qos.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Traffic Shaping
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../security/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Security &amp; Firewall
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Security &amp; Firewall
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2">
+        
+          
+          <label class="md-nav__link" for="__nav_5_2" id="__nav_5_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Firewall
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Firewall
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../firewall/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../firewall/input.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Access
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../firewall/dnat.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    DNAT
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../firewall/snat.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SNAT
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../firewall/input.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Input
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../security/dnsfiltering.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    DNS Filtering
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../security/netflow.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Netflow Analyzer
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../security/log.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Log Collector
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../security/radius.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RADIUS Server
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6">
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    System Services
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    System Services
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../services/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../services/dns.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    DNS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../services/ntp.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    NTP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../services/snmp.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SNMP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../services/syslog.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Syslog
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7">
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sample Scenario
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Sample Scenario
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../scenarios/wanfailover/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    WAN Failover
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../scenarios/l2vpn.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    L2 over SD-WAN
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../scenarios/vrf.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VRF over SD-WAN
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../scenarios/wifi.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Wi-Fi over SD-WAN
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" checked="">
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API Documentation
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    API Documentation
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Hotspot API
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Hotspot API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#authentication-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Authentication Setup
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Methods
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#responses" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Responses
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Responses">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#successful-response-status-true" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Successful Response (status: true)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#failed-response-status-false" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Failed Response (status: false)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#31-historical-sessions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 Historical Sessions
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.1 Historical Sessions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#response-fields" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Response Fields
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#query-parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Query Parameters
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Query Parameters">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#filters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Filters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#time-range" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Time Range
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pagination" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pagination
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-getting-historical-sessions-for-one-day" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example — Getting Historical Sessions for One Day
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pagination-handling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pagination Handling
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#32-online-sessions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 Online Sessions
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.2 Online Sessions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#response-fields_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Response Fields
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#query-parameters_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Query Parameters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-get-online-sessions-by-mbox-mac" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example — Get Online Sessions by mBox MAC
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#33-login-attempts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3 Login Attempts
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.3 Login Attempts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#query-parameters_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Query Parameters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-get-rejected-login-attempts-for-a-user" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example — Get Rejected Login Attempts for a User
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#34-quota-purchase-report" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.4 Quota Purchase Report
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.4 Quota Purchase Report">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#query-parameters_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Query Parameters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-get-quota-purchases-for-a-month" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example — Get Quota Purchases for a Month
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#41-managing-users" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 Managing Users
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4.1 Managing Users">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#get-list-users-or-get-single-user" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GET — List Users or Get Single User
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#post-create-new-user" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        POST — Create New User
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#post-update-existing-user" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        POST — Update Existing User
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#delete-delete-user" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DELETE — Delete User
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#post-attach-profile-to-user" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        POST — Attach Profile to User
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#post-detach-profile-from-user" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        POST — Detach Profile from User
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#42-managing-profiles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2 Managing Profiles
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4.2 Managing Profiles">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#get-list-all-profiles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GET — List All Profiles
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-list-users-by-profile" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GET — List Users by Profile
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#43-managing-user-access" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.3 Managing User Access
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4.3 Managing User Access">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#get-list-all-available-attributes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GET — List All Available Attributes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-get-attributes-for-a-user" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GET — Get Attributes for a User
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#post-attach-update-attributes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        POST — Attach / Update Attributes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#post-detach-attributes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        POST — Detach Attributes
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../rmm/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Monitoring API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../syslog/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Syslog API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../wispr/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    WISPr API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../netflow/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    NetFlow API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#authentication-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Authentication Setup
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Methods
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#responses" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Responses
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Responses">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#successful-response-status-true" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Successful Response (status: true)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#failed-response-status-false" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Failed Response (status: false)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#31-historical-sessions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 Historical Sessions
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.1 Historical Sessions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#response-fields" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Response Fields
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#query-parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Query Parameters
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Query Parameters">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#filters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Filters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#time-range" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Time Range
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pagination" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pagination
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-getting-historical-sessions-for-one-day" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example — Getting Historical Sessions for One Day
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pagination-handling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pagination Handling
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#32-online-sessions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 Online Sessions
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.2 Online Sessions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#response-fields_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Response Fields
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#query-parameters_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Query Parameters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-get-online-sessions-by-mbox-mac" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example — Get Online Sessions by mBox MAC
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#33-login-attempts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3 Login Attempts
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.3 Login Attempts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#query-parameters_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Query Parameters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-get-rejected-login-attempts-for-a-user" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example — Get Rejected Login Attempts for a User
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#34-quota-purchase-report" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.4 Quota Purchase Report
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.4 Quota Purchase Report">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#query-parameters_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Query Parameters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-get-quota-purchases-for-a-month" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example — Get Quota Purchases for a Month
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#41-managing-users" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 Managing Users
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4.1 Managing Users">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#get-list-users-or-get-single-user" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GET — List Users or Get Single User
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#post-create-new-user" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        POST — Create New User
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#post-update-existing-user" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        POST — Update Existing User
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#delete-delete-user" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DELETE — Delete User
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#post-attach-profile-to-user" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        POST — Attach Profile to User
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#post-detach-profile-from-user" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        POST — Detach Profile from User
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#42-managing-profiles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2 Managing Profiles
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4.2 Managing Profiles">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#get-list-all-profiles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GET — List All Profiles
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-list-users-by-profile" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GET — List Users by Profile
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#43-managing-user-access" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.3 Managing User Access
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4.3 Managing User Access">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#get-list-all-available-attributes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GET — List All Available Attributes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-get-attributes-for-a-user" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GET — Get Attributes for a User
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#post-attach-update-attributes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        POST — Attach / Update Attributes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#post-detach-attributes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        POST — Detach Attributes
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="hotspot-api">HotSpot API<a class="headerlink" href="#hotspot-api" title="Permanent link">¶</a></h1>
+<p>The RansNet Client API v3.1.0 provides secure, real-time access to HotSpot data from the mFusion system. It supports retrieval of historical sessions, active online sessions, login attempt logs, and quota purchase reports — as well as full CRUD management of local users, profiles, and per-user RADIUS access attributes.</p>
+<hr>
+<h2 id="authentication-setup">Authentication Setup<a class="headerlink" href="#authentication-setup" title="Permanent link">¶</a></h2>
+<p>Before using the HotSpot API, you must enable access through the mFusion GUI:</p>
+<ol>
+<li>Navigate to <strong>Admin &gt; General &gt; mFusion API</strong> tab.</li>
+<li>Use the <strong>Entity Search Box</strong> to locate the desired entity, then enable API access by toggling the switch under the <strong>Radius API</strong> column.</li>
+<li>Click the <strong>Users</strong> icon beside the toggle to manage user access.</li>
+<li>Find the desired user in the listing and enable the <strong>Radius API</strong> toggle for that user.</li>
+<li>Click the <strong>key icon</strong> beside the toggle to retrieve the user's <strong>API ID</strong> and <strong>Secret Key</strong>.</li>
+<li>To generate new credentials, click <strong>Request New Access ID and Secret</strong>.</li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For full login and authentication details, refer to Chapter 2.1 of the RansNet CLIENT API v3.1.0 Developer Reference Manual.</p>
+</div>
+<hr>
+<h2 id="methods">Methods<a class="headerlink" href="#methods" title="Permanent link">¶</a></h2>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Endpoint</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>POST</code></td>
+<td><code>.../mbox/api/hotspot/auth</code></td>
+<td>Request JWT token</td>
+</tr>
+<tr>
+<td><code>GET</code></td>
+<td><code>.../mbox/api/hotspot/historical-sessions</code></td>
+<td>Get all historical session records</td>
+</tr>
+<tr>
+<td><code>GET</code></td>
+<td><code>.../mbox/api/hotspot/online-sessions</code></td>
+<td>Get all currently connected users</td>
+</tr>
+<tr>
+<td><code>GET</code></td>
+<td><code>.../mbox/api/hotspot/login-attempts</code></td>
+<td>Get all authentication log data</td>
+</tr>
+<tr>
+<td><code>GET</code></td>
+<td><code>.../mbox/api/hotspot/quota-purchase-report</code></td>
+<td>Get all user quota purchase report data</td>
+</tr>
+<tr>
+<td><code>GET</code></td>
+<td><code>.../mbox/api/hotspot/users</code></td>
+<td>Get all local hotspot users</td>
+</tr>
+<tr>
+<td><code>GET</code></td>
+<td><code>.../mbox/api/hotspot/users/{userId}</code></td>
+<td>Get detailed record for one user</td>
+</tr>
+<tr>
+<td><code>POST</code></td>
+<td><code>.../mbox/api/hotspot/users/{userId}</code></td>
+<td>Update user details</td>
+</tr>
+<tr>
+<td><code>POST</code></td>
+<td><code>.../mbox/api/hotspot/users</code></td>
+<td>Create new local user</td>
+</tr>
+<tr>
+<td><code>POST</code></td>
+<td><code>.../mbox/api/hotspot/users/{userId}/actions/attach-profile</code></td>
+<td>Attach profile to a user</td>
+</tr>
+<tr>
+<td><code>POST</code></td>
+<td><code>.../mbox/api/hotspot/users/{userId}/actions/detach-profile</code></td>
+<td>Detach profile from a user</td>
+</tr>
+<tr>
+<td><code>DELETE</code></td>
+<td><code>.../mbox/api/hotspot/users/{userId}</code></td>
+<td>Delete local user</td>
+</tr>
+<tr>
+<td><code>GET</code></td>
+<td><code>.../mbox/api/hotspot/profiles</code></td>
+<td>Get list of all available profiles</td>
+</tr>
+<tr>
+<td><code>GET</code></td>
+<td><code>.../mbox/api/hotspot/profiles/{profileName}/users</code></td>
+<td>Get users attached to a profile</td>
+</tr>
+<tr>
+<td><code>GET</code></td>
+<td><code>.../mbox/api/hotspot/user-access</code></td>
+<td>Get list of all available access attributes</td>
+</tr>
+<tr>
+<td><code>GET</code></td>
+<td><code>.../mbox/api/hotspot/user-access/{userId}</code></td>
+<td>Get access attributes set for a user</td>
+</tr>
+<tr>
+<td><code>POST</code></td>
+<td><code>.../mbox/api/hotspot/user-access/{userId}/actions/attach-access</code></td>
+<td>Attach/update access attributes for a user</td>
+</tr>
+<tr>
+<td><code>POST</code></td>
+<td><code>.../mbox/api/hotspot/user-access/{userId}/actions/detach-access</code></td>
+<td>Detach access attributes from a user</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="responses">Responses<a class="headerlink" href="#responses" title="Permanent link">¶</a></h2>
+<p>All API responses are JSON objects with a <code>status</code> property indicating success or failure.</p>
+<h3 id="successful-response-status-true">Successful Response (<code>status: true</code>)<a class="headerlink" href="#successful-response-status-true" title="Permanent link">¶</a></h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>page</code></td>
+<td>Integer</td>
+<td>Current page number of the result set</td>
+</tr>
+<tr>
+<td><code>perPage</code></td>
+<td>Integer</td>
+<td>Page size of records</td>
+</tr>
+<tr>
+<td><code>isLastPage</code></td>
+<td>Boolean</td>
+<td><code>false</code> = more data available; <code>true</code> = last page</td>
+</tr>
+<tr>
+<td><code>message</code></td>
+<td>String</td>
+<td>Optional message describing the result</td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td>Array</td>
+<td>Data items matching the request</td>
+</tr>
+</tbody>
+</table>
+<h3 id="failed-response-status-false">Failed Response (<code>status: false</code>)<a class="headerlink" href="#failed-response-status-false" title="Permanent link">¶</a></h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errorMessage</code></td>
+<td>Reason for failure (e.g., <code>Token validation failed</code>)</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="31-historical-sessions">3.1 Historical Sessions<a class="headerlink" href="#31-historical-sessions" title="Permanent link">¶</a></h2>
+<p>Retrieves historical session records for HotSpot users.</p>
+<p><strong>Base URL:</strong>
+</p><div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>https://YOUR_SERVER_ADDRESS/mbox/api/hotspot/historical-sessions
+</code></pre></div><p></p>
+<h3 id="response-fields">Response Fields<a class="headerlink" href="#response-fields" title="Permanent link">¶</a></h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>radacctid</code></td>
+<td>Integer</td>
+<td>Record ID</td>
+</tr>
+<tr>
+<td><code>hotspot</code></td>
+<td>String</td>
+<td>NAS ID</td>
+</tr>
+<tr>
+<td><code>username</code></td>
+<td>String</td>
+<td>Authenticated username</td>
+</tr>
+<tr>
+<td><code>nasipaddress</code></td>
+<td>String (e.g. <code>192.168.8.1</code>)</td>
+<td>IP address of NAS</td>
+</tr>
+<tr>
+<td><code>macaddress</code></td>
+<td>String (e.g. <code>00-60-E0-A3-59-6A</code>)</td>
+<td>User MAC address</td>
+</tr>
+<tr>
+<td><code>calledstationid</code></td>
+<td>String (e.g. <code>00-60-E0-A3-59-6A</code>)</td>
+<td>mBox MAC address</td>
+</tr>
+<tr>
+<td><code>framedipaddress</code></td>
+<td>String (e.g. <code>192.168.8.1</code>)</td>
+<td>User assigned IP</td>
+</tr>
+<tr>
+<td><code>acctsessiontime</code></td>
+<td>Integer</td>
+<td>Duration of session</td>
+</tr>
+<tr>
+<td><code>acctinputoctets</code></td>
+<td>Integer</td>
+<td>Total bytes received by the user</td>
+</tr>
+<tr>
+<td><code>acctoutputoctets</code></td>
+<td>Integer</td>
+<td>Total bytes sent by the user</td>
+</tr>
+<tr>
+<td><code>acctterminatecause</code></td>
+<td>String</td>
+<td>Reason the session ended</td>
+</tr>
+</tbody>
+</table>
+<h3 id="query-parameters">Query Parameters<a class="headerlink" href="#query-parameters" title="Permanent link">¶</a></h3>
+<h4 id="filters">Filters<a class="headerlink" href="#filters" title="Permanent link">¶</a></h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>username</code></td>
+<td>String</td>
+<td>Filter by authenticated username</td>
+</tr>
+<tr>
+<td><code>hotspot</code></td>
+<td>String</td>
+<td>Filter by NAS ID</td>
+</tr>
+<tr>
+<td><code>nas</code></td>
+<td>String (e.g. <code>192.168.8.1</code>)</td>
+<td>Filter by NAS IP address</td>
+</tr>
+<tr>
+<td><code>macaddress</code></td>
+<td>String (e.g. <code>00-60-E0-A3-59-6A</code>)</td>
+<td>Filter by customer MAC address</td>
+</tr>
+<tr>
+<td><code>calledstationid</code></td>
+<td>String (e.g. <code>00-60-E0-A3-59-6A</code>)</td>
+<td>Filter by mBox MAC address</td>
+</tr>
+<tr>
+<td><code>ipaddress</code></td>
+<td>String (e.g. <code>192.168.8.1</code>)</td>
+<td>Filter by user assigned IP</td>
+</tr>
+</tbody>
+</table>
+<h4 id="time-range">Time Range<a class="headerlink" href="#time-range" title="Permanent link">¶</a></h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>startTime</code></td>
+<td>String (<code>YYYY-MM-DD</code> or timestamp)</td>
+<td>Start of the time range</td>
+</tr>
+<tr>
+<td><code>endTime</code></td>
+<td>String (<code>YYYY-MM-DD</code> or timestamp)</td>
+<td>End of the time range</td>
+</tr>
+</tbody>
+</table>
+<h4 id="pagination">Pagination<a class="headerlink" href="#pagination" title="Permanent link">¶</a></h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>page</code></td>
+<td>Integer</td>
+<td>Page number (starts from <code>1</code>)</td>
+</tr>
+<tr>
+<td><code>perPage</code></td>
+<td>Integer</td>
+<td>Records per page (default: <code>100</code>)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="example-getting-historical-sessions-for-one-day">Example — Getting Historical Sessions for One Day<a class="headerlink" href="#example-getting-historical-sessions-for-one-day" title="Permanent link">¶</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="err">GET /mbox/api/hotspot/historical-sessions?startTime=2025-07-21&amp;endTime=2025-07-21&amp;perPage=100</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="err">Authorization: Bearer {your_token}</span>
+</code></pre></div>
+<p><strong>Successful Response (First Page):</strong>
+</p><div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="p">{</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">  </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">  </span><span class="nt">"page"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">  </span><span class="nt">"perPage"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">  </span><span class="nt">"isLastPage"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">  </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"More records available. Use pagination to load next page."</span><span class="p">,</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">  </span><span class="nt">"result"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="w">      </span><span class="nt">"radacctid"</span><span class="p">:</span><span class="w"> </span><span class="mi">89582</span><span class="p">,</span>
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="w">      </span><span class="nt">"hotspot"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RansNet_vlan210_59-6a"</span><span class="p">,</span>
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="w">      </span><span class="nt">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"demo_user"</span><span class="p">,</span>
+<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="w">      </span><span class="nt">"macaddress"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3A-71-B4-E9-F7-99"</span><span class="p">,</span>
+<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="w">      </span><span class="nt">"ipaddress"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10.60.208.198"</span><span class="p">,</span>
+<a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a><span class="w">      </span><span class="nt">"acctstarttime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2025-07-22 08:33:50"</span><span class="p">,</span>
+<a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a><span class="w">      </span><span class="nt">"acctstoptime"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
+<a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a><span class="w">      </span><span class="nt">"acctsessiontime"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a><span class="w">      </span><span class="nt">"calledstationid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00-60-E0-A3-59-6A"</span><span class="p">,</span>
+<a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a><span class="w">      </span><span class="nt">"acctinputoctets"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a><span class="w">      </span><span class="nt">"acctoutputoctets"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a><span class="w">      </span><span class="nt">"acctterminatecause"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span>
+<a id="__codelineno-2-21" name="__codelineno-2-21" href="#__codelineno-2-21"></a><span class="w">      </span><span class="nt">"nas"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10.60.208.1"</span>
+<a id="__codelineno-2-22" name="__codelineno-2-22" href="#__codelineno-2-22"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-2-23" name="__codelineno-2-23" href="#__codelineno-2-23"></a><span class="w">  </span><span class="p">]</span>
+<a id="__codelineno-2-24" name="__codelineno-2-24" href="#__codelineno-2-24"></a><span class="p">}</span>
+</code></pre></div><p></p>
+<p><strong>Successful Response (Last Page):</strong>
+</p><div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="p">{</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">  </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">  </span><span class="nt">"page"</span><span class="p">:</span><span class="w"> </span><span class="mi">837</span><span class="p">,</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">  </span><span class="nt">"perPage"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">  </span><span class="nt">"isLastPage"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">  </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"You've reached the last page of the results."</span><span class="p">,</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="w">  </span><span class="nt">"result"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="w">      </span><span class="nt">"radacctid"</span><span class="p">:</span><span class="w"> </span><span class="mi">5982</span><span class="p">,</span>
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="w">      </span><span class="nt">"hotspot"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RansNet_vlan210_59-6a"</span><span class="p">,</span>
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="w">      </span><span class="nt">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"demo_user"</span><span class="p">,</span>
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="w">      </span><span class="nt">"macaddress"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4A-71-B4-E9-F7-98"</span><span class="p">,</span>
+<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="w">      </span><span class="nt">"ipaddress"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10.60.211.19"</span><span class="p">,</span>
+<a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a><span class="w">      </span><span class="nt">"acctstarttime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2025-06-07 08:29:26"</span><span class="p">,</span>
+<a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a><span class="w">      </span><span class="nt">"acctstoptime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2025-06-07 09:19:34"</span><span class="p">,</span>
+<a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a><span class="w">      </span><span class="nt">"acctsessiontime"</span><span class="p">:</span><span class="w"> </span><span class="mi">3008</span><span class="p">,</span>
+<a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a><span class="w">      </span><span class="nt">"calledstationid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00-60-E0-A3-59-6A"</span><span class="p">,</span>
+<a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a><span class="w">      </span><span class="nt">"acctinputoctets"</span><span class="p">:</span><span class="w"> </span><span class="mi">96042755</span><span class="p">,</span>
+<a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a><span class="w">      </span><span class="nt">"acctoutputoctets"</span><span class="p">:</span><span class="w"> </span><span class="mi">8685308</span><span class="p">,</span>
+<a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a><span class="w">      </span><span class="nt">"acctterminatecause"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Idle-Timeout"</span><span class="p">,</span>
+<a id="__codelineno-3-21" name="__codelineno-3-21" href="#__codelineno-3-21"></a><span class="w">      </span><span class="nt">"nas"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10.60.210.1"</span>
+<a id="__codelineno-3-22" name="__codelineno-3-22" href="#__codelineno-3-22"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-3-23" name="__codelineno-3-23" href="#__codelineno-3-23"></a><span class="w">  </span><span class="p">]</span>
+<a id="__codelineno-3-24" name="__codelineno-3-24" href="#__codelineno-3-24"></a><span class="p">}</span>
+</code></pre></div><p></p>
+<h3 id="pagination-handling">Pagination Handling<a class="headerlink" href="#pagination-handling" title="Permanent link">¶</a></h3>
+<p>Check the <code>isLastPage</code> field to determine if more pages are available. Increment <code>page</code> while <code>isLastPage</code> is <code>false</code>.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Avoid setting <code>perPage</code> too high. Excessively large page sizes may cause memory exhaustion on the mBox. Keep <code>perPage</code> at or below <code>1000</code>.</p>
+</div>
+<hr>
+<h2 id="32-online-sessions">3.2 Online Sessions<a class="headerlink" href="#32-online-sessions" title="Permanent link">¶</a></h2>
+<p>Retrieves real-time session data for users currently connected to the HotSpot network.</p>
+<p><strong>Base URL:</strong>
+</p><div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>https://YOUR_SERVER_ADDRESS/mbox/api/hotspot/online-sessions
+</code></pre></div><p></p>
+<h3 id="response-fields_1">Response Fields<a class="headerlink" href="#response-fields_1" title="Permanent link">¶</a></h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>radacctid</code></td>
+<td>Integer</td>
+<td>Record ID</td>
+</tr>
+<tr>
+<td><code>hotspot</code></td>
+<td>String</td>
+<td>NAS ID</td>
+</tr>
+<tr>
+<td><code>username</code></td>
+<td>String</td>
+<td>Authenticated username</td>
+</tr>
+<tr>
+<td><code>nas</code></td>
+<td>String (e.g. <code>192.168.8.1</code>)</td>
+<td>IP address of NAS</td>
+</tr>
+<tr>
+<td><code>macaddress</code></td>
+<td>String (e.g. <code>00-60-E0-A3-59-6A</code>)</td>
+<td>User MAC address</td>
+</tr>
+<tr>
+<td><code>calledstationid</code></td>
+<td>String (e.g. <code>00-60-E0-A3-59-6A</code>)</td>
+<td>mBox MAC address</td>
+</tr>
+<tr>
+<td><code>ipaddress</code></td>
+<td>String (e.g. <code>192.168.8.1</code>)</td>
+<td>User assigned IP address</td>
+</tr>
+<tr>
+<td><code>starttime</code></td>
+<td>String (datetime)</td>
+<td>Session start time</td>
+</tr>
+<tr>
+<td><code>traffic</code></td>
+<td>String</td>
+<td>Total bytes sent and received by the user</td>
+</tr>
+<tr>
+<td><code>name</code></td>
+<td>String</td>
+<td>User first and last name</td>
+</tr>
+<tr>
+<td><code>totaltime</code></td>
+<td>String</td>
+<td>Total session duration</td>
+</tr>
+</tbody>
+</table>
+<h3 id="query-parameters_1">Query Parameters<a class="headerlink" href="#query-parameters_1" title="Permanent link">¶</a></h3>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>username</code></td>
+<td>String</td>
+<td>Filter by authenticated username</td>
+</tr>
+<tr>
+<td><code>hotspot</code></td>
+<td>String</td>
+<td>Filter by NAS ID</td>
+</tr>
+<tr>
+<td><code>nas</code></td>
+<td>String (e.g. <code>192.168.8.1</code>)</td>
+<td>Filter by NAS IP address</td>
+</tr>
+<tr>
+<td><code>macaddress</code></td>
+<td>String (e.g. <code>3A-71-B4-E9-F7-99</code>)</td>
+<td>Filter by customer MAC address</td>
+</tr>
+<tr>
+<td><code>calledstationid</code></td>
+<td>String (e.g. <code>00-60-E0-A3-59-6A</code>)</td>
+<td>Filter by mBox MAC address</td>
+</tr>
+<tr>
+<td><code>startTime</code></td>
+<td>String (<code>YYYY-MM-DD</code> or timestamp)</td>
+<td>Start of the time range</td>
+</tr>
+<tr>
+<td><code>endTime</code></td>
+<td>String (<code>YYYY-MM-DD</code> or timestamp)</td>
+<td>End of the time range</td>
+</tr>
+<tr>
+<td><code>perPage</code></td>
+<td>Integer</td>
+<td>Records per page (default: <code>100</code>)</td>
+</tr>
+<tr>
+<td><code>page</code></td>
+<td>Integer</td>
+<td>Page number for pagination</td>
+</tr>
+</tbody>
+</table>
+<h3 id="example-get-online-sessions-by-mbox-mac">Example — Get Online Sessions by mBox MAC<a class="headerlink" href="#example-get-online-sessions-by-mbox-mac" title="Permanent link">¶</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="err">GET /mbox/api/hotspot/online-sessions?calledstationid=00-60-E0-A3-59-6A&amp;perPage=100</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="err">Authorization: Bearer {your_token}</span>
+</code></pre></div>
+<p><strong>Successful Response:</strong>
+</p><div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="p">{</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="w">  </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="w">  </span><span class="nt">"page"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="w">  </span><span class="nt">"perPage"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="w">  </span><span class="nt">"isLastPage"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="w">  </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"You've reached the last page of the results."</span><span class="p">,</span>
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="w">  </span><span class="nt">"result"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="w">      </span><span class="nt">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"demo_user"</span><span class="p">,</span>
+<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="w">      </span><span class="nt">"ipaddress"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10.60.208.198"</span><span class="p">,</span>
+<a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a><span class="w">      </span><span class="nt">"macaddress"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3A-71-B4-E9-F7-99"</span><span class="p">,</span>
+<a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a><span class="w">      </span><span class="nt">"starttime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2025-07-22 08:33:50"</span><span class="p">,</span>
+<a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a><span class="w">      </span><span class="nt">"totaltime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0sec"</span><span class="p">,</span>
+<a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a><span class="w">      </span><span class="nt">"nas"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10.60.208.1"</span><span class="p">,</span>
+<a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a><span class="w">      </span><span class="nt">"traffic"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0 MB"</span><span class="p">,</span>
+<a id="__codelineno-6-16" name="__codelineno-6-16" href="#__codelineno-6-16"></a><span class="w">      </span><span class="nt">"calledstationid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00-60-E0-A3-59-6A"</span><span class="p">,</span>
+<a id="__codelineno-6-17" name="__codelineno-6-17" href="#__codelineno-6-17"></a><span class="w">      </span><span class="nt">"radacctid"</span><span class="p">:</span><span class="w"> </span><span class="mi">89582</span><span class="p">,</span>
+<a id="__codelineno-6-18" name="__codelineno-6-18" href="#__codelineno-6-18"></a><span class="w">      </span><span class="nt">"hotspot"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RansNet_vlan210_59-6a"</span><span class="p">,</span>
+<a id="__codelineno-6-19" name="__codelineno-6-19" href="#__codelineno-6-19"></a><span class="w">      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span>
+<a id="__codelineno-6-20" name="__codelineno-6-20" href="#__codelineno-6-20"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-6-21" name="__codelineno-6-21" href="#__codelineno-6-21"></a><span class="w">  </span><span class="p">]</span>
+<a id="__codelineno-6-22" name="__codelineno-6-22" href="#__codelineno-6-22"></a><span class="p">}</span>
+</code></pre></div><p></p>
+<hr>
+<h2 id="33-login-attempts">3.3 Login Attempts<a class="headerlink" href="#33-login-attempts" title="Permanent link">¶</a></h2>
+<p>Retrieves authentication logs for HotSpot user logins. Records every login attempt (accepted or rejected) with username, masked password, and timestamp.</p>
+<p><strong>Base URL:</strong>
+</p><div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>https://YOUR_SERVER_ADDRESS/mbox/api/hotspot/login-attempts
+</code></pre></div><p></p>
+<h3 id="query-parameters_2">Query Parameters<a class="headerlink" href="#query-parameters_2" title="Permanent link">¶</a></h3>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>username</code></td>
+<td>String</td>
+<td>Filter by account username</td>
+</tr>
+<tr>
+<td><code>reply</code></td>
+<td>String</td>
+<td>Filter by result: <code>Access-Accept</code> or <code>Access-Reject</code></td>
+</tr>
+<tr>
+<td><code>startTime</code></td>
+<td>String (<code>YYYY-MM-DD</code> or timestamp)</td>
+<td>Start of the time range</td>
+</tr>
+<tr>
+<td><code>endTime</code></td>
+<td>String (<code>YYYY-MM-DD</code> or timestamp)</td>
+<td>End of the time range</td>
+</tr>
+<tr>
+<td><code>perPage</code></td>
+<td>Integer</td>
+<td>Records per page (default: <code>100</code>)</td>
+</tr>
+<tr>
+<td><code>page</code></td>
+<td>Integer</td>
+<td>Page number for pagination</td>
+</tr>
+</tbody>
+</table>
+<h3 id="example-get-rejected-login-attempts-for-a-user">Example — Get Rejected Login Attempts for a User<a class="headerlink" href="#example-get-rejected-login-attempts-for-a-user" title="Permanent link">¶</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="err">GET /mbox/api/hotspot/login-attempts?username=demo_user&amp;reply=Access-Reject&amp;perPage=100</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="err">Authorization: Bearer {your_token}</span>
+</code></pre></div>
+<p><strong>Successful Response:</strong>
+</p><div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="p">{</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="w">  </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="w">  </span><span class="nt">"page"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="w">  </span><span class="nt">"perPage"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span>
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="w">  </span><span class="nt">"isLastPage"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="w">  </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"More records available. Use pagination to load next page."</span><span class="p">,</span>
+<a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="w">  </span><span class="nt">"result"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a><span class="w">      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">95419</span><span class="p">,</span>
+<a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a><span class="w">      </span><span class="nt">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"demo_user"</span><span class="p">,</span>
+<a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a><span class="w">      </span><span class="nt">"pass"</span><span class="p">:</span><span class="w"> </span><span class="s2">"********"</span><span class="p">,</span>
+<a id="__codelineno-9-12" name="__codelineno-9-12" href="#__codelineno-9-12"></a><span class="w">      </span><span class="nt">"reply"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Access-Reject"</span><span class="p">,</span>
+<a id="__codelineno-9-13" name="__codelineno-9-13" href="#__codelineno-9-13"></a><span class="w">      </span><span class="nt">"authdate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2025-07-22 00:52:40"</span>
+<a id="__codelineno-9-14" name="__codelineno-9-14" href="#__codelineno-9-14"></a><span class="w">    </span><span class="p">},</span>
+<a id="__codelineno-9-15" name="__codelineno-9-15" href="#__codelineno-9-15"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-9-16" name="__codelineno-9-16" href="#__codelineno-9-16"></a><span class="w">      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">95417</span><span class="p">,</span>
+<a id="__codelineno-9-17" name="__codelineno-9-17" href="#__codelineno-9-17"></a><span class="w">      </span><span class="nt">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"demo_user"</span><span class="p">,</span>
+<a id="__codelineno-9-18" name="__codelineno-9-18" href="#__codelineno-9-18"></a><span class="w">      </span><span class="nt">"pass"</span><span class="p">:</span><span class="w"> </span><span class="s2">"********"</span><span class="p">,</span>
+<a id="__codelineno-9-19" name="__codelineno-9-19" href="#__codelineno-9-19"></a><span class="w">      </span><span class="nt">"reply"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Access-Reject"</span><span class="p">,</span>
+<a id="__codelineno-9-20" name="__codelineno-9-20" href="#__codelineno-9-20"></a><span class="w">      </span><span class="nt">"authdate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2025-07-22 00:52:23"</span>
+<a id="__codelineno-9-21" name="__codelineno-9-21" href="#__codelineno-9-21"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-9-22" name="__codelineno-9-22" href="#__codelineno-9-22"></a><span class="w">  </span><span class="p">]</span>
+<a id="__codelineno-9-23" name="__codelineno-9-23" href="#__codelineno-9-23"></a><span class="p">}</span>
+</code></pre></div><p></p>
+<hr>
+<h2 id="34-quota-purchase-report">3.4 Quota Purchase Report<a class="headerlink" href="#34-quota-purchase-report" title="Permanent link">¶</a></h2>
+<p>Retrieves user quota top-up and purchase history, including plan details, transaction time, and remarks.</p>
+<p><strong>Base URL:</strong>
+</p><div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>https://YOUR_SERVER_ADDRESS/mbox/api/hotspot/quota-purchase-report
+</code></pre></div><p></p>
+<h3 id="query-parameters_3">Query Parameters<a class="headerlink" href="#query-parameters_3" title="Permanent link">¶</a></h3>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>transaction_time</code></td>
+<td>String</td>
+<td>Filter by transaction time</td>
+</tr>
+<tr>
+<td><code>username</code></td>
+<td>String</td>
+<td>Filter by account username</td>
+</tr>
+<tr>
+<td><code>plan_name</code></td>
+<td>String</td>
+<td>Filter by plan name</td>
+</tr>
+<tr>
+<td><code>user_profiles</code></td>
+<td>String</td>
+<td>Filter by attached profiles</td>
+</tr>
+<tr>
+<td><code>remarks</code></td>
+<td>String</td>
+<td>Filter by purchase remarks</td>
+</tr>
+<tr>
+<td><code>startTime</code></td>
+<td>String (<code>YYYY-MM-DD</code> or timestamp)</td>
+<td>Start of the time range</td>
+</tr>
+<tr>
+<td><code>endTime</code></td>
+<td>String (<code>YYYY-MM-DD</code> or timestamp)</td>
+<td>End of the time range</td>
+</tr>
+<tr>
+<td><code>perPage</code></td>
+<td>Integer</td>
+<td>Records per page (default: <code>100</code>)</td>
+</tr>
+<tr>
+<td><code>page</code></td>
+<td>Integer</td>
+<td>Page number for pagination</td>
+</tr>
+</tbody>
+</table>
+<h3 id="example-get-quota-purchases-for-a-month">Example — Get Quota Purchases for a Month<a class="headerlink" href="#example-get-quota-purchases-for-a-month" title="Permanent link">¶</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="err">GET /mbox/api/hotspot/quota-purchase-report?startTime=2025-12-01&amp;endTime=2025-12-31&amp;user_profiles=Vessel-1001&amp;perPage=100</span>
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="err">Authorization: Bearer {your_token}</span>
+</code></pre></div>
+<p><strong>Successful Response:</strong>
+</p><div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="p">{</span>
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="w">  </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="w">  </span><span class="nt">"page"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="w">  </span><span class="nt">"perPage"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span>
+<a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a><span class="w">  </span><span class="nt">"isLastPage"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a><span class="w">  </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"You've reached the last page of the results."</span><span class="p">,</span>
+<a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a><span class="w">  </span><span class="nt">"result"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a><span class="w">      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">50</span><span class="p">,</span>
+<a id="__codelineno-12-10" name="__codelineno-12-10" href="#__codelineno-12-10"></a><span class="w">      </span><span class="nt">"transaction_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2025-12-17 13:20:13"</span><span class="p">,</span>
+<a id="__codelineno-12-11" name="__codelineno-12-11" href="#__codelineno-12-11"></a><span class="w">      </span><span class="nt">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"username3002"</span><span class="p">,</span>
+<a id="__codelineno-12-12" name="__codelineno-12-12" href="#__codelineno-12-12"></a><span class="w">      </span><span class="nt">"plan_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2GB-USD$8.00"</span><span class="p">,</span>
+<a id="__codelineno-12-13" name="__codelineno-12-13" href="#__codelineno-12-13"></a><span class="w">      </span><span class="nt">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"USD"</span><span class="p">,</span>
+<a id="__codelineno-12-14" name="__codelineno-12-14" href="#__codelineno-12-14"></a><span class="w">      </span><span class="nt">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8.00"</span><span class="p">,</span>
+<a id="__codelineno-12-15" name="__codelineno-12-15" href="#__codelineno-12-15"></a><span class="w">      </span><span class="nt">"user_profiles"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Vessel-1001"</span><span class="p">,</span>
+<a id="__codelineno-12-16" name="__codelineno-12-16" href="#__codelineno-12-16"></a><span class="w">      </span><span class="nt">"remarks"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Manual Topup Quota - this is an added custom remarks"</span><span class="p">,</span>
+<a id="__codelineno-12-17" name="__codelineno-12-17" href="#__codelineno-12-17"></a><span class="w">      </span><span class="nt">"create_by"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mboxadmin"</span><span class="p">,</span>
+<a id="__codelineno-12-18" name="__codelineno-12-18" href="#__codelineno-12-18"></a><span class="w">      </span><span class="nt">"create_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2025-12-17 13:20:13"</span>
+<a id="__codelineno-12-19" name="__codelineno-12-19" href="#__codelineno-12-19"></a><span class="w">    </span><span class="p">},</span>
+<a id="__codelineno-12-20" name="__codelineno-12-20" href="#__codelineno-12-20"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-12-21" name="__codelineno-12-21" href="#__codelineno-12-21"></a><span class="w">      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">49</span><span class="p">,</span>
+<a id="__codelineno-12-22" name="__codelineno-12-22" href="#__codelineno-12-22"></a><span class="w">      </span><span class="nt">"transaction_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2025-12-17 13:07:21"</span><span class="p">,</span>
+<a id="__codelineno-12-23" name="__codelineno-12-23" href="#__codelineno-12-23"></a><span class="w">      </span><span class="nt">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"username3002"</span><span class="p">,</span>
+<a id="__codelineno-12-24" name="__codelineno-12-24" href="#__codelineno-12-24"></a><span class="w">      </span><span class="nt">"plan_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4GB-USD$8.00"</span><span class="p">,</span>
+<a id="__codelineno-12-25" name="__codelineno-12-25" href="#__codelineno-12-25"></a><span class="w">      </span><span class="nt">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"USD"</span><span class="p">,</span>
+<a id="__codelineno-12-26" name="__codelineno-12-26" href="#__codelineno-12-26"></a><span class="w">      </span><span class="nt">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8.00"</span><span class="p">,</span>
+<a id="__codelineno-12-27" name="__codelineno-12-27" href="#__codelineno-12-27"></a><span class="w">      </span><span class="nt">"user_profiles"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Vessel-1001"</span><span class="p">,</span>
+<a id="__codelineno-12-28" name="__codelineno-12-28" href="#__codelineno-12-28"></a><span class="w">      </span><span class="nt">"remarks"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Manual Topup Quota - added remarks"</span><span class="p">,</span>
+<a id="__codelineno-12-29" name="__codelineno-12-29" href="#__codelineno-12-29"></a><span class="w">      </span><span class="nt">"create_by"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mboxadmin"</span><span class="p">,</span>
+<a id="__codelineno-12-30" name="__codelineno-12-30" href="#__codelineno-12-30"></a><span class="w">      </span><span class="nt">"create_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2025-12-17 13:07:21"</span>
+<a id="__codelineno-12-31" name="__codelineno-12-31" href="#__codelineno-12-31"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-12-32" name="__codelineno-12-32" href="#__codelineno-12-32"></a><span class="w">  </span><span class="p">]</span>
+<a id="__codelineno-12-33" name="__codelineno-12-33" href="#__codelineno-12-33"></a><span class="p">}</span>
+</code></pre></div><p></p>
+<hr>
+<h2 id="41-managing-users">4.1 Managing Users<a class="headerlink" href="#41-managing-users" title="Permanent link">¶</a></h2>
+<p>Full CRUD operations (Create, Retrieve, Update, Delete) on local HotSpot user accounts.</p>
+<p><strong>Base URL:</strong>
+</p><div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>https://YOUR_SERVER_ADDRESS/mbox/api/hotspot/users
+</code></pre></div><p></p>
+<h3 id="get-list-users-or-get-single-user">GET — List Users or Get Single User<a class="headerlink" href="#get-list-users-or-get-single-user" title="Permanent link">¶</a></h3>
+<table>
+<thead>
+<tr>
+<th>Endpoint</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/users</code></td>
+<td>List all users</td>
+</tr>
+<tr>
+<td><code>/users/{userId}</code></td>
+<td>Get detailed record for one user</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Query Parameters:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td>Integer</td>
+<td>Unique user record ID (for single user retrieval)</td>
+</tr>
+<tr>
+<td><code>username</code></td>
+<td>String</td>
+<td>Filter by account username</td>
+</tr>
+<tr>
+<td><code>page</code></td>
+<td>Integer</td>
+<td>Page number</td>
+</tr>
+<tr>
+<td><code>perPage</code></td>
+<td>Integer</td>
+<td>Records per page (default: <code>100</code>)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example — Get Users List:</strong>
+</p><div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="err">GET /mbox/api/hotspot/users</span>
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="err">Authorization: Bearer {your_token}</span>
+</code></pre></div><p></p>
+<p><strong>Successful Response:</strong>
+</p><div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="p">{</span>
+<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="w">  </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a><span class="w">  </span><span class="nt">"page"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a><span class="w">  </span><span class="nt">"perPage"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span>
+<a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a><span class="w">  </span><span class="nt">"isLastPage"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a><span class="w">  </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"More records available. Use pagination to load next page."</span><span class="p">,</span>
+<a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a><span class="w">  </span><span class="nt">"result"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-15-8" name="__codelineno-15-8" href="#__codelineno-15-8"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-15-9" name="__codelineno-15-9" href="#__codelineno-15-9"></a><span class="w">      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1889</span><span class="p">,</span>
+<a id="__codelineno-15-10" name="__codelineno-15-10" href="#__codelineno-15-10"></a><span class="w">      </span><span class="nt">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00-8b-1a-2b-3c-4d-6e"</span><span class="p">,</span>
+<a id="__codelineno-15-11" name="__codelineno-15-11" href="#__codelineno-15-11"></a><span class="w">      </span><span class="nt">"usertype"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Auth-Type"</span><span class="p">,</span>
+<a id="__codelineno-15-12" name="__codelineno-15-12" href="#__codelineno-15-12"></a><span class="w">      </span><span class="nt">"profile"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
+<a id="__codelineno-15-13" name="__codelineno-15-13" href="#__codelineno-15-13"></a><span class="w">      </span><span class="nt">"firstname"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
+<a id="__codelineno-15-14" name="__codelineno-15-14" href="#__codelineno-15-14"></a><span class="w">      </span><span class="nt">"lastname"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
+<a id="__codelineno-15-15" name="__codelineno-15-15" href="#__codelineno-15-15"></a><span class="w">      </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
+<a id="__codelineno-15-16" name="__codelineno-15-16" href="#__codelineno-15-16"></a><span class="w">      </span><span class="nt">"mobile"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
+<a id="__codelineno-15-17" name="__codelineno-15-17" href="#__codelineno-15-17"></a><span class="w">      </span><span class="nt">"gender"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
+<a id="__codelineno-15-18" name="__codelineno-15-18" href="#__codelineno-15-18"></a><span class="w">      </span><span class="nt">"disabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span>
+<a id="__codelineno-15-19" name="__codelineno-15-19" href="#__codelineno-15-19"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-15-20" name="__codelineno-15-20" href="#__codelineno-15-20"></a><span class="w">  </span><span class="p">]</span>
+<a id="__codelineno-15-21" name="__codelineno-15-21" href="#__codelineno-15-21"></a><span class="p">}</span>
+</code></pre></div><p></p>
+<p><strong>Example — Get Single User:</strong>
+</p><div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="err">GET /mbox/api/hotspot/users/1890</span>
+<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="err">Authorization: Bearer {your_token}</span>
+</code></pre></div><p></p>
+<p><strong>Successful Response:</strong>
+</p><div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="p">{</span>
+<a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a><span class="w">  </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a><span class="w">  </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"User details retrieved successfully."</span><span class="p">,</span>
+<a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a><span class="w">  </span><span class="nt">"result"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a><span class="w">      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1890</span><span class="p">,</span>
+<a id="__codelineno-17-7" name="__codelineno-17-7" href="#__codelineno-17-7"></a><span class="w">      </span><span class="nt">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"johndoe"</span><span class="p">,</span>
+<a id="__codelineno-17-8" name="__codelineno-17-8" href="#__codelineno-17-8"></a><span class="w">      </span><span class="nt">"firstname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"John"</span><span class="p">,</span>
+<a id="__codelineno-17-9" name="__codelineno-17-9" href="#__codelineno-17-9"></a><span class="w">      </span><span class="nt">"lastname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Doe"</span><span class="p">,</span>
+<a id="__codelineno-17-10" name="__codelineno-17-10" href="#__codelineno-17-10"></a><span class="w">      </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"johndoe@gmail.com"</span><span class="p">,</span>
+<a id="__codelineno-17-11" name="__codelineno-17-11" href="#__codelineno-17-11"></a><span class="w">      </span><span class="nt">"mobile"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345678"</span><span class="p">,</span>
+<a id="__codelineno-17-12" name="__codelineno-17-12" href="#__codelineno-17-12"></a><span class="w">      </span><span class="nt">"gender"</span><span class="p">:</span><span class="w"> </span><span class="s2">"male"</span><span class="p">,</span>
+<a id="__codelineno-17-13" name="__codelineno-17-13" href="#__codelineno-17-13"></a><span class="w">      </span><span class="nt">"createddate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2025-11-03 09:49:38"</span><span class="p">,</span>
+<a id="__codelineno-17-14" name="__codelineno-17-14" href="#__codelineno-17-14"></a><span class="w">      </span><span class="nt">"createdby"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mboxadmin"</span><span class="p">,</span>
+<a id="__codelineno-17-15" name="__codelineno-17-15" href="#__codelineno-17-15"></a><span class="w">      </span><span class="nt">"updateddate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2025-11-03 09:50:04"</span><span class="p">,</span>
+<a id="__codelineno-17-16" name="__codelineno-17-16" href="#__codelineno-17-16"></a><span class="w">      </span><span class="nt">"updatedby"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mboxadmin"</span><span class="p">,</span>
+<a id="__codelineno-17-17" name="__codelineno-17-17" href="#__codelineno-17-17"></a><span class="w">      </span><span class="nt">"usertype"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Username-Password"</span><span class="p">,</span>
+<a id="__codelineno-17-18" name="__codelineno-17-18" href="#__codelineno-17-18"></a><span class="w">      </span><span class="nt">"profile"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Data-Max-Daily-10GB, Device-Max-1"</span><span class="p">,</span>
+<a id="__codelineno-17-19" name="__codelineno-17-19" href="#__codelineno-17-19"></a><span class="w">      </span><span class="nt">"password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"S*******"</span><span class="p">,</span>
+<a id="__codelineno-17-20" name="__codelineno-17-20" href="#__codelineno-17-20"></a><span class="w">      </span><span class="nt">"disabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span>
+<a id="__codelineno-17-21" name="__codelineno-17-21" href="#__codelineno-17-21"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-17-22" name="__codelineno-17-22" href="#__codelineno-17-22"></a><span class="w">  </span><span class="p">]</span>
+<a id="__codelineno-17-23" name="__codelineno-17-23" href="#__codelineno-17-23"></a><span class="p">}</span>
+</code></pre></div><p></p>
+<p><strong>Sample Error Response:</strong>
+</p><div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="p">{</span>
+<a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a><span class="w">  </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a><span class="w">  </span><span class="nt">"errorMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"User with ID: 1893 not found."</span><span class="p">,</span>
+<a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a><span class="w">  </span><span class="nt">"result"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span>
+<a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a><span class="p">}</span>
+</code></pre></div><p></p>
+<hr>
+<h3 id="post-create-new-user">POST — Create New User<a class="headerlink" href="#post-create-new-user" title="Permanent link">¶</a></h3>
+<p><strong>Endpoint:</strong> <code>/users</code></p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>username</code></td>
+<td>String</td>
+<td><strong>Yes</strong></td>
+<td>New user's username</td>
+</tr>
+<tr>
+<td><code>password</code></td>
+<td>String</td>
+<td><strong>Yes</strong></td>
+<td>New user's password (for <code>user</code> type)</td>
+</tr>
+<tr>
+<td><code>usertype</code></td>
+<td>String</td>
+<td><strong>Yes</strong></td>
+<td>Authentication type: <code>user</code> (password), <code>mac</code>, or <code>pin</code></td>
+</tr>
+<tr>
+<td><code>firstname</code></td>
+<td>String</td>
+<td>No</td>
+<td>User's first name</td>
+</tr>
+<tr>
+<td><code>lastname</code></td>
+<td>String</td>
+<td>No</td>
+<td>User's last name</td>
+</tr>
+<tr>
+<td><code>email</code></td>
+<td>String</td>
+<td>No</td>
+<td>User's email</td>
+</tr>
+<tr>
+<td><code>mobile</code></td>
+<td>String</td>
+<td>No</td>
+<td>User's mobile</td>
+</tr>
+<tr>
+<td><code>gender</code></td>
+<td>String</td>
+<td>No</td>
+<td>User's gender</td>
+</tr>
+<tr>
+<td><code>race</code></td>
+<td>String</td>
+<td>No</td>
+<td>User's race</td>
+</tr>
+<tr>
+<td><code>religion</code></td>
+<td>String</td>
+<td>No</td>
+<td>User's religion</td>
+</tr>
+<tr>
+<td><code>nationality</code></td>
+<td>String</td>
+<td>No</td>
+<td>User's nationality</td>
+</tr>
+<tr>
+<td><code>profession</code></td>
+<td>String</td>
+<td>No</td>
+<td>User's profession</td>
+</tr>
+<tr>
+<td><code>interests</code></td>
+<td>String</td>
+<td>No</td>
+<td>User's interests</td>
+</tr>
+<tr>
+<td><code>marital_status</code></td>
+<td>String</td>
+<td>No</td>
+<td>User's marital status</td>
+</tr>
+<tr>
+<td><code>birthdate</code></td>
+<td>String (<code>YYYY-MM-DD</code>)</td>
+<td>No</td>
+<td>User's birthday</td>
+</tr>
+<tr>
+<td><code>locale</code></td>
+<td>String</td>
+<td>No</td>
+<td>User's locale</td>
+</tr>
+<tr>
+<td><code>passport_nric_no</code></td>
+<td>String</td>
+<td>No</td>
+<td>User's passport/NRIC number</td>
+</tr>
+<tr>
+<td><code>company</code></td>
+<td>String</td>
+<td>No</td>
+<td>User's company</td>
+</tr>
+<tr>
+<td><code>address</code></td>
+<td>String</td>
+<td>No</td>
+<td>User's address</td>
+</tr>
+<tr>
+<td><code>country</code></td>
+<td>String</td>
+<td>No</td>
+<td>User's country</td>
+</tr>
+<tr>
+<td><code>zip</code></td>
+<td>String</td>
+<td>No</td>
+<td>User's zip code</td>
+</tr>
+<tr>
+<td><code>disabled</code></td>
+<td>Boolean</td>
+<td>No</td>
+<td>Disable the user account</td>
+</tr>
+<tr>
+<td><code>profiles</code></td>
+<td>String</td>
+<td>No</td>
+<td>Single or comma-separated profile names to attach</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example:</strong>
+</p><div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="err">POST /mbox/api/hotspot/users</span>
+<a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a><span class="err">Authorization: Bearer {your_token}</span>
+<a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a><span class="err">Content-Type: application/json</span>
+<a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a>
+<a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a><span class="err">{</span>
+<a id="__codelineno-19-6" name="__codelineno-19-6" href="#__codelineno-19-6"></a><span class="err">  "usertype": "pin",</span>
+<a id="__codelineno-19-7" name="__codelineno-19-7" href="#__codelineno-19-7"></a><span class="err">  "username": "pin1234"</span>
+<a id="__codelineno-19-8" name="__codelineno-19-8" href="#__codelineno-19-8"></a><span class="err">}</span>
+</code></pre></div><p></p>
+<p><strong>Successful Response:</strong>
+</p><div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="p">{</span>
+<a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a><span class="w">  </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a><span class="w">  </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"User created successfully."</span><span class="p">,</span>
+<a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a><span class="w">  </span><span class="nt">"result"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-20-5" name="__codelineno-20-5" href="#__codelineno-20-5"></a><span class="w">    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1893"</span><span class="p">,</span>
+<a id="__codelineno-20-6" name="__codelineno-20-6" href="#__codelineno-20-6"></a><span class="w">    </span><span class="nt">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"pin1234"</span><span class="p">,</span>
+<a id="__codelineno-20-7" name="__codelineno-20-7" href="#__codelineno-20-7"></a><span class="w">    </span><span class="nt">"createdby"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RADIUS API"</span><span class="p">,</span>
+<a id="__codelineno-20-8" name="__codelineno-20-8" href="#__codelineno-20-8"></a><span class="w">    </span><span class="nt">"createddate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2025-11-03 10:59:11"</span><span class="p">,</span>
+<a id="__codelineno-20-9" name="__codelineno-20-9" href="#__codelineno-20-9"></a><span class="w">    </span><span class="nt">"updatedby"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RADIUS API"</span><span class="p">,</span>
+<a id="__codelineno-20-10" name="__codelineno-20-10" href="#__codelineno-20-10"></a><span class="w">    </span><span class="nt">"updateddate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2025-11-03 10:59:12"</span>
+<a id="__codelineno-20-11" name="__codelineno-20-11" href="#__codelineno-20-11"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-20-12" name="__codelineno-20-12" href="#__codelineno-20-12"></a><span class="p">}</span>
+</code></pre></div><p></p>
+<p><strong>Sample Error Response:</strong>
+</p><div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="p">{</span>
+<a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a><span class="w">  </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a><span class="w">  </span><span class="nt">"errorMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Username 'pin1234' already exists."</span><span class="p">,</span>
+<a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a><span class="w">  </span><span class="nt">"result"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span>
+<a id="__codelineno-21-5" name="__codelineno-21-5" href="#__codelineno-21-5"></a><span class="p">}</span>
+</code></pre></div><p></p>
+<hr>
+<h3 id="post-update-existing-user">POST — Update Existing User<a class="headerlink" href="#post-update-existing-user" title="Permanent link">¶</a></h3>
+<p><strong>Endpoint:</strong> <code>/users/{userId}</code></p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>username</code></td>
+<td>String</td>
+<td>Username of the user to update</td>
+</tr>
+<tr>
+<td><code>password</code></td>
+<td>String</td>
+<td>Optional: new password</td>
+</tr>
+<tr>
+<td><code>email</code></td>
+<td>String</td>
+<td>Field to update</td>
+</tr>
+<tr>
+<td><code>...</code></td>
+<td>...</td>
+<td>All other user info fields</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example:</strong>
+</p><div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="err">POST /mbox/api/hotspot/users/1891</span>
+<a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a><span class="err">Authorization: Bearer {your_token}</span>
+<a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a><span class="err">Content-Type: application/json</span>
+<a id="__codelineno-22-4" name="__codelineno-22-4" href="#__codelineno-22-4"></a>
+<a id="__codelineno-22-5" name="__codelineno-22-5" href="#__codelineno-22-5"></a><span class="err">{</span>
+<a id="__codelineno-22-6" name="__codelineno-22-6" href="#__codelineno-22-6"></a><span class="err">  "firstname": "Newusername",</span>
+<a id="__codelineno-22-7" name="__codelineno-22-7" href="#__codelineno-22-7"></a><span class="err">  "lastname": "Newlastname"</span>
+<a id="__codelineno-22-8" name="__codelineno-22-8" href="#__codelineno-22-8"></a><span class="err">}</span>
+</code></pre></div><p></p>
+<p><strong>Successful Response:</strong>
+</p><div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="p">{</span>
+<a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a><span class="w">  </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a><span class="w">  </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"User successfully updated."</span><span class="p">,</span>
+<a id="__codelineno-23-4" name="__codelineno-23-4" href="#__codelineno-23-4"></a><span class="w">  </span><span class="nt">"result"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-23-5" name="__codelineno-23-5" href="#__codelineno-23-5"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-23-6" name="__codelineno-23-6" href="#__codelineno-23-6"></a><span class="w">      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1890</span><span class="p">,</span>
+<a id="__codelineno-23-7" name="__codelineno-23-7" href="#__codelineno-23-7"></a><span class="w">      </span><span class="nt">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"johndoe"</span><span class="p">,</span>
+<a id="__codelineno-23-8" name="__codelineno-23-8" href="#__codelineno-23-8"></a><span class="w">      </span><span class="nt">"firstname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Newusername"</span><span class="p">,</span>
+<a id="__codelineno-23-9" name="__codelineno-23-9" href="#__codelineno-23-9"></a><span class="w">      </span><span class="nt">"lastname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Newlastname"</span><span class="p">,</span>
+<a id="__codelineno-23-10" name="__codelineno-23-10" href="#__codelineno-23-10"></a><span class="w">      </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"johndoe@gmail.com"</span><span class="p">,</span>
+<a id="__codelineno-23-11" name="__codelineno-23-11" href="#__codelineno-23-11"></a><span class="w">      </span><span class="nt">"updateddate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2025-11-03 10:21:18"</span><span class="p">,</span>
+<a id="__codelineno-23-12" name="__codelineno-23-12" href="#__codelineno-23-12"></a><span class="w">      </span><span class="nt">"updatedby"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RADIUS API"</span><span class="p">,</span>
+<a id="__codelineno-23-13" name="__codelineno-23-13" href="#__codelineno-23-13"></a><span class="w">      </span><span class="nt">"usertype"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Username-Password"</span><span class="p">,</span>
+<a id="__codelineno-23-14" name="__codelineno-23-14" href="#__codelineno-23-14"></a><span class="w">      </span><span class="nt">"profile"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Data-Max-Daily-10GB, Device-Max-1"</span><span class="p">,</span>
+<a id="__codelineno-23-15" name="__codelineno-23-15" href="#__codelineno-23-15"></a><span class="w">      </span><span class="nt">"password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"S*******"</span><span class="p">,</span>
+<a id="__codelineno-23-16" name="__codelineno-23-16" href="#__codelineno-23-16"></a><span class="w">      </span><span class="nt">"disabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span>
+<a id="__codelineno-23-17" name="__codelineno-23-17" href="#__codelineno-23-17"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-23-18" name="__codelineno-23-18" href="#__codelineno-23-18"></a><span class="w">  </span><span class="p">]</span>
+<a id="__codelineno-23-19" name="__codelineno-23-19" href="#__codelineno-23-19"></a><span class="p">}</span>
+</code></pre></div><p></p>
+<hr>
+<h3 id="delete-delete-user">DELETE — Delete User<a class="headerlink" href="#delete-delete-user" title="Permanent link">¶</a></h3>
+<p><strong>Endpoint:</strong> <code>/users/{userId}</code></p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>userId</code></td>
+<td>Integer</td>
+<td>Unique ID of the user to delete</td>
+</tr>
+</tbody>
+</table>
+<p>Removes the user and all associated records from the authentication, group, and profile tables.</p>
+<p><strong>Example:</strong>
+</p><div class="highlight"><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a><span class="err">DELETE /mbox/api/hotspot/users/1892</span>
+<a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a><span class="err">Authorization: Bearer {your_token}</span>
+</code></pre></div><p></p>
+<p><strong>Successful Response:</strong>
+</p><div class="highlight"><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a><span class="p">{</span>
+<a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a><span class="w">  </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<a id="__codelineno-25-3" name="__codelineno-25-3" href="#__codelineno-25-3"></a><span class="w">  </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"User 'ransnetuser' (ID: 1892) successfully deleted."</span><span class="p">,</span>
+<a id="__codelineno-25-4" name="__codelineno-25-4" href="#__codelineno-25-4"></a><span class="w">  </span><span class="nt">"result"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-25-5" name="__codelineno-25-5" href="#__codelineno-25-5"></a><span class="w">    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1892</span><span class="p">,</span>
+<a id="__codelineno-25-6" name="__codelineno-25-6" href="#__codelineno-25-6"></a><span class="w">    </span><span class="nt">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ransnetuser"</span>
+<a id="__codelineno-25-7" name="__codelineno-25-7" href="#__codelineno-25-7"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-25-8" name="__codelineno-25-8" href="#__codelineno-25-8"></a><span class="p">}</span>
+</code></pre></div><p></p>
+<p><strong>Sample Error Response:</strong>
+</p><div class="highlight"><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a><span class="p">{</span>
+<a id="__codelineno-26-2" name="__codelineno-26-2" href="#__codelineno-26-2"></a><span class="w">  </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<a id="__codelineno-26-3" name="__codelineno-26-3" href="#__codelineno-26-3"></a><span class="w">  </span><span class="nt">"errorMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"User with ID: 1892 not found."</span><span class="p">,</span>
+<a id="__codelineno-26-4" name="__codelineno-26-4" href="#__codelineno-26-4"></a><span class="w">  </span><span class="nt">"result"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span>
+<a id="__codelineno-26-5" name="__codelineno-26-5" href="#__codelineno-26-5"></a><span class="p">}</span>
+</code></pre></div><p></p>
+<hr>
+<h3 id="post-attach-profile-to-user">POST — Attach Profile to User<a class="headerlink" href="#post-attach-profile-to-user" title="Permanent link">¶</a></h3>
+<p><strong>Endpoint:</strong> <code>/users/{userId}/actions/attach-profile</code></p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>profileName</code></td>
+<td>String</td>
+<td><strong>Yes</strong></td>
+<td>Name of the profile to attach</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example:</strong>
+</p><div class="highlight"><pre><span></span><code><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a><span class="err">POST /mbox/api/hotspot/users/1890/actions/attach-profile</span>
+<a id="__codelineno-27-2" name="__codelineno-27-2" href="#__codelineno-27-2"></a><span class="err">Authorization: Bearer {your_token}</span>
+<a id="__codelineno-27-3" name="__codelineno-27-3" href="#__codelineno-27-3"></a><span class="err">Content-Type: application/json</span>
+<a id="__codelineno-27-4" name="__codelineno-27-4" href="#__codelineno-27-4"></a>
+<a id="__codelineno-27-5" name="__codelineno-27-5" href="#__codelineno-27-5"></a><span class="err">{</span>
+<a id="__codelineno-27-6" name="__codelineno-27-6" href="#__codelineno-27-6"></a><span class="err">  "profileName": "Add_on_1_device"</span>
+<a id="__codelineno-27-7" name="__codelineno-27-7" href="#__codelineno-27-7"></a><span class="err">}</span>
+</code></pre></div><p></p>
+<p><strong>Successful Response:</strong>
+</p><div class="highlight"><pre><span></span><code><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a><span class="p">{</span>
+<a id="__codelineno-28-2" name="__codelineno-28-2" href="#__codelineno-28-2"></a><span class="w">  </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<a id="__codelineno-28-3" name="__codelineno-28-3" href="#__codelineno-28-3"></a><span class="w">  </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Profile 'Add_on_1_device' successfully attached to user 'johndoe'."</span><span class="p">,</span>
+<a id="__codelineno-28-4" name="__codelineno-28-4" href="#__codelineno-28-4"></a><span class="w">  </span><span class="nt">"result"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-28-5" name="__codelineno-28-5" href="#__codelineno-28-5"></a><span class="w">    </span><span class="nt">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"johndoe"</span><span class="p">,</span>
+<a id="__codelineno-28-6" name="__codelineno-28-6" href="#__codelineno-28-6"></a><span class="w">    </span><span class="nt">"attached"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Add_on_1_device"</span><span class="p">,</span>
+<a id="__codelineno-28-7" name="__codelineno-28-7" href="#__codelineno-28-7"></a><span class="w">    </span><span class="nt">"profile"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Data-Max-Daily-10GB, Device-Max-1, Add_on_1_device"</span>
+<a id="__codelineno-28-8" name="__codelineno-28-8" href="#__codelineno-28-8"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-28-9" name="__codelineno-28-9" href="#__codelineno-28-9"></a><span class="p">}</span>
+</code></pre></div><p></p>
+<p><strong>Sample Error Response:</strong>
+</p><div class="highlight"><pre><span></span><code><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a><span class="p">{</span>
+<a id="__codelineno-29-2" name="__codelineno-29-2" href="#__codelineno-29-2"></a><span class="w">  </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<a id="__codelineno-29-3" name="__codelineno-29-3" href="#__codelineno-29-3"></a><span class="w">  </span><span class="nt">"errorMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"User 'johndoe' is already attached to profile: 'Add_on_1_device'."</span><span class="p">,</span>
+<a id="__codelineno-29-4" name="__codelineno-29-4" href="#__codelineno-29-4"></a><span class="w">  </span><span class="nt">"result"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span>
+<a id="__codelineno-29-5" name="__codelineno-29-5" href="#__codelineno-29-5"></a><span class="p">}</span>
+</code></pre></div><p></p>
+<hr>
+<h3 id="post-detach-profile-from-user">POST — Detach Profile from User<a class="headerlink" href="#post-detach-profile-from-user" title="Permanent link">¶</a></h3>
+<p><strong>Endpoint:</strong> <code>/users/{userId}/actions/detach-profile</code></p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>profileName</code></td>
+<td>String</td>
+<td><strong>Yes</strong></td>
+<td>Name of the profile to detach</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example:</strong>
+</p><div class="highlight"><pre><span></span><code><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a><span class="err">POST /mbox/api/hotspot/users/1890/actions/detach-profile</span>
+<a id="__codelineno-30-2" name="__codelineno-30-2" href="#__codelineno-30-2"></a><span class="err">Authorization: Bearer {your_token}</span>
+<a id="__codelineno-30-3" name="__codelineno-30-3" href="#__codelineno-30-3"></a><span class="err">Content-Type: application/json</span>
+<a id="__codelineno-30-4" name="__codelineno-30-4" href="#__codelineno-30-4"></a>
+<a id="__codelineno-30-5" name="__codelineno-30-5" href="#__codelineno-30-5"></a><span class="err">{</span>
+<a id="__codelineno-30-6" name="__codelineno-30-6" href="#__codelineno-30-6"></a><span class="err">  "profileName": "Add_on_1_device"</span>
+<a id="__codelineno-30-7" name="__codelineno-30-7" href="#__codelineno-30-7"></a><span class="err">}</span>
+</code></pre></div><p></p>
+<p><strong>Successful Response:</strong>
+</p><div class="highlight"><pre><span></span><code><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a><span class="p">{</span>
+<a id="__codelineno-31-2" name="__codelineno-31-2" href="#__codelineno-31-2"></a><span class="w">  </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<a id="__codelineno-31-3" name="__codelineno-31-3" href="#__codelineno-31-3"></a><span class="w">  </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Profile 'Add_on_1_device' successfully detached from user 'johndoe'."</span><span class="p">,</span>
+<a id="__codelineno-31-4" name="__codelineno-31-4" href="#__codelineno-31-4"></a><span class="w">  </span><span class="nt">"result"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-31-5" name="__codelineno-31-5" href="#__codelineno-31-5"></a><span class="w">    </span><span class="nt">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"johndoe"</span><span class="p">,</span>
+<a id="__codelineno-31-6" name="__codelineno-31-6" href="#__codelineno-31-6"></a><span class="w">    </span><span class="nt">"detached"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Add_on_1_device"</span><span class="p">,</span>
+<a id="__codelineno-31-7" name="__codelineno-31-7" href="#__codelineno-31-7"></a><span class="w">    </span><span class="nt">"profile"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Data-Max-Daily-10GB, Device-Max-1"</span>
+<a id="__codelineno-31-8" name="__codelineno-31-8" href="#__codelineno-31-8"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-31-9" name="__codelineno-31-9" href="#__codelineno-31-9"></a><span class="p">}</span>
+</code></pre></div><p></p>
+<p><strong>Sample Error Response:</strong>
+</p><div class="highlight"><pre><span></span><code><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a><span class="p">{</span>
+<a id="__codelineno-32-2" name="__codelineno-32-2" href="#__codelineno-32-2"></a><span class="w">  </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<a id="__codelineno-32-3" name="__codelineno-32-3" href="#__codelineno-32-3"></a><span class="w">  </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"User 'johndoe' was not attached to profile 'Add_on_1_device'. No action needed."</span><span class="p">,</span>
+<a id="__codelineno-32-4" name="__codelineno-32-4" href="#__codelineno-32-4"></a><span class="w">  </span><span class="nt">"result"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span>
+<a id="__codelineno-32-5" name="__codelineno-32-5" href="#__codelineno-32-5"></a><span class="p">}</span>
+</code></pre></div><p></p>
+<hr>
+<h2 id="42-managing-profiles">4.2 Managing Profiles<a class="headerlink" href="#42-managing-profiles" title="Permanent link">¶</a></h2>
+<p>Provides access to the defined HotSpot access profiles stored in the database.</p>
+<p><strong>Base URL:</strong>
+</p><div class="highlight"><pre><span></span><code><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a>https://YOUR_SERVER_ADDRESS/mbox/api/hotspot/profiles
+</code></pre></div><p></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><code>profileName</code> must be alphanumeric and may include <code>-</code> and <code>_</code> characters.</p>
+</div>
+<h3 id="get-list-all-profiles">GET — List All Profiles<a class="headerlink" href="#get-list-all-profiles" title="Permanent link">¶</a></h3>
+<p><strong>Endpoint:</strong> <code>/profiles</code></p>
+<p>Returns <code>groupname</code> and <code>description</code> for each profile.</p>
+<p><strong>Example:</strong>
+</p><div class="highlight"><pre><span></span><code><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a><span class="err">GET /mbox/api/hotspot/profiles</span>
+<a id="__codelineno-34-2" name="__codelineno-34-2" href="#__codelineno-34-2"></a><span class="err">Authorization: Bearer {your_token}</span>
+</code></pre></div><p></p>
+<p><strong>Successful Response:</strong>
+</p><div class="highlight"><pre><span></span><code><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a><span class="p">{</span>
+<a id="__codelineno-35-2" name="__codelineno-35-2" href="#__codelineno-35-2"></a><span class="w">  </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<a id="__codelineno-35-3" name="__codelineno-35-3" href="#__codelineno-35-3"></a><span class="w">  </span><span class="nt">"page"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<a id="__codelineno-35-4" name="__codelineno-35-4" href="#__codelineno-35-4"></a><span class="w">  </span><span class="nt">"perPage"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span>
+<a id="__codelineno-35-5" name="__codelineno-35-5" href="#__codelineno-35-5"></a><span class="w">  </span><span class="nt">"isLastPage"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<a id="__codelineno-35-6" name="__codelineno-35-6" href="#__codelineno-35-6"></a><span class="w">  </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"More records available. Use pagination to load next page."</span><span class="p">,</span>
+<a id="__codelineno-35-7" name="__codelineno-35-7" href="#__codelineno-35-7"></a><span class="w">  </span><span class="nt">"result"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-35-8" name="__codelineno-35-8" href="#__codelineno-35-8"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-35-9" name="__codelineno-35-9" href="#__codelineno-35-9"></a><span class="w">      </span><span class="nt">"groupname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1902b"</span><span class="p">,</span>
+<a id="__codelineno-35-10" name="__codelineno-35-10" href="#__codelineno-35-10"></a><span class="w">      </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1902b"</span>
+<a id="__codelineno-35-11" name="__codelineno-35-11" href="#__codelineno-35-11"></a><span class="w">    </span><span class="p">},</span>
+<a id="__codelineno-35-12" name="__codelineno-35-12" href="#__codelineno-35-12"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-35-13" name="__codelineno-35-13" href="#__codelineno-35-13"></a><span class="w">      </span><span class="nt">"groupname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2115"</span><span class="p">,</span>
+<a id="__codelineno-35-14" name="__codelineno-35-14" href="#__codelineno-35-14"></a><span class="w">      </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2115"</span>
+<a id="__codelineno-35-15" name="__codelineno-35-15" href="#__codelineno-35-15"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-35-16" name="__codelineno-35-16" href="#__codelineno-35-16"></a><span class="w">  </span><span class="p">]</span>
+<a id="__codelineno-35-17" name="__codelineno-35-17" href="#__codelineno-35-17"></a><span class="p">}</span>
+</code></pre></div><p></p>
+<h3 id="get-list-users-by-profile">GET — List Users by Profile<a class="headerlink" href="#get-list-users-by-profile" title="Permanent link">¶</a></h3>
+<p><strong>Endpoint:</strong> <code>/profiles/{profileName}/users</code></p>
+<p>Returns all user records linked to the specified profile.</p>
+<p><strong>Example:</strong>
+</p><div class="highlight"><pre><span></span><code><a id="__codelineno-36-1" name="__codelineno-36-1" href="#__codelineno-36-1"></a><span class="err">GET /mbox/api/hotspot/profiles/Add_on_1_device/users</span>
+<a id="__codelineno-36-2" name="__codelineno-36-2" href="#__codelineno-36-2"></a><span class="err">Authorization: Bearer {your_token}</span>
+</code></pre></div><p></p>
+<p><strong>Successful Response:</strong>
+</p><div class="highlight"><pre><span></span><code><a id="__codelineno-37-1" name="__codelineno-37-1" href="#__codelineno-37-1"></a><span class="p">{</span>
+<a id="__codelineno-37-2" name="__codelineno-37-2" href="#__codelineno-37-2"></a><span class="w">  </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<a id="__codelineno-37-3" name="__codelineno-37-3" href="#__codelineno-37-3"></a><span class="w">  </span><span class="nt">"page"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<a id="__codelineno-37-4" name="__codelineno-37-4" href="#__codelineno-37-4"></a><span class="w">  </span><span class="nt">"perPage"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span>
+<a id="__codelineno-37-5" name="__codelineno-37-5" href="#__codelineno-37-5"></a><span class="w">  </span><span class="nt">"isLastPage"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<a id="__codelineno-37-6" name="__codelineno-37-6" href="#__codelineno-37-6"></a><span class="w">  </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"You've reached the last page of the results."</span><span class="p">,</span>
+<a id="__codelineno-37-7" name="__codelineno-37-7" href="#__codelineno-37-7"></a><span class="w">  </span><span class="nt">"result"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-37-8" name="__codelineno-37-8" href="#__codelineno-37-8"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-37-9" name="__codelineno-37-9" href="#__codelineno-37-9"></a><span class="w">      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1883"</span><span class="p">,</span>
+<a id="__codelineno-37-10" name="__codelineno-37-10" href="#__codelineno-37-10"></a><span class="w">      </span><span class="nt">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"jasontest"</span><span class="p">,</span>
+<a id="__codelineno-37-11" name="__codelineno-37-11" href="#__codelineno-37-11"></a><span class="w">      </span><span class="nt">"firstname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"John"</span><span class="p">,</span>
+<a id="__codelineno-37-12" name="__codelineno-37-12" href="#__codelineno-37-12"></a><span class="w">      </span><span class="nt">"lastname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Doe"</span><span class="p">,</span>
+<a id="__codelineno-37-13" name="__codelineno-37-13" href="#__codelineno-37-13"></a><span class="w">      </span><span class="nt">"profileName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Add_on_1_device"</span><span class="p">,</span>
+<a id="__codelineno-37-14" name="__codelineno-37-14" href="#__codelineno-37-14"></a><span class="w">      </span><span class="nt">"priority"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span>
+<a id="__codelineno-37-15" name="__codelineno-37-15" href="#__codelineno-37-15"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-37-16" name="__codelineno-37-16" href="#__codelineno-37-16"></a><span class="w">  </span><span class="p">]</span>
+<a id="__codelineno-37-17" name="__codelineno-37-17" href="#__codelineno-37-17"></a><span class="p">}</span>
+</code></pre></div><p></p>
+<hr>
+<h2 id="43-managing-user-access">4.3 Managing User Access<a class="headerlink" href="#43-managing-user-access" title="Permanent link">¶</a></h2>
+<p>Manages fine-grained RADIUS attributes set on individual users, which override profile-level settings.</p>
+<p><strong>Base URL:</strong>
+</p><div class="highlight"><pre><span></span><code><a id="__codelineno-38-1" name="__codelineno-38-1" href="#__codelineno-38-1"></a>https://YOUR_SERVER_ADDRESS/mbox/api/hotspot/user-access
+</code></pre></div><p></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><code>userId</code> must be a valid Integer.</p>
+</div>
+<h3 id="get-list-all-available-attributes">GET — List All Available Attributes<a class="headerlink" href="#get-list-all-available-attributes" title="Permanent link">¶</a></h3>
+<p><strong>Endpoint:</strong> <code>/user-access</code></p>
+<p>Returns all available attribute definitions (e.g., <code>Session-Timeout</code>, <code>CS-Total-MB</code>) with their configuration (text, format).</p>
+<p><strong>Example:</strong>
+</p><div class="highlight"><pre><span></span><code><a id="__codelineno-39-1" name="__codelineno-39-1" href="#__codelineno-39-1"></a><span class="err">GET /mbox/api/hotspot/user-access</span>
+<a id="__codelineno-39-2" name="__codelineno-39-2" href="#__codelineno-39-2"></a><span class="err">Authorization: Bearer {your_token}</span>
+</code></pre></div><p></p>
+<p><strong>Successful Response:</strong>
+</p><div class="highlight"><pre><span></span><code><a id="__codelineno-40-1" name="__codelineno-40-1" href="#__codelineno-40-1"></a><span class="p">{</span>
+<a id="__codelineno-40-2" name="__codelineno-40-2" href="#__codelineno-40-2"></a><span class="w">  </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<a id="__codelineno-40-3" name="__codelineno-40-3" href="#__codelineno-40-3"></a><span class="w">  </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"User Attributes retrieved successfully."</span><span class="p">,</span>
+<a id="__codelineno-40-4" name="__codelineno-40-4" href="#__codelineno-40-4"></a><span class="w">  </span><span class="nt">"result"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-40-5" name="__codelineno-40-5" href="#__codelineno-40-5"></a><span class="w">    </span><span class="nt">"WISPr-Bandwidth-Max-Up"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-40-6" name="__codelineno-40-6" href="#__codelineno-40-6"></a><span class="w">      </span><span class="nt">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Maximum Upload"</span><span class="p">,</span>
+<a id="__codelineno-40-7" name="__codelineno-40-7" href="#__codelineno-40-7"></a><span class="w">      </span><span class="nt">"format"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Kbps"</span><span class="p">,</span>
+<a id="__codelineno-40-8" name="__codelineno-40-8" href="#__codelineno-40-8"></a><span class="w">      </span><span class="nt">"multiple"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span>
+<a id="__codelineno-40-9" name="__codelineno-40-9" href="#__codelineno-40-9"></a><span class="w">    </span><span class="p">},</span>
+<a id="__codelineno-40-10" name="__codelineno-40-10" href="#__codelineno-40-10"></a><span class="w">    </span><span class="nt">"WISPr-Bandwidth-Max-Down"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-40-11" name="__codelineno-40-11" href="#__codelineno-40-11"></a><span class="w">      </span><span class="nt">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Maximum Download"</span><span class="p">,</span>
+<a id="__codelineno-40-12" name="__codelineno-40-12" href="#__codelineno-40-12"></a><span class="w">      </span><span class="nt">"format"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Kbps"</span><span class="p">,</span>
+<a id="__codelineno-40-13" name="__codelineno-40-13" href="#__codelineno-40-13"></a><span class="w">      </span><span class="nt">"multiple"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span>
+<a id="__codelineno-40-14" name="__codelineno-40-14" href="#__codelineno-40-14"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-40-15" name="__codelineno-40-15" href="#__codelineno-40-15"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-40-16" name="__codelineno-40-16" href="#__codelineno-40-16"></a><span class="p">}</span>
+</code></pre></div><p></p>
+<h3 id="get-get-attributes-for-a-user">GET — Get Attributes for a User<a class="headerlink" href="#get-get-attributes-for-a-user" title="Permanent link">¶</a></h3>
+<p><strong>Endpoint:</strong> <code>/user-access/{userId}</code></p>
+<p>Retrieves all active attributes and their current values set on the specified user.</p>
+<p><strong>Example:</strong>
+</p><div class="highlight"><pre><span></span><code><a id="__codelineno-41-1" name="__codelineno-41-1" href="#__codelineno-41-1"></a><span class="err">GET /mbox/api/hotspot/user-access/1890</span>
+<a id="__codelineno-41-2" name="__codelineno-41-2" href="#__codelineno-41-2"></a><span class="err">Authorization: Bearer {your_token}</span>
+</code></pre></div><p></p>
+<p><strong>Successful Response:</strong>
+</p><div class="highlight"><pre><span></span><code><a id="__codelineno-42-1" name="__codelineno-42-1" href="#__codelineno-42-1"></a><span class="p">{</span>
+<a id="__codelineno-42-2" name="__codelineno-42-2" href="#__codelineno-42-2"></a><span class="w">  </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<a id="__codelineno-42-3" name="__codelineno-42-3" href="#__codelineno-42-3"></a><span class="w">  </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Access attributes for user retrieved successfully."</span><span class="p">,</span>
+<a id="__codelineno-42-4" name="__codelineno-42-4" href="#__codelineno-42-4"></a><span class="w">  </span><span class="nt">"result"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-42-5" name="__codelineno-42-5" href="#__codelineno-42-5"></a><span class="w">    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1890</span><span class="p">,</span>
+<a id="__codelineno-42-6" name="__codelineno-42-6" href="#__codelineno-42-6"></a><span class="w">    </span><span class="nt">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"johndoe"</span><span class="p">,</span>
+<a id="__codelineno-42-7" name="__codelineno-42-7" href="#__codelineno-42-7"></a><span class="w">    </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-42-8" name="__codelineno-42-8" href="#__codelineno-42-8"></a><span class="w">      </span><span class="p">{</span>
+<a id="__codelineno-42-9" name="__codelineno-42-9" href="#__codelineno-42-9"></a><span class="w">        </span><span class="nt">"Simultaneous-Use"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-42-10" name="__codelineno-42-10" href="#__codelineno-42-10"></a><span class="w">          </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3266"</span><span class="p">,</span>
+<a id="__codelineno-42-11" name="__codelineno-42-11" href="#__codelineno-42-11"></a><span class="w">          </span><span class="nt">"format"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Number"</span><span class="p">,</span>
+<a id="__codelineno-42-12" name="__codelineno-42-12" href="#__codelineno-42-12"></a><span class="w">          </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span>
+<a id="__codelineno-42-13" name="__codelineno-42-13" href="#__codelineno-42-13"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-42-14" name="__codelineno-42-14" href="#__codelineno-42-14"></a><span class="w">      </span><span class="p">},</span>
+<a id="__codelineno-42-15" name="__codelineno-42-15" href="#__codelineno-42-15"></a><span class="w">      </span><span class="p">{</span>
+<a id="__codelineno-42-16" name="__codelineno-42-16" href="#__codelineno-42-16"></a><span class="w">        </span><span class="nt">"WISPr-Bandwidth-Max-Up"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-42-17" name="__codelineno-42-17" href="#__codelineno-42-17"></a><span class="w">          </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"140"</span><span class="p">,</span>
+<a id="__codelineno-42-18" name="__codelineno-42-18" href="#__codelineno-42-18"></a><span class="w">          </span><span class="nt">"format"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Kbps"</span><span class="p">,</span>
+<a id="__codelineno-42-19" name="__codelineno-42-19" href="#__codelineno-42-19"></a><span class="w">          </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="mi">5000</span>
+<a id="__codelineno-42-20" name="__codelineno-42-20" href="#__codelineno-42-20"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-42-21" name="__codelineno-42-21" href="#__codelineno-42-21"></a><span class="w">      </span><span class="p">}</span>
+<a id="__codelineno-42-22" name="__codelineno-42-22" href="#__codelineno-42-22"></a><span class="w">    </span><span class="p">]</span>
+<a id="__codelineno-42-23" name="__codelineno-42-23" href="#__codelineno-42-23"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-42-24" name="__codelineno-42-24" href="#__codelineno-42-24"></a><span class="p">}</span>
+</code></pre></div><p></p>
+<p><strong>Sample Error Response:</strong>
+</p><div class="highlight"><pre><span></span><code><a id="__codelineno-43-1" name="__codelineno-43-1" href="#__codelineno-43-1"></a><span class="p">{</span>
+<a id="__codelineno-43-2" name="__codelineno-43-2" href="#__codelineno-43-2"></a><span class="w">  </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<a id="__codelineno-43-3" name="__codelineno-43-3" href="#__codelineno-43-3"></a><span class="w">  </span><span class="nt">"errorMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"No user found."</span><span class="p">,</span>
+<a id="__codelineno-43-4" name="__codelineno-43-4" href="#__codelineno-43-4"></a><span class="w">  </span><span class="nt">"result"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span>
+<a id="__codelineno-43-5" name="__codelineno-43-5" href="#__codelineno-43-5"></a><span class="p">}</span>
+</code></pre></div><p></p>
+<hr>
+<h3 id="post-attach-update-attributes">POST — Attach / Update Attributes<a class="headerlink" href="#post-attach-update-attributes" title="Permanent link">¶</a></h3>
+<p><strong>Endpoint:</strong> <code>/user-access/{userId}/actions/attach-access</code></p>
+<p>Adds a new attribute or updates the value of an existing attribute for a user. Supports single or bulk operations.</p>
+<p><strong>Single Attribute Input:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Input</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>attribute</code></td>
+<td>String</td>
+<td>Attribute name</td>
+</tr>
+<tr>
+<td><code>value</code></td>
+<td>String</td>
+<td>Value to set</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Bulk Attribute Input:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Input</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>attributes</code></td>
+<td>Array</td>
+<td>Array of objects: <code>[{"attribute": "Name", "value": "XXX"}]</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example — Attach Single Attribute:</strong>
+</p><div class="highlight"><pre><span></span><code><a id="__codelineno-44-1" name="__codelineno-44-1" href="#__codelineno-44-1"></a><span class="err">POST /mbox/api/hotspot/user-access/1890/actions/attach-access</span>
+<a id="__codelineno-44-2" name="__codelineno-44-2" href="#__codelineno-44-2"></a><span class="err">Authorization: Bearer {your_token}</span>
+<a id="__codelineno-44-3" name="__codelineno-44-3" href="#__codelineno-44-3"></a><span class="err">Content-Type: application/json</span>
+<a id="__codelineno-44-4" name="__codelineno-44-4" href="#__codelineno-44-4"></a>
+<a id="__codelineno-44-5" name="__codelineno-44-5" href="#__codelineno-44-5"></a><span class="err">{</span>
+<a id="__codelineno-44-6" name="__codelineno-44-6" href="#__codelineno-44-6"></a><span class="err">  "attribute": "CS-Total-MB-Daily",</span>
+<a id="__codelineno-44-7" name="__codelineno-44-7" href="#__codelineno-44-7"></a><span class="err">  "value": "40"</span>
+<a id="__codelineno-44-8" name="__codelineno-44-8" href="#__codelineno-44-8"></a><span class="err">}</span>
+</code></pre></div><p></p>
+<p><strong>Example — Attach Multiple Attributes:</strong>
+</p><div class="highlight"><pre><span></span><code><a id="__codelineno-45-1" name="__codelineno-45-1" href="#__codelineno-45-1"></a><span class="err">POST /mbox/api/hotspot/user-access/1890/actions/attach-access</span>
+<a id="__codelineno-45-2" name="__codelineno-45-2" href="#__codelineno-45-2"></a><span class="err">Authorization: Bearer {your_token}</span>
+<a id="__codelineno-45-3" name="__codelineno-45-3" href="#__codelineno-45-3"></a><span class="err">Content-Type: application/json</span>
+<a id="__codelineno-45-4" name="__codelineno-45-4" href="#__codelineno-45-4"></a>
+<a id="__codelineno-45-5" name="__codelineno-45-5" href="#__codelineno-45-5"></a><span class="err">{</span>
+<a id="__codelineno-45-6" name="__codelineno-45-6" href="#__codelineno-45-6"></a><span class="err">  "attributes": [</span>
+<a id="__codelineno-45-7" name="__codelineno-45-7" href="#__codelineno-45-7"></a><span class="err">    {"attribute": "CS-Total-MB-Daily", "value": "40"},</span>
+<a id="__codelineno-45-8" name="__codelineno-45-8" href="#__codelineno-45-8"></a><span class="err">    {"attribute": "WISPr-Redirection-URL", "value": "https://google.com"}</span>
+<a id="__codelineno-45-9" name="__codelineno-45-9" href="#__codelineno-45-9"></a><span class="err">  ]</span>
+<a id="__codelineno-45-10" name="__codelineno-45-10" href="#__codelineno-45-10"></a><span class="err">}</span>
+</code></pre></div><p></p>
+<p><strong>Successful Response:</strong>
+</p><div class="highlight"><pre><span></span><code><a id="__codelineno-46-1" name="__codelineno-46-1" href="#__codelineno-46-1"></a><span class="p">{</span>
+<a id="__codelineno-46-2" name="__codelineno-46-2" href="#__codelineno-46-2"></a><span class="w">  </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<a id="__codelineno-46-3" name="__codelineno-46-3" href="#__codelineno-46-3"></a><span class="w">  </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Processed user access 2 success. 0 failed."</span><span class="p">,</span>
+<a id="__codelineno-46-4" name="__codelineno-46-4" href="#__codelineno-46-4"></a><span class="w">  </span><span class="nt">"details"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-46-5" name="__codelineno-46-5" href="#__codelineno-46-5"></a><span class="w">    </span><span class="nt">"success"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-46-6" name="__codelineno-46-6" href="#__codelineno-46-6"></a><span class="w">      </span><span class="p">{</span>
+<a id="__codelineno-46-7" name="__codelineno-46-7" href="#__codelineno-46-7"></a><span class="w">        </span><span class="nt">"attribute"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CS-Total-MB-Daily"</span><span class="p">,</span>
+<a id="__codelineno-46-8" name="__codelineno-46-8" href="#__codelineno-46-8"></a><span class="w">        </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="mi">40</span><span class="p">,</span>
+<a id="__codelineno-46-9" name="__codelineno-46-9" href="#__codelineno-46-9"></a><span class="w">        </span><span class="nt">"action"</span><span class="p">:</span><span class="w"> </span><span class="s2">"User acess 'CS-Total-MB-Daily' successfully attached."</span>
+<a id="__codelineno-46-10" name="__codelineno-46-10" href="#__codelineno-46-10"></a><span class="w">      </span><span class="p">},</span>
+<a id="__codelineno-46-11" name="__codelineno-46-11" href="#__codelineno-46-11"></a><span class="w">      </span><span class="p">{</span>
+<a id="__codelineno-46-12" name="__codelineno-46-12" href="#__codelineno-46-12"></a><span class="w">        </span><span class="nt">"attribute"</span><span class="p">:</span><span class="w"> </span><span class="s2">"WISPr-Redirection-URL"</span><span class="p">,</span>
+<a id="__codelineno-46-13" name="__codelineno-46-13" href="#__codelineno-46-13"></a><span class="w">        </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://google.com"</span><span class="p">,</span>
+<a id="__codelineno-46-14" name="__codelineno-46-14" href="#__codelineno-46-14"></a><span class="w">        </span><span class="nt">"action"</span><span class="p">:</span><span class="w"> </span><span class="s2">"User acess 'WISPr-Redirection-URL' successfully attached."</span>
+<a id="__codelineno-46-15" name="__codelineno-46-15" href="#__codelineno-46-15"></a><span class="w">      </span><span class="p">}</span>
+<a id="__codelineno-46-16" name="__codelineno-46-16" href="#__codelineno-46-16"></a><span class="w">    </span><span class="p">]</span>
+<a id="__codelineno-46-17" name="__codelineno-46-17" href="#__codelineno-46-17"></a><span class="w">  </span><span class="p">},</span>
+<a id="__codelineno-46-18" name="__codelineno-46-18" href="#__codelineno-46-18"></a><span class="w">  </span><span class="nt">"result"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-46-19" name="__codelineno-46-19" href="#__codelineno-46-19"></a><span class="w">    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1890</span><span class="p">,</span>
+<a id="__codelineno-46-20" name="__codelineno-46-20" href="#__codelineno-46-20"></a><span class="w">    </span><span class="nt">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"johndoe"</span><span class="p">,</span>
+<a id="__codelineno-46-21" name="__codelineno-46-21" href="#__codelineno-46-21"></a><span class="w">    </span><span class="nt">"user_access"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-46-22" name="__codelineno-46-22" href="#__codelineno-46-22"></a><span class="w">      </span><span class="nt">"CS-Total-MB-Daily"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3270"</span><span class="p">,</span><span class="w"> </span><span class="nt">"format"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MB"</span><span class="p">,</span><span class="w"> </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"40"</span><span class="p">},</span>
+<a id="__codelineno-46-23" name="__codelineno-46-23" href="#__codelineno-46-23"></a><span class="w">      </span><span class="nt">"WISPr-Redirection-URL"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"141"</span><span class="p">,</span><span class="w"> </span><span class="nt">"format"</span><span class="p">:</span><span class="w"> </span><span class="s2">"URL"</span><span class="p">,</span><span class="w"> </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://google.com"</span><span class="p">}</span>
+<a id="__codelineno-46-24" name="__codelineno-46-24" href="#__codelineno-46-24"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-46-25" name="__codelineno-46-25" href="#__codelineno-46-25"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-46-26" name="__codelineno-46-26" href="#__codelineno-46-26"></a><span class="p">}</span>
+</code></pre></div><p></p>
+<p><strong>Sample Error Response:</strong>
+</p><div class="highlight"><pre><span></span><code><a id="__codelineno-47-1" name="__codelineno-47-1" href="#__codelineno-47-1"></a><span class="p">{</span>
+<a id="__codelineno-47-2" name="__codelineno-47-2" href="#__codelineno-47-2"></a><span class="w">  </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<a id="__codelineno-47-3" name="__codelineno-47-3" href="#__codelineno-47-3"></a><span class="w">  </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Processed user access 0 success. 1 failed."</span><span class="p">,</span>
+<a id="__codelineno-47-4" name="__codelineno-47-4" href="#__codelineno-47-4"></a><span class="w">  </span><span class="nt">"details"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-47-5" name="__codelineno-47-5" href="#__codelineno-47-5"></a><span class="w">    </span><span class="nt">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"User access 'CS-Total-MB-Daily22222' is not recognized."</span><span class="p">]</span>
+<a id="__codelineno-47-6" name="__codelineno-47-6" href="#__codelineno-47-6"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-47-7" name="__codelineno-47-7" href="#__codelineno-47-7"></a><span class="p">}</span>
+</code></pre></div><p></p>
+<hr>
+<h3 id="post-detach-attributes">POST — Detach Attributes<a class="headerlink" href="#post-detach-attributes" title="Permanent link">¶</a></h3>
+<p><strong>Endpoint:</strong> <code>/user-access/{userId}/actions/detach-access</code></p>
+<p>Removes an attribute from a user's access settings. Supports single or bulk operations.</p>
+<p><strong>Single Attribute Input:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Input</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>attribute</code></td>
+<td>String</td>
+<td>Attribute name to delete</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Bulk Attribute Input:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Input</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>attributes</code></td>
+<td>Array</td>
+<td>Array of objects: <code>[{"attribute": "Name"}]</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example:</strong>
+</p><div class="highlight"><pre><span></span><code><a id="__codelineno-48-1" name="__codelineno-48-1" href="#__codelineno-48-1"></a><span class="err">POST /mbox/api/hotspot/user-access/1890/actions/detach-access</span>
+<a id="__codelineno-48-2" name="__codelineno-48-2" href="#__codelineno-48-2"></a><span class="err">Authorization: Bearer {your_token}</span>
+<a id="__codelineno-48-3" name="__codelineno-48-3" href="#__codelineno-48-3"></a><span class="err">Content-Type: application/json</span>
+<a id="__codelineno-48-4" name="__codelineno-48-4" href="#__codelineno-48-4"></a>
+<a id="__codelineno-48-5" name="__codelineno-48-5" href="#__codelineno-48-5"></a><span class="err">{</span>
+<a id="__codelineno-48-6" name="__codelineno-48-6" href="#__codelineno-48-6"></a><span class="err">  "attribute": "CS-Total-MB-Daily"</span>
+<a id="__codelineno-48-7" name="__codelineno-48-7" href="#__codelineno-48-7"></a><span class="err">}</span>
+</code></pre></div><p></p>
+<p><strong>Successful Response:</strong>
+</p><div class="highlight"><pre><span></span><code><a id="__codelineno-49-1" name="__codelineno-49-1" href="#__codelineno-49-1"></a><span class="p">{</span>
+<a id="__codelineno-49-2" name="__codelineno-49-2" href="#__codelineno-49-2"></a><span class="w">  </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<a id="__codelineno-49-3" name="__codelineno-49-3" href="#__codelineno-49-3"></a><span class="w">  </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Processed user access 1 success. (and skipped 0 existing). 0 failed."</span><span class="p">,</span>
+<a id="__codelineno-49-4" name="__codelineno-49-4" href="#__codelineno-49-4"></a><span class="w">  </span><span class="nt">"details"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-49-5" name="__codelineno-49-5" href="#__codelineno-49-5"></a><span class="w">    </span><span class="nt">"success"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-49-6" name="__codelineno-49-6" href="#__codelineno-49-6"></a><span class="w">      </span><span class="p">{</span>
+<a id="__codelineno-49-7" name="__codelineno-49-7" href="#__codelineno-49-7"></a><span class="w">        </span><span class="nt">"attribute"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CS-Total-MB-Daily"</span><span class="p">,</span>
+<a id="__codelineno-49-8" name="__codelineno-49-8" href="#__codelineno-49-8"></a><span class="w">        </span><span class="nt">"action"</span><span class="p">:</span><span class="w"> </span><span class="s2">"detached"</span><span class="p">,</span>
+<a id="__codelineno-49-9" name="__codelineno-49-9" href="#__codelineno-49-9"></a><span class="w">        </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"User access 'CS-Total-MB-Daily' successfully detached."</span>
+<a id="__codelineno-49-10" name="__codelineno-49-10" href="#__codelineno-49-10"></a><span class="w">      </span><span class="p">}</span>
+<a id="__codelineno-49-11" name="__codelineno-49-11" href="#__codelineno-49-11"></a><span class="w">    </span><span class="p">]</span>
+<a id="__codelineno-49-12" name="__codelineno-49-12" href="#__codelineno-49-12"></a><span class="w">  </span><span class="p">},</span>
+<a id="__codelineno-49-13" name="__codelineno-49-13" href="#__codelineno-49-13"></a><span class="w">  </span><span class="nt">"result"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-49-14" name="__codelineno-49-14" href="#__codelineno-49-14"></a><span class="w">    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1890</span><span class="p">,</span>
+<a id="__codelineno-49-15" name="__codelineno-49-15" href="#__codelineno-49-15"></a><span class="w">    </span><span class="nt">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"johndoe"</span>
+<a id="__codelineno-49-16" name="__codelineno-49-16" href="#__codelineno-49-16"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-49-17" name="__codelineno-49-17" href="#__codelineno-49-17"></a><span class="p">}</span>
+</code></pre></div><p></p>
+<p><strong>Sample Error Response:</strong>
+</p><div class="highlight"><pre><span></span><code><a id="__codelineno-50-1" name="__codelineno-50-1" href="#__codelineno-50-1"></a><span class="p">{</span>
+<a id="__codelineno-50-2" name="__codelineno-50-2" href="#__codelineno-50-2"></a><span class="w">  </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<a id="__codelineno-50-3" name="__codelineno-50-3" href="#__codelineno-50-3"></a><span class="w">  </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Processed user access 0 success. (and skipped 0 existing). 1 failed."</span><span class="p">,</span>
+<a id="__codelineno-50-4" name="__codelineno-50-4" href="#__codelineno-50-4"></a><span class="w">  </span><span class="nt">"details"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-50-5" name="__codelineno-50-5" href="#__codelineno-50-5"></a><span class="w">    </span><span class="nt">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"User access 'CS-Total-MB-Daily' was already detached or never existed."</span><span class="p">]</span>
+<a id="__codelineno-50-6" name="__codelineno-50-6" href="#__codelineno-50-6"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-50-7" name="__codelineno-50-7" href="#__codelineno-50-7"></a><span class="p">}</span>
+</code></pre></div><p></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden="">
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"></path></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      © 2026 RansNet Singapore Pte Ltd. All Rights Reserved.
+    </div>
+  
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+    <a href="mailto:support@ransnet.com" target="_blank" rel="noopener" title="support@ransnet.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4l208 156a48 48 0 0 0 57.6 0l208-156c12.1-9.1 19.2-23.3 19.2-38.4 0-26.5-21.5-48-48-48zM0 196v188c0 35.3 28.7 64 64 64h384c35.3 0 64-28.7 64-64V196L313.6 344.8c-34.1 25.6-81.1 25.6-115.2 0z"></path></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="https://www.ransnet.com" target="_blank" rel="noopener" title="www.ransnet.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M351.9 280H161c2.9 64.5 17.2 123.9 37.5 167.4 11.4 24.5 23.7 41.8 35.1 52.4 11.2 10.5 18.9 12.2 22.9 12.2s11.7-1.7 22.9-12.2c11.4-10.6 23.7-28 35.1-52.4 20.3-43.5 34.6-102.9 37.5-167.4zm-191-48h190.9c-2.8-64.5-17.1-123.9-37.4-167.4-11.4-24.4-23.7-41.8-35.1-52.4C268.1 1.7 260.4 0 256.4 0s-11.7 1.7-22.9 12.2c-11.4 10.6-23.7 28-35.1 52.4-20.3 43.5-34.6 102.9-37.5 167.4m-48 0c3.5-85.6 25.6-165.1 57.9-217.3C78.7 47.3 10.9 131.2 1.5 232zM1.5 280c9.4 100.8 77.2 184.7 169.3 217.3-32.3-52.2-54.4-131.7-57.9-217.3zm398.4 0c-3.5 85.6-25.6 165.1-57.9 217.3 92.1-32.7 159.9-116.5 169.3-217.3zm111.4-48C501.9 131.2 434.1 47.3 342 14.7c32.3 52.2 54.4 131.7 57.9 217.3z"></path></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.indexes", "navigation.path", "navigation.top", "search.highlight", "search.suggest", "content.code.copy", "content.tabs.link", "content.action.edit", "toc.follow"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(()=>{ lightbox.reload(); });
+</script></body></html>

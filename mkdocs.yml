@@ -152,3 +152,4 @@ nav:
     - Monitoring API: api/rmm.md
     - Syslog API: api/syslog.md
     - WISPr API: api/wispr.md
+    - NetFlow API: api/netflow.md

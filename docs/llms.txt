@@ -1,0 +1,71 @@
+# RansNet Documentation
+
+> RansNet develops end-to-end SD-WAN, SD-Branch, and Wi-Fi Hotspot solutions for enterprise networks and service provider deployments. This documentation covers the mfusion cloud management platform and all RansNet hardware product families.
+
+RansNet products are managed centrally through **mfusion**, a cloud-based orchestration platform accessible at portal.ransnet.com. mfusion supports zero-touch provisioning, centralized device configuration, real-time monitoring, SD-WAN policy management, and hotspot gateway control.
+
+## Product Families
+
+- CMG (Cloud Managed Gateway) — SD-WAN gateway devices
+- HSA (HotSpot Access) — SD-Branch devices with optional 4G backup
+- UA (Universal Access) — SD-Branch devices with optional 4G/5G backup
+- XE — SD-Branch devices
+- HSG (HotSpot Gateway) — Wi-Fi hotspot gateway devices
+- UAP (Universal Access Point) — Wi-Fi access points
+
+## Getting Started
+
+- [Product Overview](https://docs.ransnet.com/start/overview/): Overview of RansNet product families including SD-WAN and Wi-Fi Hotspot solutions, and the mfusion orchestration platform.
+- [mfusion Architecture](https://docs.ransnet.com/start/mfusionarc/): How mfusion connects to and manages RansNet devices; system architecture and components.
+- [Device Bootstrapping](https://docs.ransnet.com/start/bootstrap/): How to connect a RansNet device to mfusion via CLI, including console access, SSH access, static WAN configuration, on-premise mfusion setup, and factory reset procedures.
+- [Device Provisioning](https://docs.ransnet.com/start/provision/): How to register a RansNet device on mfusion, create customer entities, add hosts manually or via batch import, and create user accounts.
+- [Device Onboarding](https://docs.ransnet.com/start/onboard/): Steps to onboard a provisioned device onto the network.
+- [Device Hardening](https://docs.ransnet.com/start/harden/): Security hardening steps after a device is onboarded.
+
+## Device Monitoring
+
+- [Dashboard](https://docs.ransnet.com/monitor/dashboard/): mfusion monitoring dashboard showing device health, network status, and alerts.
+- [Devices](https://docs.ransnet.com/monitor/hosts/): How to view and manage monitored devices in mfusion.
+- [Wireless](https://docs.ransnet.com/monitor/wifi/): Monitoring Wi-Fi performance and connected clients.
+- [Alerts](https://docs.ransnet.com/monitor/alerts/): Configuring and viewing device alerts in mfusion.
+- [Settings](https://docs.ransnet.com/monitor/settings/): Monitoring settings and thresholds.
+
+## Device Configuration
+
+- [Interfaces](https://docs.ransnet.com/config/iface/): Configuring network interfaces on RansNet devices.
+- [Ethernet](https://docs.ransnet.com/config/iface/ethernet/): Ethernet interface configuration.
+- [VLAN](https://docs.ransnet.com/config/iface/vlaniface/): VLAN interface configuration.
+- [PPPoE](https://docs.ransnet.com/config/pppoe/): PPPoE WAN connection setup.
+- [Static Routing](https://docs.ransnet.com/routing/static/): Static route configuration.
+- [OSPF](https://docs.ransnet.com/routing/ospf/): OSPF dynamic routing configuration.
+- [BGP](https://docs.ransnet.com/routing/bgp/): BGP routing configuration.
+- [DHCP](https://docs.ransnet.com/services/dhcp/): DHCP server configuration.
+- [DNS](https://docs.ransnet.com/services/dns/): DNS configuration.
+- [NTP](https://docs.ransnet.com/services/ntp/): NTP time synchronization.
+- [SNMP](https://docs.ransnet.com/services/snmp/): SNMP monitoring setup.
+- [Syslog](https://docs.ransnet.com/services/syslog/): Remote syslog configuration.
+
+## SD-WAN
+
+- [SD-WAN](https://docs.ransnet.com/sdwan/): SD-WAN features including VPN, Multi-WAN, Traffic Steering (PBR), and Traffic Shaping (QoS).
+
+## Security & Firewall
+
+- [Security](https://docs.ransnet.com/security/): Firewall and security configuration.
+- [Log Collector](https://docs.ransnet.com/security/logcollector/): Centralized log collection setup.
+
+## HotSpot Gateway
+
+- [HotSpot Gateway](https://docs.ransnet.com/hotspot/): Captive portal, hotspot user management, and Wi-Fi monetization features.
+
+## Advanced Features
+
+- [Advanced Features](https://docs.ransnet.com/advanced/): Advanced configuration topics.
+
+## Scenario Guides
+
+- [Scenario Guides](https://docs.ransnet.com/scenarios/): Real-world deployment scenarios and step-by-step configuration walkthroughs.
+
+## Q&A
+
+- [Q&A](https://docs.ransnet.com/qa/): Frequently asked questions about RansNet products and mfusion.

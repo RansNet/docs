@@ -1,0 +1,151 @@
+site_name: RansNet Documentation
+site_url: https://docs.ransnet.com
+site_description: Technical guides for using RansNet products.
+site_author: RansNet Singapore Pte Ltd
+copyright: "&copy; 2026 RansNet Singapore Pte Ltd. All Rights Reserved."
+
+theme:
+  name: material
+  font:
+    text: Inter
+    code: JetBrains Mono
+  palette:
+    - scheme: default
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - scheme: slate
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  features:
+    - navigation.sections
+    - navigation.indexes
+    - navigation.path
+    - navigation.top
+    - search.highlight
+    - search.suggest
+    - content.code.copy
+    - content.tabs.link
+    - content.action.edit
+    - toc.follow
+  logo: images/RansNet_logo.png
+  favicon: images/RansNet_logo.png
+
+
+extra:
+  generator: false
+  social:
+    - icon: fontawesome/solid/envelope
+      link: mailto:support@ransnet.com
+      name: support@ransnet.com
+    - icon: fontawesome/solid/globe
+      link: https://www.ransnet.com
+      name: www.ransnet.com
+extra_css:
+  - stylesheets/extra.css
+
+plugins:
+  - search
+  - glightbox
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - attr_list
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
+
+nav:
+  - Getting Started:
+    - start/index.md
+    - Product Overview: start/overview.md
+    - mfusion Overview:
+      - Features: start/mfusion/features.md
+      - Security: start/mfusion/security.md
+      - Admin: start/mfusion/admin.md
+    - Device Setup:
+      - Bootstrapping: start/device/bootstrap.md
+      - Provisioning: start/device/provision.md
+      - Onboarding: start/device/onboard.md
+      - Hardening: start/device/harden.md
+  - Device Monitoring:
+    - monitor/index.md
+    - Dashboard: monitor/dashboard.md
+    - Hosts: monitor/hosts.md
+    - Topology: monitor/topo.md
+    - Wireless: monitor/wifi.md
+    - Netflow: monitor/netflow.md
+    - Alerts: monitor/alerts.md
+    - Settings: monitor/settings.md
+  - Network Settings:
+    - config/index.md
+    - Interfaces:
+      - Ethernet: config/iface/ethernet.md
+      - VLAN: config/iface/vlaniface.md
+      - Bridge: config/iface/bridge.md
+      - WWAN: config/iface/wwan.md
+      - PPPoE: config/iface/pppoe.md
+      - WiFi as WAN: config/iface/wfiwan.md
+    - DHCP: config/dhcp.md
+    - Routing:
+      - routing/index.md
+      - Static: routing/static.md
+      - OSPF: routing/ospf.md
+      - BGP: routing/bgp.md
+    - VRRP: config/vrrp.md
+    - Wireless: config/wifi.md
+    - Tracking: config/tracking.md
+  - SD-WAN:
+    - sdwan/index.md
+    - VPN Protocols: config/vpn.md
+    - VPN Instance: config/vpninstance.md
+    - Multi-WAN: config/mwan.md
+    - Traffic Steering: config/pbr.md
+    - Traffic Shaping: config/qos.md
+  - Security & Firewall:
+    - security/index.md
+    - Firewall:
+      - firewall/index.md
+      - Access: firewall/input.md
+      - DNAT: firewall/dnat.md
+      - SNAT: firewall/snat.md
+      - Input: firewall/input.md
+    - DNS Filtering: security/dnsfiltering.md
+    - Netflow Analyzer: security/netflow.md
+    - Log Collector: security/log.md
+    - RADIUS Server: security/radius.md
+  - System Services:
+    - services/index.md
+    - DNS: services/dns.md
+    - NTP: services/ntp.md
+    - SNMP: services/snmp.md
+    - Syslog: services/syslog.md
+  #- HotSpot Gateway:
+  #  - hotspot/index.md
+  - Sample Scenario:
+    - WAN Failover: scenarios/wanfailover.md
+    - L2 over SD-WAN: scenarios/l2vpn.md
+    - VRF over SD-WAN: scenarios/vrf.md
+    - Wi-Fi over SD-WAN: scenarios/wifi.md
+  #- Q&A:
+  #  - qa/index.md
+  #- API Documentation:
+  #  - api/index.md

@@ -2798,10 +2798,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
       
         <li class="md-nav__item">
-  <a href="#what-this-section-covers" class="md-nav__link">
+  <a href="#what-is-ransnet" class="md-nav__link">
     <span class="md-ellipsis">
       
-        What This Section Covers
+        What is RansNet?
       
     </span>
   </a>
@@ -2809,10 +2809,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#why-it-matters" class="md-nav__link">
+  <a href="#how-to-use-this-documentation" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Why It Matters
+        How to Use This Documentation
       
     </span>
   </a>
@@ -2820,10 +2820,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#what-you-will-learn" class="md-nav__link">
+  <a href="#new-device-deployment-workflow" class="md-nav__link">
     <span class="md-ellipsis">
       
-        What You Will Learn
+        New Device Deployment Workflow
       
     </span>
   </a>
@@ -2865,20 +2865,94 @@
 
 
 <h1 id="getting-started">Getting Started<a class="headerlink" href="#getting-started" title="Permanent link">¶</a></h1>
-<h2 id="what-this-section-covers">What This Section Covers<a class="headerlink" href="#what-this-section-covers" title="Permanent link">¶</a></h2>
-<p>This section introduces RansNet hardware appliances (aka <strong>mbox</strong>) and softwaare platform (aka <strong>mfusion</strong>), and guides you through the complete lifecycle of deploying and securing a device.</p>
-<h2 id="why-it-matters">Why It Matters<a class="headerlink" href="#why-it-matters" title="Permanent link">¶</a></h2>
-<p>Following this workflow ensures that devices are properly deployed, onboarded, and secured for reliable production operation.</p>
-<h2 id="what-you-will-learn">What You Will Learn<a class="headerlink" href="#what-you-will-learn" title="Permanent link">¶</a></h2>
+<p>Welcome to the RansNet documentation site. This guide covers the full lifecycle of deploying, configuring, and managing RansNet SD-WAN and Wi-Fi solutions — from unboxing a device through to advanced network configuration and API integration.</p>
+<hr>
+<h2 id="what-is-ransnet">What is RansNet?<a class="headerlink" href="#what-is-ransnet" title="Permanent link">¶</a></h2>
+<p>RansNet provides end-to-end SD-WAN and SD-Branch solutions built around two core components:</p>
 <ul>
-<li>Understanding RansNet products and architecture  </li>
-<li>Preparing and bootstrapping new devices  </li>
-<li>Onboarding devices into mfusion  </li>
-<li>Applying security hardening best practices  </li>
+<li><strong>mbox</strong> — the physical or virtual network appliance deployed at each site. Available in several series (UA, HSA, CMG, XE) with varying cellular, Wi-Fi, and routing capabilities. See <a href="overview/">Product Overview</a> for more details.</li>
+<li><strong>mfusion</strong> — the cloud or on-premise SD-WAN orchestrator. Provides zero-touch provisioning, centralized monitoring, configuration management, and policy orchestration across all deployed mbox devices.</li>
 </ul>
+<p>A typical deployment has one or more mbox devices at branch sites, reporting to a single mfusion instance that gives your network team a unified view and control plane.</p>
+<hr>
+<h2 id="how-to-use-this-documentation">How to Use This Documentation<a class="headerlink" href="#how-to-use-this-documentation" title="Permanent link">¶</a></h2>
+<p>The documentation is organized by function. Use the sections below as a map to find what you need:</p>
+<table>
+<thead>
+<tr>
+<th>Section</th>
+<th>What it covers</th>
+<th>Start here if...</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Getting Started</strong> <em>(this section)</em></td>
+<td>Product overview, bootstrapping, onboarding, hardening</td>
+<td>You are deploying a device for the first time</td>
+</tr>
+<tr>
+<td><strong><a href="../monitor/">Device Monitoring</a></strong></td>
+<td>Dashboard, topology, alerts, per-device drill-down</td>
+<td>You want visibility into device health and network status</td>
+</tr>
+<tr>
+<td><strong><a href="../config/">Network Settings</a></strong></td>
+<td>Interfaces, VLANs, DHCP, routing, Wi-Fi, tracking</td>
+<td>You are configuring network interfaces and connectivity</td>
+</tr>
+<tr>
+<td><strong><a href="../sdwan/">SD-WAN</a></strong></td>
+<td>VPN, multi-WAN, traffic steering, QoS</td>
+<td>You are setting up WAN connectivity or SD-WAN policies</td>
+</tr>
+<tr>
+<td><strong><a href="../security/">Security &amp; Firewall</a></strong></td>
+<td>Firewall rules, DNAT/SNAT, DNS filtering, RADIUS</td>
+<td>You are hardening or securing the network</td>
+</tr>
+<tr>
+<td><strong><a href="../scenarios/wanfailover/">Sample Scenarios</a></strong></td>
+<td>WAN failover, L2/VRF over SD-WAN, Wi-Fi over SD-WAN</td>
+<td>You want end-to-end deployment examples</td>
+</tr>
+<tr>
+<td><strong><a href="../api/netflow/">API Documentation</a></strong></td>
+<td>NetFlow, monitoring, hotspot, syslog APIs</td>
+<td>You are integrating mfusion with external systems</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="new-device-deployment-workflow">New Device Deployment Workflow<a class="headerlink" href="#new-device-deployment-workflow" title="Permanent link">¶</a></h2>
+<p>If you are setting up a RansNet device for the first time, follow this sequence:</p>
+<ol>
+<li><strong><a href="overview/">Product Overview</a></strong> — Identify your hardware series and understand how mbox and mfusion work together.</li>
+<li><strong><a href="device/bootstrap/">Bootstrapping</a></strong> — Connect to the device via console or SSH and configure the initial mfusion connection so the device can call home.</li>
+<li><strong><a href="device/provision/">Provisioning</a></strong> — Apply a configuration template through mfusion for zero-touch setup.</li>
+<li><strong><a href="device/onboard/">Onboarding</a></strong> — Register and verify the device in mfusion, confirm it appears in the dashboard.</li>
+<li><strong><a href="device/harden/">Hardening</a></strong> — Apply security best practices before putting the device into production.</li>
+</ol>
 <hr>
 <h2 id="support">Support<a class="headerlink" href="#support" title="Permanent link">¶</a></h2>
-<p>If you require further assistance, please contact <a href="mailto:support@ransnet.com">support@ransnet.com</a>.</p>
+<table>
+<thead>
+<tr>
+<th>Channel</th>
+<th>Details</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Email support</td>
+<td><a href="mailto:support@ransnet.com">support@ransnet.com</a></td>
+</tr>
+<tr>
+<td>Website</td>
+<td><a href="https://www.ransnet.com">www.ransnet.com</a></td>
+</tr>
+</tbody>
+</table>
 
 
 

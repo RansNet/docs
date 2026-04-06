@@ -23,7 +23,6 @@ theme:
         icon: material/brightness-4
         name: Switch to light mode
   features:
-    - navigation.sections
     - navigation.indexes
     - navigation.path
     - navigation.top
@@ -147,5 +146,9 @@ nav:
     - Wi-Fi over SD-WAN: scenarios/wifi.md
   #- Q&A:
   #  - qa/index.md
-  #- API Documentation:
-  #  - api/index.md
+  - API Documentation:
+    - API Setup: api/setup.md
+    - Hotspot API: api/hotspot.md
+    - Monitoring API: api/rmm.md
+    - Syslog API: api/syslog.md
+    - WISPr API: api/wispr.md

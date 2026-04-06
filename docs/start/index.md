@@ -4,9 +4,9 @@ Welcome to the RansNet documentation site. This guide covers the full lifecycle 
 
 ---
 
-## What is RansNet?
+## Who is RansNet?
 
-RansNet provides end-to-end SD-WAN and SD-Branch solutions built around two core components:
+RansNet is a Singapore-based technology vendor who develops end-to-end SD-WAN and SD-Branch solutions built around two core components:
 
 - **mbox** — the physical or virtual network appliance deployed at each site. Available in several series (UA, HSA, CMG, XE) with varying cellular, Wi-Fi, and routing capabilities. See [Product Overview](overview.md) for more details.
 - **mfusion** — the cloud or on-premise SD-WAN orchestrator. Provides zero-touch provisioning, centralized monitoring, configuration management, and policy orchestration across all deployed mbox devices.

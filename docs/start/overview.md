@@ -77,7 +77,8 @@ The CMG series is deployed as the SD-WAN gateway (data center or headquarters si
 | **Form factor** | Desktop | Desktop | 1U rack | 2U rack |
 | **Datasheet** | [CMG Series](RansNet%20CMG%20Product%20Datasheet.pdf) | [CMG Series](RansNet%20CMG%20Product%20Datasheet.pdf) | [CMG Series](RansNet%20CMG%20Product%20Datasheet.pdf) | [CMG Series](RansNet%20CMG%20Product%20Datasheet.pdf) |
 
-All CMG models include: stateful firewall, IPSec/SSL/WireGuard/GRE/VXLAN/SSL VPN, OSPF/BGP, VRRP HA, PBR, QoS, SNMP/NetFlow/Syslog, NFV support, and mfusion zero-touch provisioning.
+!!! note
+    All CMG models include: stateful firewall, IPSec/SSL/WireGuard/GRE/VXLAN/SSL VPN, OSPF/BGP, VRRP HA, PBR, QoS, SNMP/NetFlow/Syslog, NFV support, and mfusion zero-touch provisioning.
 
 ---
 

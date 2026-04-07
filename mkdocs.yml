@@ -102,23 +102,23 @@ nav:
       - Bridge: config/iface/bridge.md
       - WWAN: config/iface/wwan.md
       - PPPoE: config/iface/pppoe.md
-      - WiFi as WAN: config/iface/wfiwan.md
+      #- WiFi as WAN: config/iface/wfiwan.md
     - DHCP: config/dhcp.md
     - Routing:
       - routing/index.md
       - Static: routing/static.md
       - OSPF: routing/ospf.md
       - BGP: routing/bgp.md
-    - VRRP: config/vrrp.md
+    #- VRRP: config/vrrp.md
     - Wireless: config/wifi.md
     - Tracking: config/tracking.md
-  - SD-WAN:
-    - sdwan/index.md
-    - VPN Protocols: config/vpn.md
-    - VPN Instance: config/vpninstance.md
-    - Multi-WAN: config/mwan.md
-    - Traffic Steering: config/pbr.md
-    - Traffic Shaping: config/qos.md
+  #- SD-WAN:
+   # - sdwan/index.md
+   # - VPN Protocols: config/vpn.md
+   # - VPN Instance: config/vpninstance.md
+   # - Multi-WAN: config/mwan.md
+   # - Traffic Steering: config/pbr.md
+   # - Traffic Shaping: config/qos.md
   - Security & Firewall:
     - security/index.md
     - Firewall:
@@ -132,24 +132,24 @@ nav:
     - Log Collector: security/log.md
     - RADIUS Server: security/radius.md
   - System Services:
-    - services/index.md
     - DNS: services/dns.md
     - NTP: services/ntp.md
     - SNMP: services/snmp.md
     - Syslog: services/syslog.md
-  #- HotSpot Gateway:
-  #  - hotspot/index.md
-  - Sample Scenario:
-    - WAN Failover: scenarios/wanfailover.md
-    - L2 over SD-WAN: scenarios/l2vpn.md
-    - VRF over SD-WAN: scenarios/vrf.md
-    - Wi-Fi over SD-WAN: scenarios/wifi.md
+  - HotSpot Gateway:
+    - hotspot/index.md
+  - Use Cases:
+    - WAN Failover: cases/wanfailover.md
+    - L2 over SD-WAN: cases/l2vpn.md
+    - VRF over SD-WAN: cases/vrf.md
+    #- Wi-Fi over SD-WAN: cases/wifi.md
+    - Crew WiFi Hotspot: cases/crewwifi.md
   #- Q&A:
   #  - qa/index.md
   - API Documentation:
-    - API Setup: api/setup.md
+    #- API Setup: api/setup.md
     - Hotspot API: api/hotspot.md
-    - Monitoring API: api/rmm.md
+    #- Monitoring API: api/rmm.md
     - Syslog API: api/syslog.md
     - WISPr API: api/wispr.md
     - NetFlow API: api/netflow.md

@@ -146,6 +146,79 @@ The UAP-520 is an enterprise-grade access point (indoor/outdoor, IP67) designed 
 
 ---
 
+## Accessories
+
+### Antenna Accessories — Comparison
+
+| | **ANT-520D** | **ANT-520M** | **YB0007AA** |
+|---|---|---|---|
+| **Type** | Directional flat-panel | Omnidirectional monopole | 5G/4G antenna box (puck) |
+| **Application** | Wi-Fi — long-range PtP/PtMP | Wi-Fi — wide-area coverage | 5G/4G cellular — MIMO |
+| **Frequency** | 2.4 GHz & 5.8 GHz | 2.4 GHz & 5.8 GHz | 700–960 / 1100–2690 / 3300–5000 MHz |
+| **Gain** | 10 dBi (2.4 GHz) / 12 dBi (5.8 GHz) | 6 dBi (2.4 GHz) / 8 dBi (5.8 GHz) | ≥ −0.5 dBi (omnidirectional) |
+| **Pattern** | Directional, dual polarization | Omnidirectional, 360° | Omnidirectional |
+| **Max range** | Up to 800 m (open) | Up to 300 m (open) | — |
+| **Connectors** | RP-SMA Female × 2 (with 2 m cable) | N-female | SMA Male × 4 (500 mm cables) |
+| **IP rating** | IP65 | IP67 | IP67 |
+| **Operating temp** | −40°C to +60°C | −40°C to +55°C | −20°C to +80°C |
+| **Mounting** | Pole (Ø30–55 mm), tilt 0–180° | Pole / wall / device-mount | Screw through panel (φ28 mm hole) |
+| **Datasheet** | [ANT-520D](RansNet%20ANT-520D%20Datasheet.pdf) | [ANT-520M](RansNet%20ANT-520M%20Datasheet.pdf) | [YB0007AA](RansNet-ANT-YB0007AA-Datasheet.pdf) |
+
+### ANT-520D — High-Gain Directional Wi-Fi Antenna
+
+The ANT-520D is an outdoor flat-panel directional antenna designed for long-range Wi-Fi coverage up to 800 m in open environments. With dual polarization and high gain, it is suited for point-to-point (PtP) and point-to-multipoint (PtMP) sector links, outdoor hotspot deployments, smart city wireless infrastructure, and video surveillance backhaul. The UV-resistant ABS radome and DC grounding for lightning protection make it suitable for permanent outdoor installation.
+
+| Specification | Value |
+|---|---|
+| **Frequency** | 2400–2500 / 5150–5850 MHz |
+| **Gain** | 10 dBi (2.4 GHz) / 12 dBi (5.8 GHz) |
+| **Polarization** | Dual (Vertical + Horizontal) |
+| **Horizontal 3 dB beamwidth** | 65° ± 5° (both bands) |
+| **Vertical 3 dB beamwidth** | 40° ± 5° (2.4 GHz) / 30° ± 5° (5.8 GHz) |
+| **Front-to-back ratio** | ≥ 28 dB |
+| **Connector** | RP-SMA Female × 2 (with 2 m 3DFB cable) |
+| **Dimensions** | 220 × 220 × 25 mm, 0.8 kg |
+| **Mounting** | Pole Ø30–55 mm, mechanical tilt 0–180° |
+| **IP rating / Compliance** | IP65, CE, FCC |
+| **Operating temp** | −40°C to +60°C |
+| **Lightning protection** | DC Grounded |
+
+### ANT-520M — High-Gain Omnidirectional Wi-Fi Antenna
+
+The ANT-520M is an outdoor monopole omnidirectional antenna delivering 360° Wi-Fi coverage up to 300 m in open environments. Its low-profile form factor and flexible mounting options (pole, wall, or direct device mount) make it well suited for access points and mesh nodes requiring broad-area coverage. It is optimized to work with RansNet's multi-hop self-healing mesh technology to maximize WLAN reachability and reliability across UAP-520 and HSA-520/UA-520 deployments.
+
+| Specification | Value |
+|---|---|
+| **Frequency** | 2400–2500 / 5150–5850 MHz |
+| **Gain** | 6 dBi (2.4 GHz) / 8 dBi (5.8 GHz) |
+| **Polarization** | Vertical |
+| **Beamwidth** | 360° horizontal (omnidirectional) |
+| **Connector** | N-female |
+| **Dimensions** | Ø20 × 350 mm, 0.226 kg |
+| **Mounting** | Pole / wall / direct device-mount |
+| **IP rating / Compliance** | IP67, CE, FCC |
+| **Operating temp** | −40°C to +55°C |
+| **Lightning protection** | DC Grounded |
+
+### YB0007AA — 5G Antenna Box
+
+The YB0007AA is a compact screw-mount 5G antenna box (puck form factor) providing four SMA connections for simultaneous 4G/5G MIMO operation. It covers the full 4G and 5G Sub-6 GHz spectrum (700–5000 MHz) and is validated with the Quectel RM500Q-GL module across LTE bands 1–71 and 5G bands N41, N77, N78, and N79. The low-profile IP67 enclosure mounts flush to surfaces on vehicles, enclosures, or wall panels — making it a practical external antenna upgrade for UA-520 and HSA-520 deployments where built-in or stub antennas are insufficient for reliable cellular coverage.
+
+| Specification | Value |
+|---|---|
+| **Frequency** | 700–960 / 1100–2690 / 3300–5000 MHz |
+| **Connectors** | 4 × SMA Male: LMH# (4G/5G main), LMH (4G/5G diversity), \*MH (5G MIMO1), MH (5G MIMO2) |
+| **Gain** | ≥ −0.5 dBi |
+| **Polarization** | Linear |
+| **Cable length** | 500 mm ± 30 mm |
+| **Dimensions** | Ø120 × 43 mm |
+| **IP rating** | IP67 |
+| **Operating temp** | −20°C to +80°C |
+| **Installation** | Screw-mount through panel (φ28 mm hole, wall thickness 2–4 mm) |
+| **Shell material** | KIBILAC® ASA, Black |
+
+---
+
 ## Which Product Do I Need?
 
 | Scenario | Recommended Product |
@@ -158,3 +231,6 @@ The UAP-520 is an enterprise-grade access point (indoor/outdoor, IP67) designed 
 | High-performance SD-WAN hub / data center gateway | CMG-3000 or CMG-5000 |
 | Hotel / mall / venue guest Wi-Fi with captive portal | HSG series (size by device count) |
 | Wi-Fi coverage extension for indoor/outdoor enterprise | UAP-520 |
+| Long-range outdoor Wi-Fi sector or PtP/PtMP link | ANT-520D |
+| Wide-area omnidirectional Wi-Fi coverage for APs or mesh nodes | ANT-520M |
+| External 4G/5G MIMO antenna for vehicle or panel mounting | YB0007AA |

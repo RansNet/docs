@@ -78,7 +78,9 @@ The CMG series is deployed as the SD-WAN gateway (data center or headquarters si
 | **Datasheet** | [CMG Series](RansNet%20CMG%20Product%20Datasheet.pdf) | [CMG Series](RansNet%20CMG%20Product%20Datasheet.pdf) | [CMG Series](RansNet%20CMG%20Product%20Datasheet.pdf) | [CMG Series](RansNet%20CMG%20Product%20Datasheet.pdf) |
 
 !!! note
-    All CMG models include: stateful firewall, IPSec/SSL/WireGuard/GRE/VXLAN/SSL VPN, OSPF/BGP, VRRP HA, PBR, QoS, SNMP/NetFlow/Syslog, NFV support, and mfusion zero-touch provisioning.
+    All CMG models include: stateful firewall, IPSec/SSL/WireGuard/GRE/VXLAN/SSL VPN, OSPF/BGP, VRRP HA, PBR, QoS, SNMP/NetFlow/Syslog, VRF support, and mfusion zero-touch provisioning.
+
+    Redundant PSU available for CMG-3000; included for CMG-5000.
 
 ---
 
@@ -124,7 +126,7 @@ Key capabilities:
 | **HSG-15000** | 3 Gbps | 15,000 | 2U rack |
 | **HSG-25000** | 3 Gbps | 25,000 | 2U rack |
 
-HSG-1000 and above include built-in wireless AP controller (MACC). Redundant PSU available from HSG-2000; included from HSG-15000.
+Redundant PSU available from HSG-2000; included from HSG-15000.
 
 ### UAP-520 — Access Point Highlights
 

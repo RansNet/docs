@@ -89,7 +89,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#api-for-retrieving-syslogs" class="md-skip">
+        <a href="#wispr-captive-portal-login-integration" class="md-skip">
           Skip to content
         </a>
       
@@ -2726,6 +2726,24 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    WISPr API
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -2742,6 +2760,186 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Overview
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-1-trigger-the-captive-portal" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 1 — Trigger the Captive Portal
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-2-parse-the-hsg-wispr-response" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 2 — Parse the HSG WISPr Response
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Step 2 — Parse the HSG WISPr Response">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#key-fields" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key fields
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-3-submit-credentials" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 3 — Submit Credentials
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Step 3 — Submit Credentials">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#post-method" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        POST method
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-method" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GET method
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#app-owner-credential-variant" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        App owner credential variant
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#authentication-redirect-flow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Authentication Redirect Flow
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Authentication Redirect Flow">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#redirect-from-login-portal-responsecode-201" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Redirect from login portal (ResponseCode 201)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#redirect-from-hotspot-engine-before-radius-authentication-responsecode-201" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Redirect from hotspot engine before RADIUS authentication (ResponseCode 201)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#response-codes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Response codes
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#implementation-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Implementation Notes
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -2803,6 +3001,175 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Overview
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-1-trigger-the-captive-portal" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 1 — Trigger the Captive Portal
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-2-parse-the-hsg-wispr-response" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 2 — Parse the HSG WISPr Response
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Step 2 — Parse the HSG WISPr Response">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#key-fields" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key fields
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-3-submit-credentials" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 3 — Submit Credentials
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Step 3 — Submit Credentials">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#post-method" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        POST method
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-method" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GET method
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#app-owner-credential-variant" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        App owner credential variant
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#authentication-redirect-flow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Authentication Redirect Flow
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Authentication Redirect Flow">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#redirect-from-login-portal-responsecode-201" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Redirect from login portal (ResponseCode 201)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#redirect-from-hotspot-engine-before-radius-authentication-responsecode-201" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Redirect from hotspot engine before RADIUS authentication (ResponseCode 201)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#response-codes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Response codes
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#implementation-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Implementation Notes
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -2824,8 +3191,199 @@
 
 
 
-<h1 id="api-for-retrieving-syslogs">API For Retrieving Syslogs<a class="headerlink" href="#api-for-retrieving-syslogs" title="Permanent link">¶</a></h1>
-<p>This section details how to get syslogs from mfusion using API, by external system.</p>
+<h1 id="wispr-captive-portal-login-integration">WISPr Captive Portal Login Integration<a class="headerlink" href="#wispr-captive-portal-login-integration" title="Permanent link">¶</a></h1>
+<p>This section describes how external applications can integrate with the HSG (HotSpot Gateway) captive portal using the WISPr (Wireless Internet Service Provider roaming) protocol to perform automated user authentication.</p>
+<h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">¶</a></h2>
+<p>The WISPr login flow consists of three stages:</p>
+<ol>
+<li>The client app sends an HTTP probe request to trigger a captive portal redirect</li>
+<li>HSG responds with a WISPr XML payload containing the <code>LoginURL</code></li>
+<li>The client app submits credentials to the <code>LoginURL</code> and follows redirects until authentication succeeds or fails</li>
+</ol>
+<hr>
+<h2 id="step-1-trigger-the-captive-portal">Step 1 — Trigger the Captive Portal<a class="headerlink" href="#step-1-trigger-the-captive-portal" title="Permanent link">¶</a></h2>
+<p>Send an HTTP GET request to any domain that is <strong>not</strong> whitelisted in HSG. The request must use plain HTTP to avoid TLS/HSTS complications.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nf">GET</span> <span class="nn">/</span> <span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="na">Host</span><span class="o">:</span> <span class="l">www.time.com</span>
+</code></pre></div>
+<blockquote>
+<p><strong>Recommended probe URL:</strong> <code>http://neverssl.com</code></p>
+<p>Sites with HSTS enabled will never work as probe targets because the browser/client will refuse to follow the HTTP redirect to the captive portal.</p>
+</blockquote>
+<hr>
+<h2 id="step-2-parse-the-hsg-wispr-response">Step 2 — Parse the HSG WISPr Response<a class="headerlink" href="#step-2-parse-the-hsg-wispr-response" title="Permanent link">¶</a></h2>
+<p>HSG replies with an HTTP redirect. The response body contains a WISPr XML block embedded in an HTML comment:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">302</span> <span class="ne">Found</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="na">Location</span><span class="o">:</span> <span class="l">https://splash.ransnet.com/pid/ransnet/login.php?res=notyet&amp;uamip=192.168.80.1&amp;uamport=5234...</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="na">Content-Type</span><span class="o">:</span> <span class="l">text/html; charset=UTF-8</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="na">Content-Length</span><span class="o">:</span> <span class="l">868</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="na">Connection</span><span class="o">:</span> <span class="l">close</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="p">&lt;</span><span class="nt">HTML</span><span class="p">&gt;&lt;</span><span class="nt">BODY</span><span class="p">&gt;&lt;</span><span class="nt">H2</span><span class="p">&gt;</span>Browser error!<span class="p">&lt;/</span><span class="nt">H2</span><span class="p">&gt;</span>Browser does not support redirects!<span class="p">&lt;/</span><span class="nt">BODY</span><span class="p">&gt;</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="cm">&lt;!--</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="cm">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="cm">&lt;WISPAccessGatewayParam</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="cm">  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="cm">  xsi:noNamespaceSchemaLocation="http://www.wballiance.net/wispr_2_0.xsd"&gt;</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="cm">  &lt;Redirect&gt;</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="cm">    &lt;MessageType&gt;100&lt;/MessageType&gt;</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="cm">    &lt;ResponseCode&gt;0&lt;/ResponseCode&gt;</span>
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="cm">    &lt;VersionHigh&gt;2.0&lt;/VersionHigh&gt;</span>
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="cm">    &lt;VersionLow&gt;1.0&lt;/VersionLow&gt;</span>
+<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="cm">    &lt;AccessProcedure&gt;1.0&lt;/AccessProcedure&gt;</span>
+<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="cm">    &lt;AccessLocation&gt;CDATA[[isocc=,cc=,ac=,network=Coova,]]&lt;/AccessLocation&gt;</span>
+<a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a><span class="cm">    &lt;LocationName&gt;CDATA[[My_HotSpot]]&lt;/LocationName&gt;</span>
+<a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a><span class="cm">    &lt;LoginURL&gt;https://splash.ransnet.com/pid/ransnet/login.php?res=wispr&amp;amp;uamip=192.168.80.1&amp;amp;uamport=5234&amp;amp;challenge=...&lt;/LoginURL&gt;</span>
+<a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a><span class="cm">    &lt;AbortLoginURL&gt;https://splash.ransnet.com:5234/abort&lt;/AbortLoginURL&gt;</span>
+<a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a><span class="cm">    &lt;EAPMsg&gt;AQEABQE=&lt;/EAPMsg&gt;</span>
+<a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a><span class="cm">  &lt;/Redirect&gt;</span>
+<a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a><span class="cm">&lt;/WISPAccessGatewayParam&gt;</span>
+<a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a><span class="cm">--&gt;</span>
+<a id="__codelineno-2-21" name="__codelineno-2-21" href="#__codelineno-2-21"></a><span class="p">&lt;/</span><span class="nt">HTML</span><span class="p">&gt;</span>
+</code></pre></div>
+<h3 id="key-fields">Key fields<a class="headerlink" href="#key-fields" title="Permanent link">¶</a></h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>LoginURL</code></td>
+<td>The URL to submit credentials to. <strong>Always extract from the XML</strong> — it varies by location.</td>
+</tr>
+<tr>
+<td><code>uamip</code></td>
+<td>IP address of the hotspot server (e.g. <code>192.168.80.1</code>)</td>
+</tr>
+<tr>
+<td><code>uamport</code></td>
+<td>Port of the hotspot server (e.g. <code>5234</code>)</td>
+</tr>
+<tr>
+<td><code>challenge</code></td>
+<td>Random hex string generated by the hotspot server, used in the login request</td>
+</tr>
+<tr>
+<td><code>AbortLoginURL</code></td>
+<td>URL to cancel the login attempt</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Important:</strong> <code>LoginURL</code> is XML-encoded. Decode XML entities before use (e.g. <code>&amp;amp;</code> → <code>&amp;</code>).</p>
+</blockquote>
+<hr>
+<h2 id="step-3-submit-credentials">Step 3 — Submit Credentials<a class="headerlink" href="#step-3-submit-credentials" title="Permanent link">¶</a></h2>
+<p>Using the decoded <code>LoginURL</code>, submit the user's credentials via either POST or GET.</p>
+<h3 id="post-method">POST method<a class="headerlink" href="#post-method" title="Permanent link">¶</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="err">POST &lt;LoginURL&gt;</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="err">Content-Type: application/x-www-form-urlencoded</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="err">UserName=&lt;username&gt;&amp;Password=&lt;password&gt;</span>
+</code></pre></div>
+<blockquote>
+<p>Both <code>UserName</code>/<code>Password</code> (standard) and <code>username</code>/<code>password</code> (non-standard) field names are accepted.</p>
+</blockquote>
+<h3 id="get-method">GET method<a class="headerlink" href="#get-method" title="Permanent link">¶</a></h3>
+<p>Append credentials as query parameters to the <code>LoginURL</code>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="err">https://splash.ransnet.com/pid/ransnet/login.php?res=wispr&amp;uamip=192.168.80.1&amp;uamport=5234&amp;challenge=a63361d633eeeb4131001989dd37484d&amp;UserName=test&amp;Password=test123</span>
+</code></pre></div>
+<blockquote>
+<p>Both <code>UserName</code>/<code>Password</code> (standard) and <code>username</code>/<code>password</code> (non-standard) parameter names are accepted.</p>
+</blockquote>
+<p>HSG validates the credentials against its local or external RADIUS database and returns a WISPr authentication reply.</p>
+<h3 id="app-owner-credential-variant">App owner credential variant<a class="headerlink" href="#app-owner-credential-variant" title="Permanent link">¶</a></h3>
+<p>In addition to the standard <code>UserName</code>/<code>Password</code> pair, application owners may submit an alternative credential set that delegates authentication to the owning application. This uses a signed hash in place of the plaintext password.</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>UserName</code></td>
+<td>The end-user's username</td>
+</tr>
+<tr>
+<td><code>AppOwner</code></td>
+<td>Identifier of the application owner submitting the request</td>
+</tr>
+<tr>
+<td><code>HashValue</code></td>
+<td>Base64-encoded authentication token (construction TBD)</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Note:</strong> Full parameter specification and hash construction details for this variant will be documented once finalised.</p>
+</blockquote>
+<hr>
+<h2 id="authentication-redirect-flow">Authentication Redirect Flow<a class="headerlink" href="#authentication-redirect-flow" title="Permanent link">¶</a></h2>
+<p>After credential submission, follow the <code>LoginResultsURL</code> from each WISPr reply until <code>res=success</code> or <code>res=failed</code> is returned. Multiple redirects are normal before reaching a final result.</p>
+<h3 id="redirect-from-login-portal-responsecode-201">Redirect from login portal (ResponseCode 201)<a class="headerlink" href="#redirect-from-login-portal-responsecode-201" title="Permanent link">¶</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="nt">&lt;WISPAccessGatewayParam</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">  </span><span class="na">xmlns:xsi=</span><span class="s">"http://www.w3.org/2001/XMLSchema-instance"</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">  </span><span class="na">xsi:noNamespaceSchemaLocation=</span><span class="s">"http://www.acmewisp.com/WISPAccessGatewayParam.xsd"</span><span class="nt">&gt;</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">  </span><span class="nt">&lt;AuthenticationReply&gt;</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="w">    </span><span class="nt">&lt;MessageType&gt;</span>120<span class="nt">&lt;/MessageType&gt;</span>
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="w">    </span><span class="nt">&lt;ResponseCode&gt;</span>201<span class="nt">&lt;/ResponseCode&gt;</span>
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="w">    </span><span class="nt">&lt;LoginResultsURL&gt;</span>http://172.21.40.254:4070/www/externv2.chi?res=wispr<span class="err">&amp;</span>uamip=172.21.40.254<span class="err">&amp;</span>uamport=4070<span class="err">&amp;</span>challenge=0fcd2aca0c0cb94a57b3d169769bf318<span class="err">&amp;</span>called=00-60-E0-65-50-5C<span class="err">&amp;</span>mac=E4-A4-71-B4-9F-0B<span class="err">&amp;</span>ip=172.21.40.2<span class="err">&amp;</span>nasid=RansNet_HSG-Primary_vlan25_50-5c<span class="err">&amp;</span>sessionid=5dad72e500000002<span class="err">&amp;</span>userurl=http%3a%2f%2fyahoo.com%2f<span class="err">&amp;</span>ch=JJe1DOhCBt%2fQVsStE3BSK0o08XIjGmImIusRmzIL1xc%3d<span class="err">&amp;</span>md=CD0EB8D1FB5E489C1FC440BFF7F551F8<span class="nt">&lt;/LoginResultsURL&gt;</span>
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="w">  </span><span class="nt">&lt;/AuthenticationReply&gt;</span>
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="nt">&lt;/WISPAccessGatewayParam&gt;</span>
+</code></pre></div>
+<h3 id="redirect-from-hotspot-engine-before-radius-authentication-responsecode-201">Redirect from hotspot engine before RADIUS authentication (ResponseCode 201)<a class="headerlink" href="#redirect-from-hotspot-engine-before-radius-authentication-responsecode-201" title="Permanent link">¶</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="nt">&lt;WISPAccessGatewayParam</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="w">  </span><span class="na">xmlns:xsi=</span><span class="s">"http://www.w3.org/2001/XMLSchema-instance"</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="w">  </span><span class="na">xsi:noNamespaceSchemaLocation=</span><span class="s">"http://www.acmewisp.com/WISPAccessGatewayParam.xsd"</span><span class="nt">&gt;</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="w">  </span><span class="nt">&lt;AuthenticationReply&gt;</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="w">    </span><span class="nt">&lt;MessageType&gt;</span>120<span class="nt">&lt;/MessageType&gt;</span>
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="w">    </span><span class="nt">&lt;ResponseCode&gt;</span>201<span class="nt">&lt;/ResponseCode&gt;</span>
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="w">    </span><span class="nt">&lt;LoginResultsURL&gt;</span>http://172.21.40.254:4070/login?username=test<span class="ni">&amp;amp;</span>password=c3b5a9e87701a002<span class="ni">&amp;amp;</span>userurl=http%3A%2F%2Fmboxstatus.net<span class="nt">&lt;/LoginResultsURL&gt;</span>
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="w">  </span><span class="nt">&lt;/AuthenticationReply&gt;</span>
+<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="nt">&lt;/WISPAccessGatewayParam&gt;</span>
+</code></pre></div>
+<h3 id="response-codes">Response codes<a class="headerlink" href="#response-codes" title="Permanent link">¶</a></h3>
+<table>
+<thead>
+<tr>
+<th>ResponseCode</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>0</code></td>
+<td>Initial redirect (from Step 2)</td>
+</tr>
+<tr>
+<td><code>201</code></td>
+<td>Redirecting — follow <code>LoginResultsURL</code></td>
+</tr>
+<tr>
+<td><code>50</code></td>
+<td>Authentication success (<code>res=success</code>)</td>
+</tr>
+<tr>
+<td><code>100</code></td>
+<td>Authentication failure (<code>res=failed</code>)</td>
+</tr>
+</tbody>
+</table>
+<p>When <code>res=success</code> is received, notify the user that authentication was successful and internet access has been granted.</p>
+<hr>
+<h2 id="implementation-notes">Implementation Notes<a class="headerlink" href="#implementation-notes" title="Permanent link">¶</a></h2>
+<ul>
+<li>Always use HTTP (not HTTPS) for the initial probe request</li>
+<li>Parse the WISPr XML from within the HTML comment block of the response body</li>
+<li>XML-decode <code>LoginURL</code> before constructing the credential submission request</li>
+<li>Follow all <code>LoginResultsURL</code> redirects in sequence; do not stop at the first <code>201</code> response</li>
+<li>Do not assume a fixed <code>LoginURL</code> — it changes per hotspot location and session</li>
+</ul>
 
 
 

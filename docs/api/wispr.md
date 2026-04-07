@@ -104,6 +104,18 @@ https://splash.ransnet.com/pid/ransnet/login.php?res=wispr&uamip=192.168.80.1&ua
 
 HSG validates the credentials against its local or external RADIUS database and returns a WISPr authentication reply.
 
+### App owner credential variant
+
+In addition to the standard `UserName`/`Password` pair, application owners may submit an alternative credential set that delegates authentication to the owning application. This uses a signed hash in place of the plaintext password.
+
+| Parameter | Description |
+| --- | --- |
+| `UserName` | The end-user's username |
+| `AppOwner` | Identifier of the application owner submitting the request |
+| `HashValue` | Base64-encoded authentication token (construction TBD) |
+
+> **Note:** Full parameter specification and hash construction details for this variant will be documented once finalised.
+
 ---
 
 ## Authentication Redirect Flow

@@ -147,3 +147,26 @@ Logged events include:
 - System-level configuration modifications
 
 Logs can be filtered by time range, username, module, severity level, IP address, or message content, making it straightforward to audit specific incidents or track changes made by a particular user. This data is essential for security audits, compliance reporting, and operational troubleshooting.
+
+---
+
+## Firmware Releases
+
+Navigate to **ADMIN → Releases**.
+
+mfusion acts as an on-premise firmware repository, allowing managed devices to perform over-the-air upgrades by downloading firmware directly from the mfusion server — without requiring each device to reach the internet. Only super-administrators can upload firmware packages to this repository; firmware files are provided by the RansNet support team.
+
+![Firmware Releases](../images/start-mfusionarc-15.png)
+
+Firmware releases are organised by device family:
+
+| Category | Description |
+|---|---|
+| **RANOSL** | Firmware for branch-series devices (e.g. HSA, UA, XE, UAP) |
+| **RANOL** | Firmware for gateway-series devices (e.g. CMG, HSG) |
+
+Once uploaded, the release becomes available for selection when triggering a firmware upgrade from the device management interface.
+
+!!! note
+    Only active devices with a valid activation code and an active support contract are permitted to download firmware from mfusion.
+

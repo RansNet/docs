@@ -52,7 +52,7 @@ To add a device to a customer entity:
     | **Host Name** | Device MAC address (eth0 MAC) — printed on the product label |
     | **Serial No.** | Printed on the product label |
     | **Alias** | A readable name for the device. Use a meaningful name for easy identification. Avoid spaces — use `-` or `_` instead. |
-    | **Template** | `Template_HSA` for branch series (UA/HSA/XE/UAP) · `Template_mbox` for gateway series (CMG/HSG) |
+    | **Template** | `Template_Branch` for branch series (UA/HSA/XE/UAP) · `Template_Gateway` for gateway series (CMG/HSG) |
 
 3. Click **Save Changes**. You will then be prompted to enter an activation code.
 

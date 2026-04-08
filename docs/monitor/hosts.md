@@ -1,66 +1,23 @@
-# Devices
+# Hosts/Devices
 
-## What This Does
-The Devices page provides a centralized view of all monitored devices within the selected entity, including their status, performance, and key system information.
+The Hosts page provides a centralised inventory of all monitored devices within the selected entity, along with their real-time status, key system information, and access to per-device drill-down analysis. It is the primary starting point for investigating a specific device — whether responding to an alert, checking firmware versions across a fleet, or reviewing a device's historical performance graphs.
 
-## Why It Matters
-It allows administrators to quickly assess device health, identify issues, and perform detailed analysis from a single interface.
-
-## Where to Access
-Navigate to **ORCHESTRATOR → Monitoring → Devices**, then select the desired entity using the **[Entity]** button in the top-right corner.
+Navigate to **ORCHESTRATOR → Monitoring → Hosts**. Use the **[Entity]** button in the top-right corner to switch between entities.
 
 ---
 
-## Overview
+## Device List
 
-The **Hosts** tab displays a summary of all enabled devices within the selected entity.
+The **Hosts** tab displays a summary table of all enabled devices within the selected entity. Each row represents one device and shows its current operational state at a glance.
 
-Key information includes:
-
-- Device model  
-- Firmware version  
-- Device status  
-- Uptime  
-- Public and private WAN IP addresses  
-
-![mfusion host dashboard customization](../images/monitor-hosts-1.png)
-
----
-
-## Customize Hosts Table
-
-The hosts summary table can be customized to display relevant information.
-
-Click **Customize columns** to:
-
-- Select which fields to display  
-- Adjust the table view based on your operational needs  
-
-Changes will take effect after saving.
-
-![mfusion host dashboard customization](../images/monitor-hosts-2.png)
-
----
-
-## Drill-in Analysis
-
-To view detailed information for a specific device:
-
-1. Click the device hostname  
-2. Select **Host Dashboard**  
-
-![mfusion host dashboard customization](../images/monitor-hosts-4.png)
-
----
-
-## Host Information Fields
+![Devices list](../images/monitor-hosts-1.png)
 
 | Field | Description |
-|-------|-------------|
+|---|---|
 | **Host / Alias** | Name used to identify the device. Configurable under **ADMIN → Hosts** |
-| **Entity** | The entity to which the device belongs |
-| **Model** | Hardware model (HSG, CMG, HSA, UA), automatically detected by mfusion |
-| **Status** | Current device state; can also be used to enable or suspend the device |
+| **Entity** | The entity the device belongs to |
+| **Model** | Hardware model (HSG, CMG, HSA, UAP), automatically detected by mfusion |
+| **Status** | Current device state — also used to enable or suspend monitoring for the device |
 | **Device Uptime** | Time elapsed since the last reboot |
 | **Firmware Version** | Current firmware version running on the device |
 | **WAN Traffic Inbound** | Latest inbound traffic rate on the WAN interface |
@@ -68,58 +25,47 @@ To view detailed information for a specific device:
 | **WAN IP (Public)** | External WAN IP address as seen from the internet |
 | **WAN IP (Private)** | Internal WAN IP address from the device perspective |
 
----
+Click **Customize columns** to tailor the table to your operational needs — add, remove, or reorder fields as required.
 
-## Host Dashboard
-
-Within the Host Dashboard, you can navigate through the following tabs:
-
-- **Summary** — Overall device health and associated links  
-- **Items** — Monitoring items (enabled and disabled)  
-- **Graphs** — Historical performance data  
-- **Alerts** — Device-specific alert history  
-
-Use the date/time selector (top-right corner) to adjust the data range.
+![Customize columns](../images/monitor-hosts-2.png)
 
 ---
 
-### Host Summary
+## Per-Device Analysis
 
-The Host Dashboard layout is customizable.
+To drill into a specific device, click its hostname and select **Host Dashboard**.
 
-Click the **[Customize]** button in the top-right corner to:
+![Open Host Dashboard](../images/monitor-hosts-4.png)
 
-- Select widgets  
-- Configure displayed sections  
+The Host Dashboard is organized into four tabs:
 
-![mfusion host dashboard customization](../images/monitor-hosts-5.png)
+| Tab | Description |
+|---|---|
+| **Summary** | Overall device health, key metrics, and associated links |
+| **Items** | All monitoring items configured for this device, including disabled ones |
+| **Graphs** | Historical performance graphs for trending and capacity analysis |
+| **Alerts** | Alert history specific to this device |
 
----
+Use the date/time selector in the top-right corner to adjust the time range across all tabs.
+
+### Summary
+
+The Summary tab layout is customisable. Click **[Customize]** in the top-right corner to select which widgets and sections to display, allowing you to build a focused view of the metrics most relevant to that device type.
+
+![Host Summary customisation](../images/monitor-hosts-5.png)
 
 ### Monitoring Items
 
-The **Items** tab displays all monitoring items, including disabled ones (listed at the bottom).
+The **Items** tab lists all metrics being collected from the device. Items are pre-defined by the monitoring template applied at provisioning (e.g. `Template_Branch`, `Template_Gateway`). Disabled items are shown at the bottom of the list.
 
-Monitoring items are defined by templates assigned during provisioning (e.g. `Template_HSA`, `Template_mbox`).
+To override an item's status for a specific device without modifying the template, click the action button next to the item and toggle it on or off.
 
-You can override item status per device by:
-
-- Clicking the action button next to each item  
-- Enabling or disabling as required  
-
-![mfusion host dashboard customization](../images/monitor-hosts-6.png)
-
----
+![Monitoring items](../images/monitor-hosts-6.png)
 
 ### Monitoring Triggers
 
-Triggers are defined in monitoring templates and can be customized per device. When the monitoring items values match the defined trigger threshold, alerts are created and email to all users within the entity.
+The **Triggers** tab lists all alert conditions configured for this device. Triggers evaluate collected metric values against defined thresholds — when a threshold is breached, an alert is created and email notifications are sent to users within the entity.
 
-You can:
+Triggers can be individually enabled or disabled per device, allowing you to suppress specific alert types on a device without affecting the rest of the fleet.
 
-- Enable or disable specific triggers  
-- Override default template behavior  
-
-![mfusion host dashboard customization](../images/monitor-hosts-7.png)
-
----
+![Monitoring triggers](../images/monitor-hosts-7.png)

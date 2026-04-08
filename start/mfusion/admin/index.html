@@ -639,6 +639,17 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#firmware-releases" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Firmware Releases
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1035,7 +1046,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../monitor/netflow.md" class="md-nav__link">
+      <a href="../../../monitor/netflow/" class="md-nav__link">
         
   
   
@@ -2787,6 +2798,17 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#firmware-releases" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Firmware Releases
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -3063,6 +3085,35 @@
 <li>System-level configuration modifications</li>
 </ul>
 <p>Logs can be filtered by time range, username, module, severity level, IP address, or message content, making it straightforward to audit specific incidents or track changes made by a particular user. This data is essential for security audits, compliance reporting, and operational troubleshooting.</p>
+<hr>
+<h2 id="firmware-releases">Firmware Releases<a class="headerlink" href="#firmware-releases" title="Permanent link">¶</a></h2>
+<p>Navigate to <strong>ADMIN → Releases</strong>.</p>
+<p>mfusion acts as an on-premise firmware repository, allowing managed devices to perform over-the-air upgrades by downloading firmware directly from the mfusion server — without requiring each device to reach the internet. Only super-administrators can upload firmware packages to this repository; firmware files are provided by the RansNet support team.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../images/start-mfusionarc-15.png" data-desc-position="bottom"><img alt="Firmware Releases" src="../../images/start-mfusionarc-15.png"></a></p>
+<p>Firmware releases are organised by device family:</p>
+<table>
+<thead>
+<tr>
+<th>Category</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>RANOSL</strong></td>
+<td>Firmware for branch-series devices (e.g. HSA, UA, XE, UAP)</td>
+</tr>
+<tr>
+<td><strong>RANOL</strong></td>
+<td>Firmware for gateway-series devices (e.g. CMG, HSG)</td>
+</tr>
+</tbody>
+</table>
+<p>Once uploaded, the release becomes available for selection when triggering a firmware upgrade from the device management interface.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Only active devices with a valid activation code and an active support contract are permitted to download firmware from mfusion.</p>
+</div>
 
 
 

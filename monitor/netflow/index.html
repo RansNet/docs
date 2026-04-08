@@ -9,13 +9,13 @@
         <meta name="author" content="RansNet Singapore Pte Ltd">
       
       
-        <link rel="canonical" href="https://docs.ransnet.com/monitor/dashboard/">
+        <link rel="canonical" href="https://docs.ransnet.com/monitor/netflow/">
       
       
-        <link rel="prev" href="../">
+        <link rel="prev" href="../wifi/">
       
       
-        <link rel="next" href="../hosts/">
+        <link rel="next" href="../alerts/">
       
       
         
@@ -26,7 +26,7 @@
     
     
       
-        <title>Dashboard - RansNet Documentation</title>
+        <title>Netflow - RansNet Documentation</title>
       
     
     
@@ -89,7 +89,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#monitoring-dashboard" class="md-skip">
+        <a href="#netflow-analyzer" class="md-skip">
           Skip to content
         </a>
       
@@ -124,7 +124,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Dashboard
+              Netflow
             
           </span>
         </div>
@@ -749,37 +749,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Dashboard
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../dashboard/" class="md-nav__link">
         
   
   
@@ -795,87 +768,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
-      
-        <li class="md-nav__item">
-  <a href="#customising-the-dashboard" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Customising the Dashboard
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Customising the Dashboard">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#step-1-select-sections" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Step 1 — Select Sections
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#step-2-select-devices-and-graphs" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Step 2 — Select Devices and Graphs
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#step-3-save-and-review" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Step 3 — Save and Review
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#troubleshooting" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Troubleshooting
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -969,10 +861,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../netflow/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Netflow
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -988,6 +907,137 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Overview
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#top-reports" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Top Reports
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Top Reports">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#top-sources" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Top Sources
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#top-destinations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Top Destinations
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#top-applications" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Top Applications
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#detail-flow-records" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Detail Flow Records
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Detail Flow Records">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#filtering-and-search" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Filtering and Search
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ip-resolution-resolve-ip" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        IP Resolution (Resolve IP)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#use-cases-for-detail-flow-records" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Use Cases for Detail Flow Records
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -2603,22 +2653,33 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
       
         <li class="md-nav__item">
-  <a href="#customising-the-dashboard" class="md-nav__link">
+  <a href="#overview" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Customising the Dashboard
+        Overview
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Customising the Dashboard">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#top-reports" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Top Reports
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Top Reports">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#step-1-select-sections" class="md-nav__link">
+  <a href="#top-sources" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Step 1 — Select Sections
+        Top Sources
       
     </span>
   </a>
@@ -2626,10 +2687,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#step-2-select-devices-and-graphs" class="md-nav__link">
+  <a href="#top-destinations" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Step 2 — Select Devices and Graphs
+        Top Destinations
       
     </span>
   </a>
@@ -2637,10 +2698,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#step-3-save-and-review" class="md-nav__link">
+  <a href="#top-applications" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Step 3 — Save and Review
+        Top Applications
       
     </span>
   </a>
@@ -2653,13 +2714,52 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#troubleshooting" class="md-nav__link">
+  <a href="#detail-flow-records" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Troubleshooting
+        Detail Flow Records
       
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Detail Flow Records">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#filtering-and-search" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Filtering and Search
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ip-resolution-resolve-ip" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        IP Resolution (Resolve IP)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#use-cases-for-detail-flow-records" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Use Cases for Detail Flow Records
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -2686,32 +2786,97 @@
 
 
 
-<h1 id="monitoring-dashboard">Monitoring Dashboard<a class="headerlink" href="#monitoring-dashboard" title="Permanent link">¶</a></h1>
-<p>The Monitoring Dashboard provides a customisable, at-a-glance overview of device health and performance across the selected entity. Unlike the Devices page which presents a tabular list of hosts, the Dashboard is a freeform canvas — administrators choose exactly which devices, metrics, and graphs to surface, making it well-suited for building role-specific views: a NOC screen showing fleet-wide uptime, a site-focused panel for a specific vessel, or a capacity overview tracking WAN utilisation across multiple locations.</p>
-<p>Navigate to <strong>ORCHESTRATOR → Monitoring → Dashboard</strong>. Use the <strong>[Entity]</strong> button in the top-right corner to switch between entities.</p>
-<hr>
-<h2 id="customising-the-dashboard">Customising the Dashboard<a class="headerlink" href="#customising-the-dashboard" title="Permanent link">¶</a></h2>
-<p>The dashboard layout is fully user-configurable. You can add multiple sections, each populated with a distinct set of devices and graphs. Changes are saved per user, so each administrator can maintain their own personalised view without affecting others.</p>
-<h3 id="step-1-select-sections">Step 1 — Select Sections<a class="headerlink" href="#step-1-select-sections" title="Permanent link">¶</a></h3>
-<p>Click <strong>[Customize Page]</strong> in the top-right corner to choose which sections to display on the dashboard. Enable the sections relevant to your monitoring needs and click <strong>Save</strong>.</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../images/monitor-dashboard-1.png" data-desc-position="bottom"><img alt="Dashboard customisation — select sections" src="../../images/monitor-dashboard-1.png"></a></p>
-<h3 id="step-2-select-devices-and-graphs">Step 2 — Select Devices and Graphs<a class="headerlink" href="#step-2-select-devices-and-graphs" title="Permanent link">¶</a></h3>
-<p>Within each section, click <strong>[Customize Section]</strong> to configure its content:</p>
+<h1 id="netflow-analyzer">NetFlow Analyzer<a class="headerlink" href="#netflow-analyzer" title="Permanent link">¶</a></h1>
+<h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">¶</a></h2>
+<p>NetFlow is an industry-standard network telemetry protocol (originally developed by Cisco) that enables network devices to export metadata about IP traffic flows as they pass through an interface. Each <strong>flow record</strong> captures key attributes of a traffic session — source and destination IP, source and destination port, protocol, byte and packet counts, timestamps, and interface — without capturing the actual packet payload. This makes NetFlow highly efficient for large-scale traffic visibility while preserving user privacy.</p>
+<p>mfusion and HSG collect NetFlow exports from RansNet devices and supported third-party network equipment using <strong>NetFlow v5</strong> and <strong>NetFlow v9</strong> (which also supports IPFIX-compatible templates). Collected records are stored, processed, and presented through an intuitive analytics interface for network-wide traffic visibility.</p>
+<p>NetFlow analysis is particularly valuable for:</p>
 <ul>
-<li>Select the devices (hosts) to include in this section</li>
-<li>Expand each device to choose which monitoring items and graphs to display</li>
+<li><strong>Bandwidth accounting</strong> — understanding which users, devices, applications, or destinations are consuming the most bandwidth</li>
+<li><strong>Security investigation</strong> — identifying anomalous traffic patterns, unauthorised connections, or data exfiltration attempts</li>
+<li><strong>Capacity planning</strong> — trending traffic volumes over time to inform WAN link or hardware sizing decisions</li>
+<li><strong>Dispute resolution</strong> — providing verifiable, timestamped per-connection evidence to resolve user complaints or billing disputes</li>
+<li><strong>Compliance and forensics</strong> — maintaining an auditable record of network activity for regulatory or incident response requirements</li>
 </ul>
-<p>This allows you to compose targeted views — for example, a section showing only WAN traffic graphs for gateway devices at a specific site.</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../images/monitor-dashboard-2.png" data-desc-position="bottom"><img alt="Dashboard customisation — select devices and graphs" src="../../images/monitor-dashboard-2.png"></a></p>
-<h3 id="step-3-save-and-review">Step 3 — Save and Review<a class="headerlink" href="#step-3-save-and-review" title="Permanent link">¶</a></h3>
-<p>Click <strong>Save</strong> to apply your changes. The dashboard will reload with the updated layout, displaying live data for all selected items and graphs.</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../images/monitor-dashboard-3.png" data-desc-position="bottom"><img alt="Dashboard — saved view" src="../../images/monitor-dashboard-3.png"></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../images/monitor-netflow-1.png" data-desc-position="bottom"><img alt="netflow" src="../images/monitor-netflow-1.png"></a></p>
 <hr>
-<h2 id="troubleshooting">Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permanent link">¶</a></h2>
+<h2 id="top-reports">Top Reports<a class="headerlink" href="#top-reports" title="Permanent link">¶</a></h2>
+<p>The <strong>Top Reports</strong> view provides an at-a-glance summary of the highest-volume traffic across three dimensions — source, destination, and application — over a selected time window. Each dimension is presented as a ranked table and a visual chart.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../images/monitor-netflow-2.png" data-desc-position="bottom"><img alt="netflow" src="../images/monitor-netflow-2.png"></a></p>
+<h3 id="top-sources">Top Sources<a class="headerlink" href="#top-sources" title="Permanent link">¶</a></h3>
+<p>Ranks internal hosts or users by total data volume generated. This immediately surfaces the heaviest bandwidth consumers on the network — whether a specific workstation, IoT device, or user — enabling administrators to investigate whether consumption is expected or anomalous.</p>
+<h3 id="top-destinations">Top Destinations<a class="headerlink" href="#top-destinations" title="Permanent link">¶</a></h3>
+<p>Ranks external IP addresses or services by inbound and outbound traffic volume. Common legitimate destinations (CDNs, cloud services, update servers) will dominate in normal operation. Unexpected high-volume destinations — unfamiliar IPs, unusual geographies, or known malicious hosts — can indicate data exfiltration, command-and-control activity, or misconfigured applications.</p>
+<h3 id="top-applications">Top Applications<a class="headerlink" href="#top-applications" title="Permanent link">¶</a></h3>
+<p>Ranks traffic by application or service type based on destination port and protocol classification (e.g. HTTP, HTTPS, DNS, video streaming, P2P). This helps administrators understand the composition of network traffic — for example, identifying excessive video streaming, peer-to-peer file sharing, or unexpected protocols that may warrant policy action.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Use the Top Reports view during routine monitoring to quickly detect capacity issues or abnormal traffic patterns without needing to inspect individual flow records. Any entry that stands out — an unfamiliar IP, a spike in a specific application, or an unknown device — can be drilled down to the Detail Flow Records view for full investigation.</p>
+</div>
+<hr>
+<h2 id="detail-flow-records">Detail Flow Records<a class="headerlink" href="#detail-flow-records" title="Permanent link">¶</a></h2>
+<p>The <strong>Detail Flow Records</strong> table provides a complete, granular log of every captured traffic flow across the network. Each record represents a single IP conversation and includes:</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Timestamp</strong></td>
+<td>Start time of the flow</td>
+</tr>
+<tr>
+<td><strong>Source IP</strong></td>
+<td>Internal host or device that initiated the connection</td>
+</tr>
+<tr>
+<td><strong>Source Port</strong></td>
+<td>Ephemeral port used by the source</td>
+</tr>
+<tr>
+<td><strong>Destination IP</strong></td>
+<td>Remote server or peer IP</td>
+</tr>
+<tr>
+<td><strong>Destination Port</strong></td>
+<td>Service port on the destination (e.g. 443 for HTTPS, 53 for DNS)</td>
+</tr>
+<tr>
+<td><strong>Protocol</strong></td>
+<td>IP protocol — TCP, UDP, ICMP, etc.</td>
+</tr>
+<tr>
+<td><strong>Bytes / Packets</strong></td>
+<td>Total data volume and packet count for the flow</td>
+</tr>
+<tr>
+<td><strong>Duration</strong></td>
+<td>Length of the flow session</td>
+</tr>
+<tr>
+<td><strong>Interface</strong></td>
+<td>Network interface the flow was observed on</td>
+</tr>
+</tbody>
+</table>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../images/monitor-netflow-3.png" data-desc-position="bottom"><img alt="netflow" src="../images/monitor-netflow-3.png"></a></p>
+<h3 id="filtering-and-search">Filtering and Search<a class="headerlink" href="#filtering-and-search" title="Permanent link">¶</a></h3>
+<p>The detail view supports free-text and field-specific filtering to narrow down records by source IP, destination IP, port, protocol, or time range. This allows administrators to rapidly isolate all connections from a specific device, all traffic to a specific destination, or all flows within a particular service port.</p>
+<h3 id="ip-resolution-resolve-ip">IP Resolution (Resolve IP)<a class="headerlink" href="#ip-resolution-resolve-ip" title="Permanent link">¶</a></h3>
+<p>Click <strong>Resolve IP</strong> to perform reverse DNS lookups on source and destination IP addresses, replacing raw IPs with human-readable FQDNs (e.g. <code>203.0.113.5</code> → <code>cdn.example.com</code>). This significantly improves readability during investigations — it is far easier to recognise a known cloud service by domain name than by IP address, and it immediately highlights unfamiliar or suspicious hostnames that warrant closer scrutiny.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Reverse DNS resolution is performed on demand and depends on the availability of PTR records for the queried IPs. Not all IP addresses will resolve to a meaningful hostname — in particular, many cloud and CDN providers use dynamic or non-descriptive PTR records.</p>
+</div>
+<h3 id="use-cases-for-detail-flow-records">Use Cases for Detail Flow Records<a class="headerlink" href="#use-cases-for-detail-flow-records" title="Permanent link">¶</a></h3>
 <ul>
-<li><strong>No data displayed</strong> — confirm the device is online and actively reporting to mfusion. Check the device status under <strong>Monitoring → Devices</strong>.</li>
-<li><strong>Graph appears empty</strong> — the selected monitoring item may be disabled on that host. Navigate to the host's <strong>Items</strong> tab under <strong>Monitoring → Devices</strong> to verify the item is enabled.</li>
-<li><strong>Section not showing</strong> — return to <strong>[Customize Page]</strong> and confirm the section is toggled on.</li>
+<li><strong>User dispute resolution</strong> — a crew member or guest disputes a data usage charge; filter by their device IP across the billing period to produce a complete, timestamped record of every connection made and the data consumed</li>
+<li><strong>Security forensics</strong> — an alert fires on a suspicious outbound connection; filter by the source host to reconstruct the full sequence of connections made before and after the alert, identifying whether a broader compromise occurred</li>
+<li><strong>Policy verification</strong> — confirm that a firewall or access control policy is working as intended by checking whether blocked destinations appear in flow records</li>
+<li><strong>Bandwidth troubleshooting</strong> — a WAN link is saturated at a specific time; filter by the time window and sort by bytes transferred to identify the responsible host and destination within seconds</li>
 </ul>
 
 

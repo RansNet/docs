@@ -864,7 +864,7 @@
   
   
     <li class="md-nav__item">
-      <a href="netflow.md" class="md-nav__link">
+      <a href="netflow/" class="md-nav__link">
         
   
   
@@ -2495,35 +2495,74 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
       
         <li class="md-nav__item">
-  <a href="#what-this-does" class="md-nav__link">
+  <a href="#monitoring-capabilities" class="md-nav__link">
     <span class="md-ellipsis">
       
-        What This Does
+        Monitoring Capabilities
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Monitoring Capabilities">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#real-time-device-health" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Real-Time Device Health
       
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#why-it-matters" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#performance-trending" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Why It Matters
+        Performance Trending
       
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#where-to-access" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#wireless-rf-visibility" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Where to Access
+        Wireless RF Visibility
       
     </span>
   </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#netflow-traffic-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        NetFlow Traffic Analysis
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#automated-alerting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Automated Alerting
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -2532,6 +2571,17 @@
     <span class="md-ellipsis">
       
         In This Section
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-monitoring-is-structured" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How Monitoring Is Structured
       
     </span>
   </a>
@@ -2562,12 +2612,20 @@
 
 
 <h1 id="device-monitoring">Device Monitoring<a class="headerlink" href="#device-monitoring" title="Permanent link">¶</a></h1>
-<h2 id="what-this-does">What This Does<a class="headerlink" href="#what-this-does" title="Permanent link">¶</a></h2>
-<p>The Device Monitoring section provides centralized visibility into the health, performance, and status of all managed devices.</p>
-<h2 id="why-it-matters">Why It Matters<a class="headerlink" href="#why-it-matters" title="Permanent link">¶</a></h2>
-<p>Administrators can monitor network conditions in real time, detect faults early, and take corrective actions to maintain service availability and performance.</p>
-<h2 id="where-to-access">Where to Access<a class="headerlink" href="#where-to-access" title="Permanent link">¶</a></h2>
-<p>Navigate to <strong>ORCHESTRATOR → Monitoring</strong> to access all monitoring features.</p>
+<p>mfusion provides end-to-end monitoring of all managed RansNet devices — SD-WAN gateways, access points, hotspot gateways, and other network appliances — from a single centralised interface. The monitoring stack covers real-time device health, performance trending, wireless RF visibility, traffic analysis, and automated alerting, giving network administrators full operational awareness across distributed fleets.</p>
+<p>Navigate to <strong>ORCHESTRATOR → Monitoring</strong> to access all monitoring features. Use the <strong>[Entity]</strong> button in the top-right corner to scope the view to a specific customer or site.</p>
+<hr>
+<h2 id="monitoring-capabilities">Monitoring Capabilities<a class="headerlink" href="#monitoring-capabilities" title="Permanent link">¶</a></h2>
+<h3 id="real-time-device-health">Real-Time Device Health<a class="headerlink" href="#real-time-device-health" title="Permanent link">¶</a></h3>
+<p>mfusion continuously polls all managed devices using an agent-based collection model. Each device pushes metrics — uptime, CPU, memory, interface status, WAN IP, firmware version, and cellular signal — to mfusion at configurable intervals. Thresholds are evaluated in real time against trigger conditions; when a threshold is breached, an alert is raised and email notifications are dispatched automatically to all users with access to the affected entity.</p>
+<h3 id="performance-trending">Performance Trending<a class="headerlink" href="#performance-trending" title="Permanent link">¶</a></h3>
+<p>Historical metrics are retained per device, enabling administrators to plot performance graphs over time. Trending data informs capacity planning decisions — for example, identifying WAN links that are consistently saturated at peak hours, or devices that are gradually exhausting memory under load.</p>
+<h3 id="wireless-rf-visibility">Wireless RF Visibility<a class="headerlink" href="#wireless-rf-visibility" title="Permanent link">¶</a></h3>
+<p>For deployments using RansNet UAP access points, mfusion collects per-AP and per-client RF metrics: signal strength (RSSI), noise floor, SNR, channel utilization, and connection rates. This provides early detection of interference, channel congestion, or clients with degraded signal that would otherwise be invisible at the network layer.</p>
+<h3 id="netflow-traffic-analysis">NetFlow Traffic Analysis<a class="headerlink" href="#netflow-traffic-analysis" title="Permanent link">¶</a></h3>
+<p>The vessel HSG and supported gateways export NetFlow records to mfusion, providing granular per-connection traffic visibility: source and destination IP, port, protocol, bytes transferred, and session duration. This supports bandwidth accounting, security investigation, and dispute resolution without requiring packet capture.</p>
+<h3 id="automated-alerting">Automated Alerting<a class="headerlink" href="#automated-alerting" title="Permanent link">¶</a></h3>
+<p>Alert triggers are pre-configured per device type through monitoring templates (<code>Template_HSA</code>, <code>Template_mbox</code>). When a trigger condition is met — device unreachable, memory threshold exceeded, link down — mfusion creates an alert entry and sends email notifications. Alerts are severity-classified (Disaster, High, Average, Warning, Information) for prioritised response.</p>
 <hr>
 <h2 id="in-this-section">In This Section<a class="headerlink" href="#in-this-section" title="Permanent link">¶</a></h2>
 <table>
@@ -2580,31 +2638,38 @@
 <tbody>
 <tr>
 <td><a href="dashboard/">Dashboard</a></td>
-<td>Customizable overview of device health and status across the selected entity</td>
+<td>Customisable overview of device health and performance metrics across the selected entity</td>
 </tr>
 <tr>
 <td><a href="hosts/">Devices</a></td>
-<td>Detailed per-device view with monitoring data, triggers, and drill-down analysis</td>
+<td>Per-device monitoring view with status, uptime, WAN IP, and drill-down into items, triggers, and historical graphs</td>
 </tr>
 <tr>
 <td><a href="topo/">Topology</a></td>
-<td>Visual representation of the SD-WAN network topology</td>
+<td>Visual network map editor with live device and link status; includes auto-generated SD-WAN topology</td>
 </tr>
 <tr>
 <td><a href="wifi/">Wireless</a></td>
-<td>Real-time visibility into access points, SSIDs, and connected clients</td>
+<td>Real-time RF visibility into access points, SSIDs, and associated client signal quality</td>
 </tr>
 <tr>
 <td><a href="alerts/">Alerts</a></td>
-<td>Centralized alert log with severity levels, timestamps, and notifications</td>
+<td>Centralised alert log with severity levels, timestamps, and email notification management</td>
+</tr>
+<tr>
+<td><a href="netflow/">NetFlow</a></td>
+<td>Granular per-connection traffic records for bandwidth analysis, security investigation, and dispute resolution</td>
 </tr>
 <tr>
 <td><a href="settings/">Settings</a></td>
-<td>Advanced monitoring configuration, including templates, items, triggers, and actions</td>
+<td>Advanced monitoring configuration — templates, items, triggers, and bulk update tools (super-admin)</td>
 </tr>
 </tbody>
 </table>
 <hr>
+<h2 id="how-monitoring-is-structured">How Monitoring Is Structured<a class="headerlink" href="#how-monitoring-is-structured" title="Permanent link">¶</a></h2>
+<p>mfusion organises monitoring around <strong>entities</strong> — a hierarchical grouping of devices that maps to your customer or site structure. All monitoring views are entity-scoped: selecting an entity at the top of any monitoring page filters the data to devices within that entity only.</p>
+<p>Each device is assigned a <strong>monitoring template</strong> at provisioning time. Templates define the complete set of metrics, alert thresholds, and graphs for that device type. Administrators can inspect and override individual items or triggers at the per-device level without modifying the underlying template, or use the mass update tools in Settings to apply changes across many devices at once.</p>
 
 
 

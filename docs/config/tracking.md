@@ -136,8 +136,6 @@ Set the tracked IP to a known-static host on the LAN (e.g. a server or a managed
 
 ## Tracking WWAN/SIM Connections
 
-WWAN tracking has one additional tracking method beyond ICMP and TCP: **RSRQ** (Reference Signal Received Quality). RSRQ reflects radio signal quality rather than upper-layer IP reachability, making it useful for detecting degraded radio conditions before connectivity is fully lost.
-
 ### Connection Reset Behavior
 
 WWAN tracking behaves differently from interface tracking. Rather than permanently disabling the interface on failure, the system briefly resets the cellular connection and immediately attempts to re-establish it. This is intentional.
@@ -158,6 +156,9 @@ Navigate to **Device Settings → Network → WWAN**.
 interface wwan0
  track icmp 1.1.1.1 30
 ```
+
+!!!note
+    WWAN tracking has one additional tracking method beyond ICMP and TCP: **RSRQ** (Reference Signal Received Quality). RSRQ reflects radio signal quality rather than upper-layer IP reachability, making it useful for detecting degraded radio conditions before connectivity is fully lost.
 
 ### Switch Cellular Mode (5G → 4G)
 

@@ -2,206 +2,210 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://docs.ransnet.com/</loc>
-         <lastmod>2026-04-08</lastmod>
+         <lastmod>2026-04-09</lastmod>
     </url>
     <url>
          <loc>https://docs.ransnet.com/advanced/</loc>
-         <lastmod>2026-04-08</lastmod>
+         <lastmod>2026-04-09</lastmod>
     </url>
     <url>
          <loc>https://docs.ransnet.com/api/hotspot/</loc>
-         <lastmod>2026-04-08</lastmod>
+         <lastmod>2026-04-09</lastmod>
     </url>
     <url>
          <loc>https://docs.ransnet.com/api/netflow/</loc>
-         <lastmod>2026-04-08</lastmod>
+         <lastmod>2026-04-09</lastmod>
     </url>
     <url>
          <loc>https://docs.ransnet.com/api/rmm/</loc>
-         <lastmod>2026-04-08</lastmod>
+         <lastmod>2026-04-09</lastmod>
     </url>
     <url>
          <loc>https://docs.ransnet.com/api/setup/</loc>
-         <lastmod>2026-04-08</lastmod>
+         <lastmod>2026-04-09</lastmod>
     </url>
     <url>
          <loc>https://docs.ransnet.com/api/syslog/</loc>
-         <lastmod>2026-04-08</lastmod>
+         <lastmod>2026-04-09</lastmod>
     </url>
     <url>
          <loc>https://docs.ransnet.com/api/wispr/</loc>
-         <lastmod>2026-04-08</lastmod>
+         <lastmod>2026-04-09</lastmod>
     </url>
     <url>
          <loc>https://docs.ransnet.com/cases/</loc>
-         <lastmod>2026-04-08</lastmod>
+         <lastmod>2026-04-09</lastmod>
     </url>
     <url>
          <loc>https://docs.ransnet.com/cases/crewwifi/</loc>
-         <lastmod>2026-04-08</lastmod>
+         <lastmod>2026-04-09</lastmod>
     </url>
     <url>
          <loc>https://docs.ransnet.com/cases/l2vpn/</loc>
-         <lastmod>2026-04-08</lastmod>
+         <lastmod>2026-04-09</lastmod>
     </url>
     <url>
          <loc>https://docs.ransnet.com/cases/vrf/</loc>
-         <lastmod>2026-04-08</lastmod>
+         <lastmod>2026-04-09</lastmod>
     </url>
     <url>
          <loc>https://docs.ransnet.com/cases/wanfailover/</loc>
-         <lastmod>2026-04-08</lastmod>
+         <lastmod>2026-04-09</lastmod>
     </url>
     <url>
          <loc>https://docs.ransnet.com/config/</loc>
-         <lastmod>2026-04-08</lastmod>
+         <lastmod>2026-04-09</lastmod>
     </url>
     <url>
          <loc>https://docs.ransnet.com/config/dhcp/</loc>
-         <lastmod>2026-04-08</lastmod>
+         <lastmod>2026-04-09</lastmod>
     </url>
     <url>
          <loc>https://docs.ransnet.com/config/tracking/</loc>
-         <lastmod>2026-04-08</lastmod>
+         <lastmod>2026-04-09</lastmod>
     </url>
     <url>
          <loc>https://docs.ransnet.com/config/wifi/</loc>
-         <lastmod>2026-04-08</lastmod>
+         <lastmod>2026-04-09</lastmod>
     </url>
     <url>
          <loc>https://docs.ransnet.com/config/iface/</loc>
-         <lastmod>2026-04-08</lastmod>
+         <lastmod>2026-04-09</lastmod>
     </url>
     <url>
          <loc>https://docs.ransnet.com/config/iface/bridge/</loc>
-         <lastmod>2026-04-08</lastmod>
+         <lastmod>2026-04-09</lastmod>
     </url>
     <url>
          <loc>https://docs.ransnet.com/config/iface/ethernet/</loc>
-         <lastmod>2026-04-08</lastmod>
+         <lastmod>2026-04-09</lastmod>
     </url>
     <url>
          <loc>https://docs.ransnet.com/config/iface/pppoe/</loc>
-         <lastmod>2026-04-08</lastmod>
+         <lastmod>2026-04-09</lastmod>
     </url>
     <url>
          <loc>https://docs.ransnet.com/config/iface/vlaniface/</loc>
-         <lastmod>2026-04-08</lastmod>
+         <lastmod>2026-04-09</lastmod>
     </url>
     <url>
          <loc>https://docs.ransnet.com/config/iface/wifiwan/</loc>
-         <lastmod>2026-04-08</lastmod>
+         <lastmod>2026-04-09</lastmod>
     </url>
     <url>
          <loc>https://docs.ransnet.com/config/iface/wwan/</loc>
-         <lastmod>2026-04-08</lastmod>
+         <lastmod>2026-04-09</lastmod>
+    </url>
+    <url>
+         <loc>https://docs.ransnet.com/config/route/static/</loc>
+         <lastmod>2026-04-09</lastmod>
     </url>
     <url>
          <loc>https://docs.ransnet.com/hotspot/</loc>
-         <lastmod>2026-04-08</lastmod>
+         <lastmod>2026-04-09</lastmod>
     </url>
     <url>
          <loc>https://docs.ransnet.com/logcollector/</loc>
-         <lastmod>2026-04-08</lastmod>
+         <lastmod>2026-04-09</lastmod>
     </url>
     <url>
          <loc>https://docs.ransnet.com/monitor/</loc>
-         <lastmod>2026-04-08</lastmod>
+         <lastmod>2026-04-09</lastmod>
     </url>
     <url>
          <loc>https://docs.ransnet.com/monitor/alerts/</loc>
-         <lastmod>2026-04-08</lastmod>
+         <lastmod>2026-04-09</lastmod>
     </url>
     <url>
          <loc>https://docs.ransnet.com/monitor/dashboard/</loc>
-         <lastmod>2026-04-08</lastmod>
+         <lastmod>2026-04-09</lastmod>
     </url>
     <url>
          <loc>https://docs.ransnet.com/monitor/hosts/</loc>
-         <lastmod>2026-04-08</lastmod>
+         <lastmod>2026-04-09</lastmod>
     </url>
     <url>
          <loc>https://docs.ransnet.com/monitor/netflow/</loc>
-         <lastmod>2026-04-08</lastmod>
+         <lastmod>2026-04-09</lastmod>
     </url>
     <url>
          <loc>https://docs.ransnet.com/monitor/settings/</loc>
-         <lastmod>2026-04-08</lastmod>
+         <lastmod>2026-04-09</lastmod>
     </url>
     <url>
          <loc>https://docs.ransnet.com/monitor/topo/</loc>
-         <lastmod>2026-04-08</lastmod>
+         <lastmod>2026-04-09</lastmod>
     </url>
     <url>
          <loc>https://docs.ransnet.com/monitor/wifi/</loc>
-         <lastmod>2026-04-08</lastmod>
+         <lastmod>2026-04-09</lastmod>
     </url>
     <url>
          <loc>https://docs.ransnet.com/qa/</loc>
-         <lastmod>2026-04-08</lastmod>
+         <lastmod>2026-04-09</lastmod>
     </url>
     <url>
          <loc>https://docs.ransnet.com/routing/</loc>
-         <lastmod>2026-04-08</lastmod>
+         <lastmod>2026-04-09</lastmod>
     </url>
     <url>
          <loc>https://docs.ransnet.com/routing/bgp/</loc>
-         <lastmod>2026-04-08</lastmod>
+         <lastmod>2026-04-09</lastmod>
     </url>
     <url>
          <loc>https://docs.ransnet.com/routing/ospf/</loc>
-         <lastmod>2026-04-08</lastmod>
+         <lastmod>2026-04-09</lastmod>
     </url>
     <url>
          <loc>https://docs.ransnet.com/routing/static/</loc>
-         <lastmod>2026-04-08</lastmod>
+         <lastmod>2026-04-09</lastmod>
     </url>
     <url>
          <loc>https://docs.ransnet.com/sdwan/</loc>
-         <lastmod>2026-04-08</lastmod>
+         <lastmod>2026-04-09</lastmod>
     </url>
     <url>
          <loc>https://docs.ransnet.com/security/</loc>
-         <lastmod>2026-04-08</lastmod>
+         <lastmod>2026-04-09</lastmod>
     </url>
     <url>
          <loc>https://docs.ransnet.com/start/</loc>
-         <lastmod>2026-04-08</lastmod>
+         <lastmod>2026-04-09</lastmod>
     </url>
     <url>
          <loc>https://docs.ransnet.com/start/overview/</loc>
-         <lastmod>2026-04-08</lastmod>
+         <lastmod>2026-04-09</lastmod>
     </url>
     <url>
          <loc>https://docs.ransnet.com/start/device/bootstrap/</loc>
-         <lastmod>2026-04-08</lastmod>
+         <lastmod>2026-04-09</lastmod>
     </url>
     <url>
          <loc>https://docs.ransnet.com/start/device/harden/</loc>
-         <lastmod>2026-04-08</lastmod>
+         <lastmod>2026-04-09</lastmod>
     </url>
     <url>
          <loc>https://docs.ransnet.com/start/device/onboard/</loc>
-         <lastmod>2026-04-08</lastmod>
+         <lastmod>2026-04-09</lastmod>
     </url>
     <url>
          <loc>https://docs.ransnet.com/start/device/provision/</loc>
-         <lastmod>2026-04-08</lastmod>
+         <lastmod>2026-04-09</lastmod>
     </url>
     <url>
          <loc>https://docs.ransnet.com/start/mfusion/admin/</loc>
-         <lastmod>2026-04-08</lastmod>
+         <lastmod>2026-04-09</lastmod>
     </url>
     <url>
          <loc>https://docs.ransnet.com/start/mfusion/features/</loc>
-         <lastmod>2026-04-08</lastmod>
+         <lastmod>2026-04-09</lastmod>
     </url>
     <url>
          <loc>https://docs.ransnet.com/start/mfusion/security/</loc>
-         <lastmod>2026-04-08</lastmod>
+         <lastmod>2026-04-09</lastmod>
     </url>
     <url>
          <loc>https://docs.ransnet.com/system/</loc>
-         <lastmod>2026-04-08</lastmod>
+         <lastmod>2026-04-09</lastmod>
     </url>
 </urlset>

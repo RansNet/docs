@@ -2945,7 +2945,6 @@
 <p>Set the tracked IP to a known-static host on the LAN (e.g. a server or a managed switch with a fixed IP). When that host becomes unreachable, the prefix is withdrawn from BGP within one tracking interval.</p>
 <hr>
 <h2 id="tracking-wwansim-connections">Tracking WWAN/SIM Connections<a class="headerlink" href="#tracking-wwansim-connections" title="Permanent link">¶</a></h2>
-<p>WWAN tracking has one additional tracking method beyond ICMP and TCP: <strong>RSRQ</strong> (Reference Signal Received Quality). RSRQ reflects radio signal quality rather than upper-layer IP reachability, making it useful for detecting degraded radio conditions before connectivity is fully lost.</p>
 <h3 id="connection-reset-behavior">Connection Reset Behavior<a class="headerlink" href="#connection-reset-behavior" title="Permanent link">¶</a></h3>
 <p>WWAN tracking behaves differently from interface tracking. Rather than permanently disabling the interface on failure, the system briefly resets the cellular connection and immediately attempts to re-establish it. This is intentional.</p>
 <p>Cellular networks are not perfectly stable — as a device moves between coverage areas, it can remain radio-associated with a distant tower while losing routable connectivity through that tower's backhaul. From the router's perspective, the interface is "up" but traffic goes nowhere. A connection reset forces the modem to re-register, pick up a nearby tower, and re-establish a fresh PDP context, restoring connectivity within seconds.</p>
@@ -2957,6 +2956,10 @@
 <div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>interface wwan0
 <a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a> track icmp 1.1.1.1 30
 </code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>WWAN tracking has one additional tracking method beyond ICMP and TCP: <strong>RSRQ</strong> (Reference Signal Received Quality). RSRQ reflects radio signal quality rather than upper-layer IP reachability, making it useful for detecting degraded radio conditions before connectivity is fully lost.</p>
+</div>
 <h3 id="switch-cellular-mode-5g-4g">Switch Cellular Mode (5G → 4G)<a class="headerlink" href="#switch-cellular-mode-5g-4g" title="Permanent link">¶</a></h3>
 <p>RansNet cellular routers can automatically fall back from 5G to 4G LTE when end-to-end connectivity is lost over the 5G path — even when the 5G radio itself appears operational.</p>
 <p>When 5G radio coverage is simply unavailable (the RAN is out of range or powered down), the modem falls back to LTE automatically without any tracking configuration. This section addresses a different and more subtle failure mode: the modem is registered on a 5G cell and the radio link is active, but the <strong>5G core network (5GC)</strong> has a fault. Traffic enters the 5G RAN but is silently dropped before reaching the internet. From the router's perspective, the <code>wwan</code> interface is up and the modem reports a healthy 5G connection — but no data flows.</p>

@@ -102,13 +102,12 @@ nav:
       - Bridge: config/iface/bridge.md
       - WWAN: config/iface/wwan.md
       - PPPoE: config/iface/pppoe.md
-      #- WiFi as WAN: config/iface/wfiwan.md
+      - WiFi as WAN: config/iface/wifiwan.md
     - DHCP: config/dhcp.md
     - Routing:
-      - routing/index.md
-      - Static: routing/static.md
-      - OSPF: routing/ospf.md
-      - BGP: routing/bgp.md
+      - Static: config/route/static.md
+      - OSPF: config/route/ospf.md
+      - BGP: config/route/bgp.md
     #- VRRP: config/vrrp.md
     - Wireless: config/wifi.md
     - Tracking: config/tracking.md
@@ -119,8 +118,8 @@ nav:
    # - Multi-WAN: config/mwan.md
    # - Traffic Steering: config/pbr.md
    # - Traffic Shaping: config/qos.md
-  - Security & Firewall:
-    - security/index.md
+  - Firewall & Security:
+    #- security/index.md
     - Firewall:
       - firewall/index.md
       - Access: firewall/input.md

@@ -15,21 +15,21 @@ The product portfolio covers two solution families:
 
 ### Branch Routers — Series Comparison
 
-Branch routers (mbox) are deployed at sites to provide WAN connectivity, routing, firewall, VPN, and Wi-Fi. Three series are available, differentiated by cellular generation, form factor, and performance tier.
+Branch routers (mbox) are deployed at sites to provide WAN connectivity, routing, firewall, VPN, and Wi-Fi. Four series are available, spanning enterprise branch, industrial, and vehicle/mobility deployments.
 
-| | **HSA-520** | **UA-520** | **XE-300** |
-|---|---|---|---|
-| **Cellular** | 4G LTE (Cat 4) | 5G NSA/SA (or 5G RedCap) | 4G LTE or 5G RedCap |
-| **Wi-Fi** | Wi-Fi 6 (802.11ax), 2.4/5GHz | Wi-Fi 6 (802.11ax), 2.4/5GHz | Wi-Fi 4 (802.11n), 2.4GHz only |
-| **Ethernet** | 5 × GbE (all configurable WAN/LAN) | 5 × GbE (all configurable WAN/LAN) | 1 × FE WAN + 3 × FE LAN (100Mbps) |
-| **Firewall throughput** | 1 Gbps | 1 Gbps | 100 Mbps |
-| **VPN throughput** | 200 Mbps (IPSec), 300 Mbps (WG) | 200 Mbps (IPSec), 300 Mbps (WG) | 10 Mbps (IPSec), 20 Mbps (WG) |
-| **Concurrent devices** | Up to 100 | Up to 100 | Up to 20 |
-| **Form factor** | Compact desktop, metal, 195×150×30mm | Compact desktop, metal, 195×150×40mm | Ultra-compact, 115×87×40mm, <200g |
-| **Operating temp** | −30°C to 70°C | −30°C to 70°C | −30°C to 70°C |
-| **IP rating** | IP30 | IP30 | IP30 |
-| **Target use case** | Enterprise branch, retail, SD-Branch with 4G backup | Enterprise branch, SD-Branch with 5G, FWA, IoT | Industrial IoT, harsh environments, compact machine-mount |
-| **Datasheet** | [HSA-520](RansNet%20HSA-520%20Datasheet.pdf) | [UA-520](RansNet%20UA-520%20Datasheet.pdf) | [XE-300](RansNet%20XE-300%20V_R_X%20Datasheet.pdf) |
+| | **HSA-520** | **UA-520** | **UA-800** | **XE-300** |
+|---|---|---|---|---|
+| **Cellular** | 4G LTE (Cat 4) | 5G NSA/SA (or 5G RedCap) | 5G NSA/SA (Qualcomm X62 or Quectel RM5xx) | 4G LTE or 5G RedCap |
+| **Wi-Fi** | Wi-Fi 6 (802.11ax), 2.4/5GHz | Wi-Fi 6 (802.11ax), 2.4/5GHz | Wi-Fi 6 (802.11ax), 2.4/5GHz | Wi-Fi 4 (802.11n), 2.4GHz only |
+| **Ethernet** | 5 × GbE (all configurable WAN/LAN) | 5 × GbE (all configurable WAN/LAN) | 3–5 × GbE (M12 or RJ45, see variants) | 1 × FE WAN + 3 × FE LAN (100Mbps) |
+| **Firewall throughput** | 1 Gbps | 1 Gbps | 1 Gbps | 100 Mbps |
+| **VPN throughput** | 200 Mbps (IPSec), 300 Mbps (WG) | 200 Mbps (IPSec), 300 Mbps (WG) | 600–800 Mbps (IPSec) | 10 Mbps (IPSec), 20 Mbps (WG) |
+| **Concurrent devices** | Up to 100 | Up to 100 | Up to 200 | Up to 20 |
+| **Form factor** | Compact desktop, metal, 195×150×30mm | Compact desktop, metal, 195×150×40mm | Industrial metal, 195×150×30mm (NR/M) or 135×150×30mm (X); M12 ports on vehicle variant | Ultra-compact, 115×87×40mm, <200g |
+| **Operating temp** | −30°C to 70°C | −30°C to 70°C | −30°C to 70°C (NR/M) / −30°C to 80°C (X) | −30°C to 70°C |
+| **IP rating** | IP30 | IP30 | IP30 (NR) / IP65 (M) | IP30 |
+| **Target use case** | Enterprise branch, retail, SD-Branch with 4G backup | Enterprise branch, SD-Branch with 5G, FWA, IoT | Industrial IoT, vehicle/mobility, Fixed Wireless Access, AIoT | Industrial IoT, harsh environments, compact machine-mount |
+| **Datasheet** | [HSA-520](RansNet%20HSA-520%20Datasheet.pdf) | [UA-520](RansNet%20UA-520%20Datasheet.pdf) | [UA-800NR](RansNet%20UA-800NR%20Datasheet.pdf) / [UA-800M](RansNet%20UA-800M%20Datasheet.pdf) / [UA-800X](RansNet%20UA-800X%20Datasheet.pdf) | [XE-300](RansNet%20XE-300%20V_R_X%20Datasheet.pdf) |
 
 ### HSA-520 Model Variants
 
@@ -53,6 +53,20 @@ Branch routers (mbox) are deployed at sites to provide WAN connectivity, routing
 | **XE-300V** | None | Fixed line only | Wired WAN only; lowest cost entry point |
 | **XE-300R** | 4G LTE (Quectel EM05) | Fixed + 4G | Standard industrial IoT model |
 | **XE-300X** | 5G RedCap (Quectel RG255) | Fixed + 5G | 5G-capable industrial model |
+
+### UA-800 Model Variants
+
+The UA-800 series is the industrial and vehicle-grade branch router line, built on the Qualcomm IPQ6010 platform. It is distinguished from the UA-520/HSA-520 desktop series by its ruggedized construction, higher concurrent device capacity (200), higher VPN throughput, and vehicle-specific options including M12 connectors, ignition-sensing power control, and IP65 weatherproofing.
+
+All UA-800 models include: integrated GNSS/GPS, Bluetooth, Z-Wave\*, and a built-in MQTT broker\* for IoT device integration.
+
+| Model | Type | Cellular | SIM | Ethernet | Power Input | IP Rating | Notes |
+|---|---|---|---|---|---|---|---|
+| **UA-800NR1** | Industrial FWA | 5G NSA/SA (Qualcomm X62) | Dual, Active/Standby | 5 × GbE (RJ45) | Screw Jack, 12–56V DC | IP30 | Standard industrial form factor; Fixed Wireless Access |
+| **UA-800NR2** | Industrial FWA | 5G NSA/SA (Qualcomm X62) | Dual, Active/Active | 5 × GbE (RJ45) | Screw Jack, 12–56V DC | IP30 | Dual-SIM active/active for load balancing or SIM redundancy |
+| **UA-800M1** | Vehicle/Mobility | 5G NSA/SA (Qualcomm X62) | Dual, Active/Standby | 4 × GbE (M12) | M12, 12–56V DC + ignition sensing | IP65 | Vehicle-grade; EN 61373 vibration certified; ISO 16759 |
+| **UA-800M2** | Vehicle/Mobility | 5G NSA/SA (Qualcomm X62) | Dual, Active/Active | 4 × GbE (M12) | M12, 12–56V DC + ignition sensing | IP65 | Vehicle-grade; dual-SIM active/active |
+| **UA-800X** | Compact IoT | 5G NSA/SA (Quectel RM5xx) | Single | 1 × WAN + 2 × LAN (GbE) | 12–56V DC / USB-C 5V / Terminal block | — | Most compact (135×150×30mm, <800g); −30°C to 80°C; automotive E-Mark\* |
 
 !!! note
     All branch router models include full SD-WAN features: multi-WAN failover, IPSec/SSL/WireGuard/GRE/VXLAN VPN, OSPF/BGP dynamic routing, PBR traffic steering, stateful firewall, VLAN, NAC, SNMP/NetFlow/Syslog, and zero-touch provisioning via mfusion.
@@ -225,6 +239,9 @@ The YB0007AA is a compact screw-mount 5G antenna box (puck form factor) providin
 |---|---|
 | Branch site needing 5G WAN + SD-WAN + Wi-Fi 6 | UA-520R |
 | Branch site needing 4G WAN + SD-WAN + Wi-Fi 6 | HSA-520R |
+| Industrial 5G Fixed Wireless Access (enterprise, retail, AIoT) | UA-800NR |
+| Vehicle or mobile 5G router (fleet, robotics, public transport) | UA-800M |
+| Compact 5G IoT router for in-vehicle or enclosure mounting | UA-800X |
 | Industrial/IoT device with 4G backhaul in harsh environment | XE-300R |
 | Compact 5G IoT backhaul at lower cost | XE-300X or UA-520X |
 | Fixed-line only branch or HQ gateway | CMG-1500 or CMG-2000 |

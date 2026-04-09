@@ -16,18 +16,22 @@ When a tracked target becomes unreachable, the router takes a configured action:
 
 ## Common Options
 
-All tracking contexts share the same set of core options:
+All tracking contexts share the same set of probe options:
 
-**Tracking method**
+| Field | Description |
+|---|---|
+| **Tracking Method** | `Track Ping` (ICMP) — sends periodic ICMP echo requests to the target. Supports SLA thresholds for nuanced failure detection. `Track TCP` — attempts a TCP connection to verify reachability; use this when ICMP is blocked by the upstream network or firewall. |
+| **Track Host IP** | The IP address to probe. Typically the next-hop router or a reliable host beyond it (e.g., `8.8.8.8`). |
+| **Tracking Interval (s)** | How often probes are sent, in seconds (e.g., `30`) |
+| **Ping SLA** | Enable SLA-based tracking: the action is triggered when latency or packet loss exceeds the configured thresholds, even if the host is technically responding to probes. |
+| **Maximum Latency (ms)** | Round-trip latency threshold in milliseconds. Probes exceeding this value count as failures (e.g., `100`). Applies only when Ping SLA is enabled. |
+| **Maximum Packet Loss (%)** | Percentage of lost probe packets before the tracked object is considered down (e.g., `20`). Applies only when Ping SLA is enabled. |
+| **Source IP** | Source IP address for probe packets. Specify when verifying reachability via a particular path, or when the default source IP is ambiguous on a multi-homed device. |
+| **Log** | Log tracking state changes and probe results to syslog. Useful during commissioning and troubleshooting. |
+| **Reverse** | Invert the tracking logic — the configured action triggers when the probe *succeeds* instead of when it fails. Useful for enabling a backup object only when the primary becomes unavailable. |
 
-- **ICMP** — sends periodic ICMP echo requests (ping) to the target. Supports SLA thresholds (e.g. packet loss rate, latency) for more nuanced failure detection.
-- **TCP** — attempts a TCP connection to a specific port on the target (e.g. `tcp/443`). Useful when ICMP is blocked by the upstream network or firewall.
-
-**Source IP** — binds tracking probes to a specific source address. This is important when you need to verify reachability via a particular path, or when the default source IP would be ambiguous (e.g. multi-homed device).
-
-**Log** — when enabled, writes detailed tracking probe results and state transitions to syslog. Use this during commissioning or troubleshooting to understand exactly what the tracker is seeing.
-
-**Reverse** — inverts the tracking behavior. By default, a tracking failure triggers the action (e.g. disable interface, withdraw route). With **Reverse** enabled, the action is triggered when tracking *succeeds* instead. This is useful for scenarios like enabling a backup interface only when the primary becomes unavailable.
+!!! note
+    Tracking probes run independently of the physical interface state. A tracked object can be deactivated even when the interface is physically up — for example, if the upstream router is reachable at Layer 2 but connectivity beyond it has failed.
 
 ---
 
@@ -155,15 +159,62 @@ interface wwan0
  track icmp 1.1.1.1 30
 ```
 
-### Switch Cellular Mode (5G → 4G Failover)
+### Switch Cellular Mode (5G → 4G)
 
-RansNet cellular routers can automatically fail over between 5G and 4G when the preferred mode loses end-to-end connectivity.
+RansNet cellular routers can automatically fall back from 5G to 4G LTE when end-to-end connectivity is lost over the 5G path — even when the 5G radio itself appears operational.
 
-This addresses a specific failure mode: the 5G radio and the RAN (Radio Access Network) appear operational, but the 5G core network (5GC) has a fault. The modem shows a 5G connection, but no traffic gets through. Simply resetting the connection won't help — the modem will re-register on the same 5G core. The solution is to switch the radio access technology entirely, forcing the router onto LTE, which uses a separate 4G core network (EPC) and a different backhaul path.
+When 5G radio coverage is simply unavailable (the RAN is out of range or powered down), the modem falls back to LTE automatically without any tracking configuration. This section addresses a different and more subtle failure mode: the modem is registered on a 5G cell and the radio link is active, but the **5G core network (5GC)** has a fault. Traffic enters the 5G RAN but is silently dropped before reaching the internet. From the router's perspective, the `wwan` interface is up and the modem reports a healthy 5G connection — but no data flows.
+
+A simple connection reset does not resolve this. The modem will re-associate with the same 5G cell and re-attach to the same faulty 5GC. The correct response is to switch the radio access technology to LTE, which uses a completely separate core network (the 4G EPC) and an independent backhaul path, bypassing the faulty 5GC entirely.
+
+Configuring `nr-mode` with a tracking probe automates this: if the probe target becomes unreachable while in 5G mode, the router switches the modem to LTE and remains on LTE until the next reboot.
+
+**CLI Example**
 
 ```
 interface wwan0
  nr-mode NR5G track icmp 1.1.1.1 30 failover LTE
 ```
 
-In this configuration, the router operates in NR5G mode by default. If `1.1.1.1` becomes unreachable (indicating a 5G core failure), it switches to LTE mode.
+**Key points:**
+
+- `nr-mode NR5G` — sets the preferred radio access mode to 5G NR
+- `track icmp 1.1.1.1 30` — probes `1.1.1.1` every `30` seconds; probe failure indicates end-to-end connectivity loss
+- `failover LTE` — switches the modem to LTE mode on probe failure; the router remains on LTE until reboot and does not attempt to switch back to 5G automatically
+
+!!! note
+    Once failover to LTE occurs, the router stays on LTE until the next reboot. It will not attempt to recover back to 5G mode automatically, to avoid flapping between modes. Choose a probe target that is reachable over the 5G path — such as a public DNS server (`1.1.1.1`, `8.8.8.8`).
+
+
+## Tracking System Reachability
+
+System reachability tracking is a last-resort watchdog mechanism that operates at the router level rather than at the interface or route level. Instead of withdrawing a route or disabling an interface on failure, it **reboots the router** — the assumption being that the device has entered a state it cannot self-recover from, and that a clean restart is the safest way to restore connectivity.
+
+This is appropriate in scenarios where interface and route tracking have not resolved the problem — for example, a software deadlock, a hung process, or a routing table inconsistency, or a connectivity issue (eg. auto sensing issue with adjacent device or upstream cellular network) that leaves the router unable to forward traffic despite all interfaces appearing up. Because a reboot is disruptive, system tracking should be configured with a long probe interval and strict failure thresholds to avoid unnecessary restarts.
+
+**GUI Configuration**
+
+Navigate to **Device Settings → System → Other Settings**, then enable the **Enable Tracking** tab.
+
+![System Reachability Tracking](./images/config-track-6.png)
+
+The configuration fields are the same as the [Common Options](#common-options) described above. In the example shown, the router probes `1.1.1.1` every `300` seconds using ICMP, with Ping SLA thresholds of `100 ms` latency and `20%` packet loss. Source IP is bound to `192.168.8.1`.
+
+!!! note
+    The router requires **2 consecutive probe failures** before triggering a reboot. With a 300-second interval, this means the target must be continuously unreachable for at least **10 minutes** before any action is taken.
+
+**CLI Configuration**
+
+```
+ip track icmp 1.1.1.1 300 max 100 20 src 192.168.8.1
+```
+
+**Key points:**
+
+- `ip track` — configures system-level tracking; unlike interface or route tracking, this command is global and not tied to any specific object
+- `icmp 1.1.1.1 300` — probes `1.1.1.1` with ICMP every `300` seconds
+- `max 100 20` — Ping SLA thresholds: probe fails if round-trip latency exceeds `100 ms` or packet loss exceeds `20%`
+- `src 192.168.8.1` — binds probe packets to this source IP, ensuring they follow the intended path
+
+!!! tip
+    System reachability tracking triggers a full router reboot — a disruptive action that should only fire when all other recovery options have been exhausted. Use a long probe interval (e.g., `300` seconds) with a stable, always-reachable target. Overly short intervals on an unreliable uplink risk repeated reboots that can make the device difficult to recover remotely.

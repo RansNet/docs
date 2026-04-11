@@ -971,6 +971,8 @@
       
         
       
+        
+      
     
     
     
@@ -1439,6 +1441,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../vrrp/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VRRP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../wifi/" class="md-nav__link">
         
   
@@ -1564,6 +1594,17 @@
     <span class="md-ellipsis">
       
         Tracking Static Route
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tracking-vrrp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tracking VRRP
       
     </span>
   </a>
@@ -2706,6 +2747,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#tracking-vrrp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tracking VRRP
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#tracking-policy-based-route" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2918,6 +2970,25 @@
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>ip route 0.0.0.0/0 nexthop 100.100.100.1 track icmp 100.100.100.1 30
 </code></pre></div>
 <hr>
+<h2 id="tracking-vrrp">Tracking VRRP<a class="headerlink" href="#tracking-vrrp" title="Permanent link">¶</a></h2>
+<p>VRRP tracking monitors a reachability target and stops or resumes a router's participation in a VRRP group based on the result. When the probe fails, the router withdraws from the group entirely — it stops sending advertisements and releases the VIP if it was MASTER — allowing the highest-priority remaining member to take over. When the probe recovers, participation resumes and the MASTER role is reclaimed.</p>
+<p>This is the preferred mechanism for ensuring that a VRRP MASTER only holds the VIP when it has a working upstream path. Without tracking, a router whose WAN link has failed will continue to hold the VIP and attract traffic it cannot forward — a split-brain condition.</p>
+<p><strong>GUI Example</strong></p>
+<p>Navigate to <strong>Device Settings → Network → Interfaces</strong>. Click an interface to open its settings, then expand the <strong>VRRP</strong> section, edit a VRRP group, and enable <strong>Tracking Method</strong>.</p>
+<p>For a full description of all probe configuration fields, see <a href="#common-options">Common Options</a>.</p>
+<p><strong>CLI Example</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>interface vlan 1 11
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>  vrrp-group 11
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>    priority 120
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>    virtual_ipaddress 10.10.10.1
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>    track icmp 1.1.1.1 30
+</code></pre></div>
+<p>In this example, VRRP group 11 has no explicit <code>enable</code> statement — its active state is governed entirely by the tracking result. The router participates as MASTER when <code>1.1.1.1</code> is reachable, and withdraws from the group when the probe fails.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Track a host that is reachable via the upstream WAN path — such as the ISP gateway or a public DNS server — rather than a host on the LAN. This ensures the VRRP failover reflects actual WAN reachability, not just local link state.</p>
+</div>
+<hr>
 <h2 id="tracking-policy-based-route">Tracking Policy-Based Route<a class="headerlink" href="#tracking-policy-based-route" title="Permanent link">¶</a></h2>
 <p>Policy-based routing (PBR) allows traffic to be steered based on criteria beyond the destination address (e.g. source subnet, DSCP mark). PBR tracking works the same way as static route tracking — the PBR rule is only active when the tracked target is reachable.</p>
 <p>The key advantage of PBR over static routing in a multi-WAN scenario is precedence. In most deployments, the WAN interfaces use DHCP, which installs kernel-level default routes. Kernel routes supersede static routes, so a static backup default may never be reached. PBR operates above the kernel routing table, so a tracked PBR rule will take effect regardless of what kernel or static routes are present — giving you reliable, deterministic traffic steering even in mixed-WAN environments.</p>
@@ -2925,8 +2996,8 @@
 <p>Navigate to <strong>Device Settings → SD-WAN → Traffic Steering</strong>. Click to add or edit a rule.</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../images/config-track-3.png" data-desc-position="bottom"><img alt="Tracking" src="../images/config-track-3.png"></a></p>
 <p><strong>CLI Example</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>ip pbr policy 100 src 192.168.8.0/22
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>ip pbr 100 nexthop 100.100.100.1 track icmp 1.1.1.1 15
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>ip pbr policy 100 src 192.168.8.0/22
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>ip pbr 100 nexthop 100.100.100.1 track icmp 1.1.1.1 15
 </code></pre></div>
 <p>In this example, traffic from <code>192.168.8.0/22</code> is steered via <code>100.100.100.1</code> as long as <code>1.1.1.1</code> is reachable. If tracking fails, the PBR rule is withdrawn and traffic follows normal routing.</p>
 <hr>
@@ -2938,9 +3009,9 @@
 <p>Navigate to the BGP configuration section (under <strong>SD-WAN</strong> or <strong>Dynamic Routing</strong>, depending on your deployment), and open the advertised network entry:</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../images/config-track-4.png" data-desc-position="bottom"><img alt="Tracking" src="../images/config-track-4.png"></a></p>
 <p><strong>CLI Example</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>router 65051
-<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a> ...
-<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a> network 192.168.5.254/24 track icmp 192.168.5.6 30
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>router 65051
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a> ...
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a> network 192.168.5.254/24 track icmp 192.168.5.6 30
 </code></pre></div>
 <p>Set the tracked IP to a known-static host on the LAN (e.g. a server or a managed switch with a fixed IP). When that host becomes unreachable, the prefix is withdrawn from BGP within one tracking interval.</p>
 <hr>
@@ -2953,8 +3024,8 @@
 <p>Navigate to <strong>Device Settings → Network → WWAN</strong>.</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../images/config-track-5.png" data-desc-position="bottom"><img alt="Tracking" src="../images/config-track-5.png"></a></p>
 <p><strong>CLI Example</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>interface wwan0
-<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a> track icmp 1.1.1.1 30
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>interface wwan0
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a> track icmp 1.1.1.1 30
 </code></pre></div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -2966,8 +3037,8 @@
 <p>A simple connection reset does not resolve this. The modem will re-associate with the same 5G cell and re-attach to the same faulty 5GC. The correct response is to switch the radio access technology to LTE, which uses a completely separate core network (the 4G EPC) and an independent backhaul path, bypassing the faulty 5GC entirely.</p>
 <p>Configuring <code>nr-mode</code> with a tracking probe automates this: if the probe target becomes unreachable while in 5G mode, the router switches the modem to LTE and remains on LTE until the next reboot.</p>
 <p><strong>CLI Example</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>interface wwan0
-<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a> nr-mode NR5G track icmp 1.1.1.1 30 failover LTE
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>interface wwan0
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a> nr-mode NR5G track icmp 1.1.1.1 30 failover LTE
 </code></pre></div>
 <p><strong>Key points:</strong></p>
 <ul>
@@ -2991,7 +3062,7 @@
 <p>The router requires <strong>2 consecutive probe failures</strong> before triggering a reboot. With a 300-second interval, this means the target must be continuously unreachable for at least <strong>10 minutes</strong> before any action is taken.</p>
 </div>
 <p><strong>CLI Configuration</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>ip track icmp 1.1.1.1 300 max 100 20 src 192.168.8.1
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>ip track icmp 1.1.1.1 300 max 100 20 src 192.168.8.1
 </code></pre></div>
 <p><strong>Key points:</strong></p>
 <ul>

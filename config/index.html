@@ -26,7 +26,7 @@
     
     
       
-        <title>Device Configuration - RansNet Documentation</title>
+        <title>Network Settings - RansNet Documentation</title>
       
     
     
@@ -89,7 +89,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#device-configuration" class="md-skip">
+        <a href="#network-settings" class="md-skip">
           Skip to content
         </a>
       
@@ -124,7 +124,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Device Configuration
+              Network Settings
             
           </span>
         </div>
@@ -971,6 +971,8 @@
       
         
       
+        
+      
     
     
     
@@ -1427,6 +1429,34 @@
           </ul>
         </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="vrrp/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VRRP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
     </li>
   
 
@@ -2492,6 +2522,80 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#interfaces" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Interfaces
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dhcp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DHCP
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#routing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Routing
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#wireless" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Wireless
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vrrp-high-availability" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VRRP — High Availability
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tracking" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tracking
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -2513,11 +2617,120 @@
 
 
 
-<h1 id="device-configuration">Device Configuration<a class="headerlink" href="#device-configuration" title="Permanent link">¶</a></h1>
-<div class="admonition note">
-<p class="admonition-title">Coming Soon</p>
-<p>This page is under construction. Content will be added shortly.</p>
-</div>
+<h1 id="network-settings">Network Settings<a class="headerlink" href="#network-settings" title="Permanent link">¶</a></h1>
+<p>This section covers the network configuration of RansNet SD-WAN branch routers and gateways — interfaces, routing, wireless, redundancy, and connectivity tracking.</p>
+<p>All settings described here are accessible under <strong>Device Settings → Network</strong> in the mfusion device management interface, or via the CLI on each device.</p>
+<hr>
+<h2 id="interfaces">Interfaces<a class="headerlink" href="#interfaces" title="Permanent link">¶</a></h2>
+<p>Configure the physical and logical network interfaces on the device. Each interface type has its own page:</p>
+<table>
+<thead>
+<tr>
+<th>Page</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="iface/ethernet/">Ethernet</a></td>
+<td>Layer-3 routed physical ports — IP addressing, MTU, VLAN sub-interfaces, link speed, and other interface settings</td>
+</tr>
+<tr>
+<td><a href="iface/vlaniface/">VLAN</a></td>
+<td>802.1Q tagged sub-interfaces for traffic segmentation across a shared physical port</td>
+</tr>
+<tr>
+<td><a href="iface/bridge/">Bridge</a></td>
+<td>Software Layer-2 bridge combining multiple ports into a single switched segment</td>
+</tr>
+<tr>
+<td><a href="iface/wwan/">WWAN</a></td>
+<td>Cellular modem interfaces (4G LTE / 5G NR) — APN, band lock, SIM configuration, and 5G mode settings</td>
+</tr>
+<tr>
+<td><a href="iface/pppoe/">PPPoE</a></td>
+<td>PPPoE client interface for ADSL/VDSL and fibre broadband connections that require PPP authentication</td>
+</tr>
+<tr>
+<td><a href="iface/wifiwan/">Wi-Fi as WAN</a></td>
+<td>STA (station) mode — connect the built-in Wi-Fi radio to an upstream network as a WAN uplink</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="dhcp">DHCP<a class="headerlink" href="#dhcp" title="Permanent link">¶</a></h2>
+<p><a href="dhcp/">DHCP</a> is configured per interface and supports three roles: <strong>DHCP server</strong> (assign addresses to downstream clients), <strong>DHCP client</strong> (obtain an address from an upstream server), and <strong>DHCP relay</strong> (forward DHCP requests to a centralised server on another subnet).</p>
+<hr>
+<h2 id="routing">Routing<a class="headerlink" href="#routing" title="Permanent link">¶</a></h2>
+<table>
+<thead>
+<tr>
+<th>Page</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="route/static/">Static Routing</a></td>
+<td>Manually defined routes with optional reachability tracking for conditional route injection and failover</td>
+</tr>
+<tr>
+<td><a href="route/ospf/">OSPF</a></td>
+<td>Link-state IGP for dynamic route exchange with on-premise infrastructure or between branch routers</td>
+</tr>
+<tr>
+<td><a href="route/bgp/">BGP</a></td>
+<td>External BGP peering with ISPs or third-party routers — prefix advertisement, path selection, and multi-homing</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="wireless">Wireless<a class="headerlink" href="#wireless" title="Permanent link">¶</a></h2>
+<p><a href="wifi/">Wireless Configuration</a> covers the built-in Wi-Fi 6 (802.11ax) radios on UA, HSA and UAP series devices. Radios can operate as an <strong>access point</strong> (serving wireless clients), in <strong>EasyMesh</strong> mode (multi-hop self-healing mesh with UAP-520 access points), or in <strong>STA mode</strong> (<a href="iface/wifiwan/">Wi-Fi as WAN</a>) to use an upstream Wi-Fi network as a WAN backhaul.</p>
+<hr>
+<h2 id="vrrp-high-availability">VRRP — High Availability<a class="headerlink" href="#vrrp-high-availability" title="Permanent link">¶</a></h2>
+<p><a href="vrrp/">VRRP</a> provides gateway redundancy by sharing a Virtual IP address (VIP) among a group of routers. The highest-priority member holds the VIP as MASTER; BACKUPs take over automatically on failure. Multiple VRRP groups per interface enable active/active load sharing across VLANs while maintaining full redundancy.</p>
+<hr>
+<h2 id="tracking">Tracking<a class="headerlink" href="#tracking" title="Permanent link">¶</a></h2>
+<p><a href="tracking/">Tracking</a> is a reachability monitoring engine that probes a target host and triggers a configured action when connectivity is lost. It is used across multiple features to provide intelligent, condition-based behaviour:</p>
+<table>
+<thead>
+<tr>
+<th>Context</th>
+<th>Action on failure</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Interface</td>
+<td>Disable the interface</td>
+</tr>
+<tr>
+<td>Static route</td>
+<td>Withdraw the route from the routing table</td>
+</tr>
+<tr>
+<td>VRRP</td>
+<td>Withdraw from the VRRP group, triggering MASTER handover</td>
+</tr>
+<tr>
+<td>PBR</td>
+<td>Withdraw the policy-based routing rule</td>
+</tr>
+<tr>
+<td>BGP</td>
+<td>Withdraw the BGP prefix advertisement</td>
+</tr>
+<tr>
+<td>WWAN</td>
+<td>Reset the cellular connection or switch from 5G to 4G</td>
+</tr>
+<tr>
+<td>System</td>
+<td>Reboot the router (last-resort watchdog)</td>
+</tr>
+</tbody>
+</table>
 
 
 

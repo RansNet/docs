@@ -24,7 +24,7 @@ Select the destination type for this route:
 |---|---|
 | **Default Route** | Installs `0.0.0.0/0` — the catch-all route used when no more-specific prefix matches. Equivalent to a default gateway entry. |
 | **Network/Prefix** | A specific destination subnet in CIDR notation (e.g., `1.1.1.0/24`) |
-| **Network Group** | Apply this route to a named group of prefixes configured under Network Objects |
+| **Network Group** | Apply this route to a named group of prefixes, FQDNs, or applications. See [Network Groups](groups.md). |
 
 **IPv4 Nexthop IP/Interface**
 

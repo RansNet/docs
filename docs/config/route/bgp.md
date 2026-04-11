@@ -1,4 +1,4 @@
-# BGP
+# Dynamic Routing (BGP)
 
 BGP (Border Gateway Protocol) is the routing protocol of the internet — the standard mechanism by which autonomous systems (AS) exchange reachability information across administrative boundaries. Each BGP speaker is identified by an **Autonomous System Number (ASN)**, a globally unique identifier assigned by a regional internet registry (RIR).
 

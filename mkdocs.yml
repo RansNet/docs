@@ -105,9 +105,10 @@ nav:
       - WiFi as WAN: config/iface/wifiwan.md
     - DHCP: config/dhcp.md
     - Routing:
-      - Static: config/route/static.md
-      - OSPF: config/route/ospf.md
-      - BGP: config/route/bgp.md
+      - Static Routes: config/route/static.md
+      - Network Groups: config/route/groups.md
+      - Dynamic(OSPF): config/route/ospf.md
+      - Dynamic(BGP): config/route/bgp.md
     - VRRP: config/vrrp.md
     - Wireless: config/wifi.md
     - Tracking: config/tracking.md
@@ -121,20 +122,24 @@ nav:
   - Firewall & Security:
     #- security/index.md
     - Firewall:
-      - firewall/index.md
-      - Access: firewall/input.md
-      - DNAT: firewall/dnat.md
-      - SNAT: firewall/snat.md
-      - Input: firewall/input.md
+      - Overview: security/firewall/overview.md
+      - Policies: security/firewall/policies.md
+      - Objects: security/firewall/objects.md
+      - Templates: security/firewall/templates.md
     - DNS Filtering: security/dnsfiltering.md
     - Netflow Analyzer: security/netflow.md
     - Log Collector: security/log.md
     - RADIUS Server: security/radius.md
-  - System Services:
-    - DNS: services/dns.md
-    - NTP: services/ntp.md
-    - SNMP: services/snmp.md
-    - Syslog: services/syslog.md
+  - System & Tools:
+    - DNS: system/dns.md
+    - NTP: system/ntp.md
+    - SNMP: system/snmp.md
+    - Syslog: system/syslog.md
+    - Tools:
+      - Speed Test: tools/speedtest.md
+      - Packet Capture: tools/packetcapture.md
+      - Traceroute: tools/traceroute.md
+      - Ping: tools/ping.md
   - HotSpot Gateway:
     - hotspot/index.md
   - Use Cases:

@@ -85,6 +85,35 @@ ip route 0.0.0.0/0 nexthop 100.100.100.1 track icmp 100.100.100.1 30
 
 ---
 
+## Tracking VRRP
+
+VRRP tracking monitors a reachability target and stops or resumes a router's participation in a VRRP group based on the result. When the probe fails, the router withdraws from the group entirely — it stops sending advertisements and releases the VIP if it was MASTER — allowing the highest-priority remaining member to take over. When the probe recovers, participation resumes and the MASTER role is reclaimed.
+
+This is the preferred mechanism for ensuring that a VRRP MASTER only holds the VIP when it has a working upstream path. Without tracking, a router whose WAN link has failed will continue to hold the VIP and attract traffic it cannot forward — a split-brain condition.
+
+**GUI Example**
+
+Navigate to **Device Settings → Network → Interfaces**. Click an interface to open its settings, then expand the **VRRP** section, edit a VRRP group, and enable **Tracking Method**.
+
+For a full description of all probe configuration fields, see [Common Options](#common-options).
+
+**CLI Example**
+
+```
+interface vlan 1 11
+  vrrp-group 11
+    priority 120
+    virtual_ipaddress 10.10.10.1
+    track icmp 1.1.1.1 30
+```
+
+In this example, VRRP group 11 has no explicit `enable` statement — its active state is governed entirely by the tracking result. The router participates as MASTER when `1.1.1.1` is reachable, and withdraws from the group when the probe fails.
+
+!!! tip
+    Track a host that is reachable via the upstream WAN path — such as the ISP gateway or a public DNS server — rather than a host on the LAN. This ensures the VRRP failover reflects actual WAN reachability, not just local link state.
+
+---
+
 ## Tracking Policy-Based Route
 
 Policy-based routing (PBR) allows traffic to be steered based on criteria beyond the destination address (e.g. source subnet, DSCP mark). PBR tracking works the same way as static route tracking — the PBR rule is only active when the tracked target is reachable.

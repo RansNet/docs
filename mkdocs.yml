@@ -108,7 +108,7 @@ nav:
       - Static: config/route/static.md
       - OSPF: config/route/ospf.md
       - BGP: config/route/bgp.md
-    #- VRRP: config/vrrp.md
+    - VRRP: config/vrrp.md
     - Wireless: config/wifi.md
     - Tracking: config/tracking.md
   #- SD-WAN:

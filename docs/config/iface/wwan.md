@@ -4,6 +4,9 @@ Wireless WAN (WWAN), also referred to as a mobile or cellular interface, provide
 
 Each WWAN interface corresponds to a physical cellular modem module installed in the device. The modem establishes a data session (PDN connection) with the mobile network using a SIM card and the configured APN, and presents the resulting IP address to the device as a routable WAN interface.
 
+!!! warning
+    Before proceeding, ensure the SIM card is fully seated and all antenna connectors are tightly screwed on. Loose antennas and improperly inserted SIMs are the most common reasons a WWAN interface fails to come online.
+
 Navigate to **Device Settings → Network → WWAN**.
 
 ![WWAN Interfaces](../images/iface-wwan-1.png)

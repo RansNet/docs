@@ -114,38 +114,40 @@ nav:
     - Wireless: config/wifi.md
     - Tracking: config/tracking.md
   - SD-WAN:
-    - sdwan/index.md
-    - VPN Protocols: config/vpn.md
-    - VPN Instance: config/vpninstance.md
-    - Multi-WAN: config/mwan.md
-    - Traffic Steering: config/pbr.md
-    - Traffic Shaping: config/qos.md
+    #- sdwan/index.md
+    - VPN Overlay:
+      - VPN Protocols: sdwan/vpn/vpnintro.md
+      - VPN Topology: sdwan/vpn/topology.md
+      - VPN Instance: sdwan/vpn/instance.md
+    #- Traffic Management:
+    #  - Multi-WAN: sdwan/traffic/mwan.md
+    #  - Traffic Steering: sdwan/traffic/steering.md
+    #  - Traffic Shaping: sdwan/traffic/shaping.md
   - Firewall & Security:
-    - security/index.md
+    #- security/index.md
     - Firewall:
       - Overview: security/firewall/overview.md
       - Policies: security/firewall/policies.md
       - Objects: security/firewall/objects.md
       - Templates: security/firewall/templates.md
     - Web Filtering: security/webfilter.md
-    - Netflow Analyzer: security/netflow.md
-    - Log Collector: security/log.md
-    - RADIUS Server: security/radius.md
-  - System & Tools:
-    - DNS: system/dns.md
-    - NTP: system/ntp.md
-    - SNMP: system/snmp.md
-    - Syslog: system/syslog.md
-    - Tools:
-      - Speed Test: tools/speedtest.md
-      - Packet Capture: tools/packetcapture.md
-      - Traceroute: tools/traceroute.md
-      - Ping: tools/ping.md
+    #- Netflow Analyzer: security/netflow.md
+    #- Log Collector: security/log.md
+    #- RADIUS Server: security/radius.md
+  #- System & Tools:
+  #  - DNS: system/dns.md
+  #  - NTP: system/ntp.md
+  #  - SNMP: system/snmp.md
+  #  - Syslog: system/syslog.md
+  #  - Tools:
+  #    - Speed Test: tools/speedtest.md
+  #    - Packet Capture: tools/packetcapture.md
+  #    - Traceroute: tools/traceroute.md
+  #    - Ping: tools/ping.md
   - HotSpot Gateway:
     - hotspot/index.md
   - Use Cases:
     - WAN Failover: cases/wanfailover.md
-    - On-premise SD-WAN: cases/onpremise.md
     - Cloud-based SD-WAN: cases/cloudsdwan.md
     - Layer-2 SD-WAN: cases/l2vpn.md
     - VRF over SD-WAN: cases/vrf.md

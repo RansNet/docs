@@ -12,6 +12,10 @@
         <link rel="canonical" href="https://docs.ransnet.com/security/dnsfilter/">
       
       
+        <link rel="prev" href="../firewall/templates/">
+      
+      
+        <link rel="next" href="../../hotspot/">
       
       
         
@@ -1583,8 +1587,10 @@
       
   
   
+    
   
   
+  
     
     
       
@@ -1602,11 +1608,11 @@
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4">
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked="">
         
           
           <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
@@ -1627,7 +1633,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
             
@@ -1819,10 +1825,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../dnsfiltering.md" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Web Filtering
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -1838,6 +1871,148 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#method-1-firewall-rules-with-objects" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Method 1: Firewall Rules with Objects
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Method 1: Firewall Rules with Objects">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#gui-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GUI Configuration
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cli-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CLI Configuration
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#method-2-dns-filtering" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Method 2: DNS Filtering
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Method 2: DNS Filtering">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#blacklisting-block-specific-domains" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Blacklisting — block specific domains
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#whitelisting-allow-only-approved-domains" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Whitelisting — allow only approved domains
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gui-configuration_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GUI Configuration
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#identifying-required-domains" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Identifying Required Domains
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#limitations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Limitations
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#method-3-cloud-dns-category-filtering" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Method 3: Cloud DNS Category Filtering
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -2725,6 +2900,136 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#method-1-firewall-rules-with-objects" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Method 1: Firewall Rules with Objects
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Method 1: Firewall Rules with Objects">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#gui-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GUI Configuration
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cli-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CLI Configuration
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#method-2-dns-filtering" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Method 2: DNS Filtering
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Method 2: DNS Filtering">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#blacklisting-block-specific-domains" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Blacklisting — block specific domains
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#whitelisting-allow-only-approved-domains" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Whitelisting — allow only approved domains
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gui-configuration_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GUI Configuration
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#identifying-required-domains" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Identifying Required Domains
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#limitations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Limitations
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#method-3-cloud-dns-category-filtering" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Method 3: Cloud DNS Category Filtering
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -2747,6 +3052,179 @@
 
 
 <h1 id="web-filtering">Web Filtering<a class="headerlink" href="#web-filtering" title="Permanent link">¶</a></h1>
+<p>Web filtering controls which websites and internet services users on the network are permitted to access. Three complementary methods are available, each operating at a different layer:</p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>How it works</th>
+<th>Granularity</th>
+<th>Bypass resistance</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong><a href="#method-1-firewall-rules-with-objects">Firewall Rules + Objects</a></strong></td>
+<td>Blocks actual TCP/UDP connections by IP, subnet, FQDN, or application signature</td>
+<td>Rule-level — precise control per source/destination</td>
+<td>High — blocks at connection level regardless of how DNS resolves</td>
+</tr>
+<tr>
+<td><strong><a href="#method-2-dns-filtering">DNS Filtering</a></strong></td>
+<td>Intercepts DNS queries and returns no valid address for blocked domains</td>
+<td>Domain-level — blocking a domain covers all its subdomains</td>
+<td>Moderate — can be bypassed by DNS-over-HTTPS or hardcoded DNS</td>
+</tr>
+<tr>
+<td><strong><a href="#method-3-cloud-dns-category-filtering">Cloud DNS Category Filtering</a></strong></td>
+<td>Routes DNS through a cloud resolver that enforces category-based policies</td>
+<td>Category-level — managed lists, no manual domain maintenance</td>
+<td>Moderate — same DNS-layer caveats apply</td>
+</tr>
+</tbody>
+</table>
+<p>These methods can be used independently or combined. A typical layered deployment uses firewall rules for application-level blocking, DNS filtering for domain-level controls, and cloud DNS for broad category enforcement.</p>
+<hr>
+<h2 id="method-1-firewall-rules-with-objects">Method 1: Firewall Rules with Objects<a class="headerlink" href="#method-1-firewall-rules-with-objects" title="Permanent link">¶</a></h2>
+<p>This method uses <code>firewall-access</code> rules combined with <strong>Firewall Objects</strong> to permit or deny traffic based on IP addresses, subnets, FQDNs, or application signatures. Unlike DNS filtering, it blocks actual network connections — a client that resolves a domain successfully will still be denied the connection if a firewall rule matches.</p>
+<p><strong>When to use this method:</strong></p>
+<ul>
+<li>Blocking specific applications (e.g. deny all traffic to Facebook's IP ranges)</li>
+<li>Denying access to known malicious IP ranges</li>
+<li>Permitting only approved destinations from a guest or IoT network</li>
+<li>Scenarios where DNS bypass (DoH, hardcoded DNS) is a concern</li>
+</ul>
+<p><strong>How it works:</strong></p>
+<ol>
+<li>Define a <a href="../firewall/objects/">Firewall Object</a> containing the destinations to block or permit — using <code>net</code> (IP/subnet), <code>fqdn</code> (domain), or <code>app</code> (application, with IP lists maintained by the cloud).</li>
+<li>Create a <code>firewall-access</code> rule referencing that object as the source or destination.</li>
+</ol>
+<h3 id="gui-configuration">GUI Configuration<a class="headerlink" href="#gui-configuration" title="Permanent link">¶</a></h3>
+<p>Navigate to <strong>ORCHESTRATOR → Templates → Object Groups</strong>, create a Firewall Object with the destinations to control. Then navigate to <strong>Device Settings → Security → Firewall Policies</strong> and add an access rule using <strong>Object</strong> as the destination type.</p>
+<p>See <a href="../firewall/objects/">Firewall Objects</a> and <a href="../firewall/policies/">Firewall Policies</a> for full configuration details.</p>
+<h3 id="cli-configuration">CLI Configuration<a class="headerlink" href="#cli-configuration" title="Permanent link">¶</a></h3>
+<p><strong>Block a specific application by name:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>object-group blocked_apps
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>  app Facebook
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>  app TikTok
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>  app YouTube
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>firewall-access 100 deny outbound eth0 dst_object blocked_apps
+</code></pre></div>
+<p><strong>Block a set of IP ranges and domains:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>object-group blocked_sites
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>  net 203.0.113.0/24
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>  fqdn malicious-site.example.com
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>firewall-access 110 deny all dst_object blocked_sites
+</code></pre></div>
+<p><strong>Permit only approved destinations (default-deny approach):</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>object-group approved_dst
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>  fqdn corporate.example.com
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>  net 10.0.0.0/8
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>firewall-access 100 permit outbound eth0 dst_object approved_dst
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>firewall-access 200 deny outbound eth0
+</code></pre></div>
+<p><strong>Key points:</strong></p>
+<ul>
+<li><code>app</code> entries use cloud-maintained IP lists that update automatically — no manual IP management needed for well-known applications</li>
+<li><code>fqdn</code> entries in objects are resolved periodically and the resulting IPs are matched against connection destinations; this differs from DNS filtering which intercepts the query itself</li>
+<li>Rules are evaluated top-to-bottom; place more specific permits before a broad deny</li>
+</ul>
+<hr>
+<h2 id="method-2-dns-filtering">Method 2: DNS Filtering<a class="headerlink" href="#method-2-dns-filtering" title="Permanent link">¶</a></h2>
+<p>DNS filtering intercepts client DNS queries at the router and returns a controlled response — either no address (blocking the domain) or a normal upstream resolution (permitting it). Because filtering happens at the DNS layer, it requires no changes on client devices and applies to all clients on the network.</p>
+<p>Before configuring DNS filtering, ensure the router is intercepting client DNS queries. See <a href="../../config/dnsrewrite/">DNS &amp; DNS Rewrite</a> for setup details, including the DNAT rule that transparently redirects port 53 traffic from clients regardless of what DNS server they have configured.</p>
+<h3 id="blacklisting-block-specific-domains">Blacklisting — block specific domains<a class="headerlink" href="#blacklisting-block-specific-domains" title="Permanent link">¶</a></h3>
+<p>Default-permit: all domains resolve normally except those explicitly blocked.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Blocking a domain also blocks all its subdomains. Blocking <code>yahoo.com</code> also blocks <code>mail.yahoo.com</code>, <code>finance.yahoo.com</code>, and so on.</p>
+</div>
+<p><strong>CLI Configuration</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>ip name-server 8.8.8.8 8.8.4.4
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>firewall-dnat 10 redirect inbound eth1 udp dport 53
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>ip host facebook.com reject
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>ip host youtube.com reject
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>ip host tiktok.com reject
+</code></pre></div>
+<p>To remove a block:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>no ip host facebook.com reject
+</code></pre></div>
+<h3 id="whitelisting-allow-only-approved-domains">Whitelisting — allow only approved domains<a class="headerlink" href="#whitelisting-allow-only-approved-domains" title="Permanent link">¶</a></h3>
+<p>Default-deny: all domains are blocked unless explicitly permitted. The wildcard entry <code>ip host . reject</code> blocks everything by default; individual <code>ip host &lt;domain&gt; resolve</code> entries override it for approved domains.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Many sites and services depend on multiple domains — CDNs, authentication endpoints, API services, and analytics. Permitting a site requires permitting all its supporting domains. Use <code>tcpdump</code> or <a href="#dns-query-logging">DNS query logging</a> to identify them.</p>
+</div>
+<p><strong>CLI Configuration</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>ip name-server 8.8.8.8 8.8.4.4
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>firewall-dnat 10 redirect inbound eth1 udp dport 53
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>ip host . reject
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>ip host google.com resolve
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>ip host googleapis.com resolve
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>ip host gstatic.com resolve
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>ip host youtube.com resolve
+<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a>ip host ytimg.com resolve
+<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a>ip host ransnet.com resolve
+</code></pre></div>
+<p>To remove the default-deny and restore normal resolution:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>no ip host . reject
+</code></pre></div>
+<h3 id="gui-configuration_1">GUI Configuration<a class="headerlink" href="#gui-configuration_1" title="Permanent link">¶</a></h3>
+<p>Navigate to <strong>Device Settings → System</strong>, scroll to <strong>Static FQDN-IP Mapping</strong>, click <strong>+ Add</strong>.</p>
+<ul>
+<li>To block a domain: enter the domain and set the action to <strong>Block</strong> (or IP <code>0.0.0.0</code>)</li>
+<li>To whitelist a domain under a default-deny policy: enter the domain and set the action to <strong>Resolve</strong></li>
+</ul>
+<h3 id="identifying-required-domains">Identifying Required Domains<a class="headerlink" href="#identifying-required-domains" title="Permanent link">¶</a></h3>
+<p>When whitelisting, use <code>tcpdump</code> on the router to capture all DNS queries clients are making while browsing a target site:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>tcpdump interface eth1 port 53 detail
+</code></pre></div>
+<p>Watch the output as you navigate the site fully — including login, media loading, and background API calls. Add any domain that needs to resolve to the whitelist.</p>
+<h3 id="limitations">Limitations<a class="headerlink" href="#limitations" title="Permanent link">¶</a></h3>
+<table>
+<thead>
+<tr>
+<th>Limitation</th>
+<th>Detail</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>DNS over HTTPS (DoH)</strong></td>
+<td>Browsers can send DNS queries over HTTPS directly to a DoH provider, bypassing the router's DNS proxy entirely.</td>
+</tr>
+<tr>
+<td><strong>DNS over TLS (DoT)</strong></td>
+<td>DNS queries over TCP port 853 also bypass the DNAT redirect. Block outbound port 853 if needed.</td>
+</tr>
+<tr>
+<td><strong>Hardcoded DNS</strong></td>
+<td>Applications using a hardcoded DNS server IP bypass the DNAT redirect.</td>
+</tr>
+<tr>
+<td><strong>VPN / Proxy</strong></td>
+<td>Traffic inside a VPN or proxy tunnel bypasses DNS filtering.</td>
+</tr>
+</tbody>
+</table>
+<p>To block clients from using external DNS resolvers directly:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>firewall-access 150 deny outbound eth0 udp dport 53
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>firewall-access 151 deny outbound eth0 tcp dport 53
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>firewall-access 152 deny outbound eth0 tcp dst 1.1.1.1,1.0.0.1,8.8.8.8,8.8.4.4 dport 443
+</code></pre></div>
+<p>Rule 150–151 block direct DNS; rule 152 blocks HTTPS to known DoH resolvers. The DNAT redirect (rule 10) continues to intercept and handle all DNS queries locally.</p>
+<hr>
+<h2 id="method-3-cloud-dns-category-filtering">Method 3: Cloud DNS Category Filtering<a class="headerlink" href="#method-3-cloud-dns-category-filtering" title="Permanent link">¶</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Coming Soon</p>
+<p>This section will cover category-based DNS filtering using a cloud DNS service — blocking entire categories of sites (malware, adult content, gambling, social media) without maintaining a manual domain list.</p>
+</div>
 
 
 

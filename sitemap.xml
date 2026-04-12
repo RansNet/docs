@@ -49,10 +49,6 @@
          <lastmod>2026-04-12</lastmod>
     </url>
     <url>
-         <loc>https://docs.ransnet.com/cases/onpremise/</loc>
-         <lastmod>2026-04-12</lastmod>
-    </url>
-    <url>
          <loc>https://docs.ransnet.com/cases/vrf/</loc>
          <lastmod>2026-04-12</lastmod>
     </url>
@@ -174,6 +170,22 @@
     </url>
     <url>
          <loc>https://docs.ransnet.com/sdwan/</loc>
+         <lastmod>2026-04-12</lastmod>
+    </url>
+    <url>
+         <loc>https://docs.ransnet.com/sdwan/vpn/instance/</loc>
+         <lastmod>2026-04-12</lastmod>
+    </url>
+    <url>
+         <loc>https://docs.ransnet.com/sdwan/vpn/topology/</loc>
+         <lastmod>2026-04-12</lastmod>
+    </url>
+    <url>
+         <loc>https://docs.ransnet.com/sdwan/vpn/vpnintro/</loc>
+         <lastmod>2026-04-12</lastmod>
+    </url>
+    <url>
+         <loc>https://docs.ransnet.com/security/</loc>
          <lastmod>2026-04-12</lastmod>
     </url>
     <url>

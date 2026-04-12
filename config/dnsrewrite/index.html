@@ -1367,6 +1367,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#ip-name-server-8888-8844" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ip name-server 8.8.8.8 8.8.4.4
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#dns-rewrite" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2755,6 +2766,10 @@
       
         
       
+        
+      
+        
+      
     
     
     
@@ -2830,6 +2845,62 @@
   
   
     <li class="md-nav__item">
+      <a href="../../cases/onpremise/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    On-premise SD-WAN
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cases/cloudsdwan/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cloud-based SD-WAN
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../cases/l2vpn/" class="md-nav__link">
         
   
@@ -2837,7 +2908,7 @@
   <span class="md-ellipsis">
     
   
-    L2 SD-WAN
+    Layer-2 SD-WAN
   
 
     
@@ -3128,6 +3199,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#ip-name-server-8888-8844" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ip name-server 8.8.8.8 8.8.4.4
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#dns-rewrite" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -3235,8 +3317,10 @@
 <p>The upstream DNS servers the router uses for its own resolution and forwards to DHCP clients are configured under <strong>Device Settings → System</strong>.</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../images/config-dns-1.png" data-desc-position="bottom"><img alt="DNS server configuration" src="../images/config-dns-1.png"></a></p>
 <p><strong>CLI Configuration</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>ip name-server 8.8.8.8 8.8.4.4
-</code></pre></div>
+<h2 id="ip-name-server-8888-8844"><div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>ip name-server 8.8.8.8 8.8.4.4
+</code></pre></div><a class="headerlink" href="#ip-name-server-8888-8844" title="Permanent link">¶</a></h2>
+<h2 id="dns-rewrite">DNS Rewrite<a class="headerlink" href="#dns-rewrite" title="Permanent link">¶</a></h2>
+<p>DNS Rewrite intercepts DNS queries from clients and returns a configured response instead of forwarding to the upstream resolver. The interception is handled by the router's local DNS proxy; clients receive the overridden answer transparently.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>For DNS Rewrite to work, the router must intercept client DNS queries. There are two ways to achieve this:</p>
@@ -3248,9 +3332,6 @@
 </code></pre></div>
 <p>Replace <code>eth1</code> with the LAN interface. The <code>redirect</code> action forwards matching traffic to the router's own DNS proxy.</p>
 </div>
-<hr>
-<h2 id="dns-rewrite">DNS Rewrite<a class="headerlink" href="#dns-rewrite" title="Permanent link">¶</a></h2>
-<p>DNS Rewrite intercepts DNS queries from clients and returns a configured response instead of forwarding to the upstream resolver. The interception is handled by the router's local DNS proxy; clients receive the overridden answer transparently.</p>
 <p>The <code>ip host</code> command supports four modes:</p>
 <table>
 <thead>

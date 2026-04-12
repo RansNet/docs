@@ -9,31 +9,31 @@
         <meta name="author" content="RansNet Singapore Pte Ltd">
       
       
-        <link rel="canonical" href="https://docs.ransnet.com/config/iface/wifiwan/">
+        <link rel="canonical" href="https://docs.ransnet.com/cases/onpremise/">
       
       
-        <link rel="prev" href="../pppoe/">
+        <link rel="prev" href="../wanfailover/">
       
       
-        <link rel="next" href="../../dhcp/">
+        <link rel="next" href="../cloudsdwan/">
       
       
         
       
       
-      <link rel="icon" href="../../../images/RansNet_logo.png">
+      <link rel="icon" href="../../images/RansNet_logo.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
     
     
       
-        <title>WiFi as WAN - RansNet Documentation</title>
+        <title>On-premise SD-WAN - RansNet Documentation</title>
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
       
         
-        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -52,15 +52,15 @@
       
     
     
-      <link rel="stylesheet" href="../../../stylesheets/extra.css">
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
     
-    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
     
     
-  <link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+  <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
             html.glightbox-open { overflow: initial; height: 100%; }
             .gslide-title { margin-top: 0px; user-select: text; }
             .gslide-desc { color: #666; user-select: text; }
@@ -89,7 +89,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#wi-fi-as-wan" class="md-skip">
+        <a href="#on-premise-sd-wan" class="md-skip">
           Skip to content
         </a>
       
@@ -105,9 +105,9 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../../.." title="RansNet Documentation" class="md-header__button md-logo" aria-label="RansNet Documentation" data-md-component="logo">
+    <a href="../.." title="RansNet Documentation" class="md-header__button md-logo" aria-label="RansNet Documentation" data-md-component="logo">
       
-  <img src="../../../images/RansNet_logo.png" alt="logo">
+  <img src="../../images/RansNet_logo.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -124,7 +124,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              WiFi as WAN
+              On-premise SD-WAN
             
           </span>
         </div>
@@ -230,9 +230,9 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../.." title="RansNet Documentation" class="md-nav__button md-logo" aria-label="RansNet Documentation" data-md-component="logo">
+    <a href="../.." title="RansNet Documentation" class="md-nav__button md-logo" aria-label="RansNet Documentation" data-md-component="logo">
       
-  <img src="../../../images/RansNet_logo.png" alt="logo">
+  <img src="../../images/RansNet_logo.png" alt="logo">
 
     </a>
     RansNet Documentation
@@ -271,7 +271,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../start/" class="md-nav__link ">
+            <a href="../../start/" class="md-nav__link ">
               
   
   
@@ -315,7 +315,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../start/overview/" class="md-nav__link">
+      <a href="../../start/overview/" class="md-nav__link">
         
   
   
@@ -398,7 +398,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../start/mfusion/features/" class="md-nav__link">
+      <a href="../../start/mfusion/features/" class="md-nav__link">
         
   
   
@@ -426,7 +426,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../start/mfusion/security/" class="md-nav__link">
+      <a href="../../start/mfusion/security/" class="md-nav__link">
         
   
   
@@ -454,7 +454,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../start/mfusion/admin/" class="md-nav__link">
+      <a href="../../start/mfusion/admin/" class="md-nav__link">
         
   
   
@@ -547,7 +547,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../start/device/bootstrap/" class="md-nav__link">
+      <a href="../../start/device/bootstrap/" class="md-nav__link">
         
   
   
@@ -575,7 +575,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../start/device/provision/" class="md-nav__link">
+      <a href="../../start/device/provision/" class="md-nav__link">
         
   
   
@@ -603,7 +603,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../start/device/onboard/" class="md-nav__link">
+      <a href="../../start/device/onboard/" class="md-nav__link">
         
   
   
@@ -631,7 +631,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../start/device/harden/" class="md-nav__link">
+      <a href="../../start/device/harden/" class="md-nav__link">
         
   
   
@@ -706,7 +706,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../monitor/" class="md-nav__link ">
+            <a href="../../monitor/" class="md-nav__link ">
               
   
   
@@ -750,7 +750,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../monitor/dashboard/" class="md-nav__link">
+      <a href="../../monitor/dashboard/" class="md-nav__link">
         
   
   
@@ -778,7 +778,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../monitor/hosts/" class="md-nav__link">
+      <a href="../../monitor/hosts/" class="md-nav__link">
         
   
   
@@ -806,7 +806,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../monitor/topo/" class="md-nav__link">
+      <a href="../../monitor/topo/" class="md-nav__link">
         
   
   
@@ -834,7 +834,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../monitor/wifi/" class="md-nav__link">
+      <a href="../../monitor/wifi/" class="md-nav__link">
         
   
   
@@ -862,7 +862,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../monitor/netflow/" class="md-nav__link">
+      <a href="../../monitor/netflow/" class="md-nav__link">
         
   
   
@@ -890,7 +890,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../monitor/alerts/" class="md-nav__link">
+      <a href="../../monitor/alerts/" class="md-nav__link">
         
   
   
@@ -918,7 +918,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../monitor/settings/" class="md-nav__link">
+      <a href="../../monitor/settings/" class="md-nav__link">
         
   
   
@@ -950,8 +950,6 @@
       
   
   
-    
-  
   
   
     
@@ -979,15 +977,15 @@
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked="">
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3">
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../" class="md-nav__link ">
+            <a href="../../config/" class="md-nav__link ">
               
   
   
@@ -1011,7 +1009,7 @@
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             
@@ -1028,10 +1026,8 @@
                 
   
   
-    
   
   
-  
     
     
       
@@ -1051,11 +1047,11 @@
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" checked="">
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2">
         
           
           <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
@@ -1076,7 +1072,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_3_2">
             <span class="md-nav__icon md-icon"></span>
             
@@ -1094,7 +1090,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../ethernet/" class="md-nav__link">
+      <a href="../../config/iface/ethernet/" class="md-nav__link">
         
   
   
@@ -1122,7 +1118,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../vlaniface/" class="md-nav__link">
+      <a href="../../config/iface/vlaniface/" class="md-nav__link">
         
   
   
@@ -1150,7 +1146,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../bridge/" class="md-nav__link">
+      <a href="../../config/iface/bridge/" class="md-nav__link">
         
   
   
@@ -1178,7 +1174,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../wwan/" class="md-nav__link">
+      <a href="../../config/iface/wwan/" class="md-nav__link">
         
   
   
@@ -1206,7 +1202,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../pppoe/" class="md-nav__link">
+      <a href="../../config/iface/pppoe/" class="md-nav__link">
         
   
   
@@ -1231,37 +1227,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    WiFi as WAN
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../config/iface/wifiwan/" class="md-nav__link">
         
   
   
@@ -1277,98 +1246,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
-      
-        <li class="md-nav__item">
-  <a href="#radio-interfaces" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Radio Interfaces
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#gui-configuration" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        GUI Configuration
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#cli-configuration" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        CLI Configuration
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="CLI Configuration">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#connect-to-a-5-ghz-upstream-network-dhcp" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Connect to a 5 GHz upstream network (DHCP)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#connect-to-a-24-ghz-network-with-a-static-ip" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Connect to a 2.4 GHz network with a static IP
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#verification" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Verification
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1389,7 +1266,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../dhcp/" class="md-nav__link">
+      <a href="../../config/dhcp/" class="md-nav__link">
         
   
   
@@ -1417,7 +1294,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../dnsrewrite/" class="md-nav__link">
+      <a href="../../config/dnsrewrite/" class="md-nav__link">
         
   
   
@@ -1502,7 +1379,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../route/static/" class="md-nav__link">
+      <a href="../../config/route/static/" class="md-nav__link">
         
   
   
@@ -1530,7 +1407,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../route/groups/" class="md-nav__link">
+      <a href="../../config/route/groups/" class="md-nav__link">
         
   
   
@@ -1558,7 +1435,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../route/ospf/" class="md-nav__link">
+      <a href="../../config/route/ospf/" class="md-nav__link">
         
   
   
@@ -1586,7 +1463,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../route/bgp/" class="md-nav__link">
+      <a href="../../config/route/bgp/" class="md-nav__link">
         
   
   
@@ -1622,7 +1499,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../vrrp/" class="md-nav__link">
+      <a href="../../config/vrrp/" class="md-nav__link">
         
   
   
@@ -1650,7 +1527,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../wifi/" class="md-nav__link">
+      <a href="../../config/wifi/" class="md-nav__link">
         
   
   
@@ -1678,7 +1555,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../tracking/" class="md-nav__link">
+      <a href="../../config/tracking/" class="md-nav__link">
         
   
   
@@ -1741,7 +1618,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../sdwan/" class="md-nav__link ">
+            <a href="../../sdwan/" class="md-nav__link ">
               
   
   
@@ -1785,7 +1662,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../vpn.md" class="md-nav__link">
+      <a href="../../config/vpn.md" class="md-nav__link">
         
   
   
@@ -1813,7 +1690,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../vpninstance.md" class="md-nav__link">
+      <a href="../../config/vpninstance.md" class="md-nav__link">
         
   
   
@@ -1841,7 +1718,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../mwan.md" class="md-nav__link">
+      <a href="../../config/mwan.md" class="md-nav__link">
         
   
   
@@ -1869,7 +1746,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../pbr.md" class="md-nav__link">
+      <a href="../../config/pbr.md" class="md-nav__link">
         
   
   
@@ -1897,7 +1774,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../qos.md" class="md-nav__link">
+      <a href="../../config/qos.md" class="md-nav__link">
         
   
   
@@ -1993,7 +1870,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../security/index.md" class="md-nav__link">
+      <a href="../../security/index.md" class="md-nav__link">
         
   
   
@@ -2078,7 +1955,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../security/firewall/overview/" class="md-nav__link">
+      <a href="../../security/firewall/overview/" class="md-nav__link">
         
   
   
@@ -2106,7 +1983,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../security/firewall/policies/" class="md-nav__link">
+      <a href="../../security/firewall/policies/" class="md-nav__link">
         
   
   
@@ -2134,7 +2011,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../security/firewall/objects/" class="md-nav__link">
+      <a href="../../security/firewall/objects/" class="md-nav__link">
         
   
   
@@ -2162,7 +2039,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../security/firewall/templates/" class="md-nav__link">
+      <a href="../../security/firewall/templates/" class="md-nav__link">
         
   
   
@@ -2198,7 +2075,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../security/webfilter/" class="md-nav__link">
+      <a href="../../security/webfilter/" class="md-nav__link">
         
   
   
@@ -2226,7 +2103,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../security/netflow.md" class="md-nav__link">
+      <a href="../../security/netflow.md" class="md-nav__link">
         
   
   
@@ -2254,7 +2131,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../security/log.md" class="md-nav__link">
+      <a href="../../security/log.md" class="md-nav__link">
         
   
   
@@ -2282,7 +2159,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../security/radius.md" class="md-nav__link">
+      <a href="../../security/radius.md" class="md-nav__link">
         
   
   
@@ -2376,7 +2253,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../system/dns.md" class="md-nav__link">
+      <a href="../../system/dns.md" class="md-nav__link">
         
   
   
@@ -2404,7 +2281,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../system/ntp.md" class="md-nav__link">
+      <a href="../../system/ntp.md" class="md-nav__link">
         
   
   
@@ -2432,7 +2309,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../system/snmp.md" class="md-nav__link">
+      <a href="../../system/snmp.md" class="md-nav__link">
         
   
   
@@ -2460,7 +2337,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../system/syslog.md" class="md-nav__link">
+      <a href="../../system/syslog.md" class="md-nav__link">
         
   
   
@@ -2545,7 +2422,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../tools/speedtest.md" class="md-nav__link">
+      <a href="../../tools/speedtest.md" class="md-nav__link">
         
   
   
@@ -2573,7 +2450,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../tools/packetcapture.md" class="md-nav__link">
+      <a href="../../tools/packetcapture.md" class="md-nav__link">
         
   
   
@@ -2601,7 +2478,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../tools/traceroute.md" class="md-nav__link">
+      <a href="../../tools/traceroute.md" class="md-nav__link">
         
   
   
@@ -2629,7 +2506,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../tools/ping.md" class="md-nav__link">
+      <a href="../../tools/ping.md" class="md-nav__link">
         
   
   
@@ -2690,7 +2567,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../hotspot/" class="md-nav__link ">
+            <a href="../../hotspot/" class="md-nav__link ">
               
   
   
@@ -2733,8 +2610,10 @@
       
   
   
+    
   
   
+  
     
     
       
@@ -2754,11 +2633,11 @@
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8">
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" checked="">
         
           
           <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
@@ -2779,7 +2658,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_8">
             <span class="md-nav__icon md-icon"></span>
             
@@ -2797,7 +2676,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../cases/wanfailover/" class="md-nav__link">
+      <a href="../wanfailover/" class="md-nav__link">
         
   
   
@@ -2822,10 +2701,19 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../../cases/onpremise/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -2841,6 +2729,7 @@
   
 
       </a>
+      
     </li>
   
 
@@ -2853,7 +2742,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../cases/cloudsdwan/" class="md-nav__link">
+      <a href="../cloudsdwan/" class="md-nav__link">
         
   
   
@@ -2881,7 +2770,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../cases/l2vpn/" class="md-nav__link">
+      <a href="../l2vpn/" class="md-nav__link">
         
   
   
@@ -2909,7 +2798,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../cases/vrf/" class="md-nav__link">
+      <a href="../vrf/" class="md-nav__link">
         
   
   
@@ -2937,7 +2826,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../cases/crewwifi/" class="md-nav__link">
+      <a href="../crewwifi/" class="md-nav__link">
         
   
   
@@ -3029,7 +2918,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../api/hotspot/" class="md-nav__link">
+      <a href="../../api/hotspot/" class="md-nav__link">
         
   
   
@@ -3057,7 +2946,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../api/syslog/" class="md-nav__link">
+      <a href="../../api/syslog/" class="md-nav__link">
         
   
   
@@ -3085,7 +2974,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../api/wispr/" class="md-nav__link">
+      <a href="../../api/wispr/" class="md-nav__link">
         
   
   
@@ -3113,7 +3002,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../api/netflow/" class="md-nav__link">
+      <a href="../../api/netflow/" class="md-nav__link">
         
   
   
@@ -3161,86 +3050,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
-      
-        <li class="md-nav__item">
-  <a href="#radio-interfaces" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Radio Interfaces
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#gui-configuration" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        GUI Configuration
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#cli-configuration" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        CLI Configuration
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="CLI Configuration">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#connect-to-a-5-ghz-upstream-network-dhcp" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Connect to a 5 GHz upstream network (DHCP)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#connect-to-a-24-ghz-network-with-a-static-ip" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Connect to a 2.4 GHz network with a static IP
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#verification" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Verification
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -3255,49 +3064,6 @@
 
 
 
-  <nav class="md-path" aria-label="Navigation">
-    <ol class="md-path__list">
-      
-      
-        
-  
-  
-    
-    
-      <li class="md-path__item">
-        <a href="../../" class="md-path__link">
-          
-  <span class="md-ellipsis">
-    Network Settings
-  </span>
-
-        </a>
-      </li>
-    
-  
-
-      
-        
-  
-  
-    
-    
-      <li class="md-path__item">
-        <a href="../ethernet/" class="md-path__link">
-          
-  <span class="md-ellipsis">
-    Interfaces
-  </span>
-
-        </a>
-      </li>
-    
-  
-
-      
-    </ol>
-  </nav>
-
               
               <article class="md-content__inner md-typeset">
                 
@@ -3305,139 +3071,37 @@
 
 
 
-<h1 id="wi-fi-as-wan">Wi-Fi as WAN<a class="headerlink" href="#wi-fi-as-wan" title="Permanent link">¶</a></h1>
-<p>RansNet routers support two Wi-Fi operating modes: <strong>AP mode</strong>, where the device acts as a wireless access point serving wireless clients, and <strong>STA (Station) mode</strong>, also known as <strong>Wi-Fi as WAN</strong>. In STA mode, the device connects to an existing upstream Wi-Fi network as a wireless client, using that connection as a WAN uplink — in the same role as a wired Ethernet or cellular interface.</p>
-<p>Wi-Fi as WAN is suited for deployments where a wired broadband connection is unavailable or not yet provisioned — for example, connecting to a building's shared Wi-Fi, using a mobile hotspot as a temporary backhaul, or bridging connectivity across a site during installation.</p>
-<p>For AP mode configuration, see <a href="../../wifi/">Wi-Fi Access Point</a>.</p>
-<hr>
-<h2 id="radio-interfaces">Radio Interfaces<a class="headerlink" href="#radio-interfaces" title="Permanent link">¶</a></h2>
-<p>RansNet branch devices expose two Wi-Fi radio interfaces:</p>
-<table>
-<thead>
-<tr>
-<th>Interface</th>
-<th>Radio Band</th>
-<th>Typical Use</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>ath0</code></td>
-<td>2.4 GHz</td>
-<td>Longer range; better wall penetration; suitable when the upstream AP is further away</td>
-</tr>
-<tr>
-<td><code>ath1</code></td>
-<td>5 GHz</td>
-<td>Higher throughput; less interference; preferred where signal quality is good</td>
-</tr>
-</tbody>
-</table>
-<p>In STA mode, the selected radio interface (<code>ath0</code> or <code>ath1</code>) becomes the WAN-facing wireless client interface and can be configured with IP addressing, route metrics, and link tracking — just like any other WAN interface type.</p>
-<hr>
-<h2 id="gui-configuration">GUI Configuration<a class="headerlink" href="#gui-configuration" title="Permanent link">¶</a></h2>
-<p>Navigate to <strong>Device Settings → Network → Wi-Fi</strong>.</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../images/iface-wifi-1.png" data-desc-position="bottom"><img alt="Wi-Fi as WAN — Mode Selection" src="../../images/iface-wifi-1.png"></a></p>
-<p>Under <strong>Operating Mode</strong>, select <strong>STA Mode</strong>. This switches the radio from access point mode to wireless client (station) mode.</p>
-<p>Configure the connection to the upstream Wi-Fi network:</p>
-<table>
-<thead>
-<tr>
-<th>Field</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>SSID</strong></td>
-<td>The network name of the upstream Wi-Fi network to connect to</td>
-</tr>
-<tr>
-<td><strong>Security / Encryption</strong></td>
-<td>Encryption method used by the upstream AP (e.g., <code>WPA2-PSK</code>)</td>
-</tr>
-<tr>
-<td><strong>Pre-Shared Key (PSK)</strong></td>
-<td>The Wi-Fi passphrase for the upstream network</td>
-</tr>
-<tr>
-<td><strong>IP Address</strong></td>
-<td>Set to <code>DHCP</code> to receive an address from the upstream router, or <code>Static</code> to assign a fixed IP</td>
-</tr>
-</tbody>
-</table>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>The SSID and PSK must exactly match the upstream AP's configuration, including case sensitivity. A mismatch will prevent association.</p>
-</div>
-<p>Once STA mode is active, the resulting <code>ath0</code> or <code>ath1</code> interface is available as a WAN interface. Navigate to <strong>Device Settings → Network → Interfaces</strong> to configure IP addressing, route metric, and link tracking for this interface, alongside any other WAN uplinks.</p>
+<h1 id="on-premise-sd-wan">On-premise SD-WAN<a class="headerlink" href="#on-premise-sd-wan" title="Permanent link">¶</a></h1>
+<p>Typical SD-WAN deployment architecture is cloud sd-wan and on-premise sd-wan. Continue to explain what they are, their differences, how they are setup, and the typical deployment scenarios etc.</p>
+<p>On-premise SD-WAN requires a static IP connection at the head-end (eg. HQ office or DC), typically through a fiber network. The remote can be any form of connection, eg. static, dynamic, cellular (4G/5G). This is typical when there's compliance requirements (isolate network), and the applications are hosted at HQ or DC.</p>
+<p>Cloud SD-WAN simplies the client setup, by hosting SD-WAN gateway at RansNet DC. Since client sites do not require any static IP for the gateway/head-end, and all the sites will tunnel to RansNet hosted SD-WAN gateway, where each customer is allocated into a dedicated VRF for complete traffic and routing seperation.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../images/cloud-sdwan-1.png" data-desc-position="bottom"><img alt="Cloud SD-WAN" src="../images/cloud-sdwan-1.png"></a></p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>To use Wi-Fi as WAN as a secondary or failover uplink, assign it a higher <strong>Route Metric</strong> than the primary WAN interface. Multi-WAN will automatically route traffic via Wi-Fi if the primary link fails.</p>
+<p>Some services providers may use RansNet SD-WAN solutions to provide cloud sd-wan services to their end customers also.</p>
 </div>
-<hr>
-<h2 id="cli-configuration">CLI Configuration<a class="headerlink" href="#cli-configuration" title="Permanent link">¶</a></h2>
-<h3 id="connect-to-a-5-ghz-upstream-network-dhcp">Connect to a 5 GHz upstream network (DHCP)<a class="headerlink" href="#connect-to-a-5-ghz-upstream-network-dhcp" title="Permanent link">¶</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>interface ath1
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>  ip address dhcp
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>  enable
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>!
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>interface wifi 1
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>  ssid HomeBroadband
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>    encryption WPA2-PSK key Letmein99
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>    client station
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>    enable
-</code></pre></div>
-<p><strong>Key points:</strong></p>
-<ul>
-<li><code>interface ath1</code> configures the 5 GHz radio interface; use <code>ath0</code> for 2.4 GHz</li>
-<li><code>interface wifi 1</code> references the same radio by index — <code>wifi 0</code> for 2.4 GHz, <code>wifi 1</code> for 5 GHz</li>
-<li><code>client station</code> sets the radio to STA (client) mode</li>
-<li><code>encryption WPA2-PSK key &lt;passphrase&gt;</code> sets the Wi-Fi authentication credentials</li>
-<li>Replace <code>ip address dhcp</code> with a static address if the upstream network requires a fixed IP</li>
-</ul>
-<h3 id="connect-to-a-24-ghz-network-with-a-static-ip">Connect to a 2.4 GHz network with a static IP<a class="headerlink" href="#connect-to-a-24-ghz-network-with-a-static-ip" title="Permanent link">¶</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>interface ath0
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>  ip address 192.168.1.50/24
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>  enable
-<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>!
-<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>interface wifi 0
-<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>  ssid OfficeWifi
-<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>    encryption WPA2-PSK key MySecretKey
-<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>    client station
-<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>    enable
-<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>!
-<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>ip default-gateway 192.168.1.1
-</code></pre></div>
-<hr>
-<h2 id="verification">Verification<a class="headerlink" href="#verification" title="Permanent link">¶</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>show interface ath1
-</code></pre></div>
-<p>Example output:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>================================================================================
-<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>  Interface : ath1
-<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>================================================================================
-<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>
-<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>  Network Information
-<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>  ----------------------------------------
-<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>  Admin State            : UP
-<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>  Link State             : UP
-<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>  MTU                    : 1500 bytes
-<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>  IPv4 Address           : 192.168.1.100/24
-<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>
-<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>  Wi-Fi Station
-<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>  ----------------------------------------
-<a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a>  SSID                   : HomeBroadband
-<a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a>  Signal                 : -55 dBm (good)
-<a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a>  TX Rate                : 433 Mbps
-<a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a>
-<a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a>  Physical Information
-<a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a>  ----------------------------------------
-<a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a>  Link Detected          : yes
-<a id="__codelineno-3-21" name="__codelineno-3-21" href="#__codelineno-3-21"></a>
-<a id="__codelineno-3-22" name="__codelineno-3-22" href="#__codelineno-3-22"></a>================================================================================
-</code></pre></div>
-<p>Confirm that <strong>Link State</strong> is <code>UP</code> and the <strong>SSID</strong> matches the upstream network. A signal level of <code>-70 dBm</code> or better is recommended for stable WAN operation.</p>
+<p>Cloud SD-WAN is provided on a subscription basis. On top of having RansNet SD-Branch routers at each location, customer subsribe to a sd-wan service to tunnel each branch router to RansNet cloud. this service offers several benefits:</p>
+<ol>
+<li>no need dedicated on-premise SD-WAN gateway at customer premise (hence no need fiber connection)</li>
+<li>no static IP for branch sites (can be 4/5G do dynamic broadband)</li>
+<li>secure and easy remote connectity to any of the branch network</li>
+<li>RansNet provides a static IP from outside into customer internal devices through port forwarding or peering with 3rd-party networks.</li>
+</ol>
+<p>Solution components</p>
+<p>• Install an HSA/UA/CMG at each customer premise/location
+• Subscribe to ISP Internet over 4G/5G (UA) or Fiber
+• Subscribe to RansNet cloud SD-WAN service</p>
+<p>Solution features</p>
+<p>• Each customer is provisioned with private VPN instance on RansNet
+• Each UA/HSA establishes a VPN tunnel to RansNet cloud SD-WAN</p>
+<p>Remote access options </p>
+<p>• User device (PC or mobile) installs software VPN client and tunnels to the same private VPN instance to access internal device IP directly
+• OR, RansNet SD-WAN will do port forwarding to private devices. User will access via https://sdwan.ransnet.com:xxx (xxx is the port mapped to each device)
+• OR, Site-to-Site VPN tunnel with 3rd-party VPN gateway through RansNet cloud static IP address</p>
+<p>Solution benefits</p>
+<p>• Support all WAN connection type (broadband, 4G or 5G)
+• Support all WAN IP address types (dynamic/static/private/public)
+• Secure access from anywhere.</p>
 
 
 
@@ -3515,10 +3179,10 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.indexes", "navigation.path", "navigation.top", "search.highlight", "search.suggest", "content.code.copy", "content.tabs.link", "content.action.edit", "toc.follow"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.indexes", "navigation.path", "navigation.top", "search.highlight", "search.suggest", "content.code.copy", "content.tabs.link", "content.action.edit", "toc.follow"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
       
     
   

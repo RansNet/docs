@@ -4,24 +4,24 @@ Web filtering controls which websites and internet services users on the network
 
 | Method | How it works | Granularity | Bypass resistance |
 |---|---|---|---|
-| **[Firewall Rules + Objects](#method-1-firewall-rules-with-objects)** | Blocks actual TCP/UDP connections by IP, subnet, FQDN, or application signature | Rule-level — precise control per source/destination | High — blocks at connection level regardless of how DNS resolves |
-| **[DNS Filtering](#method-2-dns-filtering)** | Intercepts DNS queries and returns no valid address for blocked domains | Domain-level — blocking a domain covers all its subdomains | Moderate — can be bypassed by DNS-over-HTTPS or hardcoded DNS |
-| **[Cloud DNS Category Filtering](#method-3-cloud-dns-category-filtering)** | Routes DNS through a cloud resolver that enforces category-based policies | Category-level — managed lists, no manual domain maintenance | Moderate — same DNS-layer caveats apply |
+| **[Firewall Rules + Objects](#method-1-firewall-rules-with-objects)** | Blocks actual TCP/UDP connections by IP, subnet, FQDN, or application | Rule-level — precise per source/destination control | High — blocks at connection level regardless of DNS |
+| **[DNS Filtering](#method-2-dns-filtering)** | Intercepts DNS queries and returns no address for blocked domains | Domain-level — covers all subdomains automatically | Moderate — can be bypassed by DoH or hardcoded DNS |
+| **[Cloud DNS Category Filtering](#method-3-cloud-dns-category-filtering)** | Routes DNS through a cloud resolver enforcing category-based policies | Category-level — managed lists, no manual domain maintenance | Moderate — same DNS-layer caveats; combines well with Method 1 |
 
-These methods can be used independently or combined. A typical layered deployment uses firewall rules for application-level blocking, DNS filtering for domain-level controls, and cloud DNS for broad category enforcement.
+These methods can be used independently or combined. A typical layered deployment uses firewall rules for application-level blocking, DNS filtering for custom domain controls, and cloud DNS for broad category enforcement across all sites.
 
 ---
 
 ## Method 1: Firewall Rules with Objects
 
-This method uses `firewall-access` rules combined with **Firewall Objects** to permit or deny traffic based on IP addresses, subnets, FQDNs, or application signatures. Unlike DNS filtering, it blocks actual network connections — a client that resolves a domain successfully will still be denied the connection if a firewall rule matches.
+This method uses `firewall-access` rules combined with **Firewall Objects** to permit or deny traffic based on IP addresses, subnets, FQDNs, or application signatures. Unlike DNS filtering, it operates at the connection level — a client that successfully resolves a domain will still be blocked if a matching firewall rule denies the connection.
 
 **When to use this method:**
 
 - Blocking specific applications (e.g. deny all traffic to Facebook's IP ranges)
 - Denying access to known malicious IP ranges
 - Permitting only approved destinations from a guest or IoT network
-- Scenarios where DNS bypass (DoH, hardcoded DNS) is a concern
+- Environments where DNS bypass (DoH, hardcoded DNS) is a concern
 
 **How it works:**
 
@@ -36,7 +36,7 @@ See [Firewall Objects](firewall/objects.md) and [Firewall Policies](firewall/pol
 
 ### CLI Configuration
 
-**Block a specific application by name:**
+**Block specific applications by name:**
 
 ```
 object-group blocked_apps
@@ -71,18 +71,18 @@ firewall-access 200 deny outbound eth0
 **Key points:**
 
 - `app` entries use cloud-maintained IP lists that update automatically — no manual IP management needed for well-known applications
-- `fqdn` entries in objects are resolved periodically and the resulting IPs are matched against connection destinations; this differs from DNS filtering which intercepts the query itself
+- `fqdn` entries in objects are resolved periodically; resulting IPs are matched against connection destinations — this differs from DNS filtering which intercepts the query itself
 - Rules are evaluated top-to-bottom; place more specific permits before a broad deny
 
 ---
 
 ## Method 2: DNS Filtering
 
-DNS filtering intercepts client DNS queries at the router and returns a controlled response — either no address (blocking the domain) or a normal upstream resolution (permitting it). Because filtering happens at the DNS layer, it requires no changes on client devices and applies to all clients on the network.
+DNS filtering intercepts client DNS queries at the router and returns a controlled response — either no address (blocking) or a normal upstream resolution (permitting). Because filtering happens at the DNS layer, it requires no changes on client devices and applies to all clients on the network.
 
 Before configuring DNS filtering, ensure the router is intercepting client DNS queries. See [DNS & DNS Rewrite](../config/dnsrewrite.md) for setup details, including the DNAT rule that transparently redirects port 53 traffic from clients regardless of what DNS server they have configured.
 
-### Blacklisting — block specific domains
+### Blacklisting — Block Specific Domains
 
 Default-permit: all domains resolve normally except those explicitly blocked.
 
@@ -106,7 +106,7 @@ To remove a block:
 no ip host facebook.com reject
 ```
 
-### Whitelisting — allow only approved domains
+### Whitelisting — Allow Only Approved Domains
 
 Default-deny: all domains are blocked unless explicitly permitted. The wildcard entry `ip host . reject` blocks everything by default; individual `ip host <domain> resolve` entries override it for approved domains.
 
@@ -139,29 +139,39 @@ no ip host . reject
 
 Navigate to **Device Settings → System**, scroll to **Static FQDN-IP Mapping**, click **+ Add**.
 
-- To block a domain: enter the domain and set the action to **Block** (or IP `0.0.0.0`)
+- To block a domain: enter the domain and set the action to **Block**
 - To whitelist a domain under a default-deny policy: enter the domain and set the action to **Resolve**
 
 ### Identifying Required Domains
 
-When whitelisting, use `tcpdump` on the router to capture all DNS queries clients are making while browsing a target site:
+When whitelisting, use `tcpdump` on the router to capture all DNS queries clients make while browsing a target site:
 
 ```
 tcpdump interface eth1 port 53 detail
 ```
 
-Watch the output as you navigate the site fully — including login, media loading, and background API calls. Add any domain that needs to resolve to the whitelist.
+Watch the output while navigating the site fully — including login, media loading, and background API calls. Add each unresolved domain to the whitelist with `ip host <domain> resolve`.
+
+### DNS Query Logging
+
+To monitor which domains clients are querying in real time:
+
+```
+tcpdump interface eth1 port 53
+```
+
+Useful for auditing access, building a whitelist, and debugging rules that are not behaving as expected.
 
 ### Limitations
 
 | Limitation | Detail |
 |---|---|
-| **DNS over HTTPS (DoH)** | Browsers can send DNS queries over HTTPS directly to a DoH provider, bypassing the router's DNS proxy entirely. |
-| **DNS over TLS (DoT)** | DNS queries over TCP port 853 also bypass the DNAT redirect. Block outbound port 853 if needed. |
+| **DNS over HTTPS (DoH)** | Browsers can send DNS queries over HTTPS directly to a cloud DoH provider, bypassing the router's DNS proxy entirely. |
+| **DNS over TLS (DoT)** | DNS queries over TCP port 853 bypass the DNAT redirect. Block outbound port 853 if needed. |
 | **Hardcoded DNS** | Applications using a hardcoded DNS server IP bypass the DNAT redirect. |
 | **VPN / Proxy** | Traffic inside a VPN or proxy tunnel bypasses DNS filtering. |
 
-To block clients from using external DNS resolvers directly:
+To prevent clients from bypassing DNS controls:
 
 ```
 firewall-access 150 deny outbound eth0 udp dport 53
@@ -169,11 +179,96 @@ firewall-access 151 deny outbound eth0 tcp dport 53
 firewall-access 152 deny outbound eth0 tcp dst 1.1.1.1,1.0.0.1,8.8.8.8,8.8.4.4 dport 443
 ```
 
-Rule 150–151 block direct DNS; rule 152 blocks HTTPS to known DoH resolvers. The DNAT redirect (rule 10) continues to intercept and handle all DNS queries locally.
+Rules 150–151 block direct DNS to external resolvers; rule 152 blocks HTTPS to known DoH providers. The DNAT redirect (rule 10) continues to intercept all DNS queries and process them locally.
 
 ---
 
 ## Method 3: Cloud DNS Category Filtering
 
-!!! note "Coming Soon"
-    This section will cover category-based DNS filtering using a cloud DNS service — blocking entire categories of sites (malware, adult content, gambling, social media) without maintaining a manual domain list.
+Cloud DNS Category Filtering routes client DNS queries through a managed cloud DNS resolver that enforces category-based policies. Instead of maintaining manual domain lists, the cloud service categorises millions of domains into content groups — administrators simply select which categories to block. The cloud service also logs all DNS queries and generates usage reports, providing visibility into browsing activity across the network.
+
+### How It Works
+
+![Cloud DNS filtering flow](./images/webfilter-1.png)
+
+1. Client DNS is pointed to the router's LAN IP (via DHCP or static configuration).
+2. When a client queries a domain, the router forwards the request to the RansNet cloud DNS server as its upstream resolver.
+3. The cloud DNS server authenticates the request source, checks whether the queried domain falls within a permitted category, and either returns the resolved IP or blocks the query.
+4. Every DNS request is logged in the cloud dashboard, categorised and attributed for reporting.
+
+!!! note
+    The cloud DNS server authenticates requests by **source IP** — the router's public WAN IP address. Each subscription is tied to one WAN IP per location. Provide your WAN IP to the RansNet provisioning team at the time of subscription.
+
+### Requirements
+
+- A **static public WAN IP** address on the router. The cloud resolver authenticates by source IP; a dynamic IP will cause the subscription to fail on IP changes.
+- The router must intercept client DNS queries so they are forwarded through the router to the cloud resolver. See [DNS & DNS Rewrite](../config/dnsrewrite.md) for setup details, including the DNAT rule that transparently redirects port 53 traffic from clients regardless of what DNS server they have configured.
+
+!!! tip
+    If your router's WAN connection does not have a static public IP, you can route DNS queries through the RansNet SD-WAN to break out from a RansNet cloud gateway that has a static IP. See the Cloud SD-WAN section for details.
+
+### Subscription and Activation
+
+Cloud DNS Category Filtering is a subscription service licensed per router (per network location). To subscribe, contact RansNet sales at [ransnet.com/home/contact](https://ransnet.com/home/contact) and provide the public WAN IP of each router location to be covered.
+
+Once provisioned, the RansNet team will:
+
+- Configure the cloud DNS resolver for your WAN IP
+- Provide the cloud DNS server IP to set as your upstream resolver
+- Grant admin access to the management portal at **[webfilter.ransnet.com/admin](https://webfilter.ransnet.com/admin)**
+
+### Router Configuration
+
+Point the router's upstream DNS to the cloud DNS server IP provided by RansNet at provisioning:
+
+```
+ip name-server <cloud-dns-ip>
+```
+
+Ensure clients are using the router as their DNS server (set via DHCP). No additional router configuration is required — the cloud resolver handles all category enforcement.
+
+### Managing Filtering Policies
+
+Log in to the admin portal at **[webfilter.ransnet.com/admin](https://webfilter.ransnet.com/admin)**.
+
+![Cloud DNS admin portal](./images/webfilter-2.png)
+
+Navigate to **POLICY → LIST/CREATE** to edit or create filtering policies. Each policy defines which content categories are blocked or permitted — by default all categories are permitted.
+
+![Category policy configuration](./images/webfilter-3.png)
+
+Tick the categories you want to block. Common categories include:
+
+| Category group | Examples |
+|---|---|
+| **Security threats** | Malware, Phishing, Spyware, Botnets, Command & Control |
+| **Adult content** | Pornography, Adult themes, Nudity |
+| **Social media** | Facebook, Instagram, TikTok, Twitter/X, Snapchat |
+| **Video streaming** | YouTube, Netflix, TikTok video, Twitch |
+| **Gaming** | Online games, Game downloads |
+| **Gambling** | Online casinos, Sports betting, Lottery |
+| **Proxy & anonymisers** | VPN services, Tor, Web proxies |
+| **File sharing** | Torrents, P2P, Cyberlockers |
+| **Productivity** | Ads & tracking, Instant messaging, Shopping |
+
+Changes to the policy take effect within a few minutes and apply to all clients at locations linked to that policy.
+
+### Viewing Logs and Reports
+
+The admin portal provides a dashboard showing DNS query activity across all linked locations:
+
+- **Per-domain logs** — every queried domain, its category, and whether it was permitted or blocked
+- **Category breakdown** — traffic volume by content category over a selected time period
+- **Top domains** — most frequently queried domains across the network
+- **Blocked query history** — a list of blocked requests for audit and policy review
+
+Use the logs to identify which domains are being blocked unexpectedly and add custom whitelist exceptions where needed.
+
+### Custom Whitelist and Blacklist
+
+Within the portal you can override the category policy for specific domains:
+
+- **Custom whitelist** — always permit a domain regardless of its category (e.g. a legitimate business site miscategorised as social media)
+- **Custom blacklist** — always block a specific domain regardless of category settings (e.g. block a specific competitor site outside any standard category)
+
+This allows fine-grained exceptions on top of the broad category policy without modifying the policy itself.

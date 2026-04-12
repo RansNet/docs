@@ -22,6 +22,11 @@ The upstream DNS servers the router uses for its own resolution and forwards to 
 ```
 ip name-server 8.8.8.8 8.8.4.4
 ```
+---
+
+## DNS Rewrite
+
+DNS Rewrite intercepts DNS queries from clients and returns a configured response instead of forwarding to the upstream resolver. The interception is handled by the router's local DNS proxy; clients receive the overridden answer transparently.
 
 !!! note
     For DNS Rewrite to work, the router must intercept client DNS queries. There are two ways to achieve this:
@@ -34,12 +39,6 @@ ip name-server 8.8.8.8 8.8.4.4
     ```
 
     Replace `eth1` with the LAN interface. The `redirect` action forwards matching traffic to the router's own DNS proxy.
-
----
-
-## DNS Rewrite
-
-DNS Rewrite intercepts DNS queries from clients and returns a configured response instead of forwarding to the upstream resolver. The interception is handled by the router's local DNS proxy; clients receive the overridden answer transparently.
 
 The `ip host` command supports four modes:
 

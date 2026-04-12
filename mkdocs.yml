@@ -113,21 +113,21 @@ nav:
     - VRRP: config/vrrp.md
     - Wireless: config/wifi.md
     - Tracking: config/tracking.md
-  #- SD-WAN:
-   # - sdwan/index.md
-   # - VPN Protocols: config/vpn.md
-   # - VPN Instance: config/vpninstance.md
-   # - Multi-WAN: config/mwan.md
-   # - Traffic Steering: config/pbr.md
-   # - Traffic Shaping: config/qos.md
+  - SD-WAN:
+    - sdwan/index.md
+    - VPN Protocols: config/vpn.md
+    - VPN Instance: config/vpninstance.md
+    - Multi-WAN: config/mwan.md
+    - Traffic Steering: config/pbr.md
+    - Traffic Shaping: config/qos.md
   - Firewall & Security:
-    #- security/index.md
+    - security/index.md
     - Firewall:
       - Overview: security/firewall/overview.md
       - Policies: security/firewall/policies.md
       - Objects: security/firewall/objects.md
       - Templates: security/firewall/templates.md
-    - Web Filtering: security/dnsfilter.md
+    - Web Filtering: security/webfilter.md
     - Netflow Analyzer: security/netflow.md
     - Log Collector: security/log.md
     - RADIUS Server: security/radius.md

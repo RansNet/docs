@@ -9,27 +9,31 @@
         <meta name="author" content="RansNet Singapore Pte Ltd">
       
       
-        <link rel="canonical" href="https://docs.ransnet.com/">
+        <link rel="canonical" href="https://docs.ransnet.com/config/dnsrewrite/">
       
       
+        <link rel="prev" href="../dhcp/">
+      
+      
+        <link rel="next" href="../route/static/">
       
       
         
       
       
-      <link rel="icon" href="images/RansNet_logo.png">
+      <link rel="icon" href="../../images/RansNet_logo.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
     
     
       
-        <title>RansNet Documentation</title>
+        <title>DNS Rewrite - RansNet Documentation</title>
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
       
         
-        <link rel="stylesheet" href="assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -48,15 +52,15 @@
       
     
     
-      <link rel="stylesheet" href="stylesheets/extra.css">
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
     
-    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
     
     
-  <link href="assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+  <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
             html.glightbox-open { overflow: initial; height: 100%; }
             .gslide-title { margin-top: 0px; user-select: text; }
             .gslide-desc { color: #666; user-select: text; }
@@ -84,6 +88,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#dns-dns-rewrite" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -96,9 +105,9 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="." title="RansNet Documentation" class="md-header__button md-logo" aria-label="RansNet Documentation" data-md-component="logo">
+    <a href="../.." title="RansNet Documentation" class="md-header__button md-logo" aria-label="RansNet Documentation" data-md-component="logo">
       
-  <img src="images/RansNet_logo.png" alt="logo">
+  <img src="../../images/RansNet_logo.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -115,7 +124,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Home
+              DNS Rewrite
             
           </span>
         </div>
@@ -221,9 +230,9 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="." title="RansNet Documentation" class="md-nav__button md-logo" aria-label="RansNet Documentation" data-md-component="logo">
+    <a href="../.." title="RansNet Documentation" class="md-nav__button md-logo" aria-label="RansNet Documentation" data-md-component="logo">
       
-  <img src="images/RansNet_logo.png" alt="logo">
+  <img src="../../images/RansNet_logo.png" alt="logo">
 
     </a>
     RansNet Documentation
@@ -262,7 +271,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="start/" class="md-nav__link ">
+            <a href="../../start/" class="md-nav__link ">
               
   
   
@@ -306,7 +315,7 @@
   
   
     <li class="md-nav__item">
-      <a href="start/overview/" class="md-nav__link">
+      <a href="../../start/overview/" class="md-nav__link">
         
   
   
@@ -389,7 +398,7 @@
   
   
     <li class="md-nav__item">
-      <a href="start/mfusion/features/" class="md-nav__link">
+      <a href="../../start/mfusion/features/" class="md-nav__link">
         
   
   
@@ -417,7 +426,7 @@
   
   
     <li class="md-nav__item">
-      <a href="start/mfusion/security/" class="md-nav__link">
+      <a href="../../start/mfusion/security/" class="md-nav__link">
         
   
   
@@ -445,7 +454,7 @@
   
   
     <li class="md-nav__item">
-      <a href="start/mfusion/admin/" class="md-nav__link">
+      <a href="../../start/mfusion/admin/" class="md-nav__link">
         
   
   
@@ -538,7 +547,7 @@
   
   
     <li class="md-nav__item">
-      <a href="start/device/bootstrap/" class="md-nav__link">
+      <a href="../../start/device/bootstrap/" class="md-nav__link">
         
   
   
@@ -566,7 +575,7 @@
   
   
     <li class="md-nav__item">
-      <a href="start/device/provision/" class="md-nav__link">
+      <a href="../../start/device/provision/" class="md-nav__link">
         
   
   
@@ -594,7 +603,7 @@
   
   
     <li class="md-nav__item">
-      <a href="start/device/onboard/" class="md-nav__link">
+      <a href="../../start/device/onboard/" class="md-nav__link">
         
   
   
@@ -622,7 +631,7 @@
   
   
     <li class="md-nav__item">
-      <a href="start/device/harden/" class="md-nav__link">
+      <a href="../../start/device/harden/" class="md-nav__link">
         
   
   
@@ -697,7 +706,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="monitor/" class="md-nav__link ">
+            <a href="../../monitor/" class="md-nav__link ">
               
   
   
@@ -741,7 +750,7 @@
   
   
     <li class="md-nav__item">
-      <a href="monitor/dashboard/" class="md-nav__link">
+      <a href="../../monitor/dashboard/" class="md-nav__link">
         
   
   
@@ -769,7 +778,7 @@
   
   
     <li class="md-nav__item">
-      <a href="monitor/hosts/" class="md-nav__link">
+      <a href="../../monitor/hosts/" class="md-nav__link">
         
   
   
@@ -797,7 +806,7 @@
   
   
     <li class="md-nav__item">
-      <a href="monitor/topo/" class="md-nav__link">
+      <a href="../../monitor/topo/" class="md-nav__link">
         
   
   
@@ -825,7 +834,7 @@
   
   
     <li class="md-nav__item">
-      <a href="monitor/wifi/" class="md-nav__link">
+      <a href="../../monitor/wifi/" class="md-nav__link">
         
   
   
@@ -853,7 +862,7 @@
   
   
     <li class="md-nav__item">
-      <a href="monitor/netflow/" class="md-nav__link">
+      <a href="../../monitor/netflow/" class="md-nav__link">
         
   
   
@@ -881,7 +890,7 @@
   
   
     <li class="md-nav__item">
-      <a href="monitor/alerts/" class="md-nav__link">
+      <a href="../../monitor/alerts/" class="md-nav__link">
         
   
   
@@ -909,7 +918,7 @@
   
   
     <li class="md-nav__item">
-      <a href="monitor/settings/" class="md-nav__link">
+      <a href="../../monitor/settings/" class="md-nav__link">
         
   
   
@@ -941,6 +950,8 @@
       
   
   
+    
+  
   
   
     
@@ -968,15 +979,15 @@
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3">
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked="">
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="config/" class="md-nav__link ">
+            <a href="../" class="md-nav__link ">
               
   
   
@@ -1000,7 +1011,7 @@
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             
@@ -1081,7 +1092,7 @@
   
   
     <li class="md-nav__item">
-      <a href="config/iface/ethernet/" class="md-nav__link">
+      <a href="../iface/ethernet/" class="md-nav__link">
         
   
   
@@ -1109,7 +1120,7 @@
   
   
     <li class="md-nav__item">
-      <a href="config/iface/vlaniface/" class="md-nav__link">
+      <a href="../iface/vlaniface/" class="md-nav__link">
         
   
   
@@ -1137,7 +1148,7 @@
   
   
     <li class="md-nav__item">
-      <a href="config/iface/bridge/" class="md-nav__link">
+      <a href="../iface/bridge/" class="md-nav__link">
         
   
   
@@ -1165,7 +1176,7 @@
   
   
     <li class="md-nav__item">
-      <a href="config/iface/wwan/" class="md-nav__link">
+      <a href="../iface/wwan/" class="md-nav__link">
         
   
   
@@ -1193,7 +1204,7 @@
   
   
     <li class="md-nav__item">
-      <a href="config/iface/pppoe/" class="md-nav__link">
+      <a href="../iface/pppoe/" class="md-nav__link">
         
   
   
@@ -1221,7 +1232,7 @@
   
   
     <li class="md-nav__item">
-      <a href="config/iface/wifiwan/" class="md-nav__link">
+      <a href="../iface/wifiwan/" class="md-nav__link">
         
   
   
@@ -1257,7 +1268,7 @@
   
   
     <li class="md-nav__item">
-      <a href="config/dhcp/" class="md-nav__link">
+      <a href="../dhcp/" class="md-nav__link">
         
   
   
@@ -1282,10 +1293,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="config/dnsrewrite/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    DNS Rewrite
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -1301,6 +1339,109 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#dns-server-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DNS Server Configuration
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dns-rewrite" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DNS Rewrite
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="DNS Rewrite">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#gui-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GUI Configuration
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cli-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CLI Configuration
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#complete-example-split-dns-for-a-dmz-server" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Complete Example — Split DNS for a DMZ Server
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tracked-dns-entry" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tracked DNS Entry
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#verification" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Verification
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1370,7 +1511,7 @@
   
   
     <li class="md-nav__item">
-      <a href="config/route/static/" class="md-nav__link">
+      <a href="../route/static/" class="md-nav__link">
         
   
   
@@ -1398,7 +1539,7 @@
   
   
     <li class="md-nav__item">
-      <a href="config/route/groups/" class="md-nav__link">
+      <a href="../route/groups/" class="md-nav__link">
         
   
   
@@ -1426,7 +1567,7 @@
   
   
     <li class="md-nav__item">
-      <a href="config/route/ospf/" class="md-nav__link">
+      <a href="../route/ospf/" class="md-nav__link">
         
   
   
@@ -1454,7 +1595,7 @@
   
   
     <li class="md-nav__item">
-      <a href="config/route/bgp/" class="md-nav__link">
+      <a href="../route/bgp/" class="md-nav__link">
         
   
   
@@ -1490,7 +1631,7 @@
   
   
     <li class="md-nav__item">
-      <a href="config/vrrp/" class="md-nav__link">
+      <a href="../vrrp/" class="md-nav__link">
         
   
   
@@ -1518,7 +1659,7 @@
   
   
     <li class="md-nav__item">
-      <a href="config/wifi/" class="md-nav__link">
+      <a href="../wifi/" class="md-nav__link">
         
   
   
@@ -1546,7 +1687,7 @@
   
   
     <li class="md-nav__item">
-      <a href="config/tracking/" class="md-nav__link">
+      <a href="../tracking/" class="md-nav__link">
         
   
   
@@ -1697,7 +1838,7 @@
   
   
     <li class="md-nav__item">
-      <a href="security/firewall/overview/" class="md-nav__link">
+      <a href="../../security/firewall/overview/" class="md-nav__link">
         
   
   
@@ -1725,7 +1866,7 @@
   
   
     <li class="md-nav__item">
-      <a href="security/firewall/policies/" class="md-nav__link">
+      <a href="../../security/firewall/policies/" class="md-nav__link">
         
   
   
@@ -1753,7 +1894,7 @@
   
   
     <li class="md-nav__item">
-      <a href="security/firewall/objects/" class="md-nav__link">
+      <a href="../../security/firewall/objects/" class="md-nav__link">
         
   
   
@@ -1781,7 +1922,7 @@
   
   
     <li class="md-nav__item">
-      <a href="security/firewall/templates/" class="md-nav__link">
+      <a href="../../security/firewall/templates/" class="md-nav__link">
         
   
   
@@ -1817,7 +1958,7 @@
   
   
     <li class="md-nav__item">
-      <a href="security/dnsfiltering.md" class="md-nav__link">
+      <a href="../../security/dnsfiltering.md" class="md-nav__link">
         
   
   
@@ -1845,7 +1986,7 @@
   
   
     <li class="md-nav__item">
-      <a href="security/netflow.md" class="md-nav__link">
+      <a href="../../security/netflow.md" class="md-nav__link">
         
   
   
@@ -1873,7 +2014,7 @@
   
   
     <li class="md-nav__item">
-      <a href="security/log.md" class="md-nav__link">
+      <a href="../../security/log.md" class="md-nav__link">
         
   
   
@@ -1901,7 +2042,7 @@
   
   
     <li class="md-nav__item">
-      <a href="security/radius.md" class="md-nav__link">
+      <a href="../../security/radius.md" class="md-nav__link">
         
   
   
@@ -1995,7 +2136,7 @@
   
   
     <li class="md-nav__item">
-      <a href="system/dns.md" class="md-nav__link">
+      <a href="../../system/dns.md" class="md-nav__link">
         
   
   
@@ -2023,7 +2164,7 @@
   
   
     <li class="md-nav__item">
-      <a href="system/ntp.md" class="md-nav__link">
+      <a href="../../system/ntp.md" class="md-nav__link">
         
   
   
@@ -2051,7 +2192,7 @@
   
   
     <li class="md-nav__item">
-      <a href="system/snmp.md" class="md-nav__link">
+      <a href="../../system/snmp.md" class="md-nav__link">
         
   
   
@@ -2079,7 +2220,7 @@
   
   
     <li class="md-nav__item">
-      <a href="system/syslog.md" class="md-nav__link">
+      <a href="../../system/syslog.md" class="md-nav__link">
         
   
   
@@ -2164,7 +2305,7 @@
   
   
     <li class="md-nav__item">
-      <a href="tools/speedtest.md" class="md-nav__link">
+      <a href="../../tools/speedtest.md" class="md-nav__link">
         
   
   
@@ -2192,7 +2333,7 @@
   
   
     <li class="md-nav__item">
-      <a href="tools/packetcapture.md" class="md-nav__link">
+      <a href="../../tools/packetcapture.md" class="md-nav__link">
         
   
   
@@ -2220,7 +2361,7 @@
   
   
     <li class="md-nav__item">
-      <a href="tools/traceroute.md" class="md-nav__link">
+      <a href="../../tools/traceroute.md" class="md-nav__link">
         
   
   
@@ -2248,7 +2389,7 @@
   
   
     <li class="md-nav__item">
-      <a href="tools/ping.md" class="md-nav__link">
+      <a href="../../tools/ping.md" class="md-nav__link">
         
   
   
@@ -2309,7 +2450,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="hotspot/" class="md-nav__link ">
+            <a href="../../hotspot/" class="md-nav__link ">
               
   
   
@@ -2412,7 +2553,7 @@
   
   
     <li class="md-nav__item">
-      <a href="cases/wanfailover/" class="md-nav__link">
+      <a href="../../cases/wanfailover/" class="md-nav__link">
         
   
   
@@ -2440,7 +2581,7 @@
   
   
     <li class="md-nav__item">
-      <a href="cases/l2vpn/" class="md-nav__link">
+      <a href="../../cases/l2vpn/" class="md-nav__link">
         
   
   
@@ -2468,7 +2609,7 @@
   
   
     <li class="md-nav__item">
-      <a href="cases/vrf/" class="md-nav__link">
+      <a href="../../cases/vrf/" class="md-nav__link">
         
   
   
@@ -2496,7 +2637,7 @@
   
   
     <li class="md-nav__item">
-      <a href="cases/crewwifi/" class="md-nav__link">
+      <a href="../../cases/crewwifi/" class="md-nav__link">
         
   
   
@@ -2588,7 +2729,7 @@
   
   
     <li class="md-nav__item">
-      <a href="api/hotspot/" class="md-nav__link">
+      <a href="../../api/hotspot/" class="md-nav__link">
         
   
   
@@ -2616,7 +2757,7 @@
   
   
     <li class="md-nav__item">
-      <a href="api/syslog/" class="md-nav__link">
+      <a href="../../api/syslog/" class="md-nav__link">
         
   
   
@@ -2644,7 +2785,7 @@
   
   
     <li class="md-nav__item">
-      <a href="api/wispr/" class="md-nav__link">
+      <a href="../../api/wispr/" class="md-nav__link">
         
   
   
@@ -2672,7 +2813,7 @@
   
   
     <li class="md-nav__item">
-      <a href="api/netflow/" class="md-nav__link">
+      <a href="../../api/netflow/" class="md-nav__link">
         
   
   
@@ -2717,6 +2858,99 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#dns-server-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DNS Server Configuration
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dns-rewrite" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DNS Rewrite
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="DNS Rewrite">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#gui-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GUI Configuration
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cli-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CLI Configuration
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#complete-example-split-dns-for-a-dmz-server" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Complete Example — Split DNS for a DMZ Server
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tracked-dns-entry" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tracked DNS Entry
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#verification" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Verification
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -2739,9 +2973,118 @@
 
 
 
-  <h1>Home</h1>
-
-<p><meta http-equiv="refresh" content="0; url=start/"></p>
+<h1 id="dns-dns-rewrite">DNS &amp; DNS Rewrite<a class="headerlink" href="#dns-dns-rewrite" title="Permanent link">¶</a></h1>
+<p>The router handles DNS in two distinct roles: forwarding upstream DNS server addresses to DHCP clients, and acting as a DNS proxy that intercepts and optionally rewrites DNS responses for those clients.</p>
+<p>When the router is configured as a DNS proxy, it sits between clients and the upstream resolver. This enables <strong>DNS Rewrite</strong> — the ability to intercept a client's DNS query for a specific domain and return a configured IP address instead of forwarding the query upstream. This allows you to redirect domains to internal servers, block unwanted domains, or control DNS resolution per-site without changing anything on the clients.</p>
+<p>Two common use cases:</p>
+<ul>
+<li><strong>Split DNS for DMZ servers</strong> — A public server (e.g. <code>abc.test.com</code>) resolves to a public IP for external users, but internal LAN clients should reach it via its private LAN IP to avoid hairpin NAT. DNS Rewrite returns the private IP only to internal clients while external DNS remains unchanged.</li>
+<li><strong>DNS-based content filtering</strong> — Redirect or block specific domains across all clients on the network without installing software on each device.</li>
+</ul>
+<hr>
+<h2 id="dns-server-configuration">DNS Server Configuration<a class="headerlink" href="#dns-server-configuration" title="Permanent link">¶</a></h2>
+<p>The upstream DNS servers the router uses for its own resolution and forwards to DHCP clients are configured under <strong>Device Settings → System</strong>.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../images/config-dns-1.png" data-desc-position="bottom"><img alt="DNS server configuration" src="../images/config-dns-1.png"></a></p>
+<p><strong>CLI Configuration</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>ip name-server 8.8.8.8 8.8.4.4
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For DNS Rewrite to work, the router must intercept client DNS queries. There are two ways to achieve this:</p>
+<ul>
+<li><strong>DHCP assignment</strong> — assign the router's LAN IP as the DNS server via DHCP so clients send queries directly to the router.</li>
+<li><strong>Transparent DNS redirect</strong> — add a DNAT rule to redirect all outbound DNS traffic (UDP port 53) to the router itself, intercepting queries even from clients that have a manually configured DNS server.</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>firewall-dnat 10 redirect inbound eth1 udp dport 53
+</code></pre></div>
+<p>Replace <code>eth1</code> with the LAN interface. The <code>redirect</code> action forwards matching traffic to the router's own DNS proxy.</p>
+</div>
+<hr>
+<h2 id="dns-rewrite">DNS Rewrite<a class="headerlink" href="#dns-rewrite" title="Permanent link">¶</a></h2>
+<p>DNS Rewrite intercepts DNS queries from clients and returns a configured response instead of forwarding to the upstream resolver. The interception is handled by the router's local DNS proxy; clients receive the overridden answer transparently.</p>
+<p>The <code>ip host</code> command supports four modes:</p>
+<table>
+<thead>
+<tr>
+<th>Mode</th>
+<th>CLI Keyword</th>
+<th>Behaviour</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Override</strong></td>
+<td><code>ip host &lt;fqdn&gt; &lt;ip&gt; rewrite</code></td>
+<td>Return the configured IP for all client queries for this domain.</td>
+</tr>
+<tr>
+<td><strong>Block</strong></td>
+<td><code>ip host &lt;fqdn&gt; reject</code></td>
+<td>Return <code>0.0.0.0</code> for queries for this domain — effectively blocking access.</td>
+</tr>
+<tr>
+<td><strong>Router-local host</strong></td>
+<td><code>ip host &lt;fqdn&gt; &lt;ip&gt;</code></td>
+<td>Add a static entry to the router's own setting. Affects only the router's own resolution — not client DNS queries.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="gui-configuration">GUI Configuration<a class="headerlink" href="#gui-configuration" title="Permanent link">¶</a></h3>
+<p>Navigate to <strong>Device Settings → System</strong>, scroll to the <strong>Static FQDN-IP Mapping</strong> section.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../images/config-dns-2.png" data-desc-position="bottom"><img alt="DNS Rewrite list" src="../images/config-dns-2.png"></a></p>
+<p>Click <strong>+ Add</strong> to open the mapping form.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../images/config-dns-3.png" data-desc-position="bottom"><img alt="DNS Rewrite configuration form" src="../images/config-dns-3.png"></a></p>
+<p>Enter the domain name and the IP address to return. The mapping takes effect immediately and applies to all clients using this router as their DNS server.</p>
+<h3 id="cli-configuration">CLI Configuration<a class="headerlink" href="#cli-configuration" title="Permanent link">¶</a></h3>
+<p><strong>Override — redirect a domain to a specific IP</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>ip host abc.test.com 10.1.1.2 rewrite
+</code></pre></div>
+<p>All client DNS queries for <code>abc.test.com</code> will receive <code>10.1.1.2</code> regardless of what the upstream DNS would return.</p>
+<p><strong>Block — prevent access to a domain</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>ip host ads.tracker.com reject
+</code></pre></div>
+<p>Queries for <code>ads.tracker.com</code> return <code>0.0.0.0</code>. Clients attempting to connect to this domain will get no valid address.</p>
+<h3 id="complete-example-split-dns-for-a-dmz-server">Complete Example — Split DNS for a DMZ Server<a class="headerlink" href="#complete-example-split-dns-for-a-dmz-server" title="Permanent link">¶</a></h3>
+<p><strong>Scenario:</strong> <code>abc.test.com</code> has a public IP <code>202.127.9.2</code> on the WAN. Internal clients should reach the same server at its private IP <code>10.1.1.2</code> to avoid hairpin NAT. External users continue to resolve the public IP normally.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>ip name-server 8.8.8.8 8.8.4.4
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>ip host abc.test.com 10.1.1.2 rewrite
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>firewall-dnat 10 redirect inbound eth1 udp dport 53
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>firewall-dnat 20 translate inbound eth0 dst 202.127.9.2 xdst 10.1.1.2
+</code></pre></div>
+<p><strong>Key points:</strong></p>
+<ul>
+<li><code>ip name-server</code> — upstream resolvers for all other domains</li>
+<li><code>ip host abc.test.com 10.1.1.2 rewrite</code> — internal clients querying <code>abc.test.com</code> receive <code>10.1.1.2</code></li>
+<li><code>firewall-dnat 10 redirect inbound eth1 udp dport 53</code> — transparently intercept all DNS queries arriving on the LAN interface (<code>eth1</code>), redirecting them to the router's DNS proxy regardless of what DNS server clients have configured</li>
+<li><code>firewall-dnat 20 translate ... xdst 10.1.1.2</code> — inbound traffic from the WAN to the public IP is still translated to the internal server for external users</li>
+</ul>
+<p>External users continue to resolve <code>abc.test.com</code> to <code>202.127.9.2</code> via public DNS — the rewrite only affects clients whose queries pass through this router.</p>
+<hr>
+<h2 id="tracked-dns-entry">Tracked DNS Entry<a class="headerlink" href="#tracked-dns-entry" title="Permanent link">¶</a></h2>
+<p>A DNS entry can be made conditional on the reachability of a target host. When the tracked host is alive, the configured IP is returned; when it fails, the entry is either removed or switched to a backup IP. This is useful for routing clients to an active server when multiple instances exist.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>ip host service.example.com 192.168.1.10 rewrite track icmp 192.168.1.10 15 max 200 20 backup 192.168.1.20
+</code></pre></div>
+<p><strong>Key points:</strong></p>
+<ul>
+<li><code>rewrite</code> — the domain override is active while the tracked host is alive</li>
+<li><code>track icmp 192.168.1.10 15</code> — probe <code>192.168.1.10</code> with ICMP every <code>15</code> seconds</li>
+<li><code>max 200 20</code> — probe fails if RTT exceeds <code>200 ms</code> or packet loss exceeds <code>20%</code></li>
+<li><code>backup 192.168.1.20</code> — when the probe fails, switch the DNS entry to return <code>192.168.1.20</code> instead of removing it entirely; omit <code>backup</code> to remove the entry on failure</li>
+</ul>
+<p>TCP-based tracking is also supported:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>ip host service.example.com 192.168.1.10 rewrite track tcp 192.168.1.10 443 15
+</code></pre></div>
+<ul>
+<li><code>track tcp 192.168.1.10 443 15</code> — probe TCP port <code>443</code> on <code>192.168.1.10</code> every <code>15</code> seconds</li>
+</ul>
+<hr>
+<h2 id="verification">Verification<a class="headerlink" href="#verification" title="Permanent link">¶</a></h2>
+<p>Test DNS resolution from the router:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>nslookup abc.test.com
+</code></pre></div>
+<p>Test from a client (the response should reflect the configured override):</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>nslookup abc.test.com &lt;router-lan-ip&gt;
+</code></pre></div>
 
 
 
@@ -2819,10 +3162,10 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["navigation.indexes", "navigation.path", "navigation.top", "search.highlight", "search.suggest", "content.code.copy", "content.tabs.link", "content.action.edit", "toc.follow"], "search": "assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.indexes", "navigation.path", "navigation.top", "search.highlight", "search.suggest", "content.code.copy", "content.tabs.link", "content.action.edit", "toc.follow"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
       
     
   

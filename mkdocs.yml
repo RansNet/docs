@@ -104,6 +104,7 @@ nav:
       - PPPoE: config/iface/pppoe.md
       - WiFi as WAN: config/iface/wifiwan.md
     - DHCP: config/dhcp.md
+    - DNS Rewrite: config/dnsrewrite.md
     - Routing:
       - Static Routes: config/route/static.md
       - Network Groups: config/route/groups.md
@@ -126,7 +127,7 @@ nav:
       - Policies: security/firewall/policies.md
       - Objects: security/firewall/objects.md
       - Templates: security/firewall/templates.md
-    - DNS Filtering: security/dnsfiltering.md
+    - Web Filtering: security/dnsfiltering.md
     - Netflow Analyzer: security/netflow.md
     - Log Collector: security/log.md
     - RADIUS Server: security/radius.md

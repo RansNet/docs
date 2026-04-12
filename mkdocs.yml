@@ -127,7 +127,7 @@ nav:
       - Policies: security/firewall/policies.md
       - Objects: security/firewall/objects.md
       - Templates: security/firewall/templates.md
-    - Web Filtering: security/dnsfiltering.md
+    - Web Filtering: security/dnsfilter.md
     - Netflow Analyzer: security/netflow.md
     - Log Collector: security/log.md
     - RADIUS Server: security/radius.md

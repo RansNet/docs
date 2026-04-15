@@ -242,7 +242,7 @@ The configuration fields are the same as the [Common Options](#common-options) d
 ### CLI Configuration
 
 ```
-ip track icmp 1.1.1.1 300 max 100 20 src 192.168.8.1
+ip track icmp 1.1.1.1 300 max 100 20 src 192.168.8.1 log
 ```
 
 **Key points:**
@@ -251,6 +251,7 @@ ip track icmp 1.1.1.1 300 max 100 20 src 192.168.8.1
 - `icmp 1.1.1.1 300` — probes `1.1.1.1` with ICMP every `300` seconds
 - `max 100 20` — Ping SLA thresholds: probe fails if round-trip latency exceeds `100 ms` or packet loss exceeds `20%`
 - `src 192.168.8.1` — binds probe packets to this source IP, ensuring they follow the intended path
+- `log` — enables verbose tracking messages in syslog; probe results, failure counts, and the reboot trigger are always logged at warning/critical level regardless of this option
 
 !!! tip
     System reachability tracking triggers a full router reboot — a disruptive action that should only fire when all other recovery options have been exhausted. Use a long probe interval (e.g., `300` seconds) with a stable, always-reachable target. Overly short intervals on an unreliable uplink risk repeated reboots that can make the device difficult to recover remotely.

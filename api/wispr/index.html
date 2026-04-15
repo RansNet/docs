@@ -3064,16 +3064,16 @@
 </thead>
 <tbody>
 <tr>
-<td><code>UserName</code></td>
-<td>The end-user's username</td>
+<td><code>username</code></td>
+<td>The end-user's username, it must be email format</td>
 </tr>
 <tr>
-<td><code>AppOwner</code></td>
-<td>Identifier of the application owner submitting the request</td>
+<td><code>app</code></td>
+<td>Identifier of the application owner submitting the request, it is "tkg" for sportshub application</td>
 </tr>
 <tr>
-<td><code>HashValue</code></td>
-<td>Base64-encoded authentication token (construction TBD)</td>
+<td><code>password</code></td>
+<td>Base64-encoded authentication token (md5 checksum of "##$username##")</td>
 </tr>
 </tbody>
 </table>

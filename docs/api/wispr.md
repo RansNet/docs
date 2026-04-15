@@ -110,9 +110,9 @@ In addition to the standard `UserName`/`Password` pair, application owners may s
 
 | Parameter | Description |
 | --- | --- |
-| `UserName` | The end-user's username |
-| `AppOwner` | Identifier of the application owner submitting the request |
-| `HashValue` | Base64-encoded authentication token (construction TBD) |
+| `username` | The end-user's username, it must be email format |
+| `app` | Identifier of the application owner submitting the request, it is "tkg" for sportshub application |
+| `password` | Base64-encoded authentication token (md5 checksum of "##$username##") |
 
 > **Note:** Full parameter specification and hash construction details for this variant will be documented once finalised.
 

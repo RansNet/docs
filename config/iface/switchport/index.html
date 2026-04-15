@@ -9,13 +9,13 @@
         <meta name="author" content="RansNet Singapore Pte Ltd">
       
       
-        <link rel="canonical" href="https://docs.ransnet.com/config/iface/bridge/">
+        <link rel="canonical" href="https://docs.ransnet.com/config/iface/switchport/">
       
       
-        <link rel="prev" href="../vlaniface/">
+        <link rel="prev" href="../pppoe/">
       
       
-        <link rel="next" href="../wwan/">
+        <link rel="next" href="../wifiwan/">
       
       
         
@@ -26,7 +26,7 @@
     
     
       
-        <title>Bridge - RansNet Documentation</title>
+        <title>Switchport - RansNet Documentation</title>
       
     
     
@@ -89,7 +89,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#bridge-interface" class="md-skip">
+        <a href="#switch-ports" class="md-skip">
           Skip to content
         </a>
       
@@ -124,7 +124,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Bridge
+              Switchport
             
           </span>
         </div>
@@ -1149,37 +1149,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Bridge
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../bridge/" class="md-nav__link">
         
   
   
@@ -1195,104 +1168,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
-      
-        <li class="md-nav__item">
-  <a href="#use-cases" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Use Cases
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#gui-configuration" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        GUI Configuration
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="GUI Configuration">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#settings" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Settings
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#cli-configuration" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        CLI Configuration
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="CLI Configuration">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#basic-bridge-with-two-ethernet-members" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Basic bridge with two Ethernet members
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#verification" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Verification
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1358,10 +1233,19 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../switchport/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -1377,6 +1261,7 @@
   
 
       </a>
+      
     </li>
   
 
@@ -2767,92 +2652,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
-      
-        <li class="md-nav__item">
-  <a href="#use-cases" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Use Cases
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#gui-configuration" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        GUI Configuration
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="GUI Configuration">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#settings" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Settings
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#cli-configuration" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        CLI Configuration
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="CLI Configuration">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#basic-bridge-with-two-ethernet-members" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Basic bridge with two Ethernet members
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#verification" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Verification
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -2917,181 +2716,8 @@
 
 
 
-<h1 id="bridge-interface">Bridge Interface<a class="headerlink" href="#bridge-interface" title="Permanent link">¶</a></h1>
-<p>By default, all RansNet router interfaces operate as Layer-3 routed interfaces. Hosts connected through different interfaces must communicate via routing through the device.</p>
-<p>In scenarios where Layer-2 connectivity is required — for example, bridging wired LAN ports with wireless SSIDs so all clients share the same IP subnet — a bridge interface can be created to group multiple interfaces into a single Layer-2 broadcast domain.</p>
-<p>RansNet routers support <strong>IEEE 802.1d Ethernet bridging</strong>, allowing physical Ethernet ports, VLAN sub-interfaces, and wireless interfaces to be combined into a single bridge group.</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../images/iface-br-1.png" data-desc-position="bottom"><img alt="Bridge Architecture" src="../../images/iface-br-1.png"></a></p>
-<p>In the diagram above, <code>eth1</code> and <code>eth2</code> are assigned as members of <code>bridge-group 0</code>. The bridge itself is assigned <code>eth0: 10.1.1.254/24</code> as its Layer-3 IP address, which becomes the default gateway for all hosts connected through any member port. The separate <code>eth0: 192.168.1.1/24</code> interface on the top remains a standalone routed uplink.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>All interfaces assigned as bridge members lose their individual Layer-3 IP addresses. The IP address is assigned to the bridge interface itself, not the member ports.</p>
-</div>
-<hr>
-<h2 id="use-cases">Use Cases<a class="headerlink" href="#use-cases" title="Permanent link">¶</a></h2>
-<table>
-<thead>
-<tr>
-<th>Scenario</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>Wired + Wireless bridging</strong></td>
-<td>Bridge a LAN Ethernet port with a Wi-Fi SSID so wireless clients appear on the same subnet as wired hosts</td>
-</tr>
-<tr>
-<td><strong>Multi-port LAN segment</strong></td>
-<td>Group multiple Ethernet ports into a single Layer-2 segment (software switch) without a dedicated managed switch</td>
-</tr>
-<tr>
-<td><strong>VLAN bridging</strong></td>
-<td>Bridge a VLAN sub-interface with a wireless SSID to extend a tagged VLAN over Wi-Fi</td>
-</tr>
-</tbody>
-</table>
-<hr>
-<h2 id="gui-configuration">GUI Configuration<a class="headerlink" href="#gui-configuration" title="Permanent link">¶</a></h2>
-<p>Navigate to <strong>Device Settings → Network → Interfaces</strong>, then click <strong>+ Add Interface</strong> and select <strong>Bridge (Software Switch)</strong>.</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../images/iface-br-2.png" data-desc-position="bottom"><img alt="Add Bridge Interface" src="../../images/iface-br-2.png"></a></p>
-<p>Configure the bridge name and assign member interfaces.</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../images/iface-br-3.png" data-desc-position="bottom"><img alt="Bridge Interface Settings" src="../../images/iface-br-3.png"></a></p>
-<h3 id="settings">Settings<a class="headerlink" href="#settings" title="Permanent link">¶</a></h3>
-<table>
-<thead>
-<tr>
-<th>Field</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>Bridge Interface Name</strong></td>
-<td>Name for the bridge interface (e.g., <code>br1</code>, <code>br2</code>)</td>
-</tr>
-<tr>
-<td><strong>Admin Status</strong></td>
-<td>Enable or disable the bridge interface</td>
-</tr>
-<tr>
-<td><strong>IPv4 Address</strong></td>
-<td>IP address assigned to the bridge (shared gateway for all member hosts). Multiple IPs can be added via <strong>+ Add IPv4 Address/Prefix</strong>.</td>
-</tr>
-<tr>
-<td><strong>IPv6 Address</strong></td>
-<td>IPv6 address for the bridge (optional)</td>
-</tr>
-<tr>
-<td><strong>Interface Members</strong></td>
-<td>Physical or logical interfaces to include in this bridge group. Select from the dropdown (e.g., <code>eth0</code>, <code>eth1</code>, <code>eth2</code>). Multiple members can be added.</td>
-</tr>
-<tr>
-<td><strong>Description</strong></td>
-<td>Optional label for this bridge interface</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Other Settings:</strong></p>
-<table>
-<thead>
-<tr>
-<th>Option</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>Bond Mode</strong></td>
-<td>Include the bridge in a link aggregation bond</td>
-</tr>
-<tr>
-<td><strong>DynDNS</strong></td>
-<td>Enable Dynamic DNS updates for the bridge IP</td>
-</tr>
-<tr>
-<td><strong>Enable Tracking</strong></td>
-<td>Enable interface tracking for link-state monitoring</td>
-</tr>
-<tr>
-<td><strong>MTU</strong></td>
-<td>Override the bridge MTU (default: <code>1500</code>). All member interfaces should share the same MTU.</td>
-</tr>
-<tr>
-<td><strong>Proxy ARP</strong></td>
-<td>Enable Proxy ARP on the bridge interface</td>
-</tr>
-<tr>
-<td><strong>Bridge</strong></td>
-<td>Bridge to an additional interface (e.g., a wireless SSID)</td>
-</tr>
-<tr>
-<td><strong>VRRP (High Availability)</strong></td>
-<td>Configure VRRP for gateway redundancy on this bridge</td>
-</tr>
-<tr>
-<td><strong>Route Metric</strong></td>
-<td>Administrative metric for routes via this bridge</td>
-</tr>
-<tr>
-<td><strong>VRF</strong></td>
-<td>Assign the bridge to a VRF instance for traffic segmentation</td>
-</tr>
-</tbody>
-</table>
-<hr>
-<h2 id="cli-configuration">CLI Configuration<a class="headerlink" href="#cli-configuration" title="Permanent link">¶</a></h2>
-<h3 id="basic-bridge-with-two-ethernet-members">Basic bridge with two Ethernet members<a class="headerlink" href="#basic-bridge-with-two-ethernet-members" title="Permanent link">¶</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>interface eth1
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a> enable
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a> bridge-group 1
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>!
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>interface eth2
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a> enable
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a> bridge-group 1
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>!
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>interface bridge br1
-<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>  enable
-<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>  ip address 192.168.1.254/24
-</code></pre></div>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>Member interfaces must not have IP addresses configured individually before being added to a bridge. Remove any existing IP from a member interface before assigning it to a bridge group.</p>
-</div>
-<hr>
-<h2 id="verification">Verification<a class="headerlink" href="#verification" title="Permanent link">¶</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>show interface br1
-</code></pre></div>
-<p>Example output:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>================================================================================
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>Interface : br1
-<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>================================================================================
-<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>
-<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>  Network Information
-<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>  ----------------------------------------
-<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>  Admin State            : UP
-<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>  Link State             : UP
-<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>  MAC Address            : ee:ce:65:2f:34:2a
-<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>  MTU                    : 1500 bytes
-<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>  IPv4 Address           : 192.168.1.254/24
-<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>  IPv4 Broadcast         : 192.168.1.255
-<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>  IPv6 Address           : fe80::ecce:65ff:fe2f:342a/64 [link]
-<a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>
-<a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a>  Bridge Information
-<a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a>  ----------------------------------------
-<a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a>  Bridge ID              : 7fff.eece652f342a
-<a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a>  STP                    : Disabled
-<a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a>  Member Interfaces      : eth1 eth2
-<a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a>
-<a id="__codelineno-2-21" name="__codelineno-2-21" href="#__codelineno-2-21"></a>  Physical Information
-<a id="__codelineno-2-22" name="__codelineno-2-22" href="#__codelineno-2-22"></a>  ----------------------------------------
-<a id="__codelineno-2-23" name="__codelineno-2-23" href="#__codelineno-2-23"></a>  Link Detected          : yes
-<a id="__codelineno-2-24" name="__codelineno-2-24" href="#__codelineno-2-24"></a>
-<a id="__codelineno-2-25" name="__codelineno-2-25" href="#__codelineno-2-25"></a>================================================================================
-</code></pre></div>
-<p>To view all interfaces including bridge interfaces:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>show interface
-</code></pre></div>
+<h1 id="switch-ports">Switch Ports<a class="headerlink" href="#switch-ports" title="Permanent link">¶</a></h1>
+<p>All the RansNet SD-Branch routers have multiple GE or FE ports. All the ports are configurable to be WAN or LAN ports. However, it's important to understand the hardware architechure so we know how to configure it.</p>
 
 
 

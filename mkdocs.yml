@@ -102,6 +102,7 @@ nav:
       - Bridge: config/iface/bridge.md
       - WWAN: config/iface/wwan.md
       - PPPoE: config/iface/pppoe.md
+      - Switchport: config/iface/switchport.md
       - WiFi as WAN: config/iface/wifiwan.md
     - DHCP: config/dhcp.md
     - DNS Rewrite: config/dnsrewrite.md
@@ -119,9 +120,9 @@ nav:
       - VPN Protocols: sdwan/vpn/vpnintro.md
       - VPN Topology: sdwan/vpn/topology.md
       - VPN Instance: sdwan/vpn/instance.md
-    #- Traffic Management:
+    - Traffic Management:
     #  - Multi-WAN: sdwan/traffic/mwan.md
-    #  - Traffic Steering: sdwan/traffic/steering.md
+      - Traffic Steering: sdwan/traffic/pbr.md
     #  - Traffic Shaping: sdwan/traffic/shaping.md
   - Firewall & Security:
     #- security/index.md

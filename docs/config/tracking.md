@@ -30,9 +30,6 @@ All tracking contexts share the same set of probe options:
 | **Log** | Log tracking state changes and probe results to syslog. Useful during commissioning and troubleshooting. |
 | **Reverse** | Invert the tracking logic — the configured action triggers when the probe *succeeds* instead of when it fails. Useful for enabling a backup object only when the primary becomes unavailable. |
 
-!!! note
-    Tracking probes run independently of the physical interface state. A tracked object can be deactivated even when the interface is physically up — for example, if the upstream router is reachable at Layer 2 but connectivity beyond it has failed.
-
 ---
 
 ## Tracking Interfaces
@@ -41,13 +38,16 @@ Interface tracking ties the administrative state of an interface to the reachabi
 
 A common use case is an optional or backup WAN interface: keep it disabled under normal conditions, and only bring it up when the primary WAN's upstream target is no longer reachable (using the **Reverse** option).
 
-**GUI Example**
+!!! note
+    Tracking probes run independently of the physical interface state. A tracked object can be deactivated even when the interface is physically up — for example, if the upstream router is reachable at Layer 2 but connectivity beyond it has failed.
+
+### GUI Configuration
 
 Navigate to **Device Settings → Network → Interfaces**. Click an interface to open its settings, then click **Enable Tracking**.
 
 ![Tracking](./images/config-track-1.png)
 
-**CLI Example**
+### CLI Configuration
 
 ```
 interface eth0
@@ -66,7 +66,7 @@ Static route tracking allows a route to be conditionally present in the routing 
 
 This pattern is commonly called a **floating static route**. It is typically deployed alongside a backup default route at a higher administrative distance. Under normal conditions, the tracked primary route wins; if the primary path fails, the tracked route is withdrawn and traffic falls back to the backup automatically.
 
-**GUI Example**
+### GUI Configuration
 
 Navigate to **Device Settings → Network → Static Routing**. Click to add or edit a route.
 
@@ -75,9 +75,11 @@ Navigate to **Device Settings → Network → Static Routing**. Click to add or 
 In this example, the default route via `100.100.100.1` is only active when the nexthop is reachable. If the upstream fails, the route is withdrawn and a backup (higher-metric) default takes over.
 
 !!! tip
-    For deeper upstream validation, track an IP further into the upstream network rather than just the immediate nexthop. This catches scenarios where the nexthop itself is up but connectivity beyond it has failed.
+    For deeper upstream validation, track an IP further into the upstream network rather than just the immediate next-hop. This catches scenarios where the next-hop itself is up but connectivity beyond it has failed.
 
-**CLI Example**
+    Always specify a **Source IP** bound to the interface being tracked. In a multi-WAN setup, the probe target may be reachable via an alternate path, causing the probe to succeed even when the intended WAN link has failed — leaving a stale route in the table that attracts traffic it cannot deliver.
+
+### CLI Configuration
 
 ```
 ip route 0.0.0.0/0 nexthop 100.100.100.1 track icmp 100.100.100.1 30
@@ -91,13 +93,13 @@ VRRP tracking monitors a reachability target and stops or resumes a router's par
 
 This is the preferred mechanism for ensuring that a VRRP MASTER only holds the VIP when it has a working upstream path. Without tracking, a router whose WAN link has failed will continue to hold the VIP and attract traffic it cannot forward — a split-brain condition.
 
-**GUI Example**
+### GUI Configuration
 
 Navigate to **Device Settings → Network → Interfaces**. Click an interface to open its settings, then expand the **VRRP** section, edit a VRRP group, and enable **Tracking Method**.
 
 For a full description of all probe configuration fields, see [Common Options](#common-options).
 
-**CLI Example**
+### CLI Configuration
 
 ```
 interface vlan 1 11
@@ -120,13 +122,13 @@ Policy-based routing (PBR) allows traffic to be steered based on criteria beyond
 
 The key advantage of PBR over static routing in a multi-WAN scenario is precedence. In most deployments, the WAN interfaces use DHCP, which installs kernel-level default routes. Kernel routes supersede static routes, so a static backup default may never be reached. PBR operates above the kernel routing table, so a tracked PBR rule will take effect regardless of what kernel or static routes are present — giving you reliable, deterministic traffic steering even in mixed-WAN environments.
 
-**GUI Example**
+### GUI Configuration
 
 Navigate to **Device Settings → SD-WAN → Traffic Steering**. Click to add or edit a rule.
 
 ![Tracking](./images/config-track-3.png)
 
-**CLI Example**
+### CLI Configuration
 
 ```
 ip pbr policy 100 src 192.168.8.0/22
@@ -134,6 +136,9 @@ ip pbr 100 nexthop 100.100.100.1 track icmp 1.1.1.1 15
 ```
 
 In this example, traffic from `192.168.8.0/22` is steered via `100.100.100.1` as long as `1.1.1.1` is reachable. If tracking fails, the PBR rule is withdrawn and traffic follows normal routing.
+
+!!! tip
+     PBR route tracking will automatically use the nexthop interface as the tracking source. However, you can still explicitly specify tracking source if needed.
 
 ---
 
@@ -145,13 +150,13 @@ On HSA-520 series devices, the LAN interface is a VLAN interface — it remains 
 
 When the tracked LAN host becomes unreachable (indicating a switch failure, cable pull, or downstream device outage), the router withdraws the BGP advertisement immediately, preventing upstream peers from forwarding traffic down a broken path.
 
-**GUI Example**
+### GUI Configuration
 
 Navigate to the BGP configuration section (under **SD-WAN** or **Dynamic Routing**, depending on your deployment), and open the advertised network entry:
 
 ![Tracking](./images/config-track-4.png)
 
-**CLI Example**
+### CLI Configuration
 
 ```
 router 65051
@@ -173,20 +178,20 @@ Cellular networks are not perfectly stable — as a device moves between coverag
 
 This behavior also benefits devices using **multi-profile SIMs** — a single SIM card with multiple carrier profiles loaded. When one profile fails, the reset cycle allows the system to try the next available profile automatically, without manual intervention.
 
-**GUI Example**
+**GUI Configuration**
 
 Navigate to **Device Settings → Network → WWAN**.
 
 ![Tracking](./images/config-track-5.png)
 
-**CLI Example**
+**CLI Configuration**
 
 ```
 interface wwan0
  track icmp 1.1.1.1 30
 ```
 
-!!!note
+!!! note
     WWAN tracking has one additional tracking method beyond ICMP and TCP: **RSRQ** (Reference Signal Received Quality). RSRQ reflects radio signal quality rather than upper-layer IP reachability, making it useful for detecting degraded radio conditions before connectivity is fully lost.
 
 ### Switch Cellular Mode (5G → 4G)
@@ -199,7 +204,7 @@ A simple connection reset does not resolve this. The modem will re-associate wit
 
 Configuring `nr-mode` with a tracking probe automates this: if the probe target becomes unreachable while in 5G mode, the router switches the modem to LTE and remains on LTE until the next reboot.
 
-**CLI Example**
+**CLI Configuration**
 
 ```
 interface wwan0
@@ -215,16 +220,17 @@ interface wwan0
 !!! note
     Once failover to LTE occurs, the router stays on LTE until the next reboot. It will not attempt to recover back to 5G mode automatically, to avoid flapping between modes. Choose a probe target that is reachable over the 5G path — such as a public DNS server (`1.1.1.1`, `8.8.8.8`).
 
+---
 
 ## Tracking System Reachability
 
 System reachability tracking is a last-resort watchdog mechanism that operates at the router level rather than at the interface or route level. Instead of withdrawing a route or disabling an interface on failure, it **reboots the router** — the assumption being that the device has entered a state it cannot self-recover from, and that a clean restart is the safest way to restore connectivity.
 
-This is appropriate in scenarios where interface and route tracking have not resolved the problem — for example, a software deadlock, a hung process, or a routing table inconsistency, or a connectivity issue (eg. auto sensing issue with adjacent device or upstream cellular network) that leaves the router unable to forward traffic despite all interfaces appearing up. Because a reboot is disruptive, system tracking should be configured with a long probe interval and strict failure thresholds to avoid unnecessary restarts.
+This is appropriate in scenarios where interface and route tracking have not resolved the problem — for example, a software deadlock, a hung process, a routing table inconsistency, or a connectivity issue (e.g., an auto-sensing fault with an adjacent device or a stale cellular attachment) that leaves the router unable to forward traffic despite all interfaces appearing up. Because a reboot is disruptive, system tracking should be configured with a long probe interval and strict failure thresholds to avoid unnecessary restarts.
 
-**GUI Configuration**
+### GUI Configuration
 
-Navigate to **Device Settings → System → Other Settings**, then enable the **Enable Tracking** tab.
+Navigate to **Device Settings → System → Other Settings**, then open the **Tracking** tab.
 
 ![System Reachability Tracking](./images/config-track-6.png)
 
@@ -233,7 +239,7 @@ The configuration fields are the same as the [Common Options](#common-options) d
 !!! note
     The router requires **2 consecutive probe failures** before triggering a reboot. With a 300-second interval, this means the target must be continuously unreachable for at least **10 minutes** before any action is taken.
 
-**CLI Configuration**
+### CLI Configuration
 
 ```
 ip track icmp 1.1.1.1 300 max 100 20 src 192.168.8.1

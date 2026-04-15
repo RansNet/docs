@@ -48,7 +48,7 @@ The Host Dashboard is organized into four tabs:
 
 Use the date/time selector in the top-right corner to adjust the time range across all tabs.
 
-### Summary
+### Host Summary
 
 The Summary tab layout is customisable. Click **[Customize]** in the top-right corner to select which widgets and sections to display, allowing you to build a focused view of the metrics most relevant to that device type.
 
@@ -69,3 +69,11 @@ The **Triggers** tab lists all alert conditions configured for this device. Trig
 Triggers can be individually enabled or disabled per device, allowing you to suppress specific alert types on a device without affecting the rest of the fleet.
 
 ![Monitoring triggers](../images/monitor-hosts-7.png)
+
+### Monitoring Graphs
+
+The **Graphs** tab displays historical performance data for monitored items, enabling trend analysis and capacity planning over custom time ranges. Use the date/time selector in the top-right corner to zoom into a specific window — from the last hour through months of history.
+
+Selected graphs can be included in automated reports delivered to customer email on a daily, weekly, or monthly schedule.
+
+![Monitoring Graphs](../images/monitor-hosts-8.png)

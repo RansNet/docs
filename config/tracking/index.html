@@ -3433,7 +3433,7 @@
 <p>The router requires <strong>2 consecutive probe failures</strong> before triggering a reboot. With a 300-second interval, this means the target must be continuously unreachable for at least <strong>10 minutes</strong> before any action is taken.</p>
 </div>
 <h3 id="cli-configuration_5">CLI Configuration<a class="headerlink" href="#cli-configuration_5" title="Permanent link">¶</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>ip track icmp 1.1.1.1 300 max 100 20 src 192.168.8.1
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>ip track icmp 1.1.1.1 300 max 100 20 src 192.168.8.1 log
 </code></pre></div>
 <p><strong>Key points:</strong></p>
 <ul>
@@ -3441,6 +3441,7 @@
 <li><code>icmp 1.1.1.1 300</code> — probes <code>1.1.1.1</code> with ICMP every <code>300</code> seconds</li>
 <li><code>max 100 20</code> — Ping SLA thresholds: probe fails if round-trip latency exceeds <code>100 ms</code> or packet loss exceeds <code>20%</code></li>
 <li><code>src 192.168.8.1</code> — binds probe packets to this source IP, ensuring they follow the intended path</li>
+<li><code>log</code> — enables verbose tracking messages in syslog; probe results, failure counts, and the reboot trigger are always logged at warning/critical level regardless of this option</li>
 </ul>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>

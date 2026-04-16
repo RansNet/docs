@@ -3175,12 +3175,63 @@
 </ul>
 <p>Separate fwmarks are used for each direction — the upload mark matches on <strong>destination</strong> port or object (traffic going to the internet), and the download mark matches on <strong>source</strong> port or object (traffic returning from the internet). The orchestrator assigns these marks automatically following the class number convention.</p>
 <h3 id="class-priority">Class Priority<a class="headerlink" href="#class-priority" title="Permanent link">¶</a></h3>
-<p>The <strong>class number</strong> (<code>flowno</code>) determines scheduling priority under congestion:</p>
-<ul>
-<li><strong>Lower class number = higher priority</strong> — class <code>100</code> is always served before class <code>200</code> when the link is saturated</li>
-<li>Under normal load (link not congested), all classes can burst up to their <code>ceil</code> value</li>
-<li>Assign your most latency-sensitive traffic (VoIP, video calls) the lowest class numbers</li>
-</ul>
+<p>The <strong>class number</strong> (<code>flowno</code>) controls priority in two complementary ways:</p>
+<ol>
+<li><strong>Filter evaluation order</strong> — lower class numbers are matched first. If traffic could satisfy multiple class filters, it is placed into the lowest-numbered matching class.</li>
+<li><strong>HTB scheduling priority</strong> — the HTB scheduler maps the class number to one of 8 priority tiers (0–7) using the formula <code>(flowno − 200) × 8 ÷ 200</code>. Class <code>200</code> maps to tier 0 (highest); class <code>399</code> maps to tier 7 (lowest). Each tier spans 25 class numbers. When the shared bandwidth pool has excess capacity, lower-tier classes are served before higher-tier classes, allowing them to burst toward their <code>ceil</code> sooner.</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>Class range</th>
+<th>HTB prio tier</th>
+<th>Priority</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>200–224</td>
+<td>0</td>
+<td>Highest</td>
+</tr>
+<tr>
+<td>225–249</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td>250–274</td>
+<td>2</td>
+<td></td>
+</tr>
+<tr>
+<td>275–299</td>
+<td>3</td>
+<td></td>
+</tr>
+<tr>
+<td>300–324</td>
+<td>4</td>
+<td></td>
+</tr>
+<tr>
+<td>325–349</td>
+<td>5</td>
+<td></td>
+</tr>
+<tr>
+<td>350–374</td>
+<td>6</td>
+<td></td>
+</tr>
+<tr>
+<td>375–399</td>
+<td>7</td>
+<td>Lowest</td>
+</tr>
+</tbody>
+</table>
+<p>Under congestion (link fully saturated), every class is guaranteed its configured <code>rate</code> regardless of priority tier. Use <code>rate</code> to reserve bandwidth that must be protected for latency-sensitive traffic such as VoIP or video conferencing. The priority tier controls which classes benefit first when spare capacity is available.</p>
 <h3 id="gui-configuration">GUI Configuration<a class="headerlink" href="#gui-configuration" title="Permanent link">¶</a></h3>
 <p>Navigate to <strong>Device Settings → SD-WAN → Traffic Shaping</strong> and click the <strong>Class-Based Shaping</strong> tab.</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../images/traffic-qos-2.png" data-desc-position="bottom"><img alt="Class-Based Shaping" src="../../images/traffic-qos-2.png"></a></p>
@@ -3216,7 +3267,7 @@
 </ul>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>Assign lower class numbers to higher-priority traffic. For example, place VoIP or real-time video at class <code>100</code> and bulk/social media at class <code>400</code>. The scheduler always serves class <code>100</code> first when the link is congested.</p>
+<p>Assign lower class numbers to higher-priority traffic. Class <code>200</code> (prio tier 0) is always scheduled before class <code>350</code> (prio tier 6) when excess capacity is available. For traffic that must be protected under congestion (VoIP, real-time video), set a meaningful <code>rate</code> so the class retains its guaranteed allocation even when the link is saturated.</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -3229,18 +3280,18 @@
 <a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>Interface: eth0
 <a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>  Class    Rate        Ceil        Prio    FW Mark           Sent              Dropped
 <a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>  -------  ----------  ----------  ------  ----------------  ----------------  -------
-<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>  200      20Mbit      20Mbit      200     2001/0x7d1        244247B/2141p     0
-<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>  201      10Mbit      10Mbit      201     2011/0x7db        0B/0p             0
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>  200      20Mbit      20Mbit      0       2001/0x7d1        244247B/2141p     0
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>  201      10Mbit      10Mbit      0       2011/0x7db        0B/0p             0
 <a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>  [i] No default class — unclassified traffic passes at wire speed (uncapped)
 <a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>
 <a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>Interface: vlan1
 <a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>  Class    Rate        Ceil        Prio    FW Mark           Sent              Dropped
 <a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>  -------  ----------  ----------  ------  ----------------  ----------------  -------
-<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>  200      20Mbit      20Mbit      200     2002/0x7d2        0B/0p             0
-<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>  201      10Mbit      10Mbit      201     2012/0x7dc        0B/0p             0
+<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>  200      20Mbit      20Mbit      0       2002/0x7d2        0B/0p             0
+<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>  201      10Mbit      10Mbit      0       2012/0x7dc        0B/0p             0
 <a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>  default  1Mbit       1Mbit       -       (catch-all)       868B/8p           0
 </code></pre></div>
-<p><strong>FW Mark</strong> shows the decimal value (matching the <code>firewall-set</code> rule number) alongside the kernel's internal hex representation. <strong>Prio</strong> reflects the class number used for scheduling — the lower the number, the earlier the class is served under congestion.</p>
+<p><strong>FW Mark</strong> shows the decimal value (matching the <code>firewall-set</code> rule number) alongside the kernel's internal hex representation. <strong>Prio</strong> is the HTB scheduling priority (0–7) derived from the class number using <code>(flowno − 200) × 8 ÷ 200</code> — class <code>200</code> → prio <code>0</code> (highest), class <code>399</code> → prio <code>7</code> (lowest). Classes with a lower prio value are served first when excess bandwidth is available.</p>
 <p>For low-level inspection of the underlying <code>qos</code> state:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>HSA-520# show interface traffic-class eth0     (HTB class details and statistics)
 <a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>HSA-520# show interface traffic-filter eth0    (tc filter entries and fwmark handles)
@@ -3300,52 +3351,125 @@
 <hr>
 <h2 id="design-notes">Design Notes<a class="headerlink" href="#design-notes" title="Permanent link">¶</a></h2>
 <h3 id="class-numbering-convention">Class Numbering Convention<a class="headerlink" href="#class-numbering-convention" title="Permanent link">¶</a></h3>
-<p>The orchestrator automatically derives fwmark values from the class number — class <code>N</code> gets upload mark <code>N×10+1</code> and download mark <code>N×10+2</code>. A suggested class numbering scheme:</p>
+<p>Valid class numbers are in the range <strong>200–399</strong>. The class number determines both the scheduling priority tier and the auto-assigned fwmark values. Use the table below to select the right class range for the desired priority:</p>
 <table>
 <thead>
 <tr>
-<th>Priority</th>
-<th>Class</th>
-<th>Auto upload mark</th>
-<th>Auto download mark</th>
+<th>Class range</th>
+<th>HTB prio</th>
+<th>Priority level</th>
 <th>Typical use</th>
 </tr>
 </thead>
 <tbody>
 <tr>
+<td>200–224</td>
+<td>0</td>
 <td>Highest</td>
-<td>100</td>
-<td>1001</td>
-<td>1002</td>
 <td>VoIP, real-time video</td>
 </tr>
 <tr>
-<td>High</td>
-<td>200</td>
-<td>2001</td>
-<td>2002</td>
-<td>Business-critical (HTTPS, SaaS)</td>
+<td>225–249</td>
+<td>1</td>
+<td></td>
+<td>Video conferencing</td>
 </tr>
 <tr>
-<td>Normal</td>
-<td>300</td>
-<td>3001</td>
-<td>3002</td>
+<td>250–274</td>
+<td>2</td>
+<td></td>
+<td>Business-critical (SaaS, ERP)</td>
+</tr>
+<tr>
+<td>275–299</td>
+<td>3</td>
+<td></td>
+<td>Interactive web (HTTPS)</td>
+</tr>
+<tr>
+<td>300–324</td>
+<td>4</td>
+<td></td>
 <td>General web browsing</td>
 </tr>
 <tr>
-<td>Low</td>
-<td>400</td>
-<td>4001</td>
-<td>4002</td>
+<td>325–349</td>
+<td>5</td>
+<td></td>
+<td>File downloads</td>
+</tr>
+<tr>
+<td>350–374</td>
+<td>6</td>
+<td></td>
 <td>Social media, streaming</td>
 </tr>
 <tr>
+<td>375–399</td>
+<td>7</td>
 <td>Lowest</td>
-<td>500</td>
-<td>5001</td>
-<td>5002</td>
 <td>Background / bulk transfers</td>
+</tr>
+</tbody>
+</table>
+<p>The orchestrator automatically derives fwmark values from the class number — class <code>N</code> gets upload mark <code>N×10+1</code> and download mark <code>N×10+2</code>:</p>
+<table>
+<thead>
+<tr>
+<th>HTB prio</th>
+<th>Example class</th>
+<th>Auto upload mark</th>
+<th>Auto download mark</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0 (highest)</td>
+<td>200</td>
+<td>2001</td>
+<td>2002</td>
+</tr>
+<tr>
+<td>1</td>
+<td>225</td>
+<td>2251</td>
+<td>2252</td>
+</tr>
+<tr>
+<td>2</td>
+<td>250</td>
+<td>2501</td>
+<td>2502</td>
+</tr>
+<tr>
+<td>3</td>
+<td>275</td>
+<td>2751</td>
+<td>2752</td>
+</tr>
+<tr>
+<td>4</td>
+<td>300</td>
+<td>3001</td>
+<td>3002</td>
+</tr>
+<tr>
+<td>5</td>
+<td>325</td>
+<td>3251</td>
+<td>3252</td>
+</tr>
+<tr>
+<td>6</td>
+<td>350</td>
+<td>3501</td>
+<td>3502</td>
+</tr>
+<tr>
+<td>7 (lowest)</td>
+<td>375</td>
+<td>3751</td>
+<td>3752</td>
 </tr>
 </tbody>
 </table>

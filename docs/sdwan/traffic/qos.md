@@ -54,11 +54,23 @@ Separate fwmarks are used for each direction — the upload mark matches on **de
 
 ### Class Priority
 
-The **class number** (`flowno`) determines scheduling priority under congestion:
+The **class number** (`flowno`) controls priority in two complementary ways:
 
-- **Lower class number = higher priority** — class `100` is always served before class `200` when the link is saturated
-- Under normal load (link not congested), all classes can burst up to their `ceil` value
-- Assign your most latency-sensitive traffic (VoIP, video calls) the lowest class numbers
+1. **Filter evaluation order** — lower class numbers are matched first. If traffic could satisfy multiple class filters, it is placed into the lowest-numbered matching class.
+2. **HTB scheduling priority** — the HTB scheduler maps the class number to one of 8 priority tiers (0–7) using the formula `(flowno − 200) × 8 ÷ 200`. Class `200` maps to tier 0 (highest); class `399` maps to tier 7 (lowest). Each tier spans 25 class numbers. When the shared bandwidth pool has excess capacity, lower-tier classes are served before higher-tier classes, allowing them to burst toward their `ceil` sooner.
+
+| Class range | HTB prio tier | Priority |
+|-------------|--------------|----------|
+| 200–224 | 0 | Highest |
+| 225–249 | 1 | |
+| 250–274 | 2 | |
+| 275–299 | 3 | |
+| 300–324 | 4 | |
+| 325–349 | 5 | |
+| 350–374 | 6 | |
+| 375–399 | 7 | Lowest |
+
+Under congestion (link fully saturated), every class is guaranteed its configured `rate` regardless of priority tier. Use `rate` to reserve bandwidth that must be protected for latency-sensitive traffic such as VoIP or video conferencing. The priority tier controls which classes benefit first when spare capacity is available.
 
 ### GUI Configuration
 
@@ -100,7 +112,7 @@ firewall-set 2012 mark 2012 access ip src_object social_sites remark social-down
 - `remark` is a free-text label stored in the running config for identification only — it has no effect on shaping behaviour.
 
 !!! tip
-    Assign lower class numbers to higher-priority traffic. For example, place VoIP or real-time video at class `100` and bulk/social media at class `400`. The scheduler always serves class `100` first when the link is congested.
+    Assign lower class numbers to higher-priority traffic. Class `200` (prio tier 0) is always scheduled before class `350` (prio tier 6) when excess capacity is available. For traffic that must be protected under congestion (VoIP, real-time video), set a meaningful `rate` so the class retains its guaranteed allocation even when the link is saturated.
 
 !!! note
     `firewall-set` rules are evaluated for all traffic passing through the device. Only packets that match a rule receive a mark; all other traffic is unclassified. If a `default bandwidth` class is not configured, unclassified traffic exits at wire speed outside of HTB's control.
@@ -115,19 +127,19 @@ HSA-520# show interface traffic-shape
 Interface: eth0
   Class    Rate        Ceil        Prio    FW Mark           Sent              Dropped
   -------  ----------  ----------  ------  ----------------  ----------------  -------
-  200      20Mbit      20Mbit      200     2001/0x7d1        244247B/2141p     0
-  201      10Mbit      10Mbit      201     2011/0x7db        0B/0p             0
+  200      20Mbit      20Mbit      0       2001/0x7d1        244247B/2141p     0
+  201      10Mbit      10Mbit      0       2011/0x7db        0B/0p             0
   [i] No default class — unclassified traffic passes at wire speed (uncapped)
 
 Interface: vlan1
   Class    Rate        Ceil        Prio    FW Mark           Sent              Dropped
   -------  ----------  ----------  ------  ----------------  ----------------  -------
-  200      20Mbit      20Mbit      200     2002/0x7d2        0B/0p             0
-  201      10Mbit      10Mbit      201     2012/0x7dc        0B/0p             0
+  200      20Mbit      20Mbit      0       2002/0x7d2        0B/0p             0
+  201      10Mbit      10Mbit      0       2012/0x7dc        0B/0p             0
   default  1Mbit       1Mbit       -       (catch-all)       868B/8p           0
 ```
 
-**FW Mark** shows the decimal value (matching the `firewall-set` rule number) alongside the kernel's internal hex representation. **Prio** reflects the class number used for scheduling — the lower the number, the earlier the class is served under congestion.
+**FW Mark** shows the decimal value (matching the `firewall-set` rule number) alongside the kernel's internal hex representation. **Prio** is the HTB scheduling priority (0–7) derived from the class number using `(flowno − 200) × 8 ÷ 200` — class `200` → prio `0` (highest), class `399` → prio `7` (lowest). Classes with a lower prio value are served first when excess bandwidth is available.
 
 For low-level inspection of the underlying `qos` state:
 
@@ -208,15 +220,31 @@ Each chain contains two DROP rules — one keyed on source IP (`srcip`) and one 
 
 ### Class Numbering Convention
 
-The orchestrator automatically derives fwmark values from the class number — class `N` gets upload mark `N×10+1` and download mark `N×10+2`. A suggested class numbering scheme:
+Valid class numbers are in the range **200–399**. The class number determines both the scheduling priority tier and the auto-assigned fwmark values. Use the table below to select the right class range for the desired priority:
 
-| Priority | Class | Auto upload mark | Auto download mark | Typical use |
-|----------|-------|-----------------|-------------------|-------------|
-| Highest | 100 | 1001 | 1002 | VoIP, real-time video |
-| High | 200 | 2001 | 2002 | Business-critical (HTTPS, SaaS) |
-| Normal | 300 | 3001 | 3002 | General web browsing |
-| Low | 400 | 4001 | 4002 | Social media, streaming |
-| Lowest | 500 | 5001 | 5002 | Background / bulk transfers |
+| Class range | HTB prio | Priority level | Typical use |
+|-------------|----------|----------------|-------------|
+| 200–224 | 0 | Highest | VoIP, real-time video |
+| 225–249 | 1 | | Video conferencing |
+| 250–274 | 2 | | Business-critical (SaaS, ERP) |
+| 275–299 | 3 | | Interactive web (HTTPS) |
+| 300–324 | 4 | | General web browsing |
+| 325–349 | 5 | | File downloads |
+| 350–374 | 6 | | Social media, streaming |
+| 375–399 | 7 | Lowest | Background / bulk transfers |
+
+The orchestrator automatically derives fwmark values from the class number — class `N` gets upload mark `N×10+1` and download mark `N×10+2`:
+
+| HTB prio | Example class | Auto upload mark | Auto download mark |
+|----------|---------------|-----------------|-------------------|
+| 0 (highest) | 200 | 2001 | 2002 |
+| 1 | 225 | 2251 | 2252 |
+| 2 | 250 | 2501 | 2502 |
+| 3 | 275 | 2751 | 2752 |
+| 4 | 300 | 3001 | 3002 |
+| 5 | 325 | 3251 | 3252 |
+| 6 | 350 | 3501 | 3502 |
+| 7 (lowest) | 375 | 3751 | 3752 |
 
 ### Combining Methods
 

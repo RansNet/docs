@@ -9,27 +9,31 @@
         <meta name="author" content="RansNet Singapore Pte Ltd">
       
       
-        <link rel="canonical" href="https://docs.ransnet.com/qa/">
+        <link rel="canonical" href="https://docs.ransnet.com/sdwan/traffic/qos/">
       
       
+        <link rel="prev" href="../../vpn/instance/">
+      
+      
+        <link rel="next" href="../../../security/firewall/overview/">
       
       
         
       
       
-      <link rel="icon" href="../images/RansNet_logo.png">
+      <link rel="icon" href="../../../images/RansNet_logo.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
     
     
       
-        <title>Q&amp;A - RansNet Documentation</title>
+        <title>Traffic Shaping - RansNet Documentation</title>
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
       
         
-        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -48,15 +52,15 @@
       
     
     
-      <link rel="stylesheet" href="../stylesheets/extra.css">
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
     
-    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
     
     
-  <link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+  <link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
             html.glightbox-open { overflow: initial; height: 100%; }
             .gslide-title { margin-top: 0px; user-select: text; }
             .gslide-desc { color: #666; user-select: text; }
@@ -85,7 +89,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#qa" class="md-skip">
+        <a href="#traffic-shaping-qos" class="md-skip">
           Skip to content
         </a>
       
@@ -101,9 +105,9 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href=".." title="RansNet Documentation" class="md-header__button md-logo" aria-label="RansNet Documentation" data-md-component="logo">
+    <a href="../../.." title="RansNet Documentation" class="md-header__button md-logo" aria-label="RansNet Documentation" data-md-component="logo">
       
-  <img src="../images/RansNet_logo.png" alt="logo">
+  <img src="../../../images/RansNet_logo.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -120,7 +124,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Q&amp;A
+              Traffic Shaping
             
           </span>
         </div>
@@ -226,9 +230,9 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href=".." title="RansNet Documentation" class="md-nav__button md-logo" aria-label="RansNet Documentation" data-md-component="logo">
+    <a href="../../.." title="RansNet Documentation" class="md-nav__button md-logo" aria-label="RansNet Documentation" data-md-component="logo">
       
-  <img src="../images/RansNet_logo.png" alt="logo">
+  <img src="../../../images/RansNet_logo.png" alt="logo">
 
     </a>
     RansNet Documentation
@@ -267,7 +271,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../start/" class="md-nav__link ">
+            <a href="../../../start/" class="md-nav__link ">
               
   
   
@@ -311,7 +315,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../start/overview/" class="md-nav__link">
+      <a href="../../../start/overview/" class="md-nav__link">
         
   
   
@@ -394,7 +398,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../start/mfusion/features/" class="md-nav__link">
+      <a href="../../../start/mfusion/features/" class="md-nav__link">
         
   
   
@@ -422,7 +426,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../start/mfusion/security/" class="md-nav__link">
+      <a href="../../../start/mfusion/security/" class="md-nav__link">
         
   
   
@@ -450,7 +454,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../start/mfusion/admin/" class="md-nav__link">
+      <a href="../../../start/mfusion/admin/" class="md-nav__link">
         
   
   
@@ -543,7 +547,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../start/device/bootstrap/" class="md-nav__link">
+      <a href="../../../start/device/bootstrap/" class="md-nav__link">
         
   
   
@@ -571,7 +575,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../start/device/provision/" class="md-nav__link">
+      <a href="../../../start/device/provision/" class="md-nav__link">
         
   
   
@@ -599,7 +603,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../start/device/onboard/" class="md-nav__link">
+      <a href="../../../start/device/onboard/" class="md-nav__link">
         
   
   
@@ -627,7 +631,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../start/device/harden/" class="md-nav__link">
+      <a href="../../../start/device/harden/" class="md-nav__link">
         
   
   
@@ -702,7 +706,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../monitor/" class="md-nav__link ">
+            <a href="../../../monitor/" class="md-nav__link ">
               
   
   
@@ -746,7 +750,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../monitor/dashboard/" class="md-nav__link">
+      <a href="../../../monitor/dashboard/" class="md-nav__link">
         
   
   
@@ -774,7 +778,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../monitor/hosts/" class="md-nav__link">
+      <a href="../../../monitor/hosts/" class="md-nav__link">
         
   
   
@@ -802,7 +806,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../monitor/topo/" class="md-nav__link">
+      <a href="../../../monitor/topo/" class="md-nav__link">
         
   
   
@@ -830,7 +834,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../monitor/wifi/" class="md-nav__link">
+      <a href="../../../monitor/wifi/" class="md-nav__link">
         
   
   
@@ -858,7 +862,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../monitor/netflow/" class="md-nav__link">
+      <a href="../../../monitor/netflow/" class="md-nav__link">
         
   
   
@@ -886,7 +890,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../monitor/alerts/" class="md-nav__link">
+      <a href="../../../monitor/alerts/" class="md-nav__link">
         
   
   
@@ -914,7 +918,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../monitor/settings/" class="md-nav__link">
+      <a href="../../../monitor/settings/" class="md-nav__link">
         
   
   
@@ -981,7 +985,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../config/" class="md-nav__link ">
+            <a href="../../../config/" class="md-nav__link ">
               
   
   
@@ -1088,7 +1092,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../config/iface/ethernet/" class="md-nav__link">
+      <a href="../../../config/iface/ethernet/" class="md-nav__link">
         
   
   
@@ -1116,7 +1120,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../config/iface/vlaniface/" class="md-nav__link">
+      <a href="../../../config/iface/vlaniface/" class="md-nav__link">
         
   
   
@@ -1144,7 +1148,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../config/iface/bridge/" class="md-nav__link">
+      <a href="../../../config/iface/bridge/" class="md-nav__link">
         
   
   
@@ -1172,7 +1176,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../config/iface/wwan/" class="md-nav__link">
+      <a href="../../../config/iface/wwan/" class="md-nav__link">
         
   
   
@@ -1200,7 +1204,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../config/iface/pppoe/" class="md-nav__link">
+      <a href="../../../config/iface/pppoe/" class="md-nav__link">
         
   
   
@@ -1228,7 +1232,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../config/iface/switchport/" class="md-nav__link">
+      <a href="../../../config/iface/switchport/" class="md-nav__link">
         
   
   
@@ -1256,7 +1260,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../config/iface/wifiwan/" class="md-nav__link">
+      <a href="../../../config/iface/wifiwan/" class="md-nav__link">
         
   
   
@@ -1292,7 +1296,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../config/dhcp/" class="md-nav__link">
+      <a href="../../../config/dhcp/" class="md-nav__link">
         
   
   
@@ -1320,7 +1324,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../config/dnsrewrite/" class="md-nav__link">
+      <a href="../../../config/dnsrewrite/" class="md-nav__link">
         
   
   
@@ -1405,7 +1409,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../config/route/static/" class="md-nav__link">
+      <a href="../../../config/route/static/" class="md-nav__link">
         
   
   
@@ -1433,7 +1437,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../config/route/groups/" class="md-nav__link">
+      <a href="../../../config/route/groups/" class="md-nav__link">
         
   
   
@@ -1461,7 +1465,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../config/route/ospf/" class="md-nav__link">
+      <a href="../../../config/route/ospf/" class="md-nav__link">
         
   
   
@@ -1489,7 +1493,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../config/route/bgp/" class="md-nav__link">
+      <a href="../../../config/route/bgp/" class="md-nav__link">
         
   
   
@@ -1525,7 +1529,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../config/vrrp/" class="md-nav__link">
+      <a href="../../../config/vrrp/" class="md-nav__link">
         
   
   
@@ -1553,7 +1557,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../config/wifi/" class="md-nav__link">
+      <a href="../../../config/wifi/" class="md-nav__link">
         
   
   
@@ -1581,7 +1585,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../config/tracking/" class="md-nav__link">
+      <a href="../../../config/tracking/" class="md-nav__link">
         
   
   
@@ -1613,8 +1617,10 @@
       
   
   
+    
   
   
+  
     
     
       
@@ -1626,11 +1632,11 @@
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4">
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked="">
         
           
           <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
@@ -1651,7 +1657,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
             
@@ -1724,7 +1730,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../sdwan/vpn/vpnintro/" class="md-nav__link">
+      <a href="../../vpn/vpnintro/" class="md-nav__link">
         
   
   
@@ -1752,7 +1758,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../sdwan/vpn/topology/" class="md-nav__link">
+      <a href="../../vpn/topology/" class="md-nav__link">
         
   
   
@@ -1780,7 +1786,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../sdwan/vpn/instance/" class="md-nav__link">
+      <a href="../../vpn/instance/" class="md-nav__link">
         
   
   
@@ -1813,8 +1819,10 @@
                 
   
   
+    
   
   
+  
     
     
       
@@ -1824,11 +1832,11 @@
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2">
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" checked="">
         
           
           <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
@@ -1849,7 +1857,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_4_2">
             <span class="md-nav__icon md-icon"></span>
             
@@ -1864,10 +1872,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../sdwan/traffic/qos/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Traffic Shaping
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -1883,6 +1918,198 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#class-based-shaping" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Class-Based Shaping
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Class-Based Shaping">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#how-traffic-is-classified" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How Traffic is Classified
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#upload-and-download" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Upload and Download
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#class-priority" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Class Priority
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gui-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GUI Configuration
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cli-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CLI Configuration
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#verification" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Verification
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#connection-based-limiting-rate-limit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Connection-Based Limiting (rate-limit)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Connection-Based Limiting (rate-limit)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#gui-configuration_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GUI Configuration
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cli-configuration_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CLI Configuration
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#verification_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Verification
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#design-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Design Notes
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Design Notes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#class-numbering-convention" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Class Numbering Convention
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#combining-methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Combining Methods
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -2020,7 +2247,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../security/firewall/overview/" class="md-nav__link">
+      <a href="../../../security/firewall/overview/" class="md-nav__link">
         
   
   
@@ -2048,7 +2275,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../security/firewall/policies/" class="md-nav__link">
+      <a href="../../../security/firewall/policies/" class="md-nav__link">
         
   
   
@@ -2076,7 +2303,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../security/firewall/objects/" class="md-nav__link">
+      <a href="../../../security/firewall/objects/" class="md-nav__link">
         
   
   
@@ -2104,7 +2331,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../security/firewall/templates/" class="md-nav__link">
+      <a href="../../../security/firewall/templates/" class="md-nav__link">
         
   
   
@@ -2140,7 +2367,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../security/webfilter/" class="md-nav__link">
+      <a href="../../../security/webfilter/" class="md-nav__link">
         
   
   
@@ -2193,7 +2420,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../hotspot/" class="md-nav__link ">
+            <a href="../../../hotspot/" class="md-nav__link ">
               
   
   
@@ -2298,7 +2525,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../cases/wanfailover/" class="md-nav__link">
+      <a href="../../../cases/wanfailover/" class="md-nav__link">
         
   
   
@@ -2326,7 +2553,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../cases/cloudsdwan/" class="md-nav__link">
+      <a href="../../../cases/cloudsdwan/" class="md-nav__link">
         
   
   
@@ -2354,7 +2581,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../cases/l2vpn/" class="md-nav__link">
+      <a href="../../../cases/l2vpn/" class="md-nav__link">
         
   
   
@@ -2382,7 +2609,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../cases/vrf/" class="md-nav__link">
+      <a href="../../../cases/vrf/" class="md-nav__link">
         
   
   
@@ -2410,7 +2637,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../cases/crewwifi/" class="md-nav__link">
+      <a href="../../../cases/crewwifi/" class="md-nav__link">
         
   
   
@@ -2502,7 +2729,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../api/hotspot/" class="md-nav__link">
+      <a href="../../../api/hotspot/" class="md-nav__link">
         
   
   
@@ -2530,7 +2757,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../api/syslog/" class="md-nav__link">
+      <a href="../../../api/syslog/" class="md-nav__link">
         
   
   
@@ -2558,7 +2785,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../api/wispr/" class="md-nav__link">
+      <a href="../../../api/wispr/" class="md-nav__link">
         
   
   
@@ -2586,7 +2813,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../api/netflow/" class="md-nav__link">
+      <a href="../../../api/netflow/" class="md-nav__link">
         
   
   
@@ -2634,6 +2861,186 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#class-based-shaping" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Class-Based Shaping
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Class-Based Shaping">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#how-traffic-is-classified" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How Traffic is Classified
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#upload-and-download" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Upload and Download
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#class-priority" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Class Priority
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gui-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GUI Configuration
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cli-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CLI Configuration
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#verification" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Verification
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#connection-based-limiting-rate-limit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Connection-Based Limiting (rate-limit)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Connection-Based Limiting (rate-limit)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#gui-configuration_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GUI Configuration
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cli-configuration_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CLI Configuration
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#verification_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Verification
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#design-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Design Notes
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Design Notes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#class-numbering-convention" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Class Numbering Convention
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#combining-methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Combining Methods
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -2648,6 +3055,57 @@
 
 
 
+  <nav class="md-path" aria-label="Navigation">
+    <ol class="md-path__list">
+      
+      
+        
+  
+  
+    
+    
+      
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../../vpn/vpnintro/" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    SD-WAN
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="./" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Traffic Management
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
               
               <article class="md-content__inner md-typeset">
                 
@@ -2655,10 +3113,252 @@
 
 
 
-<h1 id="qa">Q&amp;A<a class="headerlink" href="#qa" title="Permanent link">¶</a></h1>
+<h1 id="traffic-shaping-qos">Traffic Shaping (QoS)<a class="headerlink" href="#traffic-shaping-qos" title="Permanent link">¶</a></h1>
+<p>Traffic shaping (Quality of Service, QoS) controls how bandwidth is allocated across different types of traffic, ensuring critical applications receive the throughput they need while preventing any single flow or user from monopolising the link.</p>
+<p>RansNet appliances support three complementary approaches:</p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>What it controls</th>
+<th>Applies to</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Class-Based Shaping</strong></td>
+<td>Bandwidth per traffic category</td>
+<td>Shared pool — all matching flows share the class limit</td>
+</tr>
+<tr>
+<td><strong>Connection-Based Limiting</strong></td>
+<td>Bandwidth per individual IP address</td>
+<td>Per-device ceiling, applied independently to each IP</td>
+</tr>
+<tr>
+<td><strong>User-Based Control</strong></td>
+<td>Bandwidth per authenticated user</td>
+<td>Covered separately in Hotspot</td>
+</tr>
+</tbody>
+</table>
+<p>Both class-based shaping and connection-based limiting use <strong>firewall marks</strong> for traffic classification. This gives the same matching flexibility as firewall rules — any combination of IP address, subnet, protocol, port, FQDN, or named application object group.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../images/traffic-qos-1.png" data-desc-position="bottom"><img alt="Traffic Shaping Overview" src="../../images/traffic-qos-1.png"></a></p>
+<p>In the diagram above, a 1 Gbps backhaul is shared across multiple VLANs — each typically mapped to a separate wireless SSID or LAN segment. Each VLAN is allocated a minimum guaranteed bandwidth and a burst ceiling. When one VLAN is not using its allocation, others may borrow the unused capacity up to their ceiling.</p>
+<p>Within a VLAN, traffic can be further subdivided by application type (VLAN 30) or by individual user (VLAN 40 via Hotspot).</p>
+<hr>
+<h2 id="class-based-shaping">Class-Based Shaping<a class="headerlink" href="#class-based-shaping" title="Permanent link">¶</a></h2>
+<p>Class-based shaping uses <strong>HTB (Hierarchical Token Bucket)</strong> queuing to allocate bandwidth across defined traffic classes. Each class has a guaranteed minimum rate and a maximum ceiling. Under congestion, higher-priority classes are served first before lower-priority ones receive any remaining bandwidth.</p>
+<p>Typical use cases:</p>
+<ul>
+<li>Guarantee bandwidth for business-critical applications (video conferencing, VoIP, ERP/CRM)</li>
+<li>Cap bandwidth for non-business traffic (social media, streaming) without blocking it entirely</li>
+<li>Prioritise real-time traffic over bulk transfers during peak hours</li>
+<li>Differentiate service levels between VLANs or departments sharing the same uplink</li>
+</ul>
+<h3 id="how-traffic-is-classified">How Traffic is Classified<a class="headerlink" href="#how-traffic-is-classified" title="Permanent link">¶</a></h3>
+<p>Classification is a two-step process:</p>
+<ol>
+<li>A <code>firewall-set</code> rule inspects traffic and stamps matching packets with a numeric <strong>fwmark</strong>.</li>
+<li>A QoS <code>class</code> references the same mark number — the scheduler places marked packets into the corresponding class queue.</li>
+</ol>
+<p>Because firewall rules handle all the matching, QoS classes inherit the full firewall matching vocabulary, including named application object groups and FQDN.</p>
 <div class="admonition note">
-<p class="admonition-title">Coming Soon</p>
-<p>This page is under construction. Content will be added shortly.</p>
+<p class="admonition-title">Note</p>
+<p>When configuring via the GUI or orchestrator, <code>firewall-set</code> rules and fwmark assignments are created automatically — no manual mark management is required. The orchestrator derives the fwmark from the class number (e.g. class <code>200</code> → upload mark <code>2001</code>, download mark <code>2002</code>). The CLI reflects these auto-generated values in <code>show running-config</code>.</p>
+</div>
+<h3 id="upload-and-download">Upload and Download<a class="headerlink" href="#upload-and-download" title="Permanent link">¶</a></h3>
+<p>QoS acts on <strong>egress</strong> (outgoing) traffic only. To shape both directions, configure <code>traffic-shape</code> on both the WAN and LAN interfaces:</p>
+<ul>
+<li><strong>Upload</strong> (client → internet): configure on the <strong>WAN interface</strong> (<code>eth0</code>, <code>wwan0</code>, etc.)</li>
+<li><strong>Download</strong> (internet → client): configure on the <strong>LAN interface</strong> (<code>vlan 1</code>, <code>vlan 2</code>, etc.)</li>
+</ul>
+<p>Separate fwmarks are used for each direction — the upload mark matches on <strong>destination</strong> port or object (traffic going to the internet), and the download mark matches on <strong>source</strong> port or object (traffic returning from the internet). The orchestrator assigns these marks automatically following the class number convention.</p>
+<h3 id="class-priority">Class Priority<a class="headerlink" href="#class-priority" title="Permanent link">¶</a></h3>
+<p>The <strong>class number</strong> (<code>flowno</code>) determines scheduling priority under congestion:</p>
+<ul>
+<li><strong>Lower class number = higher priority</strong> — class <code>100</code> is always served before class <code>200</code> when the link is saturated</li>
+<li>Under normal load (link not congested), all classes can burst up to their <code>ceil</code> value</li>
+<li>Assign your most latency-sensitive traffic (VoIP, video calls) the lowest class numbers</li>
+</ul>
+<h3 id="gui-configuration">GUI Configuration<a class="headerlink" href="#gui-configuration" title="Permanent link">¶</a></h3>
+<p>Navigate to <strong>Device Settings → SD-WAN → Traffic Shaping</strong> and click the <strong>Class-Based Shaping</strong> tab.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../images/traffic-qos-2.png" data-desc-position="bottom"><img alt="Class-Based Shaping" src="../../images/traffic-qos-2.png"></a></p>
+<h3 id="cli-configuration">CLI Configuration<a class="headerlink" href="#cli-configuration" title="Permanent link">¶</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>interface eth0
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a> traffic-shape 10000000 10000000
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>  class 200 20000 20000 fwmark 2001 remark https-upload
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>  class 201 10000 10000 fwmark 2011 remark social-upload
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>!
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>interface vlan 1 1
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a> traffic-shape 10000000 10000000
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>  class 200 20000 20000 fwmark 2002 remark https-download
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>  class 201 10000 10000 fwmark 2012 remark social-download
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>  default bandwidth 1000 1000
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>!
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>object-group social_sites
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a> app Facebook
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a> app Tiktok
+<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a> app YouTube
+<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>!
+<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>firewall-set 2001 mark 2001 access tcp dport 443 remark https-upload
+<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>firewall-set 2002 mark 2002 access tcp sport 443 remark https-download
+<a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a>firewall-set 2011 mark 2011 access ip dst_object social_sites remark social-upload
+<a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a>firewall-set 2012 mark 2012 access ip src_object social_sites remark social-download
+</code></pre></div>
+<p><strong>Key points:</strong></p>
+<ul>
+<li><code>traffic-shape &lt;rate&gt; &lt;ceil&gt;</code> sets the HTB root class bandwidth in Kbps. Use <code>10000000</code> (10 Gbps) when there is no overall interface cap — individual class limits do the actual shaping.</li>
+<li><code>class &lt;flowno&gt; &lt;rate&gt; &lt;ceil&gt; fwmark &lt;mark&gt;</code> defines a class. <code>flowno</code> determines priority — lower is higher priority. <code>rate</code> is the guaranteed minimum; <code>ceil</code> is the maximum burst ceiling.</li>
+<li><code>fwmark &lt;mark&gt;</code> links the class to a <code>firewall-set</code> rule carrying the same mark number. When using the orchestrator or GUI, this value is assigned automatically — no manual configuration needed.</li>
+<li><code>default bandwidth &lt;rate&gt; &lt;ceil&gt;</code> creates a catch-all class for traffic that does not match any fwmark. Omitting it allows unmatched traffic to pass at wire speed, which is acceptable when only per-class ceilings are needed.</li>
+<li><code>remark</code> is a free-text label stored in the running config for identification only — it has no effect on shaping behaviour.</li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Assign lower class numbers to higher-priority traffic. For example, place VoIP or real-time video at class <code>100</code> and bulk/social media at class <code>400</code>. The scheduler always serves class <code>100</code> first when the link is congested.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><code>firewall-set</code> rules are evaluated for all traffic passing through the device. Only packets that match a rule receive a mark; all other traffic is unclassified. If a <code>default bandwidth</code> class is not configured, unclassified traffic exits at wire speed outside of HTB's control.</p>
+</div>
+<h3 id="verification">Verification<a class="headerlink" href="#verification" title="Permanent link">¶</a></h3>
+<p>Example output:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>HSA-520# show interface traffic-shape
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>Interface: eth0
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>  Class    Rate        Ceil        Prio    FW Mark           Sent              Dropped
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>  -------  ----------  ----------  ------  ----------------  ----------------  -------
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>  200      20Mbit      20Mbit      200     2001/0x7d1        244247B/2141p     0
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>  201      10Mbit      10Mbit      201     2011/0x7db        0B/0p             0
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>  [i] No default class — unclassified traffic passes at wire speed (uncapped)
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>Interface: vlan1
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>  Class    Rate        Ceil        Prio    FW Mark           Sent              Dropped
+<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>  -------  ----------  ----------  ------  ----------------  ----------------  -------
+<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>  200      20Mbit      20Mbit      200     2002/0x7d2        0B/0p             0
+<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>  201      10Mbit      10Mbit      201     2012/0x7dc        0B/0p             0
+<a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>  default  1Mbit       1Mbit       -       (catch-all)       868B/8p           0
+</code></pre></div>
+<p><strong>FW Mark</strong> shows the decimal value (matching the <code>firewall-set</code> rule number) alongside the kernel's internal hex representation. <strong>Prio</strong> reflects the class number used for scheduling — the lower the number, the earlier the class is served under congestion.</p>
+<p>For low-level inspection of the underlying <code>qos</code> state:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>HSA-520# show interface traffic-class eth0     (HTB class details and statistics)
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>HSA-520# show interface traffic-filter eth0    (tc filter entries and fwmark handles)
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>HSA-520# show interface traffic-control        (qdisc state for all interfaces)
+</code></pre></div>
+<hr>
+<h2 id="connection-based-limiting-rate-limit">Connection-Based Limiting (rate-limit)<a class="headerlink" href="#connection-based-limiting-rate-limit" title="Permanent link">¶</a></h2>
+<p>Connection-based limiting enforces a per-IP bandwidth cap. Unlike class-based shaping — which is a shared pool across all matching flows — rate-limit applies independently to each source and destination IP address.</p>
+<p>Typical use cases:</p>
+<ul>
+<li>Prevent any single device from saturating the internet link</li>
+<li>Enforce per-user fair-use policies on guest or hotspot networks</li>
+<li>Rate-limit access to a specific application or destination on a per-client basis</li>
+</ul>
+<h3 id="gui-configuration_1">GUI Configuration<a class="headerlink" href="#gui-configuration_1" title="Permanent link">¶</a></h3>
+<p>Navigate to <strong>Device Settings → SD-WAN → Traffic Shaping</strong> and click the <strong>Connection-Based Limiting</strong> tab.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../images/traffic-qos-3.png" data-desc-position="bottom"><img alt="Connection-Based Limiting" src="../../images/traffic-qos-3.png"></a></p>
+<h3 id="cli-configuration_1">CLI Configuration<a class="headerlink" href="#cli-configuration_1" title="Permanent link">¶</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>object-group firewall_obj
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a> app WhatsApp
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a> fqdn docs.ransnet.com
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a> net 2.2.2.2
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>!
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>firewall-limit 3001 2000 all ip dst_object firewall_obj remark limit-upload
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>firewall-limit 3002 2000 all ip src_object firewall_obj remark limit-download
+</code></pre></div>
+<p><strong>Key points:</strong></p>
+<ul>
+<li><code>firewall-limit &lt;id&gt; &lt;rate_kbps&gt;</code> creates a rate-limiting rule. <code>id</code> sets evaluation order — lower ID is evaluated first. <code>rate_kbps</code> is the per-IP ceiling in Kbps.</li>
+<li>Configure both an upload rule (<code>dst_object</code>) and a download rule (<code>src_object</code>) to limit traffic in both directions.</li>
+<li>The same object-group vocabulary applies: match by IP, subnet, FQDN, protocol, port, or application.</li>
+</ul>
+<h3 id="verification_1">Verification<a class="headerlink" href="#verification_1" title="Permanent link">¶</a></h3>
+<p>Example output:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>HSA-520# show firewall limit-list
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>###### Summary of Rate limit chain ########
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a> pkts bytes target         prot opt in   out   source     destination
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>    0     0 LIMITBPS-3001  all  --  *    *     0.0.0.0/0  0.0.0.0/0  match-set firewall_obj dst
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>    0     0 LIMITBPS-3002  all  --  *    *     0.0.0.0/0  0.0.0.0/0  match-set firewall_obj src
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>###### Chain-LIMITBPS-3001 details ###########
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>Chain LIMITBPS-3001 (1 references)
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a> pkts bytes target  prot opt in   out   source     destination
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>    0     0 DROP    all  --  *    *     0.0.0.0/0  0.0.0.0/0  limit: above 500000b/s mode dstip
+<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a>    0     0 DROP    all  --  *    *     0.0.0.0/0  0.0.0.0/0  limit: above 500000b/s mode srcip
+<a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a>    0     0 ACCEPT  all  --  *    *     0.0.0.0/0  0.0.0.0/0
+<a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a>
+<a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a>###### Chain-LIMITBPS-3002 details ###########
+<a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a>Chain LIMITBPS-3002 (1 references)
+<a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a> pkts bytes target  prot opt in   out   source     destination
+<a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a>    0     0 DROP    all  --  *    *     0.0.0.0/0  0.0.0.0/0  limit: above 500000b/s mode dstip
+<a id="__codelineno-4-19" name="__codelineno-4-19" href="#__codelineno-4-19"></a>    0     0 DROP    all  --  *    *     0.0.0.0/0  0.0.0.0/0  limit: above 500000b/s mode srcip
+<a id="__codelineno-4-20" name="__codelineno-4-20" href="#__codelineno-4-20"></a>    0     0 ACCEPT  all  --  *    *     0.0.0.0/0  0.0.0.0/0
+</code></pre></div>
+<p>Each chain contains two DROP rules — one keyed on source IP (<code>srcip</code>) and one on destination IP (<code>dstip</code>) — so the per-IP cap is enforced for each endpoint independently. Packets exceeding the rate are dropped before forwarding; conforming traffic reaches the ACCEPT rule and is forwarded normally.</p>
+<hr>
+<h2 id="design-notes">Design Notes<a class="headerlink" href="#design-notes" title="Permanent link">¶</a></h2>
+<h3 id="class-numbering-convention">Class Numbering Convention<a class="headerlink" href="#class-numbering-convention" title="Permanent link">¶</a></h3>
+<p>The orchestrator automatically derives fwmark values from the class number — class <code>N</code> gets upload mark <code>N×10+1</code> and download mark <code>N×10+2</code>. A suggested class numbering scheme:</p>
+<table>
+<thead>
+<tr>
+<th>Priority</th>
+<th>Class</th>
+<th>Auto upload mark</th>
+<th>Auto download mark</th>
+<th>Typical use</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Highest</td>
+<td>100</td>
+<td>1001</td>
+<td>1002</td>
+<td>VoIP, real-time video</td>
+</tr>
+<tr>
+<td>High</td>
+<td>200</td>
+<td>2001</td>
+<td>2002</td>
+<td>Business-critical (HTTPS, SaaS)</td>
+</tr>
+<tr>
+<td>Normal</td>
+<td>300</td>
+<td>3001</td>
+<td>3002</td>
+<td>General web browsing</td>
+</tr>
+<tr>
+<td>Low</td>
+<td>400</td>
+<td>4001</td>
+<td>4002</td>
+<td>Social media, streaming</td>
+</tr>
+<tr>
+<td>Lowest</td>
+<td>500</td>
+<td>5001</td>
+<td>5002</td>
+<td>Background / bulk transfers</td>
+</tr>
+</tbody>
+</table>
+<h3 id="combining-methods">Combining Methods<a class="headerlink" href="#combining-methods" title="Permanent link">¶</a></h3>
+<p>Class-based shaping and connection-based limiting work simultaneously and complement each other:</p>
+<ul>
+<li><strong>Class-based shaping</strong> caps the <em>total</em> bandwidth for a traffic category — e.g. all social media traffic across all users combined ≤ 10 Mbps.</li>
+<li><strong>Connection-based limiting</strong> caps each <em>individual device</em> within that category — e.g. each device ≤ 2 Mbps of social media, regardless of what others are doing.</li>
+</ul>
+<p>Applying both gives aggregate control plus per-user fairness with a single configuration.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Per-connection means a specific 5-tuple (source IP, destination IP, protocol, source port, destination port). One device typically opens many connections simultaneously. Class-based shaping controls the aggregate of all those connections; connection-based limiting controls the total for each device IP.</p>
 </div>
 
 
@@ -2737,10 +3437,10 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.indexes", "navigation.path", "navigation.top", "search.highlight", "search.suggest", "content.code.copy", "content.tabs.link", "content.action.edit", "toc.follow"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.indexes", "navigation.path", "navigation.top", "search.highlight", "search.suggest", "content.code.copy", "content.tabs.link", "content.action.edit", "toc.follow"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
       
     
   

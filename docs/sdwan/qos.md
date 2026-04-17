@@ -12,7 +12,7 @@ RansNet appliances support three complementary approaches:
 
 Both class-based shaping and connection-based limiting use **firewall marks** for traffic classification. This gives the same matching flexibility as firewall rules — any combination of IP address, subnet, protocol, port, FQDN, or named application object group.
 
-![Traffic Shaping Overview](../images/traffic-qos-1.png)
+![Traffic Shaping Overview](./images/traffic-qos-1.png)
 
 In the diagram above, a 1 Gbps backhaul is shared across multiple VLANs — each typically mapped to a separate wireless SSID or LAN segment. Each VLAN is allocated a minimum guaranteed bandwidth and a burst ceiling. When one VLAN is not using its allocation, others may borrow the unused capacity up to their ceiling.
 
@@ -76,7 +76,7 @@ Under congestion (link fully saturated), every class is guaranteed its configure
 
 Navigate to **Device Settings → SD-WAN → Traffic Shaping** and click the **Class-Based Shaping** tab.
 
-![Class-Based Shaping](../images/traffic-qos-2.png)
+![Class-Based Shaping](./images/traffic-qos-2.png)
 
 ### CLI Configuration
 
@@ -165,7 +165,7 @@ Typical use cases:
 
 Navigate to **Device Settings → SD-WAN → Traffic Shaping** and click the **Connection-Based Limiting** tab.
 
-![Connection-Based Limiting](../images/traffic-qos-3.png)
+![Connection-Based Limiting](./images/traffic-qos-3.png)
 
 ### CLI Configuration
 

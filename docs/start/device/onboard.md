@@ -1,10 +1,10 @@
 # Device Onboarding
 
-By default, once a device is provisioned on mfusion, they're automatically monitored (same for both RansNet and 3rd-party SNMP devices).
+By default, once a device is provisioned on mfusion, it is automatically monitored (same for both RansNet and 3rd-party SNMP devices).
 
-In order for mfusion to manage the devices configuration (RansNet devices only), the devices need to be onboarded.
+In order for mfusion to manage device configuration (RansNet devices only), the device needs to be onboarded.
 
-Oboarding involves importing the device into the mfusion orchestrator so that you can start configuring SD-WAN features and all other settings to meet your connectivity and security requirements.
+Onboarding involves importing the device into the mfusion orchestrator so that you can start configuring SD-WAN features and all other settings to meet your connectivity and security requirements.
 
 !!! note
     For 3rd-party device monitoring, this step is not necessary.
@@ -13,9 +13,9 @@ We suggest plotting out the overall network map clearly before you begin, so you
 
 ---
 
-## Terminologies
+## Terminology
 
-Before you begin, it is important to understand some basic terminologies and principles used by mfusion.
+Before you begin, it is important to understand some basic terminology and principles used by mfusion.
 
 ### SD-WAN Device Types
 
@@ -36,12 +36,15 @@ RansNet devices can be configured either through the **mfusion orchestrator** (r
 
 ## Onboard Devices
 
-1. Go to **ORCHESTRATOR → Configuration → Gateway/Branch Devices**.
-2. Click **New Gateway/Branch**, select the device, and attach a topology template.
+1. Navigate to **ORCHESTRATOR → Configuration → Gateway** (or **SD-Branch**).
+2. Click **New Gateway** (or **New Branch**).
+3. Select the target host.
+4. Select a **Topology Template** (see table below).
+5. Click **Select**.
 
-![onboard devices](../images/start-onboard-3.png)
+![New Gateway host and template selection](../images/start-onboard-3.png)
 
-**Topology Templates**
+### Topology Templates
 
 | Template | Description |
 |----------|-------------|
@@ -49,7 +52,7 @@ RansNet devices can be configured either through the **mfusion orchestrator** (r
 | **Default** | Matches the device's default CLI configuration. |
 | **From host ...** | Copies GUI settings from an existing device of similar configuration, so you only need to make minor changes (e.g. LAN IP) and resync. |
 
-![onboard devices](../images/start-onboard-1.png)
+![Onboarded device in the Gateway list](../images/start-onboard-1.png)
 
 ---
 
@@ -94,7 +97,7 @@ To resync:
 1. Open the device editing menu.
 2. Click the **Resync Config** button from the drop-down menu.
 
-![resync](../images/start-onboard-6.png)
+![Resync Config button in device menu](../images/start-onboard-6.png)
 
 ---
 

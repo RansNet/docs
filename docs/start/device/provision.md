@@ -27,10 +27,19 @@ If you are adding a device for a **new customer**, you need to create a customer
 
 To create a customer entity:
 
-1. Log in to mfusion and go to **ADMIN → Entities**.
-2. Click **New Entities**, provide an entity name, and click **Save Changes**.
+1. Navigate to **ADMIN → Entities** and click **New Entity**.
+2. Fill in the required fields:
 
-![mfusion software architecture](../images/start-provision-1.png)
+    | Field | Value |
+    |-------|-------|
+    | **Entity Name** | `<CompanyFullName_CountryCode>` |
+    | **Remarks** | Optional |
+    | **Partner Entity** | `Root` — select this to make the entity a top-level (parent) entity |
+    | **Add Child Entity** | Leave blank |
+
+3. Click **Save Changes**.
+
+![New entity creation form](../images/start-provision-1.png)
 
 !!! tip
     Entity names should be as specific as possible while remaining short enough for easy searching. Include a country code to identify the location (e.g. `YourCompanyCode_CustomerCode_SG`). Avoid spaces — use `-` or `_` instead.
@@ -42,6 +51,8 @@ To create a customer entity:
 To add a device to a customer entity:
 
 ### Manual Entry
+
+![New Host button in ADMIN Hosts](../images/start-provision-0.png)
 
 1. Go to **ADMIN → Hosts** and click **New Host**.
 2. Fill in the required fields:
@@ -56,11 +67,11 @@ To add a device to a customer entity:
 
 3. Click **Save Changes**. You will then be prompted to enter an activation code.
 
-    ![mfusion software architecture](../images/start-provision-2.png)
+    ![Activation code prompt](../images/start-provision-2.png)
 
 4. Click **Manual Input**, paste the activation code, and click **Activate Device**.
 
-    ![mfusion software architecture](../images/start-provision-3.png)
+    ![Manual activation code entry](../images/start-provision-3.png)
 
 !!! warning
     Make sure there are no gaps or line breaks in the activation code.
@@ -72,7 +83,7 @@ For large numbers of devices, use the **Batch Import** function:
 1. Go to **ADMIN → Hosts** and click **Batch Import**.
 2. Browse to your CSV file containing the device list.
 
-    ![mfusion software architecture](../images/start-provision-4.png)
+    ![Batch Import CSV upload](../images/start-provision-4.png)
 
 !!! tip
     Ensure your spreadsheet follows the correct format. You can download a sample CSV format from the Batch Import interface. RansNet distributors typically provide this CSV file to partners or customers.
@@ -85,15 +96,15 @@ Once a device is successfully activated, monitoring starts automatically.
 2. Filter to the target customer entity (top-right corner).
 3. If the device is properly bootstrapped and online, you should see **UP** status within **3 minutes**.
 
-    ![mfusion software architecture](../images/start-provision-5.png)
+    ![Device UP status in Hosts list](../images/start-provision-5.png)
 
 Repeat the steps above to add more devices to the same entity.
 
 ---
 
 ## Create Permission Profile
-!!!Optional
-    Skip if using RansNet cloud mfusion, which already includes suitable permission profiles for read-only and read-write access. Just select the pre-defined profiles for your user accounts.
+!!! note "Optional"
+    Skip if using RansNet cloud mfusion, which already includes pre-defined permission profiles for read-only and read-write access. Simply select the appropriate profile when creating user accounts.
 
 If you are using **on-premise mfusion**, you may want to create a custom permission profile to control customer access rights (e.g. read-only access to their own devices only).
 
@@ -102,18 +113,21 @@ If you are using **on-premise mfusion**, you may want to create a custom permiss
 3. Select the appropriate access rights.
 4. Click **Save Changes**.
 
-![mfusion software architecture](../images/start-provision-6.png)
+![New permission profile form](../images/start-provision-6.png)
 
 ---
 
 ## Create mfusion User Account
 
-To create user accounts for admin or read-only access:
+To create additional user accounts for admin or read-only access:
 
-1. Go to **ADMIN → Accounts** and click **New User**.
-2. Fill in the required fields.
+1. Navigate to **ADMIN → Accounts** and click **New User**.
+2. Fill in the user details.
+3. From the **Profile** dropdown, select the target permission profile.
+4. Set **Rights** to `read-only`.
+5. Click **Save Changes**.
 
-![mfusion software architecture](../images/start-provision-7.png)
+![New user account form](../images/start-provision-7.png)
 
 !!! tip
     - If you want the customer to receive **email alerts** (e.g. device failures or network anomalies), enter an accurate email address. The customer can also use this email to recover and reset their password.

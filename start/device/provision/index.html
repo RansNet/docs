@@ -1771,6 +1771,8 @@
       
         
       
+        
+      
     
     
     
@@ -1953,6 +1955,34 @@
           </ul>
         </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../sdwan/mwan/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Multi-WAN
+  
+
+    
+  </span>
+  
+  
+
+      </a>
     </li>
   
 
@@ -2914,10 +2944,41 @@
 </div>
 <p>To create a customer entity:</p>
 <ol>
-<li>Log in to mfusion and go to <strong>ADMIN → Entities</strong>.</li>
-<li>Click <strong>New Entities</strong>, provide an entity name, and click <strong>Save Changes</strong>.</li>
+<li>Navigate to <strong>ADMIN → Entities</strong> and click <strong>New Entity</strong>.</li>
+<li>
+<p>Fill in the required fields:</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Entity Name</strong></td>
+<td><code>&lt;CompanyFullName_CountryCode&gt;</code></td>
+</tr>
+<tr>
+<td><strong>Remarks</strong></td>
+<td>Optional</td>
+</tr>
+<tr>
+<td><strong>Partner Entity</strong></td>
+<td><code>Root</code> — select this to make the entity a top-level (parent) entity</td>
+</tr>
+<tr>
+<td><strong>Add Child Entity</strong></td>
+<td>Leave blank</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p>Click <strong>Save Changes</strong>.</p>
+</li>
 </ol>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../images/start-provision-1.png" data-desc-position="bottom"><img alt="mfusion software architecture" src="../../images/start-provision-1.png"></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../images/start-provision-1.png" data-desc-position="bottom"><img alt="New entity creation form" src="../../images/start-provision-1.png"></a></p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>Entity names should be as specific as possible while remaining short enough for easy searching. Include a country code to identify the location (e.g. <code>YourCompanyCode_CustomerCode_SG</code>). Avoid spaces — use <code>-</code> or <code>_</code> instead.</p>
@@ -2926,6 +2987,7 @@
 <h2 id="add-device-to-entity">Add Device to Entity<a class="headerlink" href="#add-device-to-entity" title="Permanent link">¶</a></h2>
 <p>To add a device to a customer entity:</p>
 <h3 id="manual-entry">Manual Entry<a class="headerlink" href="#manual-entry" title="Permanent link">¶</a></h3>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../images/start-provision-0.png" data-desc-position="bottom"><img alt="New Host button in ADMIN Hosts" src="../../images/start-provision-0.png"></a></p>
 <ol>
 <li>Go to <strong>ADMIN → Hosts</strong> and click <strong>New Host</strong>.</li>
 <li>
@@ -2963,11 +3025,11 @@
 </li>
 <li>
 <p>Click <strong>Save Changes</strong>. You will then be prompted to enter an activation code.</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../images/start-provision-2.png" data-desc-position="bottom"><img alt="mfusion software architecture" src="../../images/start-provision-2.png"></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../images/start-provision-2.png" data-desc-position="bottom"><img alt="Activation code prompt" src="../../images/start-provision-2.png"></a></p>
 </li>
 <li>
 <p>Click <strong>Manual Input</strong>, paste the activation code, and click <strong>Activate Device</strong>.</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../images/start-provision-3.png" data-desc-position="bottom"><img alt="mfusion software architecture" src="../../images/start-provision-3.png"></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../images/start-provision-3.png" data-desc-position="bottom"><img alt="Manual activation code entry" src="../../images/start-provision-3.png"></a></p>
 </li>
 </ol>
 <div class="admonition warning">
@@ -2980,7 +3042,7 @@
 <li>Go to <strong>ADMIN → Hosts</strong> and click <strong>Batch Import</strong>.</li>
 <li>
 <p>Browse to your CSV file containing the device list.</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../images/start-provision-4.png" data-desc-position="bottom"><img alt="mfusion software architecture" src="../../images/start-provision-4.png"></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../images/start-provision-4.png" data-desc-position="bottom"><img alt="Batch Import CSV upload" src="../../images/start-provision-4.png"></a></p>
 </li>
 </ol>
 <div class="admonition tip">
@@ -2994,15 +3056,15 @@
 <li>Filter to the target customer entity (top-right corner).</li>
 <li>
 <p>If the device is properly bootstrapped and online, you should see <strong>UP</strong> status within <strong>3 minutes</strong>.</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../images/start-provision-5.png" data-desc-position="bottom"><img alt="mfusion software architecture" src="../../images/start-provision-5.png"></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../images/start-provision-5.png" data-desc-position="bottom"><img alt="Device UP status in Hosts list" src="../../images/start-provision-5.png"></a></p>
 </li>
 </ol>
 <p>Repeat the steps above to add more devices to the same entity.</p>
 <hr>
 <h2 id="create-permission-profile">Create Permission Profile<a class="headerlink" href="#create-permission-profile" title="Permanent link">¶</a></h2>
-<div class="admonition optional">
+<div class="admonition note">
 <p class="admonition-title">Optional</p>
-<p>Skip if using RansNet cloud mfusion, which already includes suitable permission profiles for read-only and read-write access. Just select the pre-defined profiles for your user accounts.</p>
+<p>Skip if using RansNet cloud mfusion, which already includes pre-defined permission profiles for read-only and read-write access. Simply select the appropriate profile when creating user accounts.</p>
 </div>
 <p>If you are using <strong>on-premise mfusion</strong>, you may want to create a custom permission profile to control customer access rights (e.g. read-only access to their own devices only).</p>
 <ol>
@@ -3011,15 +3073,18 @@
 <li>Select the appropriate access rights.</li>
 <li>Click <strong>Save Changes</strong>.</li>
 </ol>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../images/start-provision-6.png" data-desc-position="bottom"><img alt="mfusion software architecture" src="../../images/start-provision-6.png"></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../images/start-provision-6.png" data-desc-position="bottom"><img alt="New permission profile form" src="../../images/start-provision-6.png"></a></p>
 <hr>
 <h2 id="create-mfusion-user-account">Create mfusion User Account<a class="headerlink" href="#create-mfusion-user-account" title="Permanent link">¶</a></h2>
-<p>To create user accounts for admin or read-only access:</p>
+<p>To create additional user accounts for admin or read-only access:</p>
 <ol>
-<li>Go to <strong>ADMIN → Accounts</strong> and click <strong>New User</strong>.</li>
-<li>Fill in the required fields.</li>
+<li>Navigate to <strong>ADMIN → Accounts</strong> and click <strong>New User</strong>.</li>
+<li>Fill in the user details.</li>
+<li>From the <strong>Profile</strong> dropdown, select the target permission profile.</li>
+<li>Set <strong>Rights</strong> to <code>read-only</code>.</li>
+<li>Click <strong>Save Changes</strong>.</li>
 </ol>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../images/start-provision-7.png" data-desc-position="bottom"><img alt="mfusion software architecture" src="../../images/start-provision-7.png"></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../images/start-provision-7.png" data-desc-position="bottom"><img alt="New user account form" src="../../images/start-provision-7.png"></a></p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <ul>

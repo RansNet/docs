@@ -667,15 +667,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
       
         <li class="md-nav__item">
-  <a href="#terminologies" class="md-nav__link">
+  <a href="#terminology" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Terminologies
+        Terminology
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Terminologies">
+    <nav class="md-nav" aria-label="Terminology">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -713,6 +713,23 @@
       
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Onboard Devices">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#topology-templates" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Topology Templates
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1760,6 +1777,8 @@
       
         
       
+        
+      
     
     
     
@@ -1942,6 +1961,34 @@
           </ul>
         </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../sdwan/mwan/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Multi-WAN
+  
+
+    
+  </span>
+  
+  
+
+      </a>
     </li>
   
 
@@ -2720,15 +2767,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
       
         <li class="md-nav__item">
-  <a href="#terminologies" class="md-nav__link">
+  <a href="#terminology" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Terminologies
+        Terminology
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Terminologies">
+    <nav class="md-nav" aria-label="Terminology">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -2766,6 +2813,23 @@
       
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Onboard Devices">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#topology-templates" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Topology Templates
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -2869,17 +2933,17 @@
 
 
 <h1 id="device-onboarding">Device Onboarding<a class="headerlink" href="#device-onboarding" title="Permanent link">¶</a></h1>
-<p>By default, once a device is provisioned on mfusion, they're automatically monitored (same for both RansNet and 3rd-party SNMP devices).</p>
-<p>In order for mfusion to manage the devices configuration (RansNet devices only), the devices need to be onboarded.</p>
-<p>Oboarding involves importing the device into the mfusion orchestrator so that you can start configuring SD-WAN features and all other settings to meet your connectivity and security requirements.</p>
+<p>By default, once a device is provisioned on mfusion, it is automatically monitored (same for both RansNet and 3rd-party SNMP devices).</p>
+<p>In order for mfusion to manage device configuration (RansNet devices only), the device needs to be onboarded.</p>
+<p>Onboarding involves importing the device into the mfusion orchestrator so that you can start configuring SD-WAN features and all other settings to meet your connectivity and security requirements.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>For 3rd-party device monitoring, this step is not necessary.</p>
 </div>
 <p>We suggest plotting out the overall network map clearly before you begin, so you know exactly what you intend to achieve. You can use the mfusion <strong>topology</strong> feature to draw the topology map.</p>
 <hr>
-<h2 id="terminologies">Terminologies<a class="headerlink" href="#terminologies" title="Permanent link">¶</a></h2>
-<p>Before you begin, it is important to understand some basic terminologies and principles used by mfusion.</p>
+<h2 id="terminology">Terminology<a class="headerlink" href="#terminology" title="Permanent link">¶</a></h2>
+<p>Before you begin, it is important to understand some basic terminology and principles used by mfusion.</p>
 <h3 id="sd-wan-device-types">SD-WAN Device Types<a class="headerlink" href="#sd-wan-device-types" title="Permanent link">¶</a></h3>
 <p>Functionally, there are two types of devices — <strong>Gateway</strong> and <strong>Branch</strong>.</p>
 <ul>
@@ -2899,11 +2963,14 @@
 <hr>
 <h2 id="onboard-devices">Onboard Devices<a class="headerlink" href="#onboard-devices" title="Permanent link">¶</a></h2>
 <ol>
-<li>Go to <strong>ORCHESTRATOR → Configuration → Gateway/Branch Devices</strong>.</li>
-<li>Click <strong>New Gateway/Branch</strong>, select the device, and attach a topology template.</li>
+<li>Navigate to <strong>ORCHESTRATOR → Configuration → Gateway</strong> (or <strong>SD-Branch</strong>).</li>
+<li>Click <strong>New Gateway</strong> (or <strong>New Branch</strong>).</li>
+<li>Select the target host.</li>
+<li>Select a <strong>Topology Template</strong> (see table below).</li>
+<li>Click <strong>Select</strong>.</li>
 </ol>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../images/start-onboard-3.png" data-desc-position="bottom"><img alt="onboard devices" src="../../images/start-onboard-3.png"></a></p>
-<p><strong>Topology Templates</strong></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../images/start-onboard-3.png" data-desc-position="bottom"><img alt="New Gateway host and template selection" src="../../images/start-onboard-3.png"></a></p>
+<h3 id="topology-templates">Topology Templates<a class="headerlink" href="#topology-templates" title="Permanent link">¶</a></h3>
 <table>
 <thead>
 <tr>
@@ -2926,7 +2993,7 @@
 </tr>
 </tbody>
 </table>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../images/start-onboard-1.png" data-desc-position="bottom"><img alt="onboard devices" src="../../images/start-onboard-1.png"></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../images/start-onboard-1.png" data-desc-position="bottom"><img alt="Onboarded device in the Gateway list" src="../../images/start-onboard-1.png"></a></p>
 <hr>
 <h2 id="import-cli-config">Import CLI Config<a class="headerlink" href="#import-cli-config" title="Permanent link">¶</a></h2>
 <p>If your device already has existing default or bootstrap CLI configuration that you want to merge into your GUI settings, use the <strong>Import CLI Config</strong> feature.</p>
@@ -2970,7 +3037,7 @@
 <li>Open the device editing menu.</li>
 <li>Click the <strong>Resync Config</strong> button from the drop-down menu.</li>
 </ol>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../images/start-onboard-6.png" data-desc-position="bottom"><img alt="resync" src="../../images/start-onboard-6.png"></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../images/start-onboard-6.png" data-desc-position="bottom"><img alt="Resync Config button in device menu" src="../../images/start-onboard-6.png"></a></p>
 <hr>
 <h2 id="zero-touch-provisioning">Zero-Touch Provisioning<a class="headerlink" href="#zero-touch-provisioning" title="Permanent link">¶</a></h2>
 <p>You can onboard a device to mfusion, prepare all configurations and resync, <strong>before</strong> the device is physically online or deployed.</p>

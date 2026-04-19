@@ -78,95 +78,162 @@ firewall-access 200 deny outbound eth0
 
 ## Method 2: DNS Filtering
 
-DNS filtering intercepts client DNS queries at the router and returns a controlled response — either no address (blocking) or a normal upstream resolution (permitting). Because filtering happens at the DNS layer, it requires no changes on client devices and applies to all clients on the network.
+DNS filtering intercepts client DNS queries at the router and returns a controlled response — blocking a domain (returning `0.0.0.0`) or permitting it through to the upstream resolver. Because filtering happens at the DNS layer, it requires no changes on client devices and applies to all clients on the network automatically.
 
-Before configuring DNS filtering, ensure the router is intercepting client DNS queries. See [DNS & DNS Rewrite](../config/dnsrewrite.md) for setup details, including the DNAT rule that transparently redirects port 53 traffic from clients regardless of what DNS server they have configured.
+### Prerequisites
+
+Before configuring DNS filtering, redirect client DNS traffic to the router. A **DNAT rule** captures port 53 traffic from clients, and a paired **firewall-input rule** permits the redirected traffic into the router itself:
+
+```
+firewall-dnat 201 redirect inbound br-vlan1 udp dport 53
+firewall-input 201 permit inbound br-vlan1 udp dport 53
+```
+
+Replace `br-vlan1` with the LAN-facing interface for your deployment.
+
+### Wildcard Matching and Specificity
+
+!!! note "Automatic subdomain coverage"
+    Every domain entry covers the domain itself **and all its subdomains** — no wildcard syntax required. Adding `domain facebook.com` blocks or permits `facebook.com`, `www.facebook.com`, `m.facebook.com`, `static.xx.fbcdn.net`... and any other subdomain automatically.
+
+**More specific entries always take precedence over broader ones**, regardless of rule order. This means you can:
+
+- Block `facebook.com` (covers all subdomains) while permitting `business.facebook.com` with a separate entry
+- Permit `google.com` while denying `ads.google.com` for a specific subdomain exception
+
+Lower rule IDs have higher priority. Once a domain is matched by a rule, it is not re-evaluated by later rules.
+
+### DNS Groups
+
+DNS groups let you organise domains into named lists referenced by filter rules. This keeps rules concise and makes bulk changes easy — add or remove a domain from the group without modifying any rules.
+
+```
+dns-group adult-sites
+  domain playboy.com
+  domain pornhub.com
+!
+```
+
+Managing group members:
+
+```
+dns-group adult-sites
+  no domain playboy.com
+!
+```
+
+Removing an entire group:
+
+```
+no dns-group adult-sites
+```
+
+Viewing configured groups:
+
+```
+show dns-group
+show dns-group adult-sites
+```
 
 ### Blacklisting — Block Specific Domains
 
-Default-permit: all domains resolve normally except those explicitly blocked.
-
-!!! note
-    Blocking a domain also blocks all its subdomains. Blocking `yahoo.com` also blocks `mail.yahoo.com`, `finance.yahoo.com`, and so on.
+Default-permit: all domains resolve normally except those explicitly denied.
 
 **CLI Configuration**
 
 ```
-ip name-server 8.8.8.8 8.8.4.4
-firewall-dnat 10 redirect inbound eth1 udp dport 53
-
-ip host facebook.com reject
-ip host youtube.com reject
-ip host tiktok.com reject
+dns-group adult-sites
+  domain playboy.com
+  domain pornhub.com
+!
+dns-filter 100 deny group adult-sites
+dns-filter 200 permit all
 ```
 
-To remove a block:
+Rule 100 blocks all domains in the `adult-sites` group (and their subdomains). Rule 200 permits everything else. Rules are evaluated in ascending ID order.
+
+To block a single domain directly without a group:
 
 ```
-no ip host facebook.com reject
+dns-filter 100 deny domain malicious-site.example.com
+dns-filter 200 permit all
+```
+
+To remove a rule:
+
+```
+no dns-filter 100 deny domain malicious-site.example.com
 ```
 
 ### Whitelisting — Allow Only Approved Domains
 
-Default-deny: all domains are blocked unless explicitly permitted. The wildcard entry `ip host . reject` blocks everything by default; individual `ip host <domain> resolve` entries override it for approved domains.
+Default-deny: all domains are blocked except those explicitly permitted. A `deny all` catch-all at a high rule ID blocks everything; `permit domain` rules with lower IDs override it for approved domains.
 
 !!! note
-    Many sites and services depend on multiple domains — CDNs, authentication endpoints, API services, and analytics. Permitting a site requires permitting all its supporting domains. Use `tcpdump` or [DNS query logging](#dns-query-logging) to identify them.
+    Many sites depend on multiple domains — CDNs, authentication endpoints, API services, and analytics. Permitting a site requires permitting all its supporting domains. Use `tcpdump` or DNS query logging to identify them.
 
 **CLI Configuration**
 
 ```
-ip name-server 8.8.8.8 8.8.4.4
-firewall-dnat 10 redirect inbound eth1 udp dport 53
-
-ip host . reject
-
-ip host google.com resolve
-ip host googleapis.com resolve
-ip host gstatic.com resolve
-ip host youtube.com resolve
-ip host ytimg.com resolve
-ip host ransnet.com resolve
+dns-filter 100 permit domain google.com
+dns-filter 110 permit domain googleapis.com
+dns-filter 120 permit domain gstatic.com
+dns-filter 130 permit domain ransnet.com
+dns-filter 900 deny all
 ```
 
-To remove the default-deny and restore normal resolution:
-
-```
-no ip host . reject
-```
+The `deny all` catch-all at rule 900 blocks any domain not explicitly permitted by a lower-numbered rule.
 
 ### GUI Configuration
 
-Navigate to **Device Settings → System**, scroll to **Static FQDN-IP Mapping**, click **+ Add**.
+*[Screenshot — to be added]*
 
-- To block a domain: enter the domain and set the action to **Block**
-- To whitelist a domain under a default-deny policy: enter the domain and set the action to **Resolve**
+Navigate to **Device Settings → Security → DNS Filter**. Add domain groups under **DNS Groups** and configure filter rules under **DNS Filter Rules**.
+
+### Verification
+
+After configuring DNS filtering, verify blocked domains return `0.0.0.0`:
+
+```
+C:\Users\yingd>nslookup playboy.com
+Server:  dns.google
+Address:  8.8.8.8
+
+Name:    playboy.com
+Address:  0.0.0.0
+```
+
+The router transparently intercepts the DNS query — even though the client is configured to use an external resolver (8.8.8.8), the DNAT rule redirects the query to the router's DNS engine, which returns `0.0.0.0` for blocked domains.
+
+After removing the block (`no domain playboy.com` under `dns-group adult-sites`), the domain resolves normally:
+
+```
+C:\Users\yingd>nslookup playboy.com
+Server:  dns.google
+Address:  8.8.8.8
+
+Name:    playboy.com
+Addresses:  2606:4700:7::d1
+            2606:4700:3033::d0
+            162.159.140.211
+            162.159.141.211
+```
 
 ### Identifying Required Domains
 
 When whitelisting, use `tcpdump` on the router to capture all DNS queries clients make while browsing a target site:
 
 ```
-tcpdump interface eth1 port 53 detail
+tcpdump interface br-vlan1 port 53 detail
 ```
 
-Watch the output while navigating the site fully — including login, media loading, and background API calls. Add each unresolved domain to the whitelist with `ip host <domain> resolve`.
-
-### DNS Query Logging
-
-To monitor which domains clients are querying in real time:
-
-```
-tcpdump interface eth1 port 53
-```
-
-Useful for auditing access, building a whitelist, and debugging rules that are not behaving as expected.
+Watch the output while navigating the site fully — including login, media loading, and background API calls. Add each unresolved domain to the whitelist.
 
 ### Limitations
 
 | Limitation | Detail |
 |---|---|
-| **DNS over HTTPS (DoH)** | Browsers can send DNS queries over HTTPS directly to a cloud DoH provider, bypassing the router's DNS proxy entirely. |
+| **DNS over HTTPS (DoH)** | Browsers can send DNS queries over HTTPS directly to a cloud DoH provider, bypassing the router's DNS interception entirely. |
 | **DNS over TLS (DoT)** | DNS queries over TCP port 853 bypass the DNAT redirect. Block outbound port 853 if needed. |
 | **Hardcoded DNS** | Applications using a hardcoded DNS server IP bypass the DNAT redirect. |
 | **VPN / Proxy** | Traffic inside a VPN or proxy tunnel bypasses DNS filtering. |
@@ -179,7 +246,7 @@ firewall-access 151 deny outbound eth0 tcp dport 53
 firewall-access 152 deny outbound eth0 tcp dst 1.1.1.1,1.0.0.1,8.8.8.8,8.8.4.4 dport 443
 ```
 
-Rules 150–151 block direct DNS to external resolvers; rule 152 blocks HTTPS to known DoH providers. The DNAT redirect (rule 10) continues to intercept all DNS queries and process them locally.
+Rules 150–151 block direct DNS to external resolvers; rule 152 blocks HTTPS to known DoH providers. The DNAT redirect continues to intercept all port 53 traffic and process it locally.
 
 ---
 

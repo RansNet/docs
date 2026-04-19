@@ -32,13 +32,19 @@ DNS Rewrite intercepts DNS queries from clients and returns a configured respons
     For DNS Rewrite to work, the router must intercept client DNS queries. There are two ways to achieve this:
 
     - **DHCP assignment** — assign the router's LAN IP as the DNS server via DHCP so clients send queries directly to the router.
-    - **Transparent DNS redirect** — add a DNAT rule to redirect all outbound DNS traffic (UDP port 53) to the router itself, intercepting queries even from clients that have a manually configured DNS server.
+    - **Transparent DNS redirect** — add a DNAT rule to redirect all port 53 traffic to the router itself, intercepting queries even from clients that have a manually configured DNS server or a hardcoded resolver IP.
+
+!!! warning "firewall-dnat and firewall-input must be used together"
+    A `firewall-dnat redirect` rule alone is not sufficient. After the DNAT rule redirects port 53 traffic to the router, the redirected packet arrives as an **inbound** packet destined for the router itself. Without a matching `firewall-input permit` rule, the router's firewall drops it.
+
+    Both rules are always required:
 
     ```
     firewall-dnat 10 redirect inbound eth1 udp dport 53
+    firewall-input 10 permit inbound eth1 udp dport 53
     ```
 
-    Replace `eth1` with the LAN interface. The `redirect` action forwards matching traffic to the router's own DNS proxy.
+    Replace `eth1` with the LAN-facing interface. Use the same rule ID for clarity — they are independent rules evaluated by their own chains, so matching IDs do not conflict.
 
 The `ip host` command supports four modes:
 
@@ -87,13 +93,16 @@ ip name-server 8.8.8.8 8.8.4.4
 ip host abc.test.com 10.1.1.2 rewrite
 firewall-dnat 10 redirect inbound eth1 udp dport 53
 firewall-dnat 20 translate inbound eth0 dst 202.127.9.2 xdst 10.1.1.2
+!
+firewall-input 10 permit inbound eth1 udp dport 53
 ```
 
 **Key points:**
 
 - `ip name-server` — upstream resolvers for all other domains
 - `ip host abc.test.com 10.1.1.2 rewrite` — internal clients querying `abc.test.com` receive `10.1.1.2`
-- `firewall-dnat 10 redirect inbound eth1 udp dport 53` — transparently intercept all DNS queries arriving on the LAN interface (`eth1`), redirecting them to the router's DNS proxy regardless of what DNS server clients have configured
+- `firewall-dnat 10 redirect inbound eth1 udp dport 53` — transparently intercepts all DNS queries on the LAN interface, redirecting them to the router's DNS proxy regardless of what DNS server clients have configured
+- `firewall-input 10 permit inbound eth1 udp dport 53` — required alongside the DNAT rule; after redirection the packet arrives inbound to the router itself and must be explicitly permitted
 - `firewall-dnat 20 translate ... xdst 10.1.1.2` — inbound traffic from the WAN to the public IP is still translated to the internal server for external users
 
 External users continue to resolve `abc.test.com` to `202.127.9.2` via public DNS — the rewrite only affects clients whose queries pass through this router.

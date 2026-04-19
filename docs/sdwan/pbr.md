@@ -26,23 +26,3 @@ CONFIG NOTES
 
 please also study current CLISH CLI and script to highlight other features or pre-cautions needed during deployments.
 
-CONFIGURATION EXAMPLE - Based on source (or destination)
-
-
-
-In this example, we are trying to achieve below objectives:
-
-clients from 172.16.30.0/24 will go out from ISP1 link for Internet access
-
-clients from 172.16.40.0/24 will go out from ISP2 link for Internet access
-
-
-
-CONFIGURATION EXAMPLE - Based on Applications
-
-In this example, we are trying to achieve below objectives:
-
-HTTP (TCP/80) access will go out from ISP1 link
-
-HTTPS (TCP/443 and UDP/443) access will go out from ISP2 link
-

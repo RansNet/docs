@@ -34,7 +34,7 @@ In the diagram above, a 1 Gbps backhaul is shared across multiple VLANs — each
 |----------|--------|
 | Guarantee VoIP or video conferencing quality on a shared WAN link | Class-based — set Minimum for voice/video class |
 | Cap social media or streaming without blocking it entirely | Class-based — set Maximum for that class |
-| Prioritise business applications over recreational traffic | Class-based — assign lower Class No. to business apps |
+| Prioritise business applications over recreational traffic | Class-based — assign lower Class No. (e.g. 200) to business apps |
 | Prevent one device from saturating the link for all users | Connection-based — per-IP ceiling |
 | Per-room or per-user speed limits (hotel, guest Wi-Fi) | Connection-based |
 | Aggregate cap per traffic type plus per-user fairness within it | Both — class for aggregate, connection-based within |
@@ -72,21 +72,21 @@ Maximum is the upper limit of bandwidth a class can ever consume, including capa
 
 **Priority — Burst Scheduling Order**
 
-Priority controls which class gets first access to spare capacity once all class Minimums have been satisfied. It is derived automatically from the Class No. using `(Class No. − 100) ÷ 10` — lower class number = higher burst priority.
+Priority controls which class gets first access to spare capacity once all class Minimums have been satisfied. It is derived automatically from the Class No. using `(Class No. − 200) ÷ 10` — lower class number = higher burst priority.
 
 !!! note "Priority is burst-order only — not strict priority"
-    Priority only governs the order in which classes borrow spare capacity **above** their Minimum. It has no effect on guaranteed allocations. A class at priority tier 7 (class no. 170–179) with Minimum 50 Mbps will always receive its full 50 Mbps even when a priority tier 0 class is simultaneously active. True strict priority — "always drain this class before touching any other" — is not a feature of HTB.
+    Priority only governs the order in which classes borrow spare capacity **above** their Minimum. It has no effect on guaranteed allocations. A class at priority tier 7 (class no. 270–279) with Minimum 50 Mbps will always receive its full 50 Mbps even when a priority tier 0 class is simultaneously active. True strict priority — "always drain this class before touching any other" — is not a feature of HTB.
 
 | Class No. range | Priority tier | Burst order |
 |---|---|---|
-| 100–109 | 0 | Highest — borrows spare capacity first |
-| 110–119 | 1 | |
-| 120–129 | 2 | |
-| 130–139 | 3 | |
-| 140–149 | 4 | |
-| 150–159 | 5 | |
-| 160–169 | 6 | |
-| 170–179 | 7 | Lowest — borrows last |
+| 200–209 | 0 | Highest — borrows spare capacity first |
+| 210–219 | 1 | |
+| 220–229 | 2 | |
+| 230–239 | 3 | |
+| 240–249 | 4 | |
+| 250–259 | 5 | |
+| 260–269 | 6 | |
+| 270–279 | 7 | Lowest — borrows last |
 
 #### Order of Operations
 
@@ -126,7 +126,7 @@ The **Class No.** also controls **filter evaluation order** — lower class numb
 !!! warning "Avoid Overlapping firewall-set Rules Across Classes"
     `firewall-set` rules are evaluated in ascending rule number order. Each matching rule **overwrites** the fwmark set by any previous rule — the last matching rule wins. If two classes have `firewall-set` rules that can match the same packet, the packet will always end up in the class corresponding to the higher-numbered rule, regardless of which class was intended.
 
-    For example, if rule `1001` matches `tcp dport 443` (HTTPS) and rule `1501` matches a social media object group that includes HTTPS destinations, any HTTPS traffic to a social media site will be marked `1501` and placed into class `150`, not class `100`.
+    For example, if rule `2001` matches `tcp dport 443` (HTTPS) and rule `2501` matches a social media object group that includes HTTPS destinations, any HTTPS traffic to a social media site will be marked `2501` and placed into class `250`, not class `200`.
 
     To avoid this:
 
@@ -151,29 +151,43 @@ Navigate to **Device Settings → SD-WAN → Traffic Shaping** and click the **C
 ### CLI Configuration
 
 ```
+HSA-520# show running-config 
+!
+hostname HSA-520
+!
 interface eth0
  description "Connection to WAN"
  enable
  ip address dhcp
  traffic-shape 10000000 10000000
-  class 100 5000 10000 fwmark 1001 remark class-100-upload
-  class 120 3000 4000 fwmark 1201 remark class-120-upload
+  class 200 10000 20000 fwmark 2001 remark class-200-upload
+  class 210 5000 5000 fwmark 2101 remark class-210-upload
+  class 220 6000 10000 fwmark 2201 remark class-220-upload
   default bandwidth 512 512
+!
+interface eth1
+ description "Do NOT configure"
+ enable
 !
 interface wwan0
  enable
- traffic-shape 10000000 10000000
-  class 110 7000 8000 fwmark 1101 remark class-110-upload
 !
 interface vlan 1 1
- description "Default VLAN"
+ description "Default VLAN for all LAN ports"
  enable
  ip address 192.168.8.1/22
+ dhcp-server
+  router 192.168.8.1
+  dns 8.8.8.8 8.8.4.4
+  range 192.168.8.10 192.168.11.254
+  enable
  traffic-shape 10000000 10000000
-  class 100 5000 10000 fwmark 1002 remark class-100-download
-  class 110 5000 6000 fwmark 1102 remark class-110-download
-  class 120 1000 2000 fwmark 1202 remark class-120-download
+  class 200 10000 10000 fwmark 2002 remark class-200-download
+  class 210 5000 5000 fwmark 2102 remark class-210-download
+  class 220 6000 10000 fwmark 2202 remark class-220-download
   default bandwidth 512 512
+!
+ip name-server 8.8.8.8 8.8.4.4
 !
 object-group VoIP
  net 118.189.175.168
@@ -183,11 +197,21 @@ object-group social_sites
  app Tiktok
  app YouTube
 !
-firewall-set 1001 mark 1001 access ip dst_object VoIP remark class-100-upload
-firewall-set 1101 mark 1101 access tcp dport 443 remark class-110-upload
-firewall-set 1102 mark 1102 access tcp sport 443 remark class-110-download
-firewall-set 1201 mark 1201 access ip dst_object social_sites remark class-120-upload
-firewall-set 1202 mark 1202 access ip src_object social_sites remark class-120-download
+firewall-input 100 permit all tcp src 192.168.8.0/22 dport 22
+!
+firewall-access 100 permit outbound eth0
+firewall-access 101 permit outbound wwan+
+!
+firewall-snat 100 overload outbound eth0
+firewall-snat 101 overload outbound wwan+
+!
+firewall-set 2001 mark 2001 access ip dst_object VoIP remark class-200-upload
+firewall-set 2002 mark 2002 access ip src_object VoIP remark class-200-download
+firewall-set 2101 mark 2101 access tcp dport 443 remark class-210-upload
+firewall-set 2102 mark 2102 access tcp sport 443 remark class-210-download
+firewall-set 2201 mark 2201 access ip dst_object social_sites remark class-220-upload
+firewall-set 2202 mark 2202 access ip src_object social_sites remark class-220-download
+HSA-520# 
 ```
 
 Key points:
@@ -210,32 +234,27 @@ show interface traffic-shape
 Example output:
 
 ```
-HSA-520# show interface traffic-shape
+HSA-520# show interface traffic-shape 
 
 Interface: eth0
   Class    Min         Max         Prio    FW Mark           Sent              Dropped
   -------  ----------  ----------  ------  ----------------  ----------------  -------
-  100      5Mbit       10Mbit      0       1001/0x3e9        0B/0p             0
-  120      3Mbit       4Mbit       2       1201/0x4b1        0B/0p             0
-  default  512Kbit     512Kbit     -       (catch-all)       295439B/2692p     0
+  200      10Mbit      20Mbit      0       2001/0x7d1        0B/0p             0
+  210      5Mbit       5Mbit       1       2101/0x835        0B/0p             0
+  220      6Mbit       10Mbit      2       2201/0x899        0B/0p             0
+  default  512Kbit     512Kbit     -       (catch-all)       29430B/247p       0
 
 Interface: vlan1
   Class    Min         Max         Prio    FW Mark           Sent              Dropped
   -------  ----------  ----------  ------  ----------------  ----------------  -------
-  110      5Mbit       6Mbit       1       1102/0x44e        0B/0p             0
-  100      5Mbit       10Mbit      0       1002/0x3ea        0B/0p             0
-  120      1Mbit       2Mbit       2       1202/0x4b2        0B/0p             0
+  200      10Mbit      10Mbit      0       2002/0x7d2        0B/0p             0
+  210      5Mbit       5Mbit       1       2102/0x836        0B/0p             0
+  220      6Mbit       10Mbit      2       2202/0x89a        0B/0p             0
   default  512Kbit     512Kbit     -       (catch-all)       0B/0p             0
-
-Interface: wwan0
-  Class    Min         Max         Prio    FW Mark           Sent              Dropped
-  -------  ----------  ----------  ------  ----------------  ----------------  -------
-  110      7Mbit       8Mbit       1       1101/0x44d        0B/0p             0
-  [i] No default class — unclassified traffic passes at wire speed (uncapped)
-HSA-520#
+HSA-520# 
 ```
 
-**Min** = guaranteed Minimum; **Max** = burst ceiling (Maximum). **Prio** is derived automatically from the Class No. using `(Class No. − 100) ÷ 10` — class `100` → prio `0` (highest burst priority), class `179` → prio `7` (lowest). **FW Mark** shows the decimal value alongside the kernel's hex representation.
+**Min** = guaranteed Minimum; **Max** = burst ceiling (Maximum). **Prio** is derived automatically from the Class No. using `(Class No. − 200) ÷ 10` — class `200` → prio `0` (highest burst priority), class `279` → prio `7` (lowest). **FW Mark** shows the decimal value alongside the kernel's hex representation.
 
 For low-level inspection:
 
@@ -311,31 +330,31 @@ Each chain enforces the cap per endpoint — one DROP rule keyed on destination 
 
 ### Class Numbering Convention
 
-Valid class numbers are in the range **100–179**. The class number determines the burst priority tier and the auto-assigned fwmark values:
+Valid class numbers are in the range **200–279**. The class number determines the burst priority tier and the auto-assigned fwmark values:
 
 | Class No. range | Burst priority | Burst order | Typical use |
 |---|---|---|---|
-| 100–109 | 0 | Highest | VoIP, real-time video |
-| 110–119 | 1 | | Video conferencing |
-| 120–129 | 2 | | Business-critical (SaaS, ERP) |
-| 130–139 | 3 | | Interactive web (HTTPS) |
-| 140–149 | 4 | | General web browsing |
-| 150–159 | 5 | | File downloads |
-| 160–169 | 6 | | Social media, streaming |
-| 170–179 | 7 | Lowest | Background / bulk transfers |
+| 200–209 | 0 | Highest | VoIP, real-time video |
+| 210–219 | 1 | | Video conferencing |
+| 220–229 | 2 | | Business-critical (SaaS, ERP) |
+| 230–239 | 3 | | Interactive web (HTTPS) |
+| 240–249 | 4 | | General web browsing |
+| 250–259 | 5 | | File downloads |
+| 260–269 | 6 | | Social media, streaming |
+| 270–279 | 7 | Lowest | Background / bulk transfers |
 
 The orchestrator derives fwmark values automatically — class `N` gets upload mark `N×10+1` and download mark `N×10+2`:
 
 | Burst priority | Example Class No. | Auto upload mark | Auto download mark |
 |---|---|---|---|
-| 0 (highest) | 100 | 1001 | 1002 |
-| 1 | 110 | 1101 | 1102 |
-| 2 | 120 | 1201 | 1202 |
-| 3 | 130 | 1301 | 1302 |
-| 4 | 140 | 1401 | 1402 |
-| 5 | 150 | 1501 | 1502 |
-| 6 | 160 | 1601 | 1602 |
-| 7 (lowest) | 170 | 1701 | 1702 |
+| 0 (highest) | 200 | 2001 | 2002 |
+| 1 | 210 | 2101 | 2102 |
+| 2 | 220 | 2201 | 2202 |
+| 3 | 230 | 2301 | 2302 |
+| 4 | 240 | 2401 | 2402 |
+| 5 | 250 | 2501 | 2502 |
+| 6 | 260 | 2601 | 2602 |
+| 7 (lowest) | 270 | 2701 | 2702 |
 
 ### Combining Both Methods
 

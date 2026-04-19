@@ -1,41 +1,81 @@
 # Multi-WAN (MWAN)
 
+## Overview
+
 Multi-WAN (MWAN) provides outbound traffic load balancing and automatic failover across multiple WAN links. It is included as a standard feature on HSG, CMG, and HSA series devices with no additional licensing required.
 
-MWAN aggregates available bandwidth across multiple ISP connections, monitors each link continuously, and automatically redirects traffic to surviving links when a connection drops. It also supports per-flow traffic steering rules — equivalent to policy-based routing (PBR) — with built-in failover.
+When multiple ISP connections are available, MWAN aggregates their bandwidth, monitors each link continuously, and automatically redirects traffic to surviving links when a connection drops. Traffic steering rules allow specific flows to be directed to a designated WAN link based on source IP, destination, port, or protocol — combining the flexibility of policy-based routing (PBR) with built-in failover.
+
+### Key Features
+
+- **Load balancing** — distributes outbound sessions across WAN links by configurable weight, proportional to each link's capacity
+- **Automatic failover** — each link monitored via continuous ICMP ping; traffic rerouted to surviving links within seconds of failure detection
+- **Active/standby** — configure primary and backup links using metric values; standby links activate only when all lower-metric links fail
+- **Traffic steering** — direct specific flows by source IP, destination, port, or protocol to a designated WAN group, with failover support; equivalent to PBR with automatic failover
+- **Persistent sessions** — keep sessions from the same source IP on the same WAN link, for applications requiring consistent source IP (e.g. inline IPS/HIPS)
+- **All WAN types** — supports static, DHCP, and PPPoE WAN interfaces
+- **Unlimited WAN links** — limited only by the number of available physical interfaces
+- **Standard feature** — included on HSG, CMG, and HSA series; no additional licensing required
+
+### Use Cases
+
+| Scenario | Configuration approach |
+|---|---|
+| Aggregate bandwidth from two ISP links | Equal metrics, weights proportional to link capacity |
+| Primary fibre with LTE failover | Lower metric for fibre, higher metric for LTE |
+| VoIP via dedicated ISP, data via another | Traffic steering rule by destination object or port |
+| HTTPS session stability for inline IPS/HIPS | Persistent rule for TCP 443 |
+| Different departments using different ISPs | Traffic steering rules by source subnet |
 
 ---
 
 ## How It Works
 
-- **Load balancing** — distributes outbound sessions across WAN links according to configurable weights. Weights are relative: a weight of `2` carries twice the traffic of a weight of `1`.
-- **Failover** — each WAN link is monitored via repeated ping tests to its default gateway. If a link fails, MWAN automatically redirects traffic to the remaining active links.
-- **Traffic steering** — rules match outbound traffic by source IP, destination IP, destination port, or protocol, and direct matching flows to a designated WAN group with failover support.
-- **Unlimited WAN links** — the practical limit is the number of available physical interfaces on the device.
+### Load Balancing and Failover
 
----
+MWAN groups WAN interfaces into an **mwan-group**. All interfaces in the group form a shared failover pool — traffic is distributed among active members by weight, and automatically rerouted to surviving members on failure.
 
-## Important Notes
+Two parameters control each interface's role within the group:
 
-!!! note "Per-Connection Load Balancing"
-    MWAN balances on a per-IP-connection basis. A single-stream speed test or FTP transfer to one server will only use one WAN link at a time and will not reflect the aggregate bandwidth. Load balancing benefits are realised when multiple hosts access multiple destinations simultaneously, spreading sessions across links.
+- **Metric** — determines active vs. standby. Interfaces sharing the same metric load-balance against each other. Interfaces with a higher metric remain on standby and only activate when all lower-metric interfaces fail.
+- **Weight** — relative share of sessions among interfaces with the same metric. An interface with weight `2` carries twice the sessions of weight `1`.
 
 !!! tip "Metric and Weight"
-    - **Same metric** across interfaces → load balancing. Traffic is distributed in proportion to the configured weights.
-    - **Different metrics** → active/standby failover. Lower metric = preferred; higher metric = standby, activated only when all lower-metric links fail.
+    - **Same metric** → load balancing. Traffic distributed in proportion to weights.
+    - **Different metrics** → active/standby failover. Lower metric = preferred; higher metric = standby.
     - Weights are only compared between interfaces sharing the same metric value.
 
-!!! note "Persistent Balancing"
-    MWAN supports a **persistent** mode where sessions from the same source IP reuse the same WAN link for the duration of a configurable timeout. This is required for applications that enforce source IP consistency — for example, some HTTPS sites with inline IPS/HIPS that flag source IP changes as suspicious activity. Use persistent rules sparingly: each persistent session entry consumes system resources, which becomes significant in large networks.
+### Link Health Monitoring
+
+Each WAN interface is monitored by repeated ICMP ping to a configured tracking IP (typically the ISP default gateway). If a configurable number of consecutive pings fail, the interface is declared down and traffic is rerouted to the remaining active interfaces. When the interface recovers, traffic is redistributed according to the configured metrics and weights.
+
+### Traffic Steering
+
+MWAN rules match outbound traffic by protocol, source IP/port, and destination IP/port, and direct matching flows to a specified mwan-group. Rules are evaluated top-down — the first matching rule applies. A default catch-all rule at the bottom ensures all unmatched traffic is also covered.
+
+### Persistent Sessions
+
+By default, MWAN balances on a per-connection basis — each new session may be assigned to a different WAN link. For applications that require a consistent source IP across multiple sessions (e.g. some HTTPS services with inline IPS/HIPS), individual rules can be flagged as **persistent**. Persistent rules keep all sessions from the same source IP on the same WAN link for the duration of a configurable timeout.
+
+!!! note "Per-Connection Load Balancing"
+    MWAN balances on a per-IP-connection basis. A single-stream speed test or FTP transfer to one server will only use one WAN link and will not reflect aggregate bandwidth. Load balancing benefits are realised when multiple hosts access multiple destinations simultaneously, spreading sessions across links.
+
+!!! note "Persistent Sessions — Use Sparingly"
+    Each persistent session entry consumes system resources. In large networks with many active sessions, excessive persistent rules can impact performance. Use persistent rules only for protocols that genuinely require source IP consistency.
+
+!!! warning "Applying Configuration Changes"
+    Configuration changes require an MWAN service restart (`mwan stop` / `mwan start`). On devices with a large number of active connections, a service restart may not fully flush stale connection state — a full device reboot is recommended to ensure a clean restart.
 
 !!! note "DNS Resolution with ISP Restrictions"
-    Some ISPs block external DNS queries transiting their network. If users lose Internet access when traffic is balanced to a particular ISP link, verify DNS resolution is functional on that link. In this case, configure an internal DNS server or use the ISP-provided DNS server address instead of public resolvers such as `8.8.8.8`.
+    Some ISPs block external DNS queries transiting their network. If users lose Internet access when traffic is balanced to a particular ISP link, verify DNS resolution is functional on that link. Use an internal DNS server or the ISP-provided DNS address instead of public resolvers such as `8.8.8.8`.
 
 ---
 
-## Configuration Example
+## Configuration
 
-The following example uses three ISP links — two active (load balanced) and one standby (failover only):
+### Network Architecture
+
+The following example is used throughout the configuration sections below — a CMG-1500 with three ISP uplinks and an office LAN:
 
 | Interface | ISP | Subnet | Capacity | Metric | Weight | Role |
 |---|---|---|---|---|---|---|
@@ -44,21 +84,21 @@ The following example uses three ISP links — two active (load balanced) and on
 | `eth2` | ISP3 | `172.16.3.0/24` | 30 Mbps | 2 | 3 | Standby — failover only |
 | `eth3` | LAN  | `172.16.99.0/24` | — | — | — | Office LAN |
 
-`eth0` and `eth1` share metric `1` and load-balance in a 1:2 ratio, proportional to their 10/20 Mbps capacities. `eth2` has metric `2`, so it remains on standby and only becomes active if both `eth0` and `eth1` fail. The weight of `eth2` has no effect on the `eth0`/`eth1` balancing — it would only apply if another interface also shared metric `2`.
+`eth0` and `eth1` share metric `1` and load-balance in a 1:2 ratio, proportional to their 10/20 Mbps capacities. `eth2` has metric `2` and remains on standby — it activates only if both `eth0` and `eth1` fail. The weight of `eth2` has no effect on `eth0`/`eth1` balancing.
 
 ![Three-ISP MWAN topology](./images/mwan-1.png)
-
----
-
-## GUI Configuration
-
-Navigate to **Device Settings → SD-WAN → Multi-WAN**.
 
 ### Prerequisites
 
 Before configuring MWAN, ensure each WAN interface is fully configured with its IP address and default route, and verify connectivity by pinging the ISP default gateway on each link. Refer to the Ethernet Interface section for interface configuration details.
 
-### Step 1: Add MWAN Interfaces
+Plan your MWAN groups in advance. A **group** is a set of WAN interfaces that back each other up within a shared failover pool. Multiple groups can be defined to apply different policies to different traffic types via MWAN rules.
+
+### GUI Configuration
+
+Navigate to **Device Settings → SD-WAN → Multi-WAN**.
+
+#### Step 1: Add MWAN Interfaces
 
 Click **Add Interface** to register each WAN interface with MWAN.
 
@@ -68,16 +108,16 @@ Click **Add Interface** to register each WAN interface with MWAN.
 |---|---|
 | **WAN Interface** | The physical WAN interface to register (e.g. `eth0`, `eth1`, `ppp0`) |
 | **Enable** | Toggle to activate this MWAN interface entry |
-| **Metric** | Failover priority. Lower value = preferred. Interfaces with the same metric are load-balanced against each other |
-| **Weight** | Relative traffic share among interfaces with the same metric. A weight of `2` receives twice the sessions of a weight of `1` |
+| **Metric** | Failover priority. Lower value = preferred. Interfaces with the same metric are load-balanced |
+| **Weight** | Relative session share among interfaces with the same metric. Weight `2` carries twice the sessions of weight `1` |
 | **Tracking** | Enable link health monitoring via ICMP ping |
-| **Track Host** | IP address to ping for health checks — typically the ISP default gateway |
+| **Track Host** | IP address to ping — typically the ISP default gateway |
 | **Interval (s)** | Ping interval in seconds (default: `5`) |
-| **Attempt** | Number of consecutive failed pings before the link is declared down (default: `5`) |
+| **Attempt** | Consecutive failed pings before declaring the link down (default: `5`) |
 
 Click **Continue** after each entry. Repeat for all WAN interfaces.
 
-### Step 2: Define Balancing Policies
+#### Step 2: Define Balancing Policies
 
 Click **Add Rule** to specify which traffic uses which WAN group. Rules are evaluated top-down; the first matching rule applies.
 
@@ -88,14 +128,14 @@ Click **Add Rule** to specify which traffic uses which WAN group. Rules are eval
 | **Protocol** | Traffic protocol to match: `IP` (all), `TCP`, `UDP`, or `ICMP` |
 | **Source (Port)** | Source IP/subnet and optional port. Use `any` to match all sources |
 | **Destination (Port)** | Destination IP/subnet and optional port |
-| **Persistent** | When enabled, sessions from the same source IP reuse the same WAN link for the session lifetime |
+| **Persistent** | When enabled, sessions from the same source IP reuse the same WAN link |
 
 Click **Save** when all rules are defined.
 
 !!! tip
-    For most deployments, a single default rule matching all destinations (`0.0.0.0/0`) is sufficient. If persistence is required for specific applications (e.g. HTTPS), add a dedicated persistent rule for that traffic **above** the default catch-all rule.
+    For most deployments, a single default rule matching all destinations (`0.0.0.0/0`) is sufficient. If persistence is needed for specific protocols (e.g. HTTPS), add a dedicated persistent rule **above** the default catch-all rule.
 
-### Step 3: Configure Firewall Rules
+#### Step 3: Configure Firewall Rules
 
 Navigate to **Device Settings → Security → Firewall Policies**.
 
@@ -108,11 +148,9 @@ Add one **Access Rule** and one **SNAT Rule** per WAN interface to permit outbou
 | **Access Rule** | `Permit` | `Outbound (ethX)` — one rule per WAN interface |
 | **SNAT Rule** | `Overload` | `Outbound (ethX)` — one rule per WAN interface |
 
----
+### CLI Configuration
 
-## CLI Configuration
-
-### Static WAN IP
+#### Static WAN IP
 
 Three ISP links with static addresses. `eth0` and `eth1` load-balance at metric `1`; `eth2` is standby at metric `2`:
 
@@ -183,7 +221,7 @@ Key points:
 - A static default route (`ip route 0.0.0.0/0 nexthop <gateway>`) is required for each static WAN link.
 - MWAN rules are evaluated top-down. The persistent HTTPS rule (`100`) must appear before the default catch-all rule (`101`).
 
-### Dynamic (DHCP) WAN IP
+#### Dynamic (DHCP) WAN IP
 
 When WAN interfaces use DHCP, the device learns default gateways automatically — no static default routes are needed:
 
@@ -227,14 +265,14 @@ firewall-snat 11 overload outbound eth1
 ```
 
 !!! note "Mixed Static and DHCP"
-    When one WAN link uses a static IP and another uses DHCP, explicit default routes must be added for **both** links — including the DHCP link — even though the DHCP link would otherwise learn its gateway automatically. MWAN requires all participating routes to be explicitly present in the routing table:
+    When one WAN link is static and another is DHCP, explicit default routes must be added for **both** — including the DHCP link, even though it would otherwise learn its gateway automatically. MWAN requires all participating routes to be explicitly present in the routing table:
 
     ```
     ip route 0.0.0.0/0 nexthop 138.75.64.1
     ip route 0.0.0.0/0 nexthop 3g-lte0
     ```
 
-### PPPoE WAN
+#### PPPoE WAN
 
 When a WAN link uses PPPoE, configure `mwan-group` under the virtual `ppp0` interface rather than the physical Ethernet uplink:
 
@@ -286,5 +324,5 @@ mwan start
 
 Key points:
 
-- `mwan-group` is configured under `interface ppp0`, not under `eth1` (the physical PPPoE bearer).
+- Configure `mwan-group` under `interface ppp0`, not under `eth1` (the physical PPPoE bearer).
 - Explicit default routes are required for both the static interface and `ppp0`.

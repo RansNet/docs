@@ -2648,14 +2648,6 @@
 <li>when configuring "By Packet Flow" matching, because hotspot service generates dynamic inbound tunnel interface so we are not sure which tunnel no. to use, just use tun+ as the inbound interface, together with src IP/Network to narrow to a particular vlan/network.</li>
 </ul>
 <p>please also study current CLISH CLI and script to highlight other features or pre-cautions needed during deployments.</p>
-<p>CONFIGURATION EXAMPLE - Based on source (or destination)</p>
-<p>In this example, we are trying to achieve below objectives:</p>
-<p>clients from 172.16.30.0/24 will go out from ISP1 link for Internet access</p>
-<p>clients from 172.16.40.0/24 will go out from ISP2 link for Internet access</p>
-<p>CONFIGURATION EXAMPLE - Based on Applications</p>
-<p>In this example, we are trying to achieve below objectives:</p>
-<p>HTTP (TCP/80) access will go out from ISP1 link</p>
-<p>HTTPS (TCP/443 and UDP/443) access will go out from ISP2 link</p>
 
 
 

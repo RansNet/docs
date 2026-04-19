@@ -1946,13 +1946,85 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#class-priority" class="md-nav__link">
+  <a href="#bandwidth-parameters-and-priority" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Class Priority
+        Bandwidth Parameters and Priority
       
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Bandwidth Parameters and Priority">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#minimum-guaranteed-bandwidth" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Minimum — Guaranteed Bandwidth
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#maximum-burst-ceiling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Maximum — Burst Ceiling
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#priority-burst-scheduling-order" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Priority — Burst Scheduling Order
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#order-of-operations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Order of Operations
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#choosing-minimum-and-maximum" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Choosing Minimum and Maximum
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#class-number-and-filter-order" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Class Number and Filter Order
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -2871,13 +2943,85 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#class-priority" class="md-nav__link">
+  <a href="#bandwidth-parameters-and-priority" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Class Priority
+        Bandwidth Parameters and Priority
       
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Bandwidth Parameters and Priority">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#minimum-guaranteed-bandwidth" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Minimum — Guaranteed Bandwidth
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#maximum-burst-ceiling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Maximum — Burst Ceiling
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#priority-burst-scheduling-order" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Priority — Burst Scheduling Order
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#order-of-operations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Order of Operations
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#choosing-minimum-and-maximum" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Choosing Minimum and Maximum
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#class-number-and-filter-order" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Class Number and Filter Order
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -3066,7 +3210,7 @@
 <p>Within a VLAN, traffic can be further subdivided by application type (VLAN 30) or by individual user (VLAN 40 via Hotspot).</p>
 <hr>
 <h2 id="class-based-shaping">Class-Based Shaping<a class="headerlink" href="#class-based-shaping" title="Permanent link">¶</a></h2>
-<p>Class-based shaping uses <strong>HTB (Hierarchical Token Bucket)</strong> queuing to allocate bandwidth across defined traffic classes. Each class has a guaranteed minimum rate and a maximum ceiling. Under congestion, higher-priority classes are served first before lower-priority ones receive any remaining bandwidth.</p>
+<p>Class-based shaping uses <strong>HTB (Hierarchical Token Bucket)</strong> queuing to allocate bandwidth across defined traffic classes. Each class has a guaranteed minimum <code>rate</code>, a maximum <code>ceil</code>, and a burst scheduling <code>prio</code>. Under congestion, every class receives its guaranteed <code>rate</code> unconditionally; when spare capacity exists, classes borrow toward their <code>ceil</code> in priority order.</p>
 <p>Typical use cases:</p>
 <ul>
 <li>Guarantee bandwidth for business-critical applications (video conferencing, VoIP, ERP/CRM)</li>
@@ -3083,7 +3227,17 @@
 <p>Because firewall rules handle all the matching, QoS classes inherit the full firewall matching vocabulary, including named application object groups and FQDN.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>When configuring via the GUI or orchestrator, <code>firewall-set</code> rules and fwmark assignments are created automatically — no manual mark management is required. The orchestrator derives the fwmark from the class number (e.g. class <code>200</code> → upload mark <code>2001</code>, download mark <code>2002</code>). The CLI reflects these auto-generated values in <code>show running-config</code>.</p>
+<p>When configuring via the GUI or orchestrator, <code>firewall-set</code> rules and fwmark assignments are created automatically — no manual mark management is required. The orchestrator derives the fwmark from the class number (e.g. class <code>100</code> → upload mark <code>1001</code>, download mark <code>1002</code>). The CLI reflects these auto-generated values in <code>show running-config</code>.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Avoid Overlapping firewall-set Rules Across Classes</p>
+<p><code>firewall-set</code> rules are evaluated in ascending rule number order. Each matching rule <strong>overwrites</strong> the fwmark set by any previous rule — the last matching rule wins. If two classes have <code>firewall-set</code> rules that can match the same packet, the packet will always end up in the class corresponding to the higher-numbered rule, regardless of which class was intended.</p>
+<p>For example, if rule <code>1001</code> matches <code>tcp dport 443</code> (HTTPS) and rule <code>1501</code> matches a social media object group that includes HTTPS destinations, any HTTPS traffic to a social media site will be marked <code>1501</code> and placed into class <code>150</code>, not class <code>100</code>.</p>
+<p>To avoid this:</p>
+<ul>
+<li>Use <strong>mutually exclusive</strong> match criteria across classes wherever possible.</li>
+<li>Where overlap is unavoidable, place the <strong>more specific rule at a higher number</strong> so it takes precedence (overwrites the broader mark). This is the same discipline required for PBR rules.</li>
+</ul>
 </div>
 <h3 id="upload-and-download">Upload and Download<a class="headerlink" href="#upload-and-download" title="Permanent link">¶</a></h3>
 <p>QoS acts on <strong>egress</strong> (outgoing) traffic only. To shape both directions, configure <code>traffic-shape</code> on both the WAN and LAN interfaces:</p>
@@ -3092,100 +3246,232 @@
 <li><strong>Download</strong> (internet → client): configure on the <strong>LAN interface</strong> (<code>vlan 1</code>, <code>vlan 2</code>, etc.)</li>
 </ul>
 <p>Separate fwmarks are used for each direction — the upload mark matches on <strong>destination</strong> port or object (traffic going to the internet), and the download mark matches on <strong>source</strong> port or object (traffic returning from the internet). The orchestrator assigns these marks automatically following the class number convention.</p>
-<h3 id="class-priority">Class Priority<a class="headerlink" href="#class-priority" title="Permanent link">¶</a></h3>
-<p>The <strong>class number</strong> (<code>flowno</code>) controls priority in two complementary ways:</p>
-<ol>
-<li><strong>Filter evaluation order</strong> — lower class numbers are matched first. If traffic could satisfy multiple class filters, it is placed into the lowest-numbered matching class.</li>
-<li><strong>HTB scheduling priority</strong> — the HTB scheduler maps the class number to one of 8 priority tiers (0–7) using the formula <code>(flowno − 200) × 8 ÷ 200</code>. Class <code>200</code> maps to tier 0 (highest); class <code>399</code> maps to tier 7 (lowest). Each tier spans 25 class numbers. When the shared bandwidth pool has excess capacity, lower-tier classes are served before higher-tier classes, allowing them to burst toward their <code>ceil</code> sooner.</li>
-</ol>
+<h3 id="bandwidth-parameters-and-priority">Bandwidth Parameters and Priority<a class="headerlink" href="#bandwidth-parameters-and-priority" title="Permanent link">¶</a></h3>
+<p>Each traffic class is defined by three parameters. The GUI labels them <strong>Minimum</strong>, <strong>Maximum</strong>, and derives priority from the <strong>Class No.</strong> automatically. The CLI takes them as positional arguments. Their underlying HTB equivalents are shown in parentheses for reference.</p>
 <table>
 <thead>
 <tr>
-<th>Class range</th>
-<th>HTB prio tier</th>
-<th>Priority</th>
+<th>GUI label</th>
+<th>CLI position</th>
+<th>HTB term</th>
+<th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>200–224</td>
-<td>0</td>
-<td>Highest</td>
+<td><strong>Minimum</strong> (Kbps)</td>
+<td>1st argument after class no.</td>
+<td><code>rate</code></td>
+<td>Guaranteed bandwidth floor — always delivered</td>
 </tr>
 <tr>
-<td>225–249</td>
+<td><strong>Maximum</strong> (Kbps)</td>
+<td>2nd argument after class no.</td>
+<td><code>ceil</code></td>
+<td>Burst ceiling — maximum including borrowed capacity</td>
+</tr>
+<tr>
+<td><em>(derived from Class No.)</em></td>
+<td>—</td>
+<td><code>prio</code></td>
+<td>Burst scheduling order — which class borrows first</td>
+</tr>
+</tbody>
+</table>
+<h4 id="minimum-guaranteed-bandwidth">Minimum — Guaranteed Bandwidth<a class="headerlink" href="#minimum-guaranteed-bandwidth" title="Permanent link">¶</a></h4>
+<p><strong>Minimum</strong> is the bandwidth a class is always entitled to receive, unconditionally. The HTB scheduler reserves this allocation regardless of what other classes are doing. Even when the link is fully saturated and every class is competing, each class will receive at least its configured Minimum.</p>
+<p>Use Minimum to protect latency-sensitive traffic — VoIP, real-time video, business-critical SaaS — from being crowded out during peak hours.</p>
+<h4 id="maximum-burst-ceiling">Maximum — Burst Ceiling<a class="headerlink" href="#maximum-burst-ceiling" title="Permanent link">¶</a></h4>
+<p><strong>Maximum</strong> is the upper limit of bandwidth a class can ever consume, including capacity borrowed from the parent pool. A class can only exceed its Minimum up to the Maximum when other classes are using less than their own Minimum and spare capacity is available.</p>
+<ul>
+<li><strong>Minimum = Maximum</strong> — creates a hard cap. The class never borrows and is strictly limited to its guaranteed allocation.</li>
+<li><strong>Maximum &gt; Minimum</strong> — allows opportunistic bursting. The class expands to fill idle capacity up to the ceiling.</li>
+</ul>
+<h4 id="priority-burst-scheduling-order">Priority — Burst Scheduling Order<a class="headerlink" href="#priority-burst-scheduling-order" title="Permanent link">¶</a></h4>
+<p>Priority (<code>prio</code>) controls which class gets first access to spare capacity once all class Minimums have been satisfied. It is <strong>not directly configurable</strong> — it is derived automatically from the Class No. using <code>(Class No. − 100) ÷ 10</code>. A lower class number gives a higher burst priority (borrows spare bandwidth before higher-numbered classes).</p>
+<div class="admonition note">
+<p class="admonition-title">Priority is burst-order only — not strict priority</p>
+<p>Priority only governs the order in which classes borrow spare capacity <strong>above</strong> their Minimum. It has no effect on guaranteed allocations. A class with the lowest priority (class no. 170–179) and a Minimum of 50 Mbps will always receive its full 50 Mbps even when a highest-priority class is simultaneously active. True strict priority — "always drain this class before touching any other" — is not a feature of HTB.</p>
+</div>
+<table>
+<thead>
+<tr>
+<th>Class No. range</th>
+<th>Priority tier</th>
+<th>Burst order</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>100–109</td>
+<td>0</td>
+<td>Highest — borrows spare capacity first</td>
+</tr>
+<tr>
+<td>110–119</td>
 <td>1</td>
 <td></td>
 </tr>
 <tr>
-<td>250–274</td>
+<td>120–129</td>
 <td>2</td>
 <td></td>
 </tr>
 <tr>
-<td>275–299</td>
+<td>130–139</td>
 <td>3</td>
 <td></td>
 </tr>
 <tr>
-<td>300–324</td>
+<td>140–149</td>
 <td>4</td>
 <td></td>
 </tr>
 <tr>
-<td>325–349</td>
+<td>150–159</td>
 <td>5</td>
 <td></td>
 </tr>
 <tr>
-<td>350–374</td>
+<td>160–169</td>
 <td>6</td>
 <td></td>
 </tr>
 <tr>
-<td>375–399</td>
+<td>170–179</td>
 <td>7</td>
-<td>Lowest</td>
+<td>Lowest — borrows last</td>
 </tr>
 </tbody>
 </table>
-<p>Under congestion (link fully saturated), every class is guaranteed its configured <code>rate</code> regardless of priority tier. Use <code>rate</code> to reserve bandwidth that must be protected for latency-sensitive traffic such as VoIP or video conferencing. The priority tier controls which classes benefit first when spare capacity is available.</p>
+<h4 id="order-of-operations">Order of Operations<a class="headerlink" href="#order-of-operations" title="Permanent link">¶</a></h4>
+<p>HTB processes each scheduling cycle in two sequential phases:</p>
+<ol>
+<li>
+<p><strong>Guarantee phase</strong> — all active classes are serviced up to their Minimum. This occurs unconditionally and in parallel — priority has no influence here. Every class receives its reserved allocation regardless of class number.</p>
+</li>
+<li>
+<p><strong>Borrow phase</strong> — if spare capacity remains after all Minimums are satisfied, HTB offers the excess to classes in priority order. The highest-priority class (lowest class number) borrows first up to its Maximum, then the next tier, and so on. If the link is fully consumed in the guarantee phase, the borrow phase does not occur and priority has no effect at all.</p>
+</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>Condition</th>
+<th>Which phase applies</th>
+<th>Is priority effective?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Link not fully loaded</td>
+<td>Borrow phase — classes burst toward Maximum</td>
+<td>Yes — lower class number bursts first</td>
+</tr>
+<tr>
+<td>Link saturated, all classes at Minimum</td>
+<td>Guarantee phase only</td>
+<td>No — all classes receive their Minimum</td>
+</tr>
+<tr>
+<td>A class has Minimum = 0</td>
+<td>Must always borrow; nothing guaranteed</td>
+<td>Partially — risks starvation under congestion</td>
+</tr>
+</tbody>
+</table>
+<h4 id="choosing-minimum-and-maximum">Choosing Minimum and Maximum<a class="headerlink" href="#choosing-minimum-and-maximum" title="Permanent link">¶</a></h4>
+<ul>
+<li>Set <strong>Minimum</strong> to the bandwidth the application must have to function acceptably under worst-case congestion — this is its hard protection floor.</li>
+<li>Set <strong>Maximum</strong> to the most bandwidth you are willing to allow the class to consume when the link is quiet.</li>
+<li>The gap between Minimum and Maximum is the <strong>burst window</strong> — how aggressively the class expands into spare capacity when available.</li>
+<li>To create a strict cap with no bursting, set <strong>Minimum = Maximum</strong>.</li>
+</ul>
+<h4 id="class-number-and-filter-order">Class Number and Filter Order<a class="headerlink" href="#class-number-and-filter-order" title="Permanent link">¶</a></h4>
+<p>The <strong>Class No.</strong> also controls <strong>filter evaluation order</strong>, independent of HTB scheduling. Lower class numbers are matched first. If a packet could satisfy multiple class filters, it is placed into the lowest-numbered matching class. Assign lower class numbers to traffic types that should take precedence in classification.</p>
 <h3 id="gui-configuration">GUI Configuration<a class="headerlink" href="#gui-configuration" title="Permanent link">¶</a></h3>
 <p>Navigate to <strong>Device Settings → SD-WAN → Traffic Shaping</strong> and click the <strong>Class-Based Shaping</strong> tab.</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../images/traffic-qos-2.png" data-desc-position="bottom"><img alt="Class-Based Shaping" src="../images/traffic-qos-2.png"></a></p>
 <h3 id="cli-configuration">CLI Configuration<a class="headerlink" href="#cli-configuration" title="Permanent link">¶</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>interface eth0
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a> traffic-shape 10000000 10000000
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>  class 200 20000 20000 fwmark 2001 remark https-upload
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>  class 201 10000 10000 fwmark 2011 remark social-upload
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>!
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>interface vlan 1 1
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a> traffic-shape 10000000 10000000
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>  class 200 20000 20000 fwmark 2002 remark https-download
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>  class 201 10000 10000 fwmark 2012 remark social-download
-<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>  default bandwidth 1000 1000
-<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>!
-<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>object-group social_sites
-<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a> app Facebook
-<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a> app Tiktok
-<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a> app YouTube
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>!
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>hostname HSA-520
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>!
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>interface eth0
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a> description "Connection to WAN"
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a> enable
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a> ip address dhcp
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a> traffic-shape 10000000 10000000
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>  class 100 5000 10000 fwmark 1001 remark class-100-upload
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>  class 120 3000 4000 fwmark 1201 remark class-120-upload
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>  default bandwidth 512 512
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>!
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>interface eth1
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a> description "Do NOT configure"
+<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a> enable
 <a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>!
-<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>firewall-set 2001 mark 2001 access tcp dport 443 remark https-upload
-<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>firewall-set 2002 mark 2002 access tcp sport 443 remark https-download
-<a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a>firewall-set 2011 mark 2011 access ip dst_object social_sites remark social-upload
-<a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a>firewall-set 2012 mark 2012 access ip src_object social_sites remark social-download
+<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>interface wwan0
+<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a> enable
+<a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a> traffic-shape 10000000 10000000
+<a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a>  class 110 7000 8000 fwmark 1101 remark class-110-upload
+<a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a>!
+<a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a>interface vlan 1 1
+<a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a> description "Default VLAN for all LAN ports"
+<a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a> enable
+<a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a> ip address 192.168.8.1/22
+<a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a> dhcp-server
+<a id="__codelineno-0-27" name="__codelineno-0-27" href="#__codelineno-0-27"></a>  router 192.168.8.1
+<a id="__codelineno-0-28" name="__codelineno-0-28" href="#__codelineno-0-28"></a>  dns 8.8.8.8 8.8.4.4
+<a id="__codelineno-0-29" name="__codelineno-0-29" href="#__codelineno-0-29"></a>  range 192.168.8.10 192.168.11.254
+<a id="__codelineno-0-30" name="__codelineno-0-30" href="#__codelineno-0-30"></a>  enable
+<a id="__codelineno-0-31" name="__codelineno-0-31" href="#__codelineno-0-31"></a> traffic-shape 10000000 10000000
+<a id="__codelineno-0-32" name="__codelineno-0-32" href="#__codelineno-0-32"></a>  class 100 5000 10000 fwmark 1002 remark class-100-download
+<a id="__codelineno-0-33" name="__codelineno-0-33" href="#__codelineno-0-33"></a>  class 110 5000 6000 fwmark 1102 remark class-110-download
+<a id="__codelineno-0-34" name="__codelineno-0-34" href="#__codelineno-0-34"></a>  class 120 1000 2000 fwmark 1202 remark class-120-download
+<a id="__codelineno-0-35" name="__codelineno-0-35" href="#__codelineno-0-35"></a>  default bandwidth 512 512
+<a id="__codelineno-0-36" name="__codelineno-0-36" href="#__codelineno-0-36"></a>!
+<a id="__codelineno-0-37" name="__codelineno-0-37" href="#__codelineno-0-37"></a>ip name-server 8.8.8.8 8.8.4.4
+<a id="__codelineno-0-38" name="__codelineno-0-38" href="#__codelineno-0-38"></a>!
+<a id="__codelineno-0-39" name="__codelineno-0-39" href="#__codelineno-0-39"></a>object-group VoIP
+<a id="__codelineno-0-40" name="__codelineno-0-40" href="#__codelineno-0-40"></a> net 118.189.175.168
+<a id="__codelineno-0-41" name="__codelineno-0-41" href="#__codelineno-0-41"></a>!
+<a id="__codelineno-0-42" name="__codelineno-0-42" href="#__codelineno-0-42"></a>object-group firewall_obj
+<a id="__codelineno-0-43" name="__codelineno-0-43" href="#__codelineno-0-43"></a> net 2.2.2.2
+<a id="__codelineno-0-44" name="__codelineno-0-44" href="#__codelineno-0-44"></a> app WhatsApp
+<a id="__codelineno-0-45" name="__codelineno-0-45" href="#__codelineno-0-45"></a> fqdn docs.ransnet.com
+<a id="__codelineno-0-46" name="__codelineno-0-46" href="#__codelineno-0-46"></a>!
+<a id="__codelineno-0-47" name="__codelineno-0-47" href="#__codelineno-0-47"></a>object-group social_sites
+<a id="__codelineno-0-48" name="__codelineno-0-48" href="#__codelineno-0-48"></a> app Facebook
+<a id="__codelineno-0-49" name="__codelineno-0-49" href="#__codelineno-0-49"></a> app Tiktok
+<a id="__codelineno-0-50" name="__codelineno-0-50" href="#__codelineno-0-50"></a> app YouTube
+<a id="__codelineno-0-51" name="__codelineno-0-51" href="#__codelineno-0-51"></a>!
+<a id="__codelineno-0-52" name="__codelineno-0-52" href="#__codelineno-0-52"></a>firewall-input 100 permit all tcp src 192.168.8.0/22 dport 22
+<a id="__codelineno-0-53" name="__codelineno-0-53" href="#__codelineno-0-53"></a>!
+<a id="__codelineno-0-54" name="__codelineno-0-54" href="#__codelineno-0-54"></a>firewall-limit 3001 2000 all ip dst_object firewall_obj remark 300-upload
+<a id="__codelineno-0-55" name="__codelineno-0-55" href="#__codelineno-0-55"></a>firewall-limit 3002 2000 all ip src_object firewall_obj remark 300-download
+<a id="__codelineno-0-56" name="__codelineno-0-56" href="#__codelineno-0-56"></a>!
+<a id="__codelineno-0-57" name="__codelineno-0-57" href="#__codelineno-0-57"></a>firewall-access 100 permit outbound eth0
+<a id="__codelineno-0-58" name="__codelineno-0-58" href="#__codelineno-0-58"></a>firewall-access 101 permit outbound wwan+
+<a id="__codelineno-0-59" name="__codelineno-0-59" href="#__codelineno-0-59"></a>!
+<a id="__codelineno-0-60" name="__codelineno-0-60" href="#__codelineno-0-60"></a>firewall-snat 100 overload outbound eth0
+<a id="__codelineno-0-61" name="__codelineno-0-61" href="#__codelineno-0-61"></a>firewall-snat 101 overload outbound wwan+
+<a id="__codelineno-0-62" name="__codelineno-0-62" href="#__codelineno-0-62"></a>!
+<a id="__codelineno-0-63" name="__codelineno-0-63" href="#__codelineno-0-63"></a>firewall-set 1001 mark 1001 access ip dst_object VoIP remark class-100-upload
+<a id="__codelineno-0-64" name="__codelineno-0-64" href="#__codelineno-0-64"></a>firewall-set 1101 mark 1101 access tcp dport 443 remark class-110-upload
+<a id="__codelineno-0-65" name="__codelineno-0-65" href="#__codelineno-0-65"></a>firewall-set 1102 mark 1102 access tcp sport 443 remark class-110-download
+<a id="__codelineno-0-66" name="__codelineno-0-66" href="#__codelineno-0-66"></a>firewall-set 1201 mark 1201 access ip dst_object social_sites remark class-120-upload
+<a id="__codelineno-0-67" name="__codelineno-0-67" href="#__codelineno-0-67"></a>firewall-set 1202 mark 1202 access ip src_object social_sites remark class-120-download
 </code></pre></div>
 <p><strong>Key points:</strong></p>
 <ul>
-<li><code>traffic-shape &lt;rate&gt; &lt;ceil&gt;</code> sets the HTB root class bandwidth in Kbps. Use <code>10000000</code> (10 Gbps) when there is no overall interface cap — individual class limits do the actual shaping.</li>
-<li><code>class &lt;flowno&gt; &lt;rate&gt; &lt;ceil&gt; fwmark &lt;mark&gt;</code> defines a class. <code>flowno</code> determines priority — lower is higher priority. <code>rate</code> is the guaranteed minimum; <code>ceil</code> is the maximum burst ceiling.</li>
+<li><code>traffic-shape &lt;min&gt; &lt;max&gt;</code> sets the root class bandwidth envelope in Kbps. Use <code>10000000</code> (10 Gbps) when there is no overall interface cap — individual class limits do the actual shaping.</li>
+<li><code>class &lt;no&gt; &lt;min&gt; &lt;max&gt; fwmark &lt;mark&gt;</code> defines a traffic class. <code>no</code> (Class No.) determines both filter evaluation order and burst priority — lower is higher priority. <code>min</code> is the guaranteed Minimum; <code>max</code> is the Maximum burst ceiling.</li>
 <li><code>fwmark &lt;mark&gt;</code> links the class to a <code>firewall-set</code> rule carrying the same mark number. When using the orchestrator or GUI, this value is assigned automatically — no manual configuration needed.</li>
 <li><code>default bandwidth &lt;rate&gt; &lt;ceil&gt;</code> creates a catch-all class for traffic that does not match any fwmark. Omitting it allows unmatched traffic to pass at wire speed, which is acceptable when only per-class ceilings are needed.</li>
 <li><code>remark</code> is a free-text label stored in the running config for identification only — it has no effect on shaping behaviour.</li>
 </ul>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>Assign lower class numbers to higher-priority traffic. Class <code>200</code> (prio tier 0) is always scheduled before class <code>350</code> (prio tier 6) when excess capacity is available. For traffic that must be protected under congestion (VoIP, real-time video), set a meaningful <code>rate</code> so the class retains its guaranteed allocation even when the link is saturated.</p>
+<p>For traffic that must be protected under congestion (VoIP, real-time video), set a meaningful <strong>Minimum</strong> — this is the only mechanism that guarantees bandwidth when the link is saturated. Assign lower Class Numbers to traffic that should burst first when spare capacity is available, and use <strong>Maximum</strong> to cap the most each class can consume.</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -3193,23 +3479,31 @@
 </div>
 <h3 id="verification">Verification<a class="headerlink" href="#verification" title="Permanent link">¶</a></h3>
 <p>Example output:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>HSA-520# show interface traffic-shape
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>HSA-520# show interface traffic-shape 
 <a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
 <a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>Interface: eth0
-<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>  Class    Rate        Ceil        Prio    FW Mark           Sent              Dropped
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>  Class    Min         Max         Prio    FW Mark           Sent              Dropped
 <a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>  -------  ----------  ----------  ------  ----------------  ----------------  -------
-<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>  200      20Mbit      20Mbit      0       2001/0x7d1        244247B/2141p     0
-<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>  201      10Mbit      10Mbit      0       2011/0x7db        0B/0p             0
-<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>  [i] No default class — unclassified traffic passes at wire speed (uncapped)
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>  100      5Mbit       10Mbit      0       1001/0x3e9        0B/0p             0
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>  120      3Mbit       4Mbit       2       1201/0x4b1        0B/0p             0
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>  default  512Kbit     512Kbit     -       (catch-all)       295439B/2692p     0
 <a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>
 <a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>Interface: vlan1
-<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>  Class    Rate        Ceil        Prio    FW Mark           Sent              Dropped
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>  Class    Min         Max         Prio    FW Mark           Sent              Dropped
 <a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>  -------  ----------  ----------  ------  ----------------  ----------------  -------
-<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>  200      20Mbit      20Mbit      0       2002/0x7d2        0B/0p             0
-<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>  201      10Mbit      10Mbit      0       2012/0x7dc        0B/0p             0
-<a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>  default  1Mbit       1Mbit       -       (catch-all)       868B/8p           0
+<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>  110      5Mbit       6Mbit       1       1102/0x44e        0B/0p             0
+<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>  100      5Mbit       10Mbit      0       1002/0x3ea        0B/0p             0
+<a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>  120      1Mbit       2Mbit       2       1202/0x4b2        0B/0p             0
+<a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a>  default  512Kbit     512Kbit     -       (catch-all)       0B/0p             0
+<a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a>
+<a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a>Interface: wwan0
+<a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a>  Class    Min         Max         Prio    FW Mark           Sent              Dropped
+<a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a>  -------  ----------  ----------  ------  ----------------  ----------------  -------
+<a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a>  110      7Mbit       8Mbit       1       1101/0x44d        0B/0p             0
+<a id="__codelineno-1-22" name="__codelineno-1-22" href="#__codelineno-1-22"></a>  [i] No default class — unclassified traffic passes at wire speed (uncapped)
+<a id="__codelineno-1-23" name="__codelineno-1-23" href="#__codelineno-1-23"></a>HSA-520# 
 </code></pre></div>
-<p><strong>FW Mark</strong> shows the decimal value (matching the <code>firewall-set</code> rule number) alongside the kernel's internal hex representation. <strong>Prio</strong> is the HTB scheduling priority (0–7) derived from the class number using <code>(flowno − 200) × 8 ÷ 200</code> — class <code>200</code> → prio <code>0</code> (highest), class <code>399</code> → prio <code>7</code> (lowest). Classes with a lower prio value are served first when excess bandwidth is available.</p>
+<p><strong>Min</strong> is the guaranteed bandwidth floor (Minimum); <strong>Max</strong> is the burst ceiling (Maximum). <strong>FW Mark</strong> shows the decimal value (matching the <code>firewall-set</code> rule number) alongside the kernel's internal hex representation. <strong>Prio</strong> is the burst scheduling order (0–7), derived automatically from the Class No. using <code>(Class No. − 100) ÷ 10</code> — class <code>100</code> → prio <code>0</code> (highest), class <code>179</code> → prio <code>7</code> (lowest).</p>
 <p>For low-level inspection of the underlying <code>qos</code> state:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>HSA-520# show interface traffic-class eth0     (HTB class details and statistics)
 <a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>HSA-520# show interface traffic-filter eth0    (tc filter entries and fwmark handles)
@@ -3269,61 +3563,61 @@
 <hr>
 <h2 id="design-notes">Design Notes<a class="headerlink" href="#design-notes" title="Permanent link">¶</a></h2>
 <h3 id="class-numbering-convention">Class Numbering Convention<a class="headerlink" href="#class-numbering-convention" title="Permanent link">¶</a></h3>
-<p>Valid class numbers are in the range <strong>200–399</strong>. The class number determines both the scheduling priority tier and the auto-assigned fwmark values. Use the table below to select the right class range for the desired priority:</p>
+<p>Valid class numbers are in the range <strong>100–179</strong>. The class number determines both the scheduling priority tier and the auto-assigned fwmark values. Use the table below to select the right class range for the desired priority:</p>
 <table>
 <thead>
 <tr>
-<th>Class range</th>
-<th>HTB prio</th>
-<th>Priority level</th>
+<th>Class No. range</th>
+<th>Burst priority (Prio)</th>
+<th>Burst order</th>
 <th>Typical use</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>200–224</td>
+<td>100–109</td>
 <td>0</td>
 <td>Highest</td>
 <td>VoIP, real-time video</td>
 </tr>
 <tr>
-<td>225–249</td>
+<td>110–119</td>
 <td>1</td>
 <td></td>
 <td>Video conferencing</td>
 </tr>
 <tr>
-<td>250–274</td>
+<td>120–129</td>
 <td>2</td>
 <td></td>
 <td>Business-critical (SaaS, ERP)</td>
 </tr>
 <tr>
-<td>275–299</td>
+<td>130–139</td>
 <td>3</td>
 <td></td>
 <td>Interactive web (HTTPS)</td>
 </tr>
 <tr>
-<td>300–324</td>
+<td>140–149</td>
 <td>4</td>
 <td></td>
 <td>General web browsing</td>
 </tr>
 <tr>
-<td>325–349</td>
+<td>150–159</td>
 <td>5</td>
 <td></td>
 <td>File downloads</td>
 </tr>
 <tr>
-<td>350–374</td>
+<td>160–169</td>
 <td>6</td>
 <td></td>
 <td>Social media, streaming</td>
 </tr>
 <tr>
-<td>375–399</td>
+<td>170–179</td>
 <td>7</td>
 <td>Lowest</td>
 <td>Background / bulk transfers</td>
@@ -3334,8 +3628,8 @@
 <table>
 <thead>
 <tr>
-<th>HTB prio</th>
-<th>Example class</th>
+<th>Burst priority</th>
+<th>Example Class No.</th>
 <th>Auto upload mark</th>
 <th>Auto download mark</th>
 </tr>
@@ -3343,51 +3637,51 @@
 <tbody>
 <tr>
 <td>0 (highest)</td>
-<td>200</td>
-<td>2001</td>
-<td>2002</td>
+<td>100</td>
+<td>1001</td>
+<td>1002</td>
 </tr>
 <tr>
 <td>1</td>
-<td>225</td>
-<td>2251</td>
-<td>2252</td>
+<td>110</td>
+<td>1101</td>
+<td>1102</td>
 </tr>
 <tr>
 <td>2</td>
-<td>250</td>
-<td>2501</td>
-<td>2502</td>
+<td>120</td>
+<td>1201</td>
+<td>1202</td>
 </tr>
 <tr>
 <td>3</td>
-<td>275</td>
-<td>2751</td>
-<td>2752</td>
+<td>130</td>
+<td>1301</td>
+<td>1302</td>
 </tr>
 <tr>
 <td>4</td>
-<td>300</td>
-<td>3001</td>
-<td>3002</td>
+<td>140</td>
+<td>1401</td>
+<td>1402</td>
 </tr>
 <tr>
 <td>5</td>
-<td>325</td>
-<td>3251</td>
-<td>3252</td>
+<td>150</td>
+<td>1501</td>
+<td>1502</td>
 </tr>
 <tr>
 <td>6</td>
-<td>350</td>
-<td>3501</td>
-<td>3502</td>
+<td>160</td>
+<td>1601</td>
+<td>1602</td>
 </tr>
 <tr>
 <td>7 (lowest)</td>
-<td>375</td>
-<td>3751</td>
-<td>3752</td>
+<td>170</td>
+<td>1701</td>
+<td>1702</td>
 </tr>
 </tbody>
 </table>

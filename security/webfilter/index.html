@@ -2228,6 +2228,39 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prerequisites
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#wildcard-matching-and-specificity" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Wildcard Matching and Specificity
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dns-groups" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DNS Groups
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#blacklisting-block-specific-domains" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2261,10 +2294,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#identifying-required-domains" class="md-nav__link">
+  <a href="#verification" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Identifying Required Domains
+        Verification
       
     </span>
   </a>
@@ -2272,10 +2305,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#dns-query-logging" class="md-nav__link">
+  <a href="#identifying-required-domains" class="md-nav__link">
     <span class="md-ellipsis">
       
-        DNS Query Logging
+        Identifying Required Domains
       
     </span>
   </a>
@@ -2932,6 +2965,39 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prerequisites
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#wildcard-matching-and-specificity" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Wildcard Matching and Specificity
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dns-groups" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DNS Groups
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#blacklisting-block-specific-domains" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2965,10 +3031,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#identifying-required-domains" class="md-nav__link">
+  <a href="#verification" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Identifying Required Domains
+        Verification
       
     </span>
   </a>
@@ -2976,10 +3042,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#dns-query-logging" class="md-nav__link">
+  <a href="#identifying-required-domains" class="md-nav__link">
     <span class="md-ellipsis">
       
-        DNS Query Logging
+        Identifying Required Domains
       
     </span>
   </a>
@@ -3202,63 +3268,104 @@
 </ul>
 <hr>
 <h2 id="method-2-dns-filtering">Method 2: DNS Filtering<a class="headerlink" href="#method-2-dns-filtering" title="Permanent link">¶</a></h2>
-<p>DNS filtering intercepts client DNS queries at the router and returns a controlled response — either no address (blocking) or a normal upstream resolution (permitting). Because filtering happens at the DNS layer, it requires no changes on client devices and applies to all clients on the network.</p>
-<p>Before configuring DNS filtering, ensure the router is intercepting client DNS queries. See <a href="../../config/dnsrewrite/">DNS &amp; DNS Rewrite</a> for setup details, including the DNAT rule that transparently redirects port 53 traffic from clients regardless of what DNS server they have configured.</p>
-<h3 id="blacklisting-block-specific-domains">Blacklisting — Block Specific Domains<a class="headerlink" href="#blacklisting-block-specific-domains" title="Permanent link">¶</a></h3>
-<p>Default-permit: all domains resolve normally except those explicitly blocked.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Blocking a domain also blocks all its subdomains. Blocking <code>yahoo.com</code> also blocks <code>mail.yahoo.com</code>, <code>finance.yahoo.com</code>, and so on.</p>
-</div>
-<p><strong>CLI Configuration</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>ip name-server 8.8.8.8 8.8.4.4
-<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>firewall-dnat 10 redirect inbound eth1 udp dport 53
-<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>
-<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>ip host facebook.com reject
-<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>ip host youtube.com reject
-<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>ip host tiktok.com reject
+<p>DNS filtering intercepts client DNS queries at the router and returns a controlled response — blocking a domain (returning <code>0.0.0.0</code>) or permitting it through to the upstream resolver. Because filtering happens at the DNS layer, it requires no changes on client devices and applies to all clients on the network automatically.</p>
+<h3 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">¶</a></h3>
+<p>Before configuring DNS filtering, redirect client DNS traffic to the router. A <strong>DNAT rule</strong> captures port 53 traffic from clients, and a paired <strong>firewall-input rule</strong> permits the redirected traffic into the router itself:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>firewall-dnat 201 redirect inbound br-vlan1 udp dport 53
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>firewall-input 201 permit inbound br-vlan1 udp dport 53
 </code></pre></div>
-<p>To remove a block:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>no ip host facebook.com reject
+<p>Replace <code>br-vlan1</code> with the LAN-facing interface for your deployment.</p>
+<h3 id="wildcard-matching-and-specificity">Wildcard Matching and Specificity<a class="headerlink" href="#wildcard-matching-and-specificity" title="Permanent link">¶</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Automatic subdomain coverage</p>
+<p>Every domain entry covers the domain itself <strong>and all its subdomains</strong> — no wildcard syntax required. Adding <code>domain facebook.com</code> blocks or permits <code>facebook.com</code>, <code>www.facebook.com</code>, <code>m.facebook.com</code>, <code>static.xx.fbcdn.net</code>... and any other subdomain automatically.</p>
+</div>
+<p><strong>More specific entries always take precedence over broader ones</strong>, regardless of rule order. This means you can:</p>
+<ul>
+<li>Block <code>facebook.com</code> (covers all subdomains) while permitting <code>business.facebook.com</code> with a separate entry</li>
+<li>Permit <code>google.com</code> while denying <code>ads.google.com</code> for a specific subdomain exception</li>
+</ul>
+<p>Lower rule IDs have higher priority. Once a domain is matched by a rule, it is not re-evaluated by later rules.</p>
+<h3 id="dns-groups">DNS Groups<a class="headerlink" href="#dns-groups" title="Permanent link">¶</a></h3>
+<p>DNS groups let you organise domains into named lists referenced by filter rules. This keeps rules concise and makes bulk changes easy — add or remove a domain from the group without modifying any rules.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>dns-group adult-sites
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>  domain playboy.com
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>  domain pornhub.com
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>!
+</code></pre></div>
+<p>Managing group members:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>dns-group adult-sites
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>  no domain playboy.com
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>!
+</code></pre></div>
+<p>Removing an entire group:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>no dns-group adult-sites
+</code></pre></div>
+<p>Viewing configured groups:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>show dns-group
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>show dns-group adult-sites
+</code></pre></div>
+<h3 id="blacklisting-block-specific-domains">Blacklisting — Block Specific Domains<a class="headerlink" href="#blacklisting-block-specific-domains" title="Permanent link">¶</a></h3>
+<p>Default-permit: all domains resolve normally except those explicitly denied.</p>
+<p><strong>CLI Configuration</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>dns-group adult-sites
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>  domain playboy.com
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>  domain pornhub.com
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>!
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>dns-filter 100 deny group adult-sites
+<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>dns-filter 200 permit all
+</code></pre></div>
+<p>Rule 100 blocks all domains in the <code>adult-sites</code> group (and their subdomains). Rule 200 permits everything else. Rules are evaluated in ascending ID order.</p>
+<p>To block a single domain directly without a group:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>dns-filter 100 deny domain malicious-site.example.com
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>dns-filter 200 permit all
+</code></pre></div>
+<p>To remove a rule:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>no dns-filter 100 deny domain malicious-site.example.com
 </code></pre></div>
 <h3 id="whitelisting-allow-only-approved-domains">Whitelisting — Allow Only Approved Domains<a class="headerlink" href="#whitelisting-allow-only-approved-domains" title="Permanent link">¶</a></h3>
-<p>Default-deny: all domains are blocked unless explicitly permitted. The wildcard entry <code>ip host . reject</code> blocks everything by default; individual <code>ip host &lt;domain&gt; resolve</code> entries override it for approved domains.</p>
+<p>Default-deny: all domains are blocked except those explicitly permitted. A <code>deny all</code> catch-all at a high rule ID blocks everything; <code>permit domain</code> rules with lower IDs override it for approved domains.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Many sites and services depend on multiple domains — CDNs, authentication endpoints, API services, and analytics. Permitting a site requires permitting all its supporting domains. Use <code>tcpdump</code> or <a href="#dns-query-logging">DNS query logging</a> to identify them.</p>
+<p>Many sites depend on multiple domains — CDNs, authentication endpoints, API services, and analytics. Permitting a site requires permitting all its supporting domains. Use <code>tcpdump</code> or DNS query logging to identify them.</p>
 </div>
 <p><strong>CLI Configuration</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>ip name-server 8.8.8.8 8.8.4.4
-<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>firewall-dnat 10 redirect inbound eth1 udp dport 53
-<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>
-<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>ip host . reject
-<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>
-<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>ip host google.com resolve
-<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>ip host googleapis.com resolve
-<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>ip host gstatic.com resolve
-<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>ip host youtube.com resolve
-<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a>ip host ytimg.com resolve
-<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a>ip host ransnet.com resolve
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>dns-filter 100 permit domain google.com
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>dns-filter 110 permit domain googleapis.com
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>dns-filter 120 permit domain gstatic.com
+<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>dns-filter 130 permit domain ransnet.com
+<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>dns-filter 900 deny all
 </code></pre></div>
-<p>To remove the default-deny and restore normal resolution:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>no ip host . reject
-</code></pre></div>
+<p>The <code>deny all</code> catch-all at rule 900 blocks any domain not explicitly permitted by a lower-numbered rule.</p>
 <h3 id="gui-configuration_1">GUI Configuration<a class="headerlink" href="#gui-configuration_1" title="Permanent link">¶</a></h3>
-<p>Navigate to <strong>Device Settings → System</strong>, scroll to <strong>Static FQDN-IP Mapping</strong>, click <strong>+ Add</strong>.</p>
-<ul>
-<li>To block a domain: enter the domain and set the action to <strong>Block</strong></li>
-<li>To whitelist a domain under a default-deny policy: enter the domain and set the action to <strong>Resolve</strong></li>
-</ul>
+<p><em>[Screenshot — to be added]</em></p>
+<p>Navigate to <strong>Device Settings → Security → DNS Filter</strong>. Add domain groups under <strong>DNS Groups</strong> and configure filter rules under <strong>DNS Filter Rules</strong>.</p>
+<h3 id="verification">Verification<a class="headerlink" href="#verification" title="Permanent link">¶</a></h3>
+<p>After configuring DNS filtering, verify blocked domains return <code>0.0.0.0</code>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>C:\Users\yingd&gt;nslookup playboy.com
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>Server:  dns.google
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>Address:  8.8.8.8
+<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a>
+<a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a>Name:    playboy.com
+<a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a>Address:  0.0.0.0
+</code></pre></div>
+<p>The router transparently intercepts the DNS query — even though the client is configured to use an external resolver (8.8.8.8), the DNAT rule redirects the query to the router's DNS engine, which returns <code>0.0.0.0</code> for blocked domains.</p>
+<p>After removing the block (<code>no domain playboy.com</code> under <code>dns-group adult-sites</code>), the domain resolves normally:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>C:\Users\yingd&gt;nslookup playboy.com
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>Server:  dns.google
+<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>Address:  8.8.8.8
+<a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>
+<a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a>Name:    playboy.com
+<a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a>Addresses:  2606:4700:7::d1
+<a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a>            2606:4700:3033::d0
+<a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a>            162.159.140.211
+<a id="__codelineno-13-9" name="__codelineno-13-9" href="#__codelineno-13-9"></a>            162.159.141.211
+</code></pre></div>
 <h3 id="identifying-required-domains">Identifying Required Domains<a class="headerlink" href="#identifying-required-domains" title="Permanent link">¶</a></h3>
 <p>When whitelisting, use <code>tcpdump</code> on the router to capture all DNS queries clients make while browsing a target site:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>tcpdump interface eth1 port 53 detail
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>tcpdump interface br-vlan1 port 53 detail
 </code></pre></div>
-<p>Watch the output while navigating the site fully — including login, media loading, and background API calls. Add each unresolved domain to the whitelist with <code>ip host &lt;domain&gt; resolve</code>.</p>
-<h3 id="dns-query-logging">DNS Query Logging<a class="headerlink" href="#dns-query-logging" title="Permanent link">¶</a></h3>
-<p>To monitor which domains clients are querying in real time:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>tcpdump interface eth1 port 53
-</code></pre></div>
-<p>Useful for auditing access, building a whitelist, and debugging rules that are not behaving as expected.</p>
+<p>Watch the output while navigating the site fully — including login, media loading, and background API calls. Add each unresolved domain to the whitelist.</p>
 <h3 id="limitations">Limitations<a class="headerlink" href="#limitations" title="Permanent link">¶</a></h3>
 <table>
 <thead>
@@ -3270,7 +3377,7 @@
 <tbody>
 <tr>
 <td><strong>DNS over HTTPS (DoH)</strong></td>
-<td>Browsers can send DNS queries over HTTPS directly to a cloud DoH provider, bypassing the router's DNS proxy entirely.</td>
+<td>Browsers can send DNS queries over HTTPS directly to a cloud DoH provider, bypassing the router's DNS interception entirely.</td>
 </tr>
 <tr>
 <td><strong>DNS over TLS (DoT)</strong></td>
@@ -3287,11 +3394,11 @@
 </tbody>
 </table>
 <p>To prevent clients from bypassing DNS controls:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>firewall-access 150 deny outbound eth0 udp dport 53
-<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>firewall-access 151 deny outbound eth0 tcp dport 53
-<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>firewall-access 152 deny outbound eth0 tcp dst 1.1.1.1,1.0.0.1,8.8.8.8,8.8.4.4 dport 443
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>firewall-access 150 deny outbound eth0 udp dport 53
+<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>firewall-access 151 deny outbound eth0 tcp dport 53
+<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>firewall-access 152 deny outbound eth0 tcp dst 1.1.1.1,1.0.0.1,8.8.8.8,8.8.4.4 dport 443
 </code></pre></div>
-<p>Rules 150–151 block direct DNS to external resolvers; rule 152 blocks HTTPS to known DoH providers. The DNAT redirect (rule 10) continues to intercept all DNS queries and process them locally.</p>
+<p>Rules 150–151 block direct DNS to external resolvers; rule 152 blocks HTTPS to known DoH providers. The DNAT redirect continues to intercept all port 53 traffic and process it locally.</p>
 <hr>
 <h2 id="method-3-cloud-dns-category-filtering">Method 3: Cloud DNS Category Filtering<a class="headerlink" href="#method-3-cloud-dns-category-filtering" title="Permanent link">¶</a></h2>
 <p>Cloud DNS Category Filtering routes client DNS queries through a managed cloud DNS resolver that enforces category-based policies. Instead of maintaining manual domain lists, the cloud service categorises millions of domains into content groups — administrators simply select which categories to block. The cloud service also logs all DNS queries and generates usage reports, providing visibility into browsing activity across the network.</p>
@@ -3326,7 +3433,7 @@
 </ul>
 <h3 id="router-configuration">Router Configuration<a class="headerlink" href="#router-configuration" title="Permanent link">¶</a></h3>
 <p>Point the router's upstream DNS to the cloud DNS server IP provided by RansNet at provisioning:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>ip name-server &lt;cloud-dns-ip&gt;
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>ip name-server &lt;cloud-dns-ip&gt;
 </code></pre></div>
 <p>Ensure clients are using the router as their DNS server (set via DHCP). No additional router configuration is required — the cloud resolver handles all category enforcement.</p>
 <h3 id="managing-filtering-policies">Managing Filtering Policies<a class="headerlink" href="#managing-filtering-policies" title="Permanent link">¶</a></h3>

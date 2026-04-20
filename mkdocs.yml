@@ -170,3 +170,4 @@ nav:
       - Gateway Series: support/rn/gateway.md
     - Troubleshooting:
       - HotSpot (on-prem): support/ts/hotspot_onprem.md
+      - Wi-Fi Slow Issues: support/ts/wifi_slow.md

@@ -162,3 +162,8 @@ nav:
     - Syslog API: api/syslog.md
     - WISPr API: api/wispr.md
     - NetFlow API: api/netflow.md
+  - Support Matters:
+    #- support/index.md
+    - Support Packages: support/packages.md
+    #- Release (Branch): support/rn_branch.md
+    - Release (Gateway): support/rn_gateway.md

@@ -1,2 +1,0 @@
-# Hotspot Troubleshooting (on-premise)
-

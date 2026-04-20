@@ -1,6 +1,6 @@
 # Release Notes (For Branch Series)
 
-This release notes page covers RansNet branch series products (HSA-520, A-520, XE300, UAP-520).
+This release notes page covers RansNet branch series products (HSA, UA, XE, UAP).
 
 ---
 

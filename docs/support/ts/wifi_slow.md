@@ -1,4 +1,4 @@
-# Wi-Fi Slow Issues
+# Wi-Fi Slow Issues Investigation
 
 ## Qualify the Problem First
 

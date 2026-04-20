@@ -165,5 +165,7 @@ nav:
   - Support Matters:
     #- support/index.md
     - Support Packages: support/packages.md
-    #- Release (Branch): support/rn_branch.md
+    - Release (Branch): support/rn_branch.md
     - Release (Gateway): support/rn_gateway.md
+    - Troubleshooting:
+      - HotSpot (on-prem): support/troubleshooting/hotspot_onprem.md

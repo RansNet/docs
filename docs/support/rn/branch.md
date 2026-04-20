@@ -20,7 +20,7 @@ dns-filter 100 deny group adult-sites
 dns-filter 200 permit all
 ```
 
-See [DNS Filtering](../security/webfilter.md#method-2-dns-filtering) for full configuration details.
+See [DNS Filtering](../../security/webfilter.md#method-2-dns-filtering) for full configuration details.
 
 ---
 

@@ -4,7 +4,7 @@ This release notes page covers RansNet gateway series products (CMG, HSG, mfusio
 
 ---
 
-## 20260420-1700 — 20 Apr 2026
+## 20260420-1700
 
 ### New Features
 

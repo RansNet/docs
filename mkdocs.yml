@@ -102,9 +102,9 @@ nav:
       - Bridge: config/iface/bridge.md
       - WWAN: config/iface/wwan.md
       - PPPoE: config/iface/pppoe.md
-      #- Netflow Export: config/iface/netflow.md
       - Switchport: config/iface/switchport.md
       - WiFi as WAN: config/iface/wifiwan.md
+      - Netflow Export: config/iface/netflow.md
     - DHCP: config/dhcp.md
     - DNS Rewrite: config/dnsrewrite.md
     - Routing:
@@ -132,7 +132,7 @@ nav:
       - Objects: security/firewall/objects.md
       - Templates: security/firewall/templates.md
     - Web Filtering: security/webfilter.md
-    #- Netflow Analyzer: security/netflow.md
+    - Netflow Collector: security/nf_collector.md
     #- Log Collector: security/log.md
     #- RADIUS Server: security/radius.md
   #- System & Tools:

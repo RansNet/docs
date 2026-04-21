@@ -28,15 +28,15 @@ When a password expires or an administrator triggers a forced reset, the user is
 | Setting | Description |
 |---|---|
 | Max Failed Login Attempts | Number of consecutive failures before the account is locked |
-| Lockout Duration (Minutes) | How long the account remains locked before it auto-unlocks — set to `0` for permanent lockout requiring manual re-enable |
+| Lockout Duration | How long the account remains locked before it auto-unlocks|
 
-Locked accounts are listed in the user management table and can be manually re-enabled by a super-administrator at any time. Re-enabling an account resets the failed-attempt counter and the inactivity timer.
+Locked accounts are listed in the user management table (shown as disabled) and can be manually re-enabled by a super-administrator at any time. Re-enabling an account resets the failed-attempt counter and the inactivity timer.
 
 ### Session and Inactivity
 
 | Setting | Description |
 |---|---|
-| Session Inactivity Timeout (Minutes) | Idle time before a logged-in session is automatically terminated |
+| Inactivity Timeout (days) | Automatically disable the account if no login activity is detected for the specified number of days. Disabled accounts must be manually re-enabled by a super-administrator. |
 
 ### Login Notices
 

@@ -9,31 +9,27 @@
         <meta name="author" content="RansNet Singapore Pte Ltd">
       
       
-        <link rel="canonical" href="https://docs.ransnet.com/start/mfusion/admin/">
+        <link rel="canonical" href="https://docs.ransnet.com/config/netflow/">
       
       
-        <link rel="prev" href="../security/">
-      
-      
-        <link rel="next" href="../../device/bootstrap/">
       
       
         
       
       
-      <link rel="icon" href="../../../images/RansNet_logo.png">
+      <link rel="icon" href="../../images/RansNet_logo.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
     
     
       
-        <title>Admin - RansNet Documentation</title>
+        <title>NetFlow Export - RansNet Documentation</title>
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
       
         
-        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -52,15 +48,15 @@
       
     
     
-      <link rel="stylesheet" href="../../../stylesheets/extra.css">
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
     
-    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
     
     
-  <link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+  <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
             html.glightbox-open { overflow: initial; height: 100%; }
             .gslide-title { margin-top: 0px; user-select: text; }
             .gslide-desc { color: #666; user-select: text; }
@@ -89,7 +85,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#administration" class="md-skip">
+        <a href="#netflow-export" class="md-skip">
           Skip to content
         </a>
       
@@ -105,9 +101,9 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../../.." title="RansNet Documentation" class="md-header__button md-logo" aria-label="RansNet Documentation" data-md-component="logo">
+    <a href="../.." title="RansNet Documentation" class="md-header__button md-logo" aria-label="RansNet Documentation" data-md-component="logo">
       
-  <img src="../../../images/RansNet_logo.png" alt="logo">
+  <img src="../../images/RansNet_logo.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -124,7 +120,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Admin
+              NetFlow Export
             
           </span>
         </div>
@@ -230,9 +226,9 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../.." title="RansNet Documentation" class="md-nav__button md-logo" aria-label="RansNet Documentation" data-md-component="logo">
+    <a href="../.." title="RansNet Documentation" class="md-nav__button md-logo" aria-label="RansNet Documentation" data-md-component="logo">
       
-  <img src="../../../images/RansNet_logo.png" alt="logo">
+  <img src="../../images/RansNet_logo.png" alt="logo">
 
     </a>
     RansNet Documentation
@@ -244,8 +240,6 @@
       
   
   
-    
-  
   
   
     
@@ -265,15 +259,15 @@
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" checked="">
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1">
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../" class="md-nav__link ">
+            <a href="../../start/" class="md-nav__link ">
               
   
   
@@ -297,7 +291,7 @@
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_1">
             <span class="md-nav__icon md-icon"></span>
             
@@ -317,7 +311,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../overview/" class="md-nav__link">
+      <a href="../../start/overview/" class="md-nav__link">
         
   
   
@@ -342,10 +336,8 @@
                 
   
   
-    
   
   
-  
     
     
       
@@ -359,11 +351,11 @@
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_3" checked="">
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_3">
         
           
           <label class="md-nav__link" for="__nav_1_3" id="__nav_1_3_label" tabindex="0">
@@ -384,7 +376,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_3_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_3_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_1_3">
             <span class="md-nav__icon md-icon"></span>
             
@@ -402,7 +394,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../features/" class="md-nav__link">
+      <a href="../../start/mfusion/features/" class="md-nav__link">
         
   
   
@@ -430,7 +422,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../security/" class="md-nav__link">
+      <a href="../../start/mfusion/security/" class="md-nav__link">
         
   
   
@@ -455,37 +447,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Admin
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../start/mfusion/admin/" class="md-nav__link">
         
   
   
@@ -501,220 +466,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
-      
-        <li class="md-nav__item">
-  <a href="#account-security" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Account Security
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Account Security">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#password-policy" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Password Policy
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#account-lockout" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Account Lockout
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#session-and-inactivity" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Session and Inactivity
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#login-notices" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Login Notices
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#application-settings" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Application Settings
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Application Settings">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#smtp" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        SMTP
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#sms-gateway" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        SMS Gateway
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#ftp-sftp" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        FTP / SFTP
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#2-factor-authentication" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        2-Factor Authentication
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#mfusion-api" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        mfusion API
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#backup-and-restore" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Backup and Restore
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Backup and Restore">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#auto-backup" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Auto Backup
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#restore" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Restore
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#audit-logs" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Audit Logs
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#firmware-releases" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Firmware Releases
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -792,7 +543,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../device/bootstrap/" class="md-nav__link">
+      <a href="../../start/device/bootstrap/" class="md-nav__link">
         
   
   
@@ -820,7 +571,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../device/provision/" class="md-nav__link">
+      <a href="../../start/device/provision/" class="md-nav__link">
         
   
   
@@ -848,7 +599,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../device/onboard/" class="md-nav__link">
+      <a href="../../start/device/onboard/" class="md-nav__link">
         
   
   
@@ -876,7 +627,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../device/harden/" class="md-nav__link">
+      <a href="../../start/device/harden/" class="md-nav__link">
         
   
   
@@ -951,7 +702,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../monitor/" class="md-nav__link ">
+            <a href="../../monitor/" class="md-nav__link ">
               
   
   
@@ -995,7 +746,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../monitor/dashboard/" class="md-nav__link">
+      <a href="../../monitor/dashboard/" class="md-nav__link">
         
   
   
@@ -1023,7 +774,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../monitor/hosts/" class="md-nav__link">
+      <a href="../../monitor/hosts/" class="md-nav__link">
         
   
   
@@ -1051,7 +802,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../monitor/topo/" class="md-nav__link">
+      <a href="../../monitor/topo/" class="md-nav__link">
         
   
   
@@ -1079,7 +830,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../monitor/wifi/" class="md-nav__link">
+      <a href="../../monitor/wifi/" class="md-nav__link">
         
   
   
@@ -1107,7 +858,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../monitor/netflow/" class="md-nav__link">
+      <a href="../../monitor/netflow/" class="md-nav__link">
         
   
   
@@ -1135,7 +886,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../monitor/alerts/" class="md-nav__link">
+      <a href="../../monitor/alerts/" class="md-nav__link">
         
   
   
@@ -1163,7 +914,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../monitor/settings/" class="md-nav__link">
+      <a href="../../monitor/settings/" class="md-nav__link">
         
   
   
@@ -1230,7 +981,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../config/" class="md-nav__link ">
+            <a href="../" class="md-nav__link ">
               
   
   
@@ -1337,7 +1088,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../config/iface/ethernet/" class="md-nav__link">
+      <a href="../iface/ethernet/" class="md-nav__link">
         
   
   
@@ -1365,7 +1116,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../config/iface/vlaniface/" class="md-nav__link">
+      <a href="../iface/vlaniface/" class="md-nav__link">
         
   
   
@@ -1393,7 +1144,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../config/iface/bridge/" class="md-nav__link">
+      <a href="../iface/bridge/" class="md-nav__link">
         
   
   
@@ -1421,7 +1172,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../config/iface/wwan/" class="md-nav__link">
+      <a href="../iface/wwan/" class="md-nav__link">
         
   
   
@@ -1449,7 +1200,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../config/iface/pppoe/" class="md-nav__link">
+      <a href="../iface/pppoe/" class="md-nav__link">
         
   
   
@@ -1477,7 +1228,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../config/iface/switchport/" class="md-nav__link">
+      <a href="../iface/switchport/" class="md-nav__link">
         
   
   
@@ -1505,7 +1256,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../config/iface/wifiwan/" class="md-nav__link">
+      <a href="../iface/wifiwan/" class="md-nav__link">
         
   
   
@@ -1541,7 +1292,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../config/dhcp/" class="md-nav__link">
+      <a href="../dhcp/" class="md-nav__link">
         
   
   
@@ -1569,7 +1320,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../config/dnsrewrite/" class="md-nav__link">
+      <a href="../dnsrewrite/" class="md-nav__link">
         
   
   
@@ -1654,7 +1405,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../config/route/static/" class="md-nav__link">
+      <a href="../route/static/" class="md-nav__link">
         
   
   
@@ -1682,7 +1433,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../config/route/groups/" class="md-nav__link">
+      <a href="../route/groups/" class="md-nav__link">
         
   
   
@@ -1710,7 +1461,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../config/route/ospf/" class="md-nav__link">
+      <a href="../route/ospf/" class="md-nav__link">
         
   
   
@@ -1738,7 +1489,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../config/route/bgp/" class="md-nav__link">
+      <a href="../route/bgp/" class="md-nav__link">
         
   
   
@@ -1774,7 +1525,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../config/vrrp/" class="md-nav__link">
+      <a href="../vrrp/" class="md-nav__link">
         
   
   
@@ -1802,7 +1553,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../config/wifi/" class="md-nav__link">
+      <a href="../wifi/" class="md-nav__link">
         
   
   
@@ -1830,7 +1581,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../config/tracking/" class="md-nav__link">
+      <a href="../tracking/" class="md-nav__link">
         
   
   
@@ -1975,7 +1726,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../sdwan/vpn/vpnintro/" class="md-nav__link">
+      <a href="../../sdwan/vpn/vpnintro/" class="md-nav__link">
         
   
   
@@ -2003,7 +1754,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../sdwan/vpn/topology/" class="md-nav__link">
+      <a href="../../sdwan/vpn/topology/" class="md-nav__link">
         
   
   
@@ -2031,7 +1782,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../sdwan/vpn/instance/" class="md-nav__link">
+      <a href="../../sdwan/vpn/instance/" class="md-nav__link">
         
   
   
@@ -2067,7 +1818,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../sdwan/mwan/" class="md-nav__link">
+      <a href="../../sdwan/mwan/" class="md-nav__link">
         
   
   
@@ -2095,7 +1846,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../sdwan/qos/" class="md-nav__link">
+      <a href="../../sdwan/qos/" class="md-nav__link">
         
   
   
@@ -2240,7 +1991,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../security/firewall/overview/" class="md-nav__link">
+      <a href="../../security/firewall/overview/" class="md-nav__link">
         
   
   
@@ -2268,7 +2019,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../security/firewall/policies/" class="md-nav__link">
+      <a href="../../security/firewall/policies/" class="md-nav__link">
         
   
   
@@ -2296,7 +2047,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../security/firewall/objects/" class="md-nav__link">
+      <a href="../../security/firewall/objects/" class="md-nav__link">
         
   
   
@@ -2324,7 +2075,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../security/firewall/templates/" class="md-nav__link">
+      <a href="../../security/firewall/templates/" class="md-nav__link">
         
   
   
@@ -2360,7 +2111,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../security/webfilter/" class="md-nav__link">
+      <a href="../../security/webfilter/" class="md-nav__link">
         
   
   
@@ -2413,7 +2164,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../hotspot/" class="md-nav__link ">
+            <a href="../../hotspot/" class="md-nav__link ">
               
   
   
@@ -2518,7 +2269,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../cases/wanfailover/" class="md-nav__link">
+      <a href="../../cases/wanfailover/" class="md-nav__link">
         
   
   
@@ -2546,7 +2297,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../cases/cloudsdwan/" class="md-nav__link">
+      <a href="../../cases/cloudsdwan/" class="md-nav__link">
         
   
   
@@ -2574,7 +2325,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../cases/l2vpn/" class="md-nav__link">
+      <a href="../../cases/l2vpn/" class="md-nav__link">
         
   
   
@@ -2602,7 +2353,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../cases/vrf/" class="md-nav__link">
+      <a href="../../cases/vrf/" class="md-nav__link">
         
   
   
@@ -2630,7 +2381,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../cases/crewwifi/" class="md-nav__link">
+      <a href="../../cases/crewwifi/" class="md-nav__link">
         
   
   
@@ -2722,7 +2473,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../api/hotspot/" class="md-nav__link">
+      <a href="../../api/hotspot/" class="md-nav__link">
         
   
   
@@ -2750,7 +2501,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../api/syslog/" class="md-nav__link">
+      <a href="../../api/syslog/" class="md-nav__link">
         
   
   
@@ -2778,7 +2529,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../api/wispr/" class="md-nav__link">
+      <a href="../../api/wispr/" class="md-nav__link">
         
   
   
@@ -2806,7 +2557,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../api/netflow/" class="md-nav__link">
+      <a href="../../api/netflow/" class="md-nav__link">
         
   
   
@@ -2896,7 +2647,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../support/packages/" class="md-nav__link">
+      <a href="../../support/packages/" class="md-nav__link">
         
   
   
@@ -2977,7 +2728,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../support/rn/branch/" class="md-nav__link">
+      <a href="../../support/rn/branch/" class="md-nav__link">
         
   
   
@@ -3005,7 +2756,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../support/rn/gateway/" class="md-nav__link">
+      <a href="../../support/rn/gateway/" class="md-nav__link">
         
   
   
@@ -3094,7 +2845,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../support/ts/hotspot_onprem/" class="md-nav__link">
+      <a href="../../support/ts/hotspot_onprem/" class="md-nav__link">
         
   
   
@@ -3122,7 +2873,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../support/ts/wifi_slow/" class="md-nav__link">
+      <a href="../../support/ts/wifi_slow/" class="md-nav__link">
         
   
   
@@ -3185,193 +2936,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
       
         <li class="md-nav__item">
-  <a href="#account-security" class="md-nav__link">
+  <a href="#gui-config" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Account Security
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Account Security">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#password-policy" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Password Policy
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#account-lockout" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Account Lockout
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#session-and-inactivity" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Session and Inactivity
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#login-notices" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Login Notices
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#application-settings" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Application Settings
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Application Settings">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#smtp" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        SMTP
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#sms-gateway" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        SMS Gateway
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#ftp-sftp" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        FTP / SFTP
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#2-factor-authentication" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        2-Factor Authentication
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#mfusion-api" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        mfusion API
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#backup-and-restore" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Backup and Restore
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Backup and Restore">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#auto-backup" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Auto Backup
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#restore" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Restore
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#audit-logs" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Audit Logs
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#firmware-releases" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Firmware Releases
+        GUI Config
       
     </span>
   </a>
@@ -3394,49 +2962,6 @@
 
 
 
-  <nav class="md-path" aria-label="Navigation">
-    <ol class="md-path__list">
-      
-      
-        
-  
-  
-    
-    
-      <li class="md-path__item">
-        <a href="../../" class="md-path__link">
-          
-  <span class="md-ellipsis">
-    Getting Started
-  </span>
-
-        </a>
-      </li>
-    
-  
-
-      
-        
-  
-  
-    
-    
-      <li class="md-path__item">
-        <a href="../features/" class="md-path__link">
-          
-  <span class="md-ellipsis">
-    mfusion Overview
-  </span>
-
-        </a>
-      </li>
-    
-  
-
-      
-    </ol>
-  </nav>
-
               
               <article class="md-content__inner md-typeset">
                 
@@ -3444,323 +2969,12 @@
 
 
 
-<h1 id="administration">Administration<a class="headerlink" href="#administration" title="Permanent link">¶</a></h1>
-<p>This section applies to <strong>on-premise / private mfusion deployments</strong> where you manage your own mfusion server. The Administration panel provides the critical backend configuration needed for mfusion to operate — covering outbound communications, authentication security, API access control, data backup, and operational audit trails.</p>
-<hr>
-<h2 id="account-security">Account Security<a class="headerlink" href="#account-security" title="Permanent link">¶</a></h2>
-<p>Navigate to <strong>ADMIN → General → Account Settings</strong>.</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../images/start-mfusionarc-16.png" data-desc-position="bottom"><img alt="Account Settings" src="../../images/start-mfusionarc-16.png"></a></p>
-<p>Account Security controls the login and password policies enforced across all user accounts on this mfusion instance. Settings here apply globally — configure them according to your organisation's security policy before onboarding users.</p>
-<h3 id="password-policy">Password Policy<a class="headerlink" href="#password-policy" title="Permanent link">¶</a></h3>
-<table>
-<thead>
-<tr>
-<th>Setting</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Minimum Password Length</td>
-<td>Minimum number of characters required for all passwords</td>
-</tr>
-<tr>
-<td>Require Complexity</td>
-<td>Enforce mixed-case, digits, and special characters</td>
-</tr>
-<tr>
-<td>Password History</td>
-<td>Number of previous passwords that cannot be reused</td>
-</tr>
-<tr>
-<td>Password Expiry (Days)</td>
-<td>Days before a password expires and the user must change it — set to <code>0</code> to disable expiry</td>
-</tr>
-</tbody>
-</table>
-<p>When a password expires or an administrator triggers a forced reset, the user is redirected to the change-password page on their next login and cannot access the dashboard until the change is completed.</p>
-<h3 id="account-lockout">Account Lockout<a class="headerlink" href="#account-lockout" title="Permanent link">¶</a></h3>
-<table>
-<thead>
-<tr>
-<th>Setting</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Max Failed Login Attempts</td>
-<td>Number of consecutive failures before the account is locked</td>
-</tr>
-<tr>
-<td>Lockout Duration (Minutes)</td>
-<td>How long the account remains locked before it auto-unlocks — set to <code>0</code> for permanent lockout requiring manual re-enable</td>
-</tr>
-</tbody>
-</table>
-<p>Locked accounts are listed in the user management table and can be manually re-enabled by a super-administrator at any time. Re-enabling an account resets the failed-attempt counter and the inactivity timer.</p>
-<h3 id="session-and-inactivity">Session and Inactivity<a class="headerlink" href="#session-and-inactivity" title="Permanent link">¶</a></h3>
-<table>
-<thead>
-<tr>
-<th>Setting</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Session Inactivity Timeout (Minutes)</td>
-<td>Idle time before a logged-in session is automatically terminated</td>
-</tr>
-</tbody>
-</table>
-<h3 id="login-notices">Login Notices<a class="headerlink" href="#login-notices" title="Permanent link">¶</a></h3>
-<p>Pre-login banners can be displayed on the mfusion login page — for example, to show an acceptable-use policy or a maintenance notice. Multiple notices can be configured simultaneously; each notice can be dismissed independently by users.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>All account security events — login attempts, lockouts, password changes, and forced resets — are recorded in the <a href="#audit-logs">Audit Logs</a> with timestamp, source IP, and the acting user.</p>
-</div>
-<h2 id="application-settings">Application Settings<a class="headerlink" href="#application-settings" title="Permanent link">¶</a></h2>
-<p>Navigate to <strong>ADMIN → General → Application Settings</strong>.</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../images/start-mfusionarc-8.png" data-desc-position="bottom"><img alt="Application Settings" src="../../images/start-mfusionarc-8.png"></a></p>
-<p>This tab configures the backend communication services that mfusion relies on for outbound notifications, OTP delivery, and data archival.</p>
-<h3 id="smtp">SMTP<a class="headerlink" href="#smtp" title="Permanent link">¶</a></h3>
-<p>SMTP is used for two purposes: delivering automated reports (hotspot usage, network monitoring) to recipients on a schedule, and sending email OTP codes for two-factor authentication (2FA) during dashboard login.</p>
-<p><strong>Select Mail Server</strong> — Choose between using the built-in local MTA on the mfusion appliance, or relaying through an external SMTP provider such as Gmail or SendGrid.</p>
-<table>
-<thead>
-<tr>
-<th>Field</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Host</td>
-<td>SMTP server hostname or IP address</td>
-</tr>
-<tr>
-<td>Secure Encryption</td>
-<td>Encryption protocol — <code>TLS</code> (port 587) or <code>SSL</code> (port 465)</td>
-</tr>
-<tr>
-<td>Port</td>
-<td>SMTP port corresponding to the selected encryption</td>
-</tr>
-<tr>
-<td>Email</td>
-<td>Sender address used for all outbound mail</td>
-</tr>
-<tr>
-<td>SMTP Password</td>
-<td>Authentication password for the SMTP account</td>
-</tr>
-<tr>
-<td>Sender Name</td>
-<td>Display name shown in the From field of outgoing emails</td>
-</tr>
-</tbody>
-</table>
-<h3 id="sms-gateway">SMS Gateway<a class="headerlink" href="#sms-gateway" title="Permanent link">¶</a></h3>
-<p>The SMS Gateway integrates with supported SMS providers via API to send OTP codes for 2FA dashboard login. mfusion supports a broad list of regional and global SMS providers, including Asia Webhost, Asia Broadcast, Vist Broadcast, Built SMS, and others.</p>
-<p>Under <strong>Send Quick SMS Settings</strong>, enter your SMS provider API credentials (username, password, and sender ID), then click <strong>Send Quick SMS</strong> to send a test message and confirm the gateway is working.</p>
-<h3 id="ftp-sftp">FTP / SFTP<a class="headerlink" href="#ftp-sftp" title="Permanent link">¶</a></h3>
-<p>FTP and SFTP connections allow mfusion to push data to external NAS or file servers automatically. Typical use cases include:</p>
-<ul>
-<li>Scheduled report archival</li>
-<li>Syslog file exports</li>
-<li>Encrypted mfusion configuration and monitoring data backups</li>
-</ul>
-<p>Multiple connections can be configured and scoped to different entities (e.g., the root organization or a specific tenant). Click <strong>+ Add FTP Connection</strong> to add a new entry.</p>
-<table>
-<thead>
-<tr>
-<th>Field</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Name</td>
-<td>A label identifying this connection</td>
-</tr>
-<tr>
-<td>Entity</td>
-<td>The organizational entity this connection is associated with</td>
-</tr>
-<tr>
-<td>Type</td>
-<td>Protocol — <code>ftp</code> or <code>sftp</code></td>
-</tr>
-<tr>
-<td>Host / IP Address</td>
-<td>Address of the remote server</td>
-</tr>
-<tr>
-<td>Port</td>
-<td>Port number (<code>21</code> for FTP, <code>22</code> for SFTP by default)</td>
-</tr>
-<tr>
-<td>Username</td>
-<td>Login credential for the remote server</td>
-</tr>
-<tr>
-<td>Path</td>
-<td>Remote directory where files will be written</td>
-</tr>
-</tbody>
-</table>
-<hr>
-<h2 id="2-factor-authentication">2-Factor Authentication<a class="headerlink" href="#2-factor-authentication" title="Permanent link">¶</a></h2>
-<p>Navigate to <strong>ADMIN → General → 2-Factor Authentication</strong>.</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../images/start-mfusionarc-9.png" data-desc-position="bottom"><img alt="2-Factor Authentication" src="../../images/start-mfusionarc-9.png"></a></p>
-<p>This tab controls the 2FA policy for dashboard login. mfusion supports OTP delivery via <strong>email</strong> or <strong>SMS</strong> (or both). Administrators can also customize the OTP message template sent to users.</p>
-<table>
-<thead>
-<tr>
-<th>Setting</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Email OTP Authentication</td>
-<td>Enable OTP delivery via email</td>
-</tr>
-<tr>
-<td>Email OTP Template</td>
-<td>Customizable message body — use <code>#OTP#</code> and <code>#TIMEOUT#</code> as placeholders</td>
-</tr>
-<tr>
-<td>SMS OTP Authentication</td>
-<td>Enable OTP delivery via SMS (requires SMS Gateway to be configured)</td>
-</tr>
-<tr>
-<td>Recovery Email</td>
-<td>Allow users to retrieve their username via a registered recovery email</td>
-</tr>
-</tbody>
-</table>
-<div class="admonition info">
-<p class="admonition-title">Info</p>
-<p>Once 2FA is enabled at the system level, individual administrators can activate it for their own account under <strong>My Profile</strong>.</p>
-</div>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../images/start-mfusionarc-14.png" data-desc-position="bottom"><img alt="My Profile 2FA" src="../../images/start-mfusionarc-14.png"></a></p>
-<p>Each user selects their preferred OTP delivery method (email or SMS) and registers the corresponding contact details. Their current password is required to save the change.</p>
-<hr>
-<h2 id="mfusion-api">mfusion API<a class="headerlink" href="#mfusion-api" title="Permanent link">¶</a></h2>
-<p>Navigate to <strong>ADMIN → General → mfusion API</strong>.</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../images/start-mfusionarc-10.png" data-desc-position="bottom"><img alt="mFusion API" src="../../images/start-mfusionarc-10.png"></a></p>
-<p>mfusion exposes a secure REST API for integration with third-party and external systems, enabling seamless automation of provisioning, monitoring, and hotspot workflows. API access is controlled at the entity level — each entity can have independent API keys scoped specifically to <strong>Monitoring API</strong>, <strong>Hotspot API</strong>, or both.</p>
-<p>The API control table lists all entities with their current API enablement status. Access can be granted or revoked per entity without affecting others, providing fine-grained control suitable for multi-tenant environments.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Full API reference documentation will be available at a dedicated URL (to be published).</p>
-</div>
-<hr>
-<h2 id="backup-and-restore">Backup and Restore<a class="headerlink" href="#backup-and-restore" title="Permanent link">¶</a></h2>
-<p>Navigate to <strong>ADMIN → General → Backup and Restore</strong>.</p>
-<h3 id="auto-backup">Auto Backup<a class="headerlink" href="#auto-backup" title="Permanent link">¶</a></h3>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../images/start-mfusionarc-11.png" data-desc-position="bottom"><img alt="Auto Backup Settings" src="../../images/start-mfusionarc-11.png"></a></p>
-<p>The auto backup feature allows mfusion to create scheduled, encrypted backups and store them either locally or on a remote FTP/SFTP server. Administrators can configure:</p>
-<table>
-<thead>
-<tr>
-<th>Setting</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Enable Auto Backup</td>
-<td>Master toggle to activate scheduled backups</td>
-</tr>
-<tr>
-<td>Storage Location</td>
-<td>Destination — External FTP/SFTP server or Local Drive</td>
-</tr>
-<tr>
-<td>FTP Connection</td>
-<td>The pre-configured FTP/SFTP connection to use for remote storage</td>
-</tr>
-<tr>
-<td>Schedule Type</td>
-<td>Backup frequency — Daily, Weekly, or Monthly</td>
-</tr>
-<tr>
-<td>Schedule Time</td>
-<td>Time of day the backup job runs</td>
-</tr>
-<tr>
-<td>Backup Data Range</td>
-<td>Rolling data window included in each backup (e.g., 1 day, 7 days)</td>
-</tr>
-<tr>
-<td>Optional Backup Categories</td>
-<td>Selectively include data sets — Mboxadmin, Hotspot RADIUS, mFusion Monitoring, Logviewer, Hotspot Portals, CLI Config</td>
-</tr>
-</tbody>
-</table>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>It is highly recommended to use external SFTP backup. Backup to <strong>Local Drive</strong> allows up to last 3 backups only to prevent overwelming mfusion server local storage space.</p>
-</div>
-<h3 id="restore">Restore<a class="headerlink" href="#restore" title="Permanent link">¶</a></h3>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../images/start-mfusionarc-12.png" data-desc-position="bottom"><img alt="Local Backup List" src="../../images/start-mfusionarc-12.png"></a></p>
-<p>The backup list shows all available backup files stored locally, including both automatic and manual backups. Each entry displays the file name, timestamp, and size. From this view, administrators can:</p>
-<ul>
-<li><strong>Download</strong> a backup file for off-site archival</li>
-<li><strong>Restore</strong> mfusion from a selected backup</li>
-<li><strong>Upload Config</strong> — upload an encrypted backup file (e.g., retrieved from an SFTP server) to restore from</li>
-</ul>
-<p>Backup files use the <code>.menc</code> (encrypted) format to ensure data security at rest and in transit.</p>
-<hr>
-<h2 id="audit-logs">Audit Logs<a class="headerlink" href="#audit-logs" title="Permanent link">¶</a></h2>
-<p>Navigate to <strong>ADMIN → General → Audit Logs</strong>.</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../images/start-mfusionarc-13.png" data-desc-position="bottom"><img alt="Audit Logs" src="../../images/start-mfusionarc-13.png"></a></p>
-<p>The Audit Logs provide a complete, tamper-evident record of all operational activity within mfusion. Every significant action is logged with a timestamp, the user who performed it, the module affected, severity level, source IP address, and a detailed message describing the change.</p>
-<p>Logged events include:</p>
-<ul>
-<li>Administrator login sessions and OTP validation</li>
-<li>Device provisioning and configuration changes</li>
-<li>SD-WAN topology updates</li>
-<li>System-level configuration modifications</li>
-</ul>
-<p>Logs can be filtered by time range, username, module, severity level, IP address, or message content, making it straightforward to audit specific incidents or track changes made by a particular user. This data is essential for security audits, compliance reporting, and operational troubleshooting.</p>
-<hr>
-<h2 id="firmware-releases">Firmware Releases<a class="headerlink" href="#firmware-releases" title="Permanent link">¶</a></h2>
-<p>Navigate to <strong>ADMIN → Releases</strong>.</p>
-<p>mfusion acts as an on-premise firmware repository, allowing managed devices to perform over-the-air upgrades by downloading firmware directly from the mfusion server — without requiring each device to reach the internet. Only super-administrators can upload firmware packages to this repository; firmware files are provided by the RansNet support team.</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../images/start-mfusionarc-15.png" data-desc-position="bottom"><img alt="Firmware Releases" src="../../images/start-mfusionarc-15.png"></a></p>
-<p>Firmware releases are organised by device family:</p>
-<table>
-<thead>
-<tr>
-<th>Category</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>RANOSL</strong></td>
-<td>Firmware for branch-series devices (e.g. HSA, UA, XE, UAP)</td>
-</tr>
-<tr>
-<td><strong>RANOL</strong></td>
-<td>Firmware for gateway-series devices (e.g. CMG, HSG)</td>
-</tr>
-</tbody>
-</table>
-<p>Once uploaded, the release becomes available for selection when triggering a firmware upgrade from the device management interface.</p>
-<p>For a summary of what is included in each firmware release, see the release notes:</p>
-<ul>
-<li><a href="../../../support/rn/branch/">Release Notes — Branch Series</a> (HSA, UA, XE, UAP)</li>
-<li><a href="../../../support/rn/gateway/">Release Notes — Gateway Series</a> (CMG, HSG)</li>
-</ul>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Only active devices with a valid activation code and an active support contract are permitted to download firmware from mfusion.</p>
-</div>
+<h1 id="netflow-export">NetFlow Export<a class="headerlink" href="#netflow-export" title="Permanent link">¶</a></h1>
+<p>Explain netflow, how it works and the general use case.</p>
+<p>All RansNet SD-WAN routers support export network traffic statistics to netflow collector for reporting.</p>
+<p>Configure netflow export on the target interface to export out the statistics to a netflow collector. RansNet mfusion orchestrator can function as a netflow collector/analyzor. You can also export out to any 3rd-party collector supporting standard netflow v4/v9 protocols.</p>
+<h2 id="gui-config">GUI Config<a class="headerlink" href="#gui-config" title="Permanent link">¶</a></h2>
+<p>Navigate to <strong>Device Settings → Network → Interfaces</strong>,</p>
 
 
 
@@ -3838,10 +3052,10 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.indexes", "navigation.path", "navigation.top", "search.highlight", "search.suggest", "content.code.copy", "content.tabs.link", "content.action.edit", "toc.follow"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.indexes", "navigation.path", "navigation.top", "search.highlight", "search.suggest", "content.code.copy", "content.tabs.link", "content.action.edit", "toc.follow"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
       
     
   

@@ -3493,12 +3493,12 @@
 <td>Number of consecutive failures before the account is locked</td>
 </tr>
 <tr>
-<td>Lockout Duration (Minutes)</td>
-<td>How long the account remains locked before it auto-unlocks — set to <code>0</code> for permanent lockout requiring manual re-enable</td>
+<td>Lockout Duration</td>
+<td>How long the account remains locked before it auto-unlocks</td>
 </tr>
 </tbody>
 </table>
-<p>Locked accounts are listed in the user management table and can be manually re-enabled by a super-administrator at any time. Re-enabling an account resets the failed-attempt counter and the inactivity timer.</p>
+<p>Locked accounts are listed in the user management table (shown as disabled) and can be manually re-enabled by a super-administrator at any time. Re-enabling an account resets the failed-attempt counter and the inactivity timer.</p>
 <h3 id="session-and-inactivity">Session and Inactivity<a class="headerlink" href="#session-and-inactivity" title="Permanent link">¶</a></h3>
 <table>
 <thead>
@@ -3509,8 +3509,8 @@
 </thead>
 <tbody>
 <tr>
-<td>Session Inactivity Timeout (Minutes)</td>
-<td>Idle time before a logged-in session is automatically terminated</td>
+<td>Inactivity Timeout (days)</td>
+<td>Automatically disable the account if no login activity is detected for the specified number of days. Disabled accounts must be manually re-enabled by a super-administrator.</td>
 </tr>
 </tbody>
 </table>

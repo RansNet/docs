@@ -9,31 +9,31 @@
         <meta name="author" content="RansNet Singapore Pte Ltd">
       
       
-        <link rel="canonical" href="https://docs.ransnet.com/config/iface/pppoe/">
+        <link rel="canonical" href="https://docs.ransnet.com/security/nf_collector/">
       
       
-        <link rel="prev" href="../wwan/">
+        <link rel="prev" href="../webfilter/">
       
       
-        <link rel="next" href="../switchport/">
+        <link rel="next" href="../../hotspot/">
       
       
         
       
       
-      <link rel="icon" href="../../../images/RansNet_logo.png">
+      <link rel="icon" href="../../images/RansNet_logo.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
     
     
       
-        <title>PPPoE - RansNet Documentation</title>
+        <title>Netflow Collector - RansNet Documentation</title>
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
       
         
-        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -52,15 +52,15 @@
       
     
     
-      <link rel="stylesheet" href="../../../stylesheets/extra.css">
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
     
-    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
     
     
-  <link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+  <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
             html.glightbox-open { overflow: initial; height: 100%; }
             .gslide-title { margin-top: 0px; user-select: text; }
             .gslide-desc { color: #666; user-select: text; }
@@ -89,7 +89,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#pppoe" class="md-skip">
+        <a href="#netflow-collector" class="md-skip">
           Skip to content
         </a>
       
@@ -105,9 +105,9 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../../.." title="RansNet Documentation" class="md-header__button md-logo" aria-label="RansNet Documentation" data-md-component="logo">
+    <a href="../.." title="RansNet Documentation" class="md-header__button md-logo" aria-label="RansNet Documentation" data-md-component="logo">
       
-  <img src="../../../images/RansNet_logo.png" alt="logo">
+  <img src="../../images/RansNet_logo.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -124,7 +124,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              PPPoE
+              Netflow Collector
             
           </span>
         </div>
@@ -230,9 +230,9 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../.." title="RansNet Documentation" class="md-nav__button md-logo" aria-label="RansNet Documentation" data-md-component="logo">
+    <a href="../.." title="RansNet Documentation" class="md-nav__button md-logo" aria-label="RansNet Documentation" data-md-component="logo">
       
-  <img src="../../../images/RansNet_logo.png" alt="logo">
+  <img src="../../images/RansNet_logo.png" alt="logo">
 
     </a>
     RansNet Documentation
@@ -271,7 +271,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../start/" class="md-nav__link ">
+            <a href="../../start/" class="md-nav__link ">
               
   
   
@@ -315,7 +315,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../start/overview/" class="md-nav__link">
+      <a href="../../start/overview/" class="md-nav__link">
         
   
   
@@ -398,7 +398,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../start/mfusion/features/" class="md-nav__link">
+      <a href="../../start/mfusion/features/" class="md-nav__link">
         
   
   
@@ -426,7 +426,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../start/mfusion/security/" class="md-nav__link">
+      <a href="../../start/mfusion/security/" class="md-nav__link">
         
   
   
@@ -454,7 +454,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../start/mfusion/admin/" class="md-nav__link">
+      <a href="../../start/mfusion/admin/" class="md-nav__link">
         
   
   
@@ -547,7 +547,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../start/device/bootstrap/" class="md-nav__link">
+      <a href="../../start/device/bootstrap/" class="md-nav__link">
         
   
   
@@ -575,7 +575,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../start/device/provision/" class="md-nav__link">
+      <a href="../../start/device/provision/" class="md-nav__link">
         
   
   
@@ -603,7 +603,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../start/device/onboard/" class="md-nav__link">
+      <a href="../../start/device/onboard/" class="md-nav__link">
         
   
   
@@ -631,7 +631,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../start/device/harden/" class="md-nav__link">
+      <a href="../../start/device/harden/" class="md-nav__link">
         
   
   
@@ -706,7 +706,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../monitor/" class="md-nav__link ">
+            <a href="../../monitor/" class="md-nav__link ">
               
   
   
@@ -750,7 +750,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../monitor/dashboard/" class="md-nav__link">
+      <a href="../../monitor/dashboard/" class="md-nav__link">
         
   
   
@@ -778,7 +778,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../monitor/hosts/" class="md-nav__link">
+      <a href="../../monitor/hosts/" class="md-nav__link">
         
   
   
@@ -806,7 +806,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../monitor/topo/" class="md-nav__link">
+      <a href="../../monitor/topo/" class="md-nav__link">
         
   
   
@@ -834,7 +834,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../monitor/wifi/" class="md-nav__link">
+      <a href="../../monitor/wifi/" class="md-nav__link">
         
   
   
@@ -862,7 +862,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../monitor/netflow/" class="md-nav__link">
+      <a href="../../monitor/netflow/" class="md-nav__link">
         
   
   
@@ -890,7 +890,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../monitor/alerts/" class="md-nav__link">
+      <a href="../../monitor/alerts/" class="md-nav__link">
         
   
   
@@ -918,7 +918,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../monitor/settings/" class="md-nav__link">
+      <a href="../../monitor/settings/" class="md-nav__link">
         
   
   
@@ -950,8 +950,6 @@
       
   
   
-    
-  
   
   
     
@@ -979,15 +977,15 @@
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked="">
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3">
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../" class="md-nav__link ">
+            <a href="../../config/" class="md-nav__link ">
               
   
   
@@ -1011,7 +1009,7 @@
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             
@@ -1028,10 +1026,8 @@
                 
   
   
-    
   
   
-  
     
     
       
@@ -1055,11 +1051,11 @@
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" checked="">
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2">
         
           
           <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
@@ -1080,7 +1076,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_3_2">
             <span class="md-nav__icon md-icon"></span>
             
@@ -1098,7 +1094,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../ethernet/" class="md-nav__link">
+      <a href="../../config/iface/ethernet/" class="md-nav__link">
         
   
   
@@ -1126,7 +1122,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../vlaniface/" class="md-nav__link">
+      <a href="../../config/iface/vlaniface/" class="md-nav__link">
         
   
   
@@ -1154,7 +1150,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../bridge/" class="md-nav__link">
+      <a href="../../config/iface/bridge/" class="md-nav__link">
         
   
   
@@ -1182,7 +1178,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../wwan/" class="md-nav__link">
+      <a href="../../config/iface/wwan/" class="md-nav__link">
         
   
   
@@ -1207,37 +1203,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    PPPoE
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../config/iface/pppoe/" class="md-nav__link">
         
   
   
@@ -1253,137 +1222,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
-      
-        <li class="md-nav__item">
-  <a href="#gui-configuration" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        GUI Configuration
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="GUI Configuration">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#settings" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Settings
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#cli-configuration" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        CLI Configuration
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="CLI Configuration">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#basic-pppoe-setup" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Basic PPPoE setup
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#pppoe-with-firewall-rules" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        PPPoE with firewall rules
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#pppoe-over-a-vlan-interface" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        PPPoE over a VLAN interface
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#set-dns-servers-explicitly" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Set DNS servers explicitly
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#multi-wan-with-pppoe" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Multi-WAN with PPPoE
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#verification" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Verification
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1396,7 +1234,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../switchport/" class="md-nav__link">
+      <a href="../../config/iface/switchport/" class="md-nav__link">
         
   
   
@@ -1424,7 +1262,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../wifiwan/" class="md-nav__link">
+      <a href="../../config/iface/wifiwan/" class="md-nav__link">
         
   
   
@@ -1452,7 +1290,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../netflow/" class="md-nav__link">
+      <a href="../../config/iface/netflow/" class="md-nav__link">
         
   
   
@@ -1488,7 +1326,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../dhcp/" class="md-nav__link">
+      <a href="../../config/dhcp/" class="md-nav__link">
         
   
   
@@ -1516,7 +1354,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../dnsrewrite/" class="md-nav__link">
+      <a href="../../config/dnsrewrite/" class="md-nav__link">
         
   
   
@@ -1601,7 +1439,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../route/static/" class="md-nav__link">
+      <a href="../../config/route/static/" class="md-nav__link">
         
   
   
@@ -1629,7 +1467,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../route/groups/" class="md-nav__link">
+      <a href="../../config/route/groups/" class="md-nav__link">
         
   
   
@@ -1657,7 +1495,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../route/ospf/" class="md-nav__link">
+      <a href="../../config/route/ospf/" class="md-nav__link">
         
   
   
@@ -1685,7 +1523,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../route/bgp/" class="md-nav__link">
+      <a href="../../config/route/bgp/" class="md-nav__link">
         
   
   
@@ -1721,7 +1559,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../vrrp/" class="md-nav__link">
+      <a href="../../config/vrrp/" class="md-nav__link">
         
   
   
@@ -1749,7 +1587,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../wifi/" class="md-nav__link">
+      <a href="../../config/wifi/" class="md-nav__link">
         
   
   
@@ -1777,7 +1615,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../tracking/" class="md-nav__link">
+      <a href="../../config/tracking/" class="md-nav__link">
         
   
   
@@ -1922,7 +1760,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../sdwan/vpn/vpnintro/" class="md-nav__link">
+      <a href="../../sdwan/vpn/vpnintro/" class="md-nav__link">
         
   
   
@@ -1950,7 +1788,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../sdwan/vpn/topology/" class="md-nav__link">
+      <a href="../../sdwan/vpn/topology/" class="md-nav__link">
         
   
   
@@ -1978,7 +1816,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../sdwan/vpn/instance/" class="md-nav__link">
+      <a href="../../sdwan/vpn/instance/" class="md-nav__link">
         
   
   
@@ -2014,7 +1852,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../sdwan/mwan/" class="md-nav__link">
+      <a href="../../sdwan/mwan/" class="md-nav__link">
         
   
   
@@ -2042,7 +1880,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../sdwan/qos/" class="md-nav__link">
+      <a href="../../sdwan/qos/" class="md-nav__link">
         
   
   
@@ -2074,8 +1912,10 @@
       
   
   
+    
   
   
+  
     
     
       
@@ -2089,11 +1929,11 @@
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5">
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked="">
         
           
           <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
@@ -2114,7 +1954,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
             
@@ -2189,7 +2029,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../security/firewall/overview/" class="md-nav__link">
+      <a href="../firewall/overview/" class="md-nav__link">
         
   
   
@@ -2217,7 +2057,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../security/firewall/policies/" class="md-nav__link">
+      <a href="../firewall/policies/" class="md-nav__link">
         
   
   
@@ -2245,7 +2085,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../security/firewall/objects/" class="md-nav__link">
+      <a href="../firewall/objects/" class="md-nav__link">
         
   
   
@@ -2273,7 +2113,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../security/firewall/templates/" class="md-nav__link">
+      <a href="../firewall/templates/" class="md-nav__link">
         
   
   
@@ -2309,7 +2149,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../security/webfilter/" class="md-nav__link">
+      <a href="../webfilter/" class="md-nav__link">
         
   
   
@@ -2334,10 +2174,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../../security/nf_collector/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Netflow Collector
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -2353,6 +2220,87 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#planning" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Planning
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gui-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GUI Configuration
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="GUI Configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Parameters
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cli-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CLI Configuration
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#verification" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Verification
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -2390,7 +2338,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../hotspot/" class="md-nav__link ">
+            <a href="../../hotspot/" class="md-nav__link ">
               
   
   
@@ -2495,7 +2443,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../cases/wanfailover/" class="md-nav__link">
+      <a href="../../cases/wanfailover/" class="md-nav__link">
         
   
   
@@ -2523,7 +2471,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../cases/cloudsdwan/" class="md-nav__link">
+      <a href="../../cases/cloudsdwan/" class="md-nav__link">
         
   
   
@@ -2551,7 +2499,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../cases/l2vpn/" class="md-nav__link">
+      <a href="../../cases/l2vpn/" class="md-nav__link">
         
   
   
@@ -2579,7 +2527,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../cases/vrf/" class="md-nav__link">
+      <a href="../../cases/vrf/" class="md-nav__link">
         
   
   
@@ -2607,7 +2555,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../cases/crewwifi/" class="md-nav__link">
+      <a href="../../cases/crewwifi/" class="md-nav__link">
         
   
   
@@ -2699,7 +2647,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../api/hotspot/" class="md-nav__link">
+      <a href="../../api/hotspot/" class="md-nav__link">
         
   
   
@@ -2727,7 +2675,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../api/syslog/" class="md-nav__link">
+      <a href="../../api/syslog/" class="md-nav__link">
         
   
   
@@ -2755,7 +2703,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../api/wispr/" class="md-nav__link">
+      <a href="../../api/wispr/" class="md-nav__link">
         
   
   
@@ -2783,7 +2731,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../api/netflow/" class="md-nav__link">
+      <a href="../../api/netflow/" class="md-nav__link">
         
   
   
@@ -2873,7 +2821,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../support/packages/" class="md-nav__link">
+      <a href="../../support/packages/" class="md-nav__link">
         
   
   
@@ -2954,7 +2902,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../support/rn/branch/" class="md-nav__link">
+      <a href="../../support/rn/branch/" class="md-nav__link">
         
   
   
@@ -2982,7 +2930,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../support/rn/gateway/" class="md-nav__link">
+      <a href="../../support/rn/gateway/" class="md-nav__link">
         
   
   
@@ -3071,7 +3019,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../support/ts/hotspot_onprem/" class="md-nav__link">
+      <a href="../../support/ts/hotspot_onprem/" class="md-nav__link">
         
   
   
@@ -3099,7 +3047,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../support/ts/wifi_slow/" class="md-nav__link">
+      <a href="../../support/ts/wifi_slow/" class="md-nav__link">
         
   
   
@@ -3162,6 +3110,17 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
       
         <li class="md-nav__item">
+  <a href="#planning" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Planning
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#gui-configuration" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -3174,10 +3133,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#settings" class="md-nav__link">
+  <a href="#parameters" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Settings
+        Parameters
       
     </span>
   </a>
@@ -3197,67 +3156,6 @@
       
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="CLI Configuration">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#basic-pppoe-setup" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Basic PPPoE setup
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#pppoe-with-firewall-rules" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        PPPoE with firewall rules
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#pppoe-over-a-vlan-interface" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        PPPoE over a VLAN interface
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#set-dns-servers-explicitly" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Set DNS servers explicitly
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#multi-wan-with-pppoe" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Multi-WAN with PPPoE
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -3288,49 +3186,6 @@
 
 
 
-  <nav class="md-path" aria-label="Navigation">
-    <ol class="md-path__list">
-      
-      
-        
-  
-  
-    
-    
-      <li class="md-path__item">
-        <a href="../../" class="md-path__link">
-          
-  <span class="md-ellipsis">
-    Network Settings
-  </span>
-
-        </a>
-      </li>
-    
-  
-
-      
-        
-  
-  
-    
-    
-      <li class="md-path__item">
-        <a href="../ethernet/" class="md-path__link">
-          
-  <span class="md-ellipsis">
-    Interfaces
-  </span>
-
-        </a>
-      </li>
-    
-  
-
-      
-    </ol>
-  </nav>
-
               
               <article class="md-content__inner md-typeset">
                 
@@ -3338,161 +3193,90 @@
 
 
 
-<h1 id="pppoe">PPPoE<a class="headerlink" href="#pppoe" title="Permanent link">¶</a></h1>
-<p>Point-to-Point Protocol over Ethernet (PPPoE) is a WAN encapsulation method used by some ISPs — particularly for DSL and fibre broadband services — to authenticate subscribers and establish a routed session. The ISP provides a username and password which the router uses to authenticate against the provider's access concentrator (BRAS/NAS) before a public IP address is assigned.</p>
-<p>PPPoE is configured directly on the WAN interface rather than as a separate interface type. Once the session is established, the operating system creates a virtual PPP interface (<code>ppp0</code>, <code>ppp1</code>, etc.) which carries the actual traffic.</p>
+<h1 id="netflow-collector">NetFlow Collector<a class="headerlink" href="#netflow-collector" title="Permanent link">¶</a></h1>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Some ISPs require PPPoE to be configured on a VLAN sub-interface rather than the physical port. In this case, first create a VLAN interface on the WAN port, then configure PPPoE on that VLAN interface. See <a href="../vlaniface/">VLAN Interface</a> for details.</p>
+<p>This feature requires the appliance to be licensed as <strong>mfusion</strong>, which includes local storage for collecting, storing, and analysing NetFlow data. See <a href="../../monitor/netflow/">Device Monitoring → NetFlow</a> for the analysis dashboard.</p>
 </div>
+<p>The mfusion appliance can act as a NetFlow collector, receiving flow exports from remote routers and presenting them through the NetFlow analyser GUI. A single collector can receive NetFlow from multiple remote routers simultaneously, with each router's data isolated into a separate tenant (entity) for independent analysis.</p>
+<hr>
+<h2 id="planning">Planning<a class="headerlink" href="#planning" title="Permanent link">¶</a></h2>
+<p>Before configuring the collector, map out your tenants and port assignments:</p>
+<ul>
+<li>Each <strong>entity</strong> in mfusion corresponds to one data tenant — NetFlow data from different customers or sites is stored separately per entity.</li>
+<li>Each entity is assigned a <strong>dedicated UDP port</strong>. All routers belonging to that entity export NetFlow to the collector on that port, so their data lands in the correct tenant folder.</li>
+<li>Ensure the collector's designated ports are reachable from the remote routers — either directly over the internet or via VPN tunnels.</li>
+</ul>
+<p>See <a href="../../start/device/provision/#create-customer-entity">Provisioning → Create Customer Entity</a> for how to set up entities, and <a href="../../config/iface/netflow/">NetFlow Export</a> for how to configure routers to export.</p>
 <hr>
 <h2 id="gui-configuration">GUI Configuration<a class="headerlink" href="#gui-configuration" title="Permanent link">¶</a></h2>
-<p>Navigate to <strong>Device Settings → Network → Interfaces</strong>, click on the WAN interface (typically <code>eth0</code> or a VLAN sub-interface), and set <strong>IPv4 Address</strong> to <code>PPPoE Username/Password</code>.</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../images/iface-pppoe-1.png" data-desc-position="bottom"><img alt="PPPoE Interface Settings" src="../../images/iface-pppoe-1.png"></a></p>
-<h3 id="settings">Settings<a class="headerlink" href="#settings" title="Permanent link">¶</a></h3>
+<p><strong>Option 1 — Configure directly on the mfusion appliance</strong></p>
+<p>Navigate to <strong>Device Settings → NetFlow Collector</strong>.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../images/netflow-1.png" data-desc-position="bottom"><img alt="NetFlow collector — local device settings" src="../images/netflow-1.png"></a></p>
+<p><strong>Option 2 — Configure via the orchestrator (if managed by another mfusion)</strong></p>
+<p>Navigate to <strong>ORCHESTRATOR → Device Settings → Security → NetFlow Collector</strong>.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../images/netflow-2.png" data-desc-position="bottom"><img alt="NetFlow collector — orchestrator" src="../images/netflow-2.png"></a></p>
+<hr>
+<h3 id="parameters">Parameters<a class="headerlink" href="#parameters" title="Permanent link">¶</a></h3>
 <table>
 <thead>
 <tr>
-<th>Field</th>
+<th>Parameter</th>
 <th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><strong>Ethernet Interface Name</strong></td>
-<td>The physical or VLAN interface connected to the ISP modem (e.g., <code>eth0</code>)</td>
+<td><strong>Port</strong></td>
+<td>UDP port the collector listens on for incoming NetFlow exports from remote routers. Each entity should use a unique port.</td>
 </tr>
 <tr>
-<td><strong>Admin Status</strong></td>
-<td>Enable or disable this interface</td>
+<td><strong>Data (Entity)</strong></td>
+<td>The entity name this port's data is stored under. Must match the entity name exactly as defined during provisioning.</td>
 </tr>
 <tr>
-<td><strong>IPv4 Address</strong></td>
-<td>Set to <code>PPPoE Username/Password</code> to activate PPPoE mode</td>
+<td><strong>Life (days)</strong></td>
+<td>How long NetFlow data is retained before being purged. NetFlow data can consume significant storage — keep this as short as your analysis requirements allow.</td>
 </tr>
 <tr>
-<td><strong>PPPoE Username</strong></td>
-<td>Username provided by the ISP for authentication</td>
-</tr>
-<tr>
-<td><strong>PPPoE Password</strong></td>
-<td>Password provided by the ISP for authentication</td>
-</tr>
-<tr>
-<td><strong>Ignore Default Route</strong></td>
-<td>Do not install the ISP-assigned default route into the routing table. Enable this when PPPoE is one of multiple WAN links managed by Multi-WAN — the Multi-WAN engine handles routing instead.</td>
+<td><strong>Interval (seconds)</strong></td>
+<td>How frequently the collector rotates the active capture file. A shorter interval (e.g. <code>60</code>) gives more near-real-time visibility in the dashboard; a longer interval (e.g. <code>300</code>) produces fewer files.</td>
 </tr>
 </tbody>
 </table>
-<p><strong>Other Settings:</strong></p>
-<table>
-<thead>
-<tr>
-<th>Option</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>DynDNS</strong></td>
-<td>Enable Dynamic DNS updates using the PPPoE-assigned IP</td>
-</tr>
-<tr>
-<td><strong>Enable Tracking</strong></td>
-<td>Enable link tracking on this interface for failover detection</td>
-</tr>
-<tr>
-<td><strong>Link Speed/Duplex</strong></td>
-<td>Override physical link speed and duplex settings</td>
-</tr>
-<tr>
-<td><strong>MTU</strong></td>
-<td>PPPoE adds an 8-byte header overhead to each frame. The effective payload MTU is reduced to <strong>1492 bytes</strong> (1500 − 8). Set this to <code>1492</code> if the ISP does not handle MSS clamping.</td>
-</tr>
-<tr>
-<td><strong>Proxy ARP</strong></td>
-<td>Enable Proxy ARP on this interface</td>
-</tr>
-<tr>
-<td><strong>Bridge</strong></td>
-<td>Bridge this interface to another interface</td>
-</tr>
-<tr>
-<td><strong>VRRP (High Availability)</strong></td>
-<td>Configure VRRP for gateway redundancy</td>
-</tr>
-<tr>
-<td><strong>Route Metric</strong></td>
-<td>Administrative metric for the default route via this PPPoE session. Use this to set priority when multiple WAN links are present.</td>
-</tr>
-<tr>
-<td><strong>Netflow Export</strong></td>
-<td>Enable NetFlow traffic export on this interface</td>
-</tr>
-<tr>
-<td><strong>VRF</strong></td>
-<td>Assign to a VRF instance</td>
-</tr>
-</tbody>
-</table>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The <strong>Data</strong> (entity name) value must match the entity name defined during provisioning exactly — including capitalisation. A mismatch will cause the data to be stored in the wrong location or dropped.</p>
+</div>
 <hr>
 <h2 id="cli-configuration">CLI Configuration<a class="headerlink" href="#cli-configuration" title="Permanent link">¶</a></h2>
-<p>PPPoE is configured under the physical ethernet interface connected to the ISP modem:</p>
-<h3 id="basic-pppoe-setup">Basic PPPoE setup<a class="headerlink" href="#basic-pppoe-setup" title="Permanent link">¶</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>interface eth0
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>  enable
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>  pppoe &lt;username&gt; &lt;password&gt;
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>nf-collector port &lt;port&gt; data &lt;entity&gt; life &lt;days&gt; interval &lt;seconds&gt;
 </code></pre></div>
-<h3 id="pppoe-with-firewall-rules">PPPoE with firewall rules<a class="headerlink" href="#pppoe-with-firewall-rules" title="Permanent link">¶</a></h3>
-<p>For a single-WAN setup, include outbound NAT and access rules referencing the virtual <code>ppp0</code> interface:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>interface eth0
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>  enable
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>  pppoe 101500223 20160205665
-<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>
-<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>firewall-access 11 permit outbound ppp0
-<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>firewall-snat 11 overload outbound ppp0
+<p><strong>Example</strong> — two entities on separate ports:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>nf-collector port 20001 data NOCTEST_SG life 5 interval 300
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>nf-collector port 2055 data SGNOC life 5 interval 300
 </code></pre></div>
-<h3 id="pppoe-over-a-vlan-interface">PPPoE over a VLAN interface<a class="headerlink" href="#pppoe-over-a-vlan-interface" title="Permanent link">¶</a></h3>
-<p>When the ISP requires a tagged VLAN on the WAN port:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>interface eth0
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>  enable
-<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
-<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>interface vlan 0 10
-<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>  enable
-<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>  pppoe &lt;username&gt; &lt;password&gt; nodefault
-</code></pre></div>
-<h3 id="set-dns-servers-explicitly">Set DNS servers explicitly<a class="headerlink" href="#set-dns-servers-explicitly" title="Permanent link">¶</a></h3>
-<p>By default, mbox does not use DNS servers pushed by the ISP over PPPoE. Configure DNS explicitly:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>ip name-server 8.8.8.8
-<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>ip name-server 8.8.4.4
-</code></pre></div>
-<h3 id="multi-wan-with-pppoe">Multi-WAN with PPPoE<a class="headerlink" href="#multi-wan-with-pppoe" title="Permanent link">¶</a></h3>
-<p>When PPPoE is one of multiple WAN links, omit the <code>default</code> command and manage routing via the Multi-WAN engine. MWAN configuration is applied under the virtual <code>ppp</code> interface:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>interface eth0
-<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>  enable
-<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>  pppoe &lt;username&gt; &lt;password&gt;
-<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>
-<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>interface ppp0
-<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>  mwan-group 0
-<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>  track 8.8.8.8
-<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>  metric 2
-<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>  weight 1
-</code></pre></div>
-<p>Use <code>ppp0</code> (or <code>ppp1</code> for a second PPPoE session) as the nexthop interface name in MWAN and routing rules.</p>
+<p>This configures the collector to:</p>
+<ul>
+<li>Listen on port <code>20001</code> for routers belonging to entity <code>NOCTEST_SG</code>, retaining 5 days of data with 5-minute file rotation</li>
+<li>Listen on port <code>2055</code> for routers belonging to entity <code>SGNOC</code>, with the same retention and rotation settings</li>
+</ul>
 <hr>
 <h2 id="verification">Verification<a class="headerlink" href="#verification" title="Permanent link">¶</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>show interface ppp0
+<p>Run a tcpdump on the interface facing the remote routers to capture incoming NetFlow packets, filtering on the collector port:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>tcpdump interface eth0 port 2055
 </code></pre></div>
-<p>Example output:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>Interface  : ppp0
-<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>Admin State: UP
-<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>Link State : UP
-<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>MTU        : 1492
-<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>IPv4       : 203.128.x.x/32
+<p>Expected output shows UDP packets arriving from the remote router's IP at the collector port:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>10:15:32.451293 IP 192.168.10.1.49155 &gt; 10.65.30.2.2055: UDP, length 984
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>10:15:37.882104 IP 192.168.10.1.49155 &gt; 10.65.30.2.2055: UDP, length 456
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>10:15:42.119867 IP 192.168.10.1.49155 &gt; 10.65.30.2.2055: UDP, length 1416
 </code></pre></div>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>show pppoe
-</code></pre></div>
-<p>Displays the active PPPoE session, authentication state, assigned IP, and session uptime.</p>
+<p>If no packets arrive, check:</p>
+<ul>
+<li>The remote router has <code>ip flow-export</code> configured pointing to this collector's IP and port</li>
+<li>The port is not blocked by a firewall rule on the collector or upstream</li>
+<li>The remote router has a route to reach the collector (directly or via VPN)</li>
+</ul>
 
 
 
@@ -3570,10 +3354,10 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.indexes", "navigation.path", "navigation.top", "search.highlight", "search.suggest", "content.code.copy", "content.tabs.link", "content.action.edit", "toc.follow"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.indexes", "navigation.path", "navigation.top", "search.highlight", "search.suggest", "content.code.copy", "content.tabs.link", "content.action.edit", "toc.follow"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
       
     
   

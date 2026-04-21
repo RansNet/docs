@@ -9,27 +9,31 @@
         <meta name="author" content="RansNet Singapore Pte Ltd">
       
       
-        <link rel="canonical" href="https://docs.ransnet.com/config/netflow/">
+        <link rel="canonical" href="https://docs.ransnet.com/config/iface/netflow/">
       
       
+        <link rel="prev" href="../wifiwan/">
+      
+      
+        <link rel="next" href="../../dhcp/">
       
       
         
       
       
-      <link rel="icon" href="../../images/RansNet_logo.png">
+      <link rel="icon" href="../../../images/RansNet_logo.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
     
     
       
-        <title>NetFlow Export - RansNet Documentation</title>
+        <title>Netflow Export - RansNet Documentation</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -48,15 +52,15 @@
       
     
     
-      <link rel="stylesheet" href="../../stylesheets/extra.css">
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
     
-    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
     
     
-  <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+  <link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
             html.glightbox-open { overflow: initial; height: 100%; }
             .gslide-title { margin-top: 0px; user-select: text; }
             .gslide-desc { color: #666; user-select: text; }
@@ -101,9 +105,9 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../.." title="RansNet Documentation" class="md-header__button md-logo" aria-label="RansNet Documentation" data-md-component="logo">
+    <a href="../../.." title="RansNet Documentation" class="md-header__button md-logo" aria-label="RansNet Documentation" data-md-component="logo">
       
-  <img src="../../images/RansNet_logo.png" alt="logo">
+  <img src="../../../images/RansNet_logo.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -120,7 +124,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              NetFlow Export
+              Netflow Export
             
           </span>
         </div>
@@ -226,9 +230,9 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="RansNet Documentation" class="md-nav__button md-logo" aria-label="RansNet Documentation" data-md-component="logo">
+    <a href="../../.." title="RansNet Documentation" class="md-nav__button md-logo" aria-label="RansNet Documentation" data-md-component="logo">
       
-  <img src="../../images/RansNet_logo.png" alt="logo">
+  <img src="../../../images/RansNet_logo.png" alt="logo">
 
     </a>
     RansNet Documentation
@@ -267,7 +271,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../start/" class="md-nav__link ">
+            <a href="../../../start/" class="md-nav__link ">
               
   
   
@@ -311,7 +315,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../start/overview/" class="md-nav__link">
+      <a href="../../../start/overview/" class="md-nav__link">
         
   
   
@@ -394,7 +398,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../start/mfusion/features/" class="md-nav__link">
+      <a href="../../../start/mfusion/features/" class="md-nav__link">
         
   
   
@@ -422,7 +426,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../start/mfusion/security/" class="md-nav__link">
+      <a href="../../../start/mfusion/security/" class="md-nav__link">
         
   
   
@@ -450,7 +454,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../start/mfusion/admin/" class="md-nav__link">
+      <a href="../../../start/mfusion/admin/" class="md-nav__link">
         
   
   
@@ -543,7 +547,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../start/device/bootstrap/" class="md-nav__link">
+      <a href="../../../start/device/bootstrap/" class="md-nav__link">
         
   
   
@@ -571,7 +575,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../start/device/provision/" class="md-nav__link">
+      <a href="../../../start/device/provision/" class="md-nav__link">
         
   
   
@@ -599,7 +603,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../start/device/onboard/" class="md-nav__link">
+      <a href="../../../start/device/onboard/" class="md-nav__link">
         
   
   
@@ -627,7 +631,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../start/device/harden/" class="md-nav__link">
+      <a href="../../../start/device/harden/" class="md-nav__link">
         
   
   
@@ -702,7 +706,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../monitor/" class="md-nav__link ">
+            <a href="../../../monitor/" class="md-nav__link ">
               
   
   
@@ -746,7 +750,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../monitor/dashboard/" class="md-nav__link">
+      <a href="../../../monitor/dashboard/" class="md-nav__link">
         
   
   
@@ -774,7 +778,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../monitor/hosts/" class="md-nav__link">
+      <a href="../../../monitor/hosts/" class="md-nav__link">
         
   
   
@@ -802,7 +806,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../monitor/topo/" class="md-nav__link">
+      <a href="../../../monitor/topo/" class="md-nav__link">
         
   
   
@@ -830,7 +834,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../monitor/wifi/" class="md-nav__link">
+      <a href="../../../monitor/wifi/" class="md-nav__link">
         
   
   
@@ -858,7 +862,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../monitor/netflow/" class="md-nav__link">
+      <a href="../../../monitor/netflow/" class="md-nav__link">
         
   
   
@@ -886,7 +890,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../monitor/alerts/" class="md-nav__link">
+      <a href="../../../monitor/alerts/" class="md-nav__link">
         
   
   
@@ -914,7 +918,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../monitor/settings/" class="md-nav__link">
+      <a href="../../../monitor/settings/" class="md-nav__link">
         
   
   
@@ -946,6 +950,8 @@
       
   
   
+    
+  
   
   
     
@@ -973,15 +979,15 @@
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3">
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked="">
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../" class="md-nav__link ">
+            <a href="../../" class="md-nav__link ">
               
   
   
@@ -1005,7 +1011,7 @@
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             
@@ -1022,8 +1028,10 @@
                 
   
   
+    
   
   
+  
     
     
       
@@ -1041,15 +1049,17 @@
       
         
       
+        
+      
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2">
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" checked="">
         
           
           <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
@@ -1070,7 +1080,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3_2">
             <span class="md-nav__icon md-icon"></span>
             
@@ -1088,7 +1098,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../iface/ethernet/" class="md-nav__link">
+      <a href="../ethernet/" class="md-nav__link">
         
   
   
@@ -1116,7 +1126,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../iface/vlaniface/" class="md-nav__link">
+      <a href="../vlaniface/" class="md-nav__link">
         
   
   
@@ -1144,7 +1154,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../iface/bridge/" class="md-nav__link">
+      <a href="../bridge/" class="md-nav__link">
         
   
   
@@ -1172,7 +1182,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../iface/wwan/" class="md-nav__link">
+      <a href="../wwan/" class="md-nav__link">
         
   
   
@@ -1200,7 +1210,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../iface/pppoe/" class="md-nav__link">
+      <a href="../pppoe/" class="md-nav__link">
         
   
   
@@ -1228,7 +1238,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../iface/switchport/" class="md-nav__link">
+      <a href="../switchport/" class="md-nav__link">
         
   
   
@@ -1256,7 +1266,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../iface/wifiwan/" class="md-nav__link">
+      <a href="../wifiwan/" class="md-nav__link">
         
   
   
@@ -1277,6 +1287,114 @@
 
               
             
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Netflow Export
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Netflow Export
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#gui-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GUI Configuration
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cli-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CLI Configuration
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#verification" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Verification
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -1292,7 +1410,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../dhcp/" class="md-nav__link">
+      <a href="../../dhcp/" class="md-nav__link">
         
   
   
@@ -1320,7 +1438,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../dnsrewrite/" class="md-nav__link">
+      <a href="../../dnsrewrite/" class="md-nav__link">
         
   
   
@@ -1405,7 +1523,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../route/static/" class="md-nav__link">
+      <a href="../../route/static/" class="md-nav__link">
         
   
   
@@ -1433,7 +1551,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../route/groups/" class="md-nav__link">
+      <a href="../../route/groups/" class="md-nav__link">
         
   
   
@@ -1461,7 +1579,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../route/ospf/" class="md-nav__link">
+      <a href="../../route/ospf/" class="md-nav__link">
         
   
   
@@ -1489,7 +1607,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../route/bgp/" class="md-nav__link">
+      <a href="../../route/bgp/" class="md-nav__link">
         
   
   
@@ -1525,7 +1643,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../vrrp/" class="md-nav__link">
+      <a href="../../vrrp/" class="md-nav__link">
         
   
   
@@ -1553,7 +1671,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../wifi/" class="md-nav__link">
+      <a href="../../wifi/" class="md-nav__link">
         
   
   
@@ -1581,7 +1699,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../tracking/" class="md-nav__link">
+      <a href="../../tracking/" class="md-nav__link">
         
   
   
@@ -1726,7 +1844,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../sdwan/vpn/vpnintro/" class="md-nav__link">
+      <a href="../../../sdwan/vpn/vpnintro/" class="md-nav__link">
         
   
   
@@ -1754,7 +1872,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../sdwan/vpn/topology/" class="md-nav__link">
+      <a href="../../../sdwan/vpn/topology/" class="md-nav__link">
         
   
   
@@ -1782,7 +1900,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../sdwan/vpn/instance/" class="md-nav__link">
+      <a href="../../../sdwan/vpn/instance/" class="md-nav__link">
         
   
   
@@ -1818,7 +1936,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../sdwan/mwan/" class="md-nav__link">
+      <a href="../../../sdwan/mwan/" class="md-nav__link">
         
   
   
@@ -1846,7 +1964,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../sdwan/qos/" class="md-nav__link">
+      <a href="../../../sdwan/qos/" class="md-nav__link">
         
   
   
@@ -1882,6 +2000,8 @@
   
     
     
+      
+        
       
         
       
@@ -1991,7 +2111,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../security/firewall/overview/" class="md-nav__link">
+      <a href="../../../security/firewall/overview/" class="md-nav__link">
         
   
   
@@ -2019,7 +2139,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../security/firewall/policies/" class="md-nav__link">
+      <a href="../../../security/firewall/policies/" class="md-nav__link">
         
   
   
@@ -2047,7 +2167,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../security/firewall/objects/" class="md-nav__link">
+      <a href="../../../security/firewall/objects/" class="md-nav__link">
         
   
   
@@ -2075,7 +2195,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../security/firewall/templates/" class="md-nav__link">
+      <a href="../../../security/firewall/templates/" class="md-nav__link">
         
   
   
@@ -2111,7 +2231,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../security/webfilter/" class="md-nav__link">
+      <a href="../../../security/webfilter/" class="md-nav__link">
         
   
   
@@ -2119,6 +2239,34 @@
     
   
     Web Filtering
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../security/nf_collector/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Netflow Collector
   
 
     
@@ -2164,7 +2312,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../hotspot/" class="md-nav__link ">
+            <a href="../../../hotspot/" class="md-nav__link ">
               
   
   
@@ -2269,7 +2417,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cases/wanfailover/" class="md-nav__link">
+      <a href="../../../cases/wanfailover/" class="md-nav__link">
         
   
   
@@ -2297,7 +2445,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cases/cloudsdwan/" class="md-nav__link">
+      <a href="../../../cases/cloudsdwan/" class="md-nav__link">
         
   
   
@@ -2325,7 +2473,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cases/l2vpn/" class="md-nav__link">
+      <a href="../../../cases/l2vpn/" class="md-nav__link">
         
   
   
@@ -2353,7 +2501,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cases/vrf/" class="md-nav__link">
+      <a href="../../../cases/vrf/" class="md-nav__link">
         
   
   
@@ -2381,7 +2529,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cases/crewwifi/" class="md-nav__link">
+      <a href="../../../cases/crewwifi/" class="md-nav__link">
         
   
   
@@ -2473,7 +2621,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../api/hotspot/" class="md-nav__link">
+      <a href="../../../api/hotspot/" class="md-nav__link">
         
   
   
@@ -2501,7 +2649,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../api/syslog/" class="md-nav__link">
+      <a href="../../../api/syslog/" class="md-nav__link">
         
   
   
@@ -2529,7 +2677,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../api/wispr/" class="md-nav__link">
+      <a href="../../../api/wispr/" class="md-nav__link">
         
   
   
@@ -2557,7 +2705,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../api/netflow/" class="md-nav__link">
+      <a href="../../../api/netflow/" class="md-nav__link">
         
   
   
@@ -2647,7 +2795,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../support/packages/" class="md-nav__link">
+      <a href="../../../support/packages/" class="md-nav__link">
         
   
   
@@ -2728,7 +2876,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../support/rn/branch/" class="md-nav__link">
+      <a href="../../../support/rn/branch/" class="md-nav__link">
         
   
   
@@ -2756,7 +2904,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../support/rn/gateway/" class="md-nav__link">
+      <a href="../../../support/rn/gateway/" class="md-nav__link">
         
   
   
@@ -2845,7 +2993,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../support/ts/hotspot_onprem/" class="md-nav__link">
+      <a href="../../../support/ts/hotspot_onprem/" class="md-nav__link">
         
   
   
@@ -2873,7 +3021,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../support/ts/wifi_slow/" class="md-nav__link">
+      <a href="../../../support/ts/wifi_slow/" class="md-nav__link">
         
   
   
@@ -2936,10 +3084,32 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
       
         <li class="md-nav__item">
-  <a href="#gui-config" class="md-nav__link">
+  <a href="#gui-configuration" class="md-nav__link">
     <span class="md-ellipsis">
       
-        GUI Config
+        GUI Configuration
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cli-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CLI Configuration
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#verification" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Verification
       
     </span>
   </a>
@@ -2962,6 +3132,49 @@
 
 
 
+  <nav class="md-path" aria-label="Navigation">
+    <ol class="md-path__list">
+      
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Network Settings
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../ethernet/" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Interfaces
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
               
               <article class="md-content__inner md-typeset">
                 
@@ -2970,11 +3183,113 @@
 
 
 <h1 id="netflow-export">NetFlow Export<a class="headerlink" href="#netflow-export" title="Permanent link">¶</a></h1>
-<p>Explain netflow, how it works and the general use case.</p>
-<p>All RansNet SD-WAN routers support export network traffic statistics to netflow collector for reporting.</p>
-<p>Configure netflow export on the target interface to export out the statistics to a netflow collector. RansNet mfusion orchestrator can function as a netflow collector/analyzor. You can also export out to any 3rd-party collector supporting standard netflow v4/v9 protocols.</p>
-<h2 id="gui-config">GUI Config<a class="headerlink" href="#gui-config" title="Permanent link">¶</a></h2>
-<p>Navigate to <strong>Device Settings → Network → Interfaces</strong>, under interface setting, click on "NetFlow Export" to set the collector IP and Port. Usually you will be given the port no. accepted by the collector.</p>
+<p>NetFlow is a network protocol for collecting and exporting IP traffic statistics. When enabled on an interface, the router monitors all traffic flows passing through it — recording source and destination IP, protocol, port numbers, bytes, and packet counts — and periodically exports these records as UDP packets to a collector for analysis.</p>
+<p>Typical use cases:</p>
+<ul>
+<li><strong>Traffic visibility</strong> — identify which applications, hosts, or users consume the most bandwidth</li>
+<li><strong>Security monitoring</strong> — detect anomalies, unusual traffic patterns, or potential intrusions</li>
+<li><strong>Capacity planning</strong> — understand traffic trends over time to plan link upgrades</li>
+<li><strong>Usage accounting</strong> — attribute bandwidth consumption per site or user group</li>
+</ul>
+<p>All RansNet SD-WAN routers support NetFlow export. The mfusion orchestrator can act as an integrated NetFlow collector and analyser — see <a href="../../../monitor/netflow/">Device Monitoring → NetFlow</a>. You can also export to any third-party collector that supports standard NetFlow v5/v9.</p>
+<hr>
+<h2 id="gui-configuration">GUI Configuration<a class="headerlink" href="#gui-configuration" title="Permanent link">¶</a></h2>
+<p>Navigate to <strong>Device Settings → Network → Interfaces</strong>, select the interface to monitor, then click <strong>NetFlow Export</strong>.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../images/config-netflow-1.png" data-desc-position="bottom"><img alt="NetFlow Export" src="../../images/config-netflow-1.png"></a></p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Collector IP</td>
+<td>IP address of the NetFlow collector</td>
+</tr>
+<tr>
+<td>Collector Port</td>
+<td>UDP port the collector listens on (commonly <code>2055</code>)</td>
+</tr>
+<tr>
+<td>Other NetFlow Options</td>
+<td>Optional advanced parameters — includes sampling ratio and other export tuning</td>
+</tr>
+</tbody>
+</table>
+<p>NetFlow export is configured per interface. Choose the interface based on what visibility you need:</p>
+<table>
+<thead>
+<tr>
+<th>Goal</th>
+<th>Enable NetFlow on</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Per-host / per-user traffic breakdown</td>
+<td>LAN or VLAN interface</td>
+</tr>
+<tr>
+<td>Total WAN usage / ISP bandwidth monitoring</td>
+<td>WAN interface</td>
+</tr>
+<tr>
+<td>Both</td>
+<td>Both interfaces</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Sampling ratio</p>
+<p>NetFlow uses packet sampling — only 1 in every N packets is exported to the collector rather than every packet. The default sampling ratio is <strong>10</strong> (1 in 10 packets sampled). This reduces CPU load and export bandwidth, but the collector must apply the inverse multiplier (×10) when calculating actual throughput figures.</p>
+<p>A lower ratio (e.g. 1) gives more accurate data at the cost of higher overhead. For most deployments the default of 10 is appropriate. The ratio is adjustable under <strong>Other NetFlow Options</strong>.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">NAT affects source IP visibility on the WAN interface</p>
+<p>If SNAT (masquerade) is configured on the WAN interface, NetFlow records on that interface will show the <strong>translated public IP</strong> as the source — not the original private IP of the client. This is because SNAT rewrites the source address before the packet leaves the interface, so all outbound traffic from all LAN hosts appears as a single source IP in the flow records.</p>
+<p>To retain per-host visibility, enable NetFlow on the <strong>LAN or VLAN interface</strong> instead, where traffic is sampled before NAT is applied.</p>
+</div>
+<hr>
+<h2 id="cli-configuration">CLI Configuration<a class="headerlink" href="#cli-configuration" title="Permanent link">¶</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>interface vlan 1 1
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>  ip flow-export &lt;collector-ip&gt; &lt;port&gt;
+</code></pre></div>
+<p><strong>Example</strong> — export traffic from the LAN VLAN to mfusion at <code>118.189.175.168</code> on port <code>2055</code>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>interface vlan 1 1
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>  description "Default VLAN for all LAN ports"
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>  bridge
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>  ip address 10.18.18.1/24
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>  ip flow-export 118.189.175.168 2055
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>  dhcp-server
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>    router 10.18.18.1
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>    dns 8.8.8.8 8.8.4.4
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>    range 10.18.18.2 10.18.18.254
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>    enable
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>  enable
+</code></pre></div>
+<hr>
+<h2 id="verification">Verification<a class="headerlink" href="#verification" title="Permanent link">¶</a></h2>
+<p><strong>Step 1 — Confirm a route exists to the collector</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>show ip route 118.189.175.168
+</code></pre></div>
+<p>Expected output shows a valid route (static default or specific route) to the collector IP:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>Routing entry for 0.0.0.0/0
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>  Known via "static", distance 1, metric 0, best
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>  Last update 02w0d19h ago
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>  * 61.13.198.165, via eth0, weight 1
+</code></pre></div>
+<p>If no route is returned, the collector is unreachable — check the routing table and upstream connectivity.</p>
+<p><strong>Step 2 — Capture NetFlow packets on the egress interface</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>tcpdump interface eth0 port 2055
+</code></pre></div>
+<p>Expected output shows UDP packets flowing from the router's WAN IP to the collector on port 2055:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>16:32:31.771742 IP 61.13.198.166.49398 &gt; 118.189.175.168.2055: UDP, length 984
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>16:32:35.111606 IP 61.13.198.166.49398 &gt; 118.189.175.168.2055: UDP, length 456
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>16:33:01.391643 IP 61.13.198.166.49398 &gt; 118.189.175.168.2055: UDP, length 1416
+</code></pre></div>
+<p>If no packets appear, verify the <code>ip flow-export</code> command is applied to the correct interface and that traffic is actively flowing through it.</p>
 
 
 
@@ -3052,10 +3367,10 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.indexes", "navigation.path", "navigation.top", "search.highlight", "search.suggest", "content.code.copy", "content.tabs.link", "content.action.edit", "toc.follow"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.indexes", "navigation.path", "navigation.top", "search.highlight", "search.suggest", "content.code.copy", "content.tabs.link", "content.action.edit", "toc.follow"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
       
     
   

@@ -65,10 +65,6 @@
          <lastmod>2026-04-21</lastmod>
     </url>
     <url>
-         <loc>https://docs.ransnet.com/config/netflow/</loc>
-         <lastmod>2026-04-21</lastmod>
-    </url>
-    <url>
          <loc>https://docs.ransnet.com/config/tracking/</loc>
          <lastmod>2026-04-21</lastmod>
     </url>
@@ -90,6 +86,10 @@
     </url>
     <url>
          <loc>https://docs.ransnet.com/config/iface/ethernet/</loc>
+         <lastmod>2026-04-21</lastmod>
+    </url>
+    <url>
+         <loc>https://docs.ransnet.com/config/iface/netflow/</loc>
          <lastmod>2026-04-21</lastmod>
     </url>
     <url>
@@ -202,6 +202,10 @@
     </url>
     <url>
          <loc>https://docs.ransnet.com/security/</loc>
+         <lastmod>2026-04-21</lastmod>
+    </url>
+    <url>
+         <loc>https://docs.ransnet.com/security/nf_collector/</loc>
          <lastmod>2026-04-21</lastmod>
     </url>
     <url>

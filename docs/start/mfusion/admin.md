@@ -21,7 +21,7 @@ Account Security controls the login and password policies enforced across all us
 | Password History | Number of previous passwords that cannot be reused |
 | Password Expiry (Days) | Days before a password expires and the user must change it — set to `0` to disable expiry |
 
-When a password expires or an administrator triggers a forced reset, the user is redirected to the change-password page on their next login and cannot access the dashboard until the change is completed.
+When an account is newly created or an administrator triggers a forced reset, the user is redirected to the change-password page on their next login and cannot access the dashboard until the change is completed.
 
 ### Account Lockout
 

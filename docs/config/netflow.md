@@ -7,5 +7,6 @@ All RansNet SD-WAN routers support export network traffic statistics to netflow 
 Configure netflow export on the target interface to export out the statistics to a netflow collector. RansNet mfusion orchestrator can function as a netflow collector/analyzor. You can also export out to any 3rd-party collector supporting standard netflow v4/v9 protocols.
 
 ## GUI Config
-Navigate to **Device Settings → Network → Interfaces**,
+
+Navigate to **Device Settings → Network → Interfaces**, under interface setting, click on "NetFlow Export" to set the collector IP and Port. Usually you will be given the port no. accepted by the collector.
 

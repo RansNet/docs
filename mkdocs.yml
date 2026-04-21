@@ -102,6 +102,7 @@ nav:
       - Bridge: config/iface/bridge.md
       - WWAN: config/iface/wwan.md
       - PPPoE: config/iface/pppoe.md
+      #- Netflow Export: config/iface/netflow.md
       - Switchport: config/iface/switchport.md
       - WiFi as WAN: config/iface/wifiwan.md
     - DHCP: config/dhcp.md

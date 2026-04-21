@@ -4,6 +4,47 @@ This section applies to **on-premise / private mfusion deployments** where you m
 
 ---
 
+## Account Security
+
+Navigate to **ADMIN → General → Account Settings**.
+
+![Account Settings](../images/start-mfusionarc-16.png)
+
+Account Security controls the login and password policies enforced across all user accounts on this mfusion instance. Settings here apply globally — configure them according to your organisation's security policy before onboarding users.
+
+### Password Policy
+
+| Setting | Description |
+|---|---|
+| Minimum Password Length | Minimum number of characters required for all passwords |
+| Require Complexity | Enforce mixed-case, digits, and special characters |
+| Password History | Number of previous passwords that cannot be reused |
+| Password Expiry (Days) | Days before a password expires and the user must change it — set to `0` to disable expiry |
+
+When a password expires or an administrator triggers a forced reset, the user is redirected to the change-password page on their next login and cannot access the dashboard until the change is completed.
+
+### Account Lockout
+
+| Setting | Description |
+|---|---|
+| Max Failed Login Attempts | Number of consecutive failures before the account is locked |
+| Lockout Duration (Minutes) | How long the account remains locked before it auto-unlocks — set to `0` for permanent lockout requiring manual re-enable |
+
+Locked accounts are listed in the user management table and can be manually re-enabled by a super-administrator at any time. Re-enabling an account resets the failed-attempt counter and the inactivity timer.
+
+### Session and Inactivity
+
+| Setting | Description |
+|---|---|
+| Session Inactivity Timeout (Minutes) | Idle time before a logged-in session is automatically terminated |
+
+### Login Notices
+
+Pre-login banners can be displayed on the mfusion login page — for example, to show an acceptable-use policy or a maintenance notice. Multiple notices can be configured simultaneously; each notice can be dismissed independently by users.
+
+!!! note
+    All account security events — login attempts, lockouts, password changes, and forced resets — are recorded in the [Audit Logs](#audit-logs) with timestamp, source IP, and the acting user.
+
 ## Application Settings
 
 Navigate to **ADMIN → General → Application Settings**.
@@ -166,6 +207,11 @@ Firmware releases are organised by device family:
 | **RANOL** | Firmware for gateway-series devices (e.g. CMG, HSG) |
 
 Once uploaded, the release becomes available for selection when triggering a firmware upgrade from the device management interface.
+
+For a summary of what is included in each firmware release, see the release notes:
+
+- [Release Notes — Branch Series](../../support/rn/branch.md) (HSA, UA, XE, UAP)
+- [Release Notes — Gateway Series](../../support/rn/gateway.md) (CMG, HSG)
 
 !!! note
     Only active devices with a valid activation code and an active support contract are permitted to download firmware from mfusion.

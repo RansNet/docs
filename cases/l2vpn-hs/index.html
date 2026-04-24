@@ -9,13 +9,13 @@
         <meta name="author" content="RansNet Singapore Pte Ltd">
       
       
-        <link rel="canonical" href="https://docs.ransnet.com/cases/l2vpn/">
+        <link rel="canonical" href="https://docs.ransnet.com/cases/l2vpn-hs/">
       
       
         <link rel="prev" href="../cloudsdwan/">
       
       
-        <link rel="next" href="../vrf/">
+        <link rel="next" href="../l2vpn-ss/">
       
       
         
@@ -26,7 +26,7 @@
     
     
       
-        <title>Layer-2 SD-WAN - RansNet Documentation</title>
+        <title>L2 Hub-n-Spoke - RansNet Documentation</title>
       
     
     
@@ -89,7 +89,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#layer-2-sd-wan-l2vpn" class="md-skip">
+        <a href="#layer-2-sd-wan-hub-and-spoke" class="md-skip">
           Skip to content
         </a>
       
@@ -124,7 +124,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Layer-2 SD-WAN
+              L2 Hub-n-Spoke
             
           </span>
         </div>
@@ -2288,6 +2288,8 @@
       
         
       
+        
+      
     
     
     
@@ -2407,7 +2409,7 @@
   <span class="md-ellipsis">
     
   
-    Layer-2 SD-WAN
+    L2 Hub-n-Spoke
   
 
     
@@ -2425,7 +2427,7 @@
   <span class="md-ellipsis">
     
   
-    Layer-2 SD-WAN
+    L2 Hub-n-Spoke
   
 
     
@@ -2496,10 +2498,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#step-3-assign-branch-routers" class="md-nav__link">
+  <a href="#step-3-assign-branch-routers-to-vpn-instance" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Step 3 — Assign Branch Routers
+        Step 3 — Assign Branch Routers to VPN Instance
       
     </span>
   </a>
@@ -2507,10 +2509,21 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#cli-reference-wireguard" class="md-nav__link">
+  <a href="#step-4-optional-assign-ip-address-to-gateway-bridge-interface" class="md-nav__link">
     <span class="md-ellipsis">
       
-        CLI Reference (WireGuard)
+        Step 4 (Optional) — Assign IP Address to Gateway Bridge Interface
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cli-reference-gateway" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CLI Reference (Gateway)
       
     </span>
   </a>
@@ -2546,10 +2559,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#cli-reference-wireguard_1" class="md-nav__link">
+  <a href="#cli-reference-branch" class="md-nav__link">
     <span class="md-ellipsis">
       
-        CLI Reference (WireGuard)
+        CLI Reference (Branch)
       
     </span>
   </a>
@@ -2574,10 +2587,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#gateway-verification" class="md-nav__link">
+  <a href="#gateway" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Gateway Verification
+        Gateway
       
     </span>
   </a>
@@ -2585,49 +2598,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#branch-routers-verification" class="md-nav__link">
+  <a href="#branch-routers" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Branch Routers Verification
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#alternative-ipsec-encryption" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Alternative: IPSec Encryption
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Alternative: IPSec Encryption">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#gateway-cli-reference" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Gateway CLI Reference
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#branch-cli-reference" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Branch CLI Reference
+        Branch Routers
       
     </span>
   </a>
@@ -2643,6 +2617,34 @@
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../l2vpn-ss/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    L2 Spoke-to-Spoke
+  
+
+    
+  </span>
+  
+  
+
+      </a>
     </li>
   
 
@@ -3283,10 +3285,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#step-3-assign-branch-routers" class="md-nav__link">
+  <a href="#step-3-assign-branch-routers-to-vpn-instance" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Step 3 — Assign Branch Routers
+        Step 3 — Assign Branch Routers to VPN Instance
       
     </span>
   </a>
@@ -3294,10 +3296,21 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#cli-reference-wireguard" class="md-nav__link">
+  <a href="#step-4-optional-assign-ip-address-to-gateway-bridge-interface" class="md-nav__link">
     <span class="md-ellipsis">
       
-        CLI Reference (WireGuard)
+        Step 4 (Optional) — Assign IP Address to Gateway Bridge Interface
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cli-reference-gateway" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CLI Reference (Gateway)
       
     </span>
   </a>
@@ -3333,10 +3346,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#cli-reference-wireguard_1" class="md-nav__link">
+  <a href="#cli-reference-branch" class="md-nav__link">
     <span class="md-ellipsis">
       
-        CLI Reference (WireGuard)
+        CLI Reference (Branch)
       
     </span>
   </a>
@@ -3361,10 +3374,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#gateway-verification" class="md-nav__link">
+  <a href="#gateway" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Gateway Verification
+        Gateway
       
     </span>
   </a>
@@ -3372,49 +3385,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#branch-routers-verification" class="md-nav__link">
+  <a href="#branch-routers" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Branch Routers Verification
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#alternative-ipsec-encryption" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Alternative: IPSec Encryption
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Alternative: IPSec Encryption">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#gateway-cli-reference" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Gateway CLI Reference
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#branch-cli-reference" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Branch CLI Reference
+        Branch Routers
       
     </span>
   </a>
@@ -3449,29 +3423,29 @@
 
 
 
-<h1 id="layer-2-sd-wan-l2vpn">Layer-2 SD-WAN (L2VPN)<a class="headerlink" href="#layer-2-sd-wan-l2vpn" title="Permanent link">¶</a></h1>
+<h1 id="layer-2-sd-wan-hub-and-spoke">Layer-2 SD-WAN (Hub and Spoke)<a class="headerlink" href="#layer-2-sd-wan-hub-and-spoke" title="Permanent link">¶</a></h1>
 <h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">¶</a></h2>
-<p>For most enterprises with many distributed remote offices or outlets, remote sites are connected back to the HQ or data centre network via Layer-3 IP networks — through the public Internet, 4G/5G, MPLS, or private leased lines. Traditional SD-WAN solutions are optimised for Layer-3 (IP) connectivity. However, some deployments require Layer-2 extension across geographically distributed sites, such as:</p>
+<p>For most enterprises with distributed remote offices or outlets, remote sites connect back to the HQ or data centre via Layer-3 IP networks — through the public Internet, 4G/5G, MPLS, or private leased lines. Traditional SD-WAN solutions are optimised for Layer-3 (IP) connectivity. However, some deployments require Layer-2 extension across geographically distributed sites, such as:</p>
 <ul>
 <li>Extending VLANs across branches</li>
 <li>Preserving broadcast-based services (DHCP, mDNS, legacy protocols)</li>
 <li>Supporting VM mobility or live migration across sites</li>
-<li>Supporting industrial automation and OT networks that do not support TCP/IP routing</li>
+<li>Supporting industrial automation and OT networks that do not rely on TCP/IP routing</li>
 </ul>
-<p>"L2 over SD-WAN" (also known as "L2VPN over SD-WAN" or "Ethernet VPN") addresses these requirements by encapsulating Ethernet frames inside <strong>VXLAN</strong> tunnels, while using <strong>MP-BGP EVPN</strong> as the control plane to dynamically distribute MAC and VLAN reachability information across sites. It also creates traffic isolation and enhances network security by logically separating WAN and LAN traffic — WAN links use the default routing table (underlay) to establish tunnel connectivity, while LAN devices communicate through a private VLAN segment that is isolated from external reachability (similar to "VRF over SD-WAN" but operating at Layer 2).</p>
-<p>Common use cases for "L2 over SD-WAN" include:</p>
+<p><strong>L2 over SD-WAN</strong> (also known as L2VPN or Ethernet VPN over SD-WAN) addresses these requirements by encapsulating Ethernet frames inside VXLAN tunnels. It also provides traffic isolation and enhanced network security by logically separating WAN and LAN traffic — WAN links use the default routing table (underlay) to establish tunnel connectivity, while LAN devices communicate through a private VLAN segment isolated from external reachability.</p>
+<p>Common use cases for L2 over SD-WAN include:</p>
 <ul>
 <li>Factory automation and OT (Operational Technology) networks</li>
 <li>IoT or retail chains with centralised services</li>
 <li>Maritime and transportation systems</li>
 <li>VM or container mobility across data centres or sites</li>
 </ul>
-<p>Additionally, L2VPN simplifies large distributed deployments in several ways:</p>
+<p>L2VPN also simplifies large distributed deployments in several important ways:</p>
 <ul>
 <li><strong>No per-site address planning</strong> — unlike Layer-3 SD-WAN, there is no need to allocate subnets or manage routing per location. All sites share the same Layer-2 broadcast domain.</li>
-<li><strong>Seamless device roaming</strong> — branch routers are transparent to LAN devices (acting as L2 switches in the data path). No IP reconfiguration is needed when devices move between sites or when hardware is swapped.</li>
+<li><strong>Seamless device roaming</strong> — branch routers are transparent to LAN devices, acting as L2 switches in the data path. No IP reconfiguration is needed when devices move between sites or when hardware is swapped.</li>
 <li><strong>Centralised firewall and policy</strong> — all LAN devices use the central gateway as their default gateway, enabling centralised inter-VLAN routing, firewall enforcement, and traffic inspection at the hub.</li>
-<li><strong>Reduced attack surface</strong> — branch routers have no routable IP exposed to internal LAN networks, making them invisible to network scanners and harder to exploit.</li>
+<li><strong>Reduced attack surface</strong> — branch routers have no routable IP address exposed to internal LAN networks, making them invisible to network scanners and harder to exploit.</li>
 </ul>
 <p><strong>Key Technologies</strong></p>
 <table>
@@ -3484,14 +3458,9 @@
 </thead>
 <tbody>
 <tr>
-<td><strong>Data plane encapsulation</strong></td>
+<td><strong>Data plane</strong></td>
 <td>Multipoint VXLAN</td>
 <td>Encapsulates Ethernet frames (including broadcast and multicast) for transport across the IP underlay</td>
-</tr>
-<tr>
-<td><strong>Control plane</strong></td>
-<td>MP-BGP EVPN</td>
-<td>Distributes MAC/IP binding (type-2) and BUM replication (type-3) routes between VTEPs; eliminates flood-and-learn</td>
 </tr>
 <tr>
 <td><strong>Underlay encryption</strong></td>
@@ -3500,467 +3469,289 @@
 </tr>
 </tbody>
 </table>
-<p>Below is an illustration of how the various layers fit together.</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../images/l2vpn-1.png" data-desc-position="bottom"><img alt="L2VPN" src="../images/l2vpn-1.png"></a></p>
 <hr>
 <h2 id="configuration-on-gateway">Configuration on Gateway<a class="headerlink" href="#configuration-on-gateway" title="Permanent link">¶</a></h2>
 <p>Most configuration is performed on the gateway via mfusion. The resulting configuration is automatically compiled and pushed to assigned branch routers.</p>
-<p>We will use this topology to walk through the configuration guide. </p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../images/l2vpn-2.png" data-desc-position="bottom"><img alt="L2VPN" src="../images/l2vpn-2.png"></a></p>
-<p>In this scenario:</p>
+<p>This guide walks through the <strong><a href="../../sdwan/vpn/topology/#hub-and-spoke-l2">Hub-and-Spoke</a></strong> topology. In this topology:</p>
 <ul>
 <li>The <strong>system default routing table (underlay)</strong> is used to establish L2VPN tunnels over available WAN links. Configure WAN failover between links if redundancy is required.</li>
-<li>The <strong>VPN tunnel interface (VXLAN) is bridged to the LAN interface</strong>, establishing a flat Layer-2 network — a single broadcast domain — across all locations.</li>
-<li>Both <strong>hub-and-spoke</strong> (branch ↔ gateway) and <strong>spoke-to-spoke</strong> (branch ↔ branch) access patterns are supported, selectable per VPN instance.</li>
+<li>The <strong>VXLAN tunnel interface is bridged to the LAN interface</strong>, creating a flat Layer-2 network that spans from each branch to the gateway.</li>
 </ul>
 <h3 id="step-1-configure-lan-interfaces">Step 1 — Configure LAN Interfaces<a class="headerlink" href="#step-1-configure-lan-interfaces" title="Permanent link">¶</a></h3>
-<p>On both the gateway and each branch router, configure VLAN 1 as a Layer-2 interface. No IP address is required at this stage — the interface will be bridged into the VXLAN tunnel in the next step.</p>
-<p>Navigate to <strong>Device → Interfaces → VLAN</strong> and create VLAN 1 without assigning an IP address.</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../images/l2vpn-3.png" data-desc-position="bottom"><img alt="L2VPN" src="../images/l2vpn-3.png"></a></p>
-<h3 id="step-2-configure-sd-wan-vpn-instance">Step 2 — Configure SD-WAN VPN Instance<a class="headerlink" href="#step-2-configure-sd-wan-vpn-instance" title="Permanent link">¶</a></h3>
-<p>On the gateway, navigate to <strong>SD-WAN → VPN → Add VPN Instance</strong>. Select the VPN topology and encryption protocol according to your requirements.</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../images/l2vpn-4.png" data-desc-position="bottom"><img alt="L2VPN" src="../images/l2vpn-4.png"></a></p>
-<p>In this example, we select <strong>Spoke-to-Spoke</strong> topology with <strong>WireGuard</strong> as the encryption protocol. Spoke-to-spoke permits Layer-2 traffic directly between branch VTEPs, but the broadcast domain size is constrained by broadcast storm control limits. For most deployments where branches do not need to communicate directly, <strong>Hub-and-Spoke</strong> topology with <strong>IPSec</strong> is the common choice.</p>
-<p>Save and Apply Config.</p>
-<p>After the configuration is pushed, a <code>br1</code> and <code>vxlan1</code> interface are automatically created on the gateway.</p>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>For testing and verification, you can assign an IP address to the <code>br1</code> interface so you can ping routers directly over the bridge interface to validate LAN-to-LAN reachability. In production deployments, this is not required — LAN devices only need to be in the same subnet, and they will communicate directly as if attached to a large virtual Layer-2 switch.</p>
-</div>
-<h3 id="step-3-assign-branch-routers">Step 3 — Assign Branch Routers<a class="headerlink" href="#step-3-assign-branch-routers" title="Permanent link">¶</a></h3>
-<p>Scroll down in the gateway VPN instance configuration, go to <strong>VPN Branches → Add VPN Branch</strong>, and select the branch routers to include in the VPN instance.</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../images/l2vpn-5.png" data-desc-position="bottom"><img alt="L2VPN" src="../images/l2vpn-5.png"></a></p>
-<p>mfusion compiles and pushes the bridge, VXLAN, WireGuard, and BGP EVPN configuration to each branch automatically. Branch routers receive their VTEP address, tunnel endpoint configuration, and the gateway's overlay IP as the iBGP route-reflector peer. No manual CLI configuration is required on branch devices.</p>
-<h3 id="cli-reference-wireguard">CLI Reference (WireGuard)<a class="headerlink" href="#cli-reference-wireguard" title="Permanent link">¶</a></h3>
+<p>On both the gateway and each branch router, configure VLAN 1 as a Layer-2 interface (substitute VLAN 1 with your actual LAN or VLAN interface).</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>CLI configuration for SD-WAN is complex and generated automatically by mfusion. It is strongly recommended to use mfusion for all SD-WAN orchestration. The CLI snippets below are provided for reference and troubleshooting only (spoke-to-spoke setup, generated by mfusion).</p>
+<p>No IP address is required on the LAN/VLAN interface — it will be bridged into the VXLAN tunnel in the next step.</p>
+</div>
+<p>Navigate to <strong>Device → Interfaces → VLAN</strong> and create VLAN 1 without assigning an IP address.</p>
+<p><strong>Gateway</strong></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../images/l2vpn-3.png" data-desc-position="bottom"><img alt="VLAN config on gateway" src="../images/l2vpn-3.png"></a></p>
+<p><strong>Branch Routers</strong> (repeat for each branch)</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../images/l2vpn-3-1.png" data-desc-position="bottom"><img alt="VLAN config on branch" src="../images/l2vpn-3-1.png"></a></p>
+<h3 id="step-2-configure-sd-wan-vpn-instance">Step 2 — Configure SD-WAN VPN Instance<a class="headerlink" href="#step-2-configure-sd-wan-vpn-instance" title="Permanent link">¶</a></h3>
+<p>On the gateway, navigate to <strong>SD-WAN → VPN → Add VPN Instance</strong>. Select the VPN topology and encryption protocol.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../images/l2vpn-4-1.png" data-desc-position="bottom"><img alt="Add VPN instance" src="../images/l2vpn-4-1.png"></a></p>
+<p>Select <strong>Hub-and-Spoke</strong> topology, <strong><em>Layer-2</em>* network mode, and </strong>IPSec** as the encryption protocol.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Hub-and-Spoke restricts spoke devices to communicate with the hub only — no spoke-to-spoke traffic. This is the recommended topology when inter-branch communication is not required, as it improves security and suppresses Layer-2 broadcast storms.</p>
+</div>
+<p>Bridge the VPN tunnel to the LAN interface, then click <strong>Continue</strong>, <strong>Save and Apply Config</strong>.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../images/l2vpn-4-2.png" data-desc-position="bottom"><img alt="Bridge VXLAN tunnel to LAN interface" src="../images/l2vpn-4-2.png"></a></p>
+<p>After the configuration is pushed, a <code>br1</code> bridge and <code>vxlan1</code> tunnel interface are automatically created on the gateway. If you need to bridge additional LAN/VLAN interfaces into the same tunnel, add them in the <strong>Bridged LAN Interfaces</strong> section.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>For testing and verification, you can assign an IP address to the <code>br1</code> interface to ping across the bridge and validate LAN-to-LAN reachability. In production deployments this is not required — LAN devices only need to be in the same subnet and will communicate as if attached to a single virtual Layer-2 switch.</p>
+</div>
+<h3 id="step-3-assign-branch-routers-to-vpn-instance">Step 3 — Assign Branch Routers to VPN Instance<a class="headerlink" href="#step-3-assign-branch-routers-to-vpn-instance" title="Permanent link">¶</a></h3>
+<p>Scroll down in the VPN instance configuration, go to <strong>VPN Branches → Add VPN Branch</strong>, and select the branch routers to include. Repeat for all branch routers.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../images/l2vpn-5-1.png" data-desc-position="bottom"><img alt="Assign branch routers to VPN instance" src="../images/l2vpn-5-1.png"></a></p>
+<p>mfusion compiles and pushes the LAN/VLAN, bridge, VXLAN, and IPSec configuration to each branch automatically. No further manual configuration is required on branch devices.</p>
+<h3 id="step-4-optional-assign-ip-address-to-gateway-bridge-interface">Step 4 (Optional) — Assign IP Address to Gateway Bridge Interface<a class="headerlink" href="#step-4-optional-assign-ip-address-to-gateway-bridge-interface" title="Permanent link">¶</a></h3>
+<p>If the gateway router will act as the default gateway for all branch devices, assign an IP address to the <code>br1</code> bridge interface. Optionally enable a DHCP server to issue IP addresses to branch devices across the L2 overlay.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../images/l2vpn-5-2.png" data-desc-position="bottom"><img alt="Gateway bridge IP and DHCP server" src="../images/l2vpn-5-2.png"></a></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If an upstream firewall or DHCP server connects to the gateway's LAN/VLAN interface (which is bridged into the VPN tunnel), no IP address is required here. The gateway and branch routers act as a logical wire between branch devices and the upstream firewall — transparent to the data path.</p>
+</div>
+<h3 id="cli-reference-gateway">CLI Reference (Gateway)<a class="headerlink" href="#cli-reference-gateway" title="Permanent link">¶</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>SD-WAN configuration is generated automatically by mfusion. The CLI snippets below are provided for reference and troubleshooting only.</p>
 </div>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>!
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>interface eth0
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a> description "Default connection to WAN"
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a> enable
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a> ip address dhcp
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>!
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>interface gre1
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a> tunnel local 10.1.168.1
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>interface lo
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a> enable
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a> ip address 10.1.168.1/32
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>!
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>interface vxlan1
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a> description "Auto Interface from VPN (1)"
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a> vx-local 10.1.168.1
 <a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a> enable
-<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a> ip address 10.1.172.1/22
-<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a> ip neigh 10.1.172.2 10.1.168.2
-<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a> ip neigh 10.1.172.3 10.1.168.3
-<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>!
-<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>interface vxlan1
-<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a> vx-local 10.1.172.1
-<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a> enable
-<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a> bridge-group 1
-<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>!
-<a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a>interface wg1
-<a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a> enable
-<a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a> ip address 10.1.168.1/32
-<a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a> wg-peer b0-bb-8b-00-e7-a8
-<a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a>  remote-net 10.1.168.2/32
-<a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a> wg-peer b0-bb-8b-00-ea-20
-<a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a>  remote-net 10.1.168.3/32
-<a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a>!
-<a id="__codelineno-0-27" name="__codelineno-0-27" href="#__codelineno-0-27"></a>interface vlan 1 1
-<a id="__codelineno-0-28" name="__codelineno-0-28" href="#__codelineno-0-28"></a> enable
-<a id="__codelineno-0-29" name="__codelineno-0-29" href="#__codelineno-0-29"></a> bridge-group 1
-<a id="__codelineno-0-30" name="__codelineno-0-30" href="#__codelineno-0-30"></a>!
-<a id="__codelineno-0-31" name="__codelineno-0-31" href="#__codelineno-0-31"></a>interface bridge br1
-<a id="__codelineno-0-32" name="__codelineno-0-32" href="#__codelineno-0-32"></a> description "Auto Interface from IPSec VPN (1)"
-<a id="__codelineno-0-33" name="__codelineno-0-33" href="#__codelineno-0-33"></a> enable
-<a id="__codelineno-0-34" name="__codelineno-0-34" href="#__codelineno-0-34"></a> ip address 10.1.1.1/24
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a> bridge-group 1
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>!
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>interface vlan 0 1
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a> enable
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a> bridge-group 1
+<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>!
+<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>interface bridge br1
+<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a> description "Auto Interface from VPN (1)"
+<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a> enable
+<a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a> ip address 10.0.0.1/24
+<a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a>!
+<a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a>ipsec ike-policy 1
+<a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a> authentication psk
+<a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a> policy AES-256 SHA-256 5
+<a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a>!
+<a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a>ipsec esp-policy 1
+<a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a> policy AES-256 SHA-256 5
+<a id="__codelineno-0-27" name="__codelineno-0-27" href="#__codelineno-0-27"></a>!
+<a id="__codelineno-0-28" name="__codelineno-0-28" href="#__codelineno-0-28"></a>ipsec peer b0-bb-8b-00-32-e0
+<a id="__codelineno-0-29" name="__codelineno-0-29" href="#__codelineno-0-29"></a> local-net 10.1.168.1/32
+<a id="__codelineno-0-30" name="__codelineno-0-30" href="#__codelineno-0-30"></a> remote-id b0-bb-8b-00-32-e0
+<a id="__codelineno-0-31" name="__codelineno-0-31" href="#__codelineno-0-31"></a> remote-ip any
+<a id="__codelineno-0-32" name="__codelineno-0-32" href="#__codelineno-0-32"></a> remote-net 10.1.168.2/32
+<a id="__codelineno-0-33" name="__codelineno-0-33" href="#__codelineno-0-33"></a> policy ike 1 esp 1
+<a id="__codelineno-0-34" name="__codelineno-0-34" href="#__codelineno-0-34"></a> psk testing123
 <a id="__codelineno-0-35" name="__codelineno-0-35" href="#__codelineno-0-35"></a>!
-<a id="__codelineno-0-36" name="__codelineno-0-36" href="#__codelineno-0-36"></a>router bgp 65051
-<a id="__codelineno-0-37" name="__codelineno-0-37" href="#__codelineno-0-37"></a> bgp timer 5 15
-<a id="__codelineno-0-38" name="__codelineno-0-38" href="#__codelineno-0-38"></a> neighbor 0168_RansNet_SSL2WG_1 as-peer
-<a id="__codelineno-0-39" name="__codelineno-0-39" href="#__codelineno-0-39"></a> neighbor 0168_RansNet_SSL2WG_1 as-remote 65051
-<a id="__codelineno-0-40" name="__codelineno-0-40" href="#__codelineno-0-40"></a> neighbor 0168_RansNet_SSL2WG_1 next-hop-self
-<a id="__codelineno-0-41" name="__codelineno-0-41" href="#__codelineno-0-41"></a> neighbor 0168_RansNet_SSL2WG_1 route-reflector-client
-<a id="__codelineno-0-42" name="__codelineno-0-42" href="#__codelineno-0-42"></a> neighbor 0168_RansNet_SSL2WG_1 soft-reconfiguration
-<a id="__codelineno-0-43" name="__codelineno-0-43" href="#__codelineno-0-43"></a> neighbor 0168_RansNet_SSL2WG_1 weight 0
-<a id="__codelineno-0-44" name="__codelineno-0-44" href="#__codelineno-0-44"></a> neighbor range 10.1.172.0/22 as-peer 0168_RansNet_SSL2WG_1
-<a id="__codelineno-0-45" name="__codelineno-0-45" href="#__codelineno-0-45"></a> address-family-l2vpn
-<a id="__codelineno-0-46" name="__codelineno-0-46" href="#__codelineno-0-46"></a>  advertise-all-vni
-<a id="__codelineno-0-47" name="__codelineno-0-47" href="#__codelineno-0-47"></a>  neighbor 0168_RansNet_SSL2WG_1 activate
-<a id="__codelineno-0-48" name="__codelineno-0-48" href="#__codelineno-0-48"></a>  neighbor 0168_RansNet_SSL2WG_1 route-reflector-client
-<a id="__codelineno-0-49" name="__codelineno-0-49" href="#__codelineno-0-49"></a>  neighbor 0168_RansNet_SSL2WG_1 soft-reconfiguration
-<a id="__codelineno-0-50" name="__codelineno-0-50" href="#__codelineno-0-50"></a>!
+<a id="__codelineno-0-36" name="__codelineno-0-36" href="#__codelineno-0-36"></a>ipsec peer b0-bb-8b-00-34-80
+<a id="__codelineno-0-37" name="__codelineno-0-37" href="#__codelineno-0-37"></a> local-net 10.1.168.1/32
+<a id="__codelineno-0-38" name="__codelineno-0-38" href="#__codelineno-0-38"></a> remote-id b0-bb-8b-00-34-80
+<a id="__codelineno-0-39" name="__codelineno-0-39" href="#__codelineno-0-39"></a> remote-ip any
+<a id="__codelineno-0-40" name="__codelineno-0-40" href="#__codelineno-0-40"></a> remote-net 10.1.168.3/32
+<a id="__codelineno-0-41" name="__codelineno-0-41" href="#__codelineno-0-41"></a> policy ike 1 esp 1
+<a id="__codelineno-0-42" name="__codelineno-0-42" href="#__codelineno-0-42"></a> psk testing123
+<a id="__codelineno-0-43" name="__codelineno-0-43" href="#__codelineno-0-43"></a>!
 </code></pre></div>
+<p><strong>Key points:</strong></p>
+<ul>
+<li>Each branch router is assigned a loopback IP (<code>10.1.168.x/32</code>) used as the VXLAN local endpoint and IPSec tunnel identity.</li>
+<li>The gateway loopback (<code>10.1.168.1</code>) is the hub VTEP — all branches point their VXLAN <code>remote</code> to this address.</li>
+<li>IPSec peers are identified by the branch MAC address (<code>remote-id</code>), which allows branches behind NAT to register with a dynamic IP (<code>remote-ip any</code>).</li>
+<li><code>bridge-group 1</code> on both <code>vxlan1</code> and <code>vlan 0 1</code> places them into the <code>br1</code> bridge, creating the Layer-2 overlay.</li>
+</ul>
 <hr>
 <h2 id="configuration-on-branch-routers">Configuration on Branch Routers<a class="headerlink" href="#configuration-on-branch-routers" title="Permanent link">¶</a></h2>
 <h3 id="gui-configuration">GUI Configuration<a class="headerlink" href="#gui-configuration" title="Permanent link">¶</a></h3>
-<p>On each branch router, configure VLAN 1 as a Layer-2 interface (Step 1 above). All other SD-WAN configuration — VXLAN VTEP, WireGuard tunnel, and BGP EVPN peering — is automatically generated from the gateway VPN instance and pushed to branch routers by mfusion. No further manual configuration is required on branch devices.</p>
-<h3 id="cli-reference-wireguard_1">CLI Reference (WireGuard)<a class="headerlink" href="#cli-reference-wireguard_1" title="Permanent link">¶</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>interface eth0
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a> description "Connection to WAN"
+<p>Branch router GUI configuration follows <a href="#step-1--configure-lan-interfaces">Step 1</a> — configure VLAN 1 as a Layer-2 interface without assigning an IP address. mfusion automatically generates and pushes all remaining tunnel and IPSec configuration to each assigned branch.</p>
+<h3 id="cli-reference-branch">CLI Reference (Branch)<a class="headerlink" href="#cli-reference-branch" title="Permanent link">¶</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Branch router configuration is auto-generated by mfusion. The CLI snippets below are provided for reference and troubleshooting only.</p>
+</div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>!
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>interface lo
 <a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a> enable
-<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a> ip address dhcp
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a> ip address 10.1.168.3/32
 <a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>!
-<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>interface gre1
-<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a> tunnel local 10.1.168.2 remote 10.1.168.1
-<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a> enable
-<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a> ip address 10.1.172.2/22
-<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>!
-<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>interface vxlan1
-<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a> vx-local 10.1.172.2
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>interface vxlan1
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a> description "Auto Interface from VPN (1)"
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a> vx-local 10.1.168.3 remote 10.1.168.1
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a> enable
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a> bridge-group 1
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>!
+<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>interface wwan0
 <a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a> enable
-<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a> bridge-group 1
-<a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>!
-<a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a>interface wg1
+<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>!
+<a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>interface vlan 1 1
+<a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a> description "Default VLAN for all LAN ports"
 <a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a> enable
-<a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a> ip address 10.1.168.2/32
-<a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a> wg-peer 00-60-e0-a3-59-f7
-<a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a>  remote-ip sdwan.ransnet.com
-<a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a>  remote-net 10.1.168.1/32
-<a id="__codelineno-1-22" name="__codelineno-1-22" href="#__codelineno-1-22"></a>!
-<a id="__codelineno-1-23" name="__codelineno-1-23" href="#__codelineno-1-23"></a>interface vlan 1 1
-<a id="__codelineno-1-24" name="__codelineno-1-24" href="#__codelineno-1-24"></a> description "Default VLAN for all LAN ports"
-<a id="__codelineno-1-25" name="__codelineno-1-25" href="#__codelineno-1-25"></a> enable
-<a id="__codelineno-1-26" name="__codelineno-1-26" href="#__codelineno-1-26"></a> bridge-group 1
-<a id="__codelineno-1-27" name="__codelineno-1-27" href="#__codelineno-1-27"></a>!
-<a id="__codelineno-1-28" name="__codelineno-1-28" href="#__codelineno-1-28"></a>interface bridge br1
-<a id="__codelineno-1-29" name="__codelineno-1-29" href="#__codelineno-1-29"></a> description "Auto Interface from IPSec VPN (1)"
-<a id="__codelineno-1-30" name="__codelineno-1-30" href="#__codelineno-1-30"></a> bridge
-<a id="__codelineno-1-31" name="__codelineno-1-31" href="#__codelineno-1-31"></a> enable
-<a id="__codelineno-1-32" name="__codelineno-1-32" href="#__codelineno-1-32"></a> ip address 10.1.1.2/24
+<a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a> bridge-group 1
+<a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a>!
+<a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a>interface bridge br1
+<a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a> description "Auto Interface from VPN (1)"
+<a id="__codelineno-1-22" name="__codelineno-1-22" href="#__codelineno-1-22"></a> bridge
+<a id="__codelineno-1-23" name="__codelineno-1-23" href="#__codelineno-1-23"></a> enable
+<a id="__codelineno-1-24" name="__codelineno-1-24" href="#__codelineno-1-24"></a>!
+<a id="__codelineno-1-25" name="__codelineno-1-25" href="#__codelineno-1-25"></a>ip name-server 8.8.8.8 8.8.4.4
+<a id="__codelineno-1-26" name="__codelineno-1-26" href="#__codelineno-1-26"></a>!
+<a id="__codelineno-1-27" name="__codelineno-1-27" href="#__codelineno-1-27"></a>ipsec ike-policy 1
+<a id="__codelineno-1-28" name="__codelineno-1-28" href="#__codelineno-1-28"></a> authentication psk
+<a id="__codelineno-1-29" name="__codelineno-1-29" href="#__codelineno-1-29"></a> policy AES-256 SHA-256 5
+<a id="__codelineno-1-30" name="__codelineno-1-30" href="#__codelineno-1-30"></a>!
+<a id="__codelineno-1-31" name="__codelineno-1-31" href="#__codelineno-1-31"></a>ipsec esp-policy 1
+<a id="__codelineno-1-32" name="__codelineno-1-32" href="#__codelineno-1-32"></a> policy AES-256 SHA-256 5
 <a id="__codelineno-1-33" name="__codelineno-1-33" href="#__codelineno-1-33"></a>!
-<a id="__codelineno-1-34" name="__codelineno-1-34" href="#__codelineno-1-34"></a>router bgp 65051
-<a id="__codelineno-1-35" name="__codelineno-1-35" href="#__codelineno-1-35"></a> bgp timer 5 15
-<a id="__codelineno-1-36" name="__codelineno-1-36" href="#__codelineno-1-36"></a> neighbor 0168_RansNet_SSL2WG_1 as-peer
-<a id="__codelineno-1-37" name="__codelineno-1-37" href="#__codelineno-1-37"></a> neighbor 0168_RansNet_SSL2WG_1 as-remote 65051
-<a id="__codelineno-1-38" name="__codelineno-1-38" href="#__codelineno-1-38"></a> neighbor 0168_RansNet_SSL2WG_1 next-hop-self
-<a id="__codelineno-1-39" name="__codelineno-1-39" href="#__codelineno-1-39"></a> neighbor 0168_RansNet_SSL2WG_1 soft-reconfiguration
-<a id="__codelineno-1-40" name="__codelineno-1-40" href="#__codelineno-1-40"></a> neighbor 0168_RansNet_SSL2WG_1 weight 0
-<a id="__codelineno-1-41" name="__codelineno-1-41" href="#__codelineno-1-41"></a> neighbor 10.1.172.1 as-peer 0168_RansNet_SSL2WG_1
-<a id="__codelineno-1-42" name="__codelineno-1-42" href="#__codelineno-1-42"></a> address-family-l2vpn
-<a id="__codelineno-1-43" name="__codelineno-1-43" href="#__codelineno-1-43"></a>  advertise-all-vni
-<a id="__codelineno-1-44" name="__codelineno-1-44" href="#__codelineno-1-44"></a>  neighbor 0168_RansNet_SSL2WG_1 activate
-<a id="__codelineno-1-45" name="__codelineno-1-45" href="#__codelineno-1-45"></a>  neighbor 0168_RansNet_SSL2WG_1 route-reflector-client
-<a id="__codelineno-1-46" name="__codelineno-1-46" href="#__codelineno-1-46"></a>  neighbor 0168_RansNet_SSL2WG_1 soft-reconfiguration
-<a id="__codelineno-1-47" name="__codelineno-1-47" href="#__codelineno-1-47"></a>!
+<a id="__codelineno-1-34" name="__codelineno-1-34" href="#__codelineno-1-34"></a>ipsec peer 118.189.175.165
+<a id="__codelineno-1-35" name="__codelineno-1-35" href="#__codelineno-1-35"></a> local-id b0-bb-8b-00-34-80
+<a id="__codelineno-1-36" name="__codelineno-1-36" href="#__codelineno-1-36"></a> local-net 10.1.168.3/32
+<a id="__codelineno-1-37" name="__codelineno-1-37" href="#__codelineno-1-37"></a> remote-net 10.1.168.1/32
+<a id="__codelineno-1-38" name="__codelineno-1-38" href="#__codelineno-1-38"></a> policy ike 1 esp 1
+<a id="__codelineno-1-39" name="__codelineno-1-39" href="#__codelineno-1-39"></a> psk testing123
+<a id="__codelineno-1-40" name="__codelineno-1-40" href="#__codelineno-1-40"></a>!
 </code></pre></div>
+<p><strong>Key points:</strong></p>
+<ul>
+<li>Unlike the gateway, the branch VXLAN uses <code>vx-local &lt;branch-lo&gt; remote &lt;hub-lo&gt;</code> — specifying the hub as the single remote VTEP.</li>
+<li>The branch identifies itself to the gateway using its MAC address as the IPSec <code>local-id</code>.</li>
+<li>The branch has no explicit <code>remote-ip</code> configured; it initiates the IPSec connection to the gateway's static IP (<code>118.189.175.165</code>).</li>
+<li>No IP address is configured on <code>br1</code> — the branch acts as a transparent L2 switch.</li>
+</ul>
 <hr>
 <h2 id="verification">Verification<a class="headerlink" href="#verification" title="Permanent link">¶</a></h2>
-<h3 id="gateway-verification">Gateway Verification<a class="headerlink" href="#gateway-verification" title="Permanent link">¶</a></h3>
-<p><strong>Check bridge members:</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>show interface bridge
+<h3 id="gateway">Gateway<a class="headerlink" href="#gateway" title="Permanent link">¶</a></h3>
+<p><strong>Check IPSec peer status:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>VM-56# show ipsec status
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>================================================================================
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a> IPSec Status
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a> Uptime  : 8 minutes, since Apr 24 12:47:41 2026
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a> Local   : 10.65.31.56, Gateway: 10.0.0.1
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a> Peers   : 2 established, 0 connecting
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>================================================================================
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>Peer                                State          Local Net         Remote Net             Tx       Rx  Uptime      IKE(Auth)    ESP
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>------------------------------------------------------------------------------------------------------------------------------------------------
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>b0-bb-8b-00-32-e0 (61.13.198.166)   ESTABLISHED    10.1.168.1/32     10.1.168.2/32          0B     816B  8 minutes   IKEv2(PSK)   AES-256/SHA256
+<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>b0-bb-8b-00-34-80 (61.13.198.166)   ESTABLISHED    10.1.168.1/32     10.1.168.3/32          0B     816B  8 minutes   IKEv2(PSK)   AES-256/SHA256
+<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>
+<a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>VM-56#
 </code></pre></div>
-<p>Verify that both <code>vxlan1</code> and <code>vlan 1</code> appear as members of <code>br1</code>. This confirms the VTEP and LAN segment are correctly bridged.</p>
-<p><strong>Check BGP EVPN peer state:</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>Gateway-1# show ip bgp summary
-<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>
-<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>IPv4 Unicast Summary (VRF default):
-<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>BGP router identifier 10.18.18.194, local AS number 65051 vrf-id 0
-<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>BGP table version 0
-<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>RIB entries 0, using 0 bytes of memory
-<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>Peers 2, using 1448 KiB of memory
-<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>Peer groups 1, using 64 bytes of memory
+<p>All branch peers should show <code>ESTABLISHED</code>. Each peer is identified by its MAC address, which is used as the remote identity in PSK authentication.</p>
+<p><strong>Check bridge membership:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>VM-56# show interface bridge
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>  Bridge                 : br1
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>  Bridge ID              : 8000.c2017b8e3415
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>  STP                    : Disabled
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>  Member Interfaces      : vlan1 vxlan1
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>  Bridge                 : vxlan1
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>  STP                    : Disabled
 <a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>
-<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>Neighbor        V         AS   MsgRcvd   MsgSent   TblVer  InQ OutQ  Up/Down State/PfxRcd   PfxSnt Desc
-<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>*10.1.172.2     4      65051      2845      2845        0    0    0 03:55:55            0        0 N/A
-<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>*10.1.172.3     4      65051       536       536        0    0    0 00:43:52            0        0 N/A
-<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>
-<a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a>Total number of neighbors 2
-<a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a>* - dynamic neighbor
-<a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a>2 dynamic neighbor(s), limit 2000
-<a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a>Gateway-1#
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>VM-56#
 </code></pre></div>
-<p>All branch overlay IPs (<code>10.1.172.2</code>, <code>10.1.172.3</code>) should show an established iBGP session. The gateway acts as the BGP route-reflector, redistributing EVPN routes between all VTEPs.</p>
-<p><strong>Check EVPN MAC/VLAN routes:</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>Gateway-1# show bgp l2vpn
-<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>BGP table version is 58, local router ID is 10.18.18.194
-<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>Status codes: s suppressed, d damped, h history, * valid, &gt; best, i - internal
-<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>Origin codes: i - IGP, e - EGP, ? - incomplete
-<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>EVPN type-1 prefix: [1]:[EthTag]:[ESI]:[IPlen]:[VTEP-IP]:[Frag-id]
-<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>EVPN type-2 prefix: [2]:[EthTag]:[MAClen]:[MAC]:[IPlen]:[IP]
-<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>EVPN type-3 prefix: [3]:[EthTag]:[IPlen]:[OrigIP]
-<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>EVPN type-4 prefix: [4]:[ESI]:[IPlen]:[OrigIP]
-<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>EVPN type-5 prefix: [5]:[EthTag]:[IPlen]:[IP]
-<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>
-<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>   Network          Next Hop            Metric LocPrf Weight Path
-<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a>Route Distinguisher: 10.18.18.169:2
-<a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a>*&gt;i[2]:[0]:[48]:[00:40:9d:23:e9:cb]
-<a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a>                    10.1.172.2                    100      0 i
-<a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a>                    RT:65051:1 ET:8
-<a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a>*&gt;i[2]:[0]:[48]:[00:90:0b:44:a6:73]
-<a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a>                    10.1.172.2                    100      0 i
-<a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a>                    RT:65051:1 ET:8
-<a id="__codelineno-4-19" name="__codelineno-4-19" href="#__codelineno-4-19"></a>*&gt;i[2]:[0]:[48]:[30:65:ec:6a:e7:55]
-<a id="__codelineno-4-20" name="__codelineno-4-20" href="#__codelineno-4-20"></a>                    10.1.172.2                    100      0 i
-<a id="__codelineno-4-21" name="__codelineno-4-21" href="#__codelineno-4-21"></a>                    RT:65051:1 ET:8
-<a id="__codelineno-4-22" name="__codelineno-4-22" href="#__codelineno-4-22"></a>*&gt;i[2]:[0]:[48]:[88:dc:96:87:3a:e2]
-<a id="__codelineno-4-23" name="__codelineno-4-23" href="#__codelineno-4-23"></a>                    10.1.172.2                    100      0 i
-<a id="__codelineno-4-24" name="__codelineno-4-24" href="#__codelineno-4-24"></a>                    RT:65051:1 ET:8
-<a id="__codelineno-4-25" name="__codelineno-4-25" href="#__codelineno-4-25"></a>*&gt;i[2]:[0]:[48]:[88:dc:96:87:3a:f6]
-<a id="__codelineno-4-26" name="__codelineno-4-26" href="#__codelineno-4-26"></a>                    10.1.172.2                    100      0 i
-<a id="__codelineno-4-27" name="__codelineno-4-27" href="#__codelineno-4-27"></a>                    RT:65051:1 ET:8
-<a id="__codelineno-4-28" name="__codelineno-4-28" href="#__codelineno-4-28"></a>*&gt;i[3]:[0]:[32]:[10.1.172.2]
-<a id="__codelineno-4-29" name="__codelineno-4-29" href="#__codelineno-4-29"></a>                    10.1.172.2                    100      0 i
-<a id="__codelineno-4-30" name="__codelineno-4-30" href="#__codelineno-4-30"></a>                    RT:65051:1 ET:8
-<a id="__codelineno-4-31" name="__codelineno-4-31" href="#__codelineno-4-31"></a>Route Distinguisher: 10.18.18.194:2
-<a id="__codelineno-4-32" name="__codelineno-4-32" href="#__codelineno-4-32"></a>*&gt; [3]:[0]:[32]:[10.1.172.1]
-<a id="__codelineno-4-33" name="__codelineno-4-33" href="#__codelineno-4-33"></a>                    10.1.172.1                         32768 i
-<a id="__codelineno-4-34" name="__codelineno-4-34" href="#__codelineno-4-34"></a>                    ET:8 RT:65051:1
-<a id="__codelineno-4-35" name="__codelineno-4-35" href="#__codelineno-4-35"></a>Route Distinguisher: 10.18.18.251:2
-<a id="__codelineno-4-36" name="__codelineno-4-36" href="#__codelineno-4-36"></a>*&gt;i[3]:[0]:[32]:[10.1.172.3]
-<a id="__codelineno-4-37" name="__codelineno-4-37" href="#__codelineno-4-37"></a>                    10.1.172.3                    100      0 i
-<a id="__codelineno-4-38" name="__codelineno-4-38" href="#__codelineno-4-38"></a>                    RT:65051:1 ET:8
-<a id="__codelineno-4-39" name="__codelineno-4-39" href="#__codelineno-4-39"></a>
-<a id="__codelineno-4-40" name="__codelineno-4-40" href="#__codelineno-4-40"></a>Displayed 8 out of 8 total prefixes
-<a id="__codelineno-4-41" name="__codelineno-4-41" href="#__codelineno-4-41"></a>Gateway-1#
+<p>Verify that both <code>vxlan1</code> and <code>vlan1</code> appear as members of <code>br1</code>. This confirms that the VTEP and LAN segment are correctly bridged.</p>
+<p><strong>Check VXLAN tunnel endpoint:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>VM-56# show interface vxlan1
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>================================================================================
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>  Interface : vxlan1
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>================================================================================
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>  Network Information
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>  ----------------------------------------
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>  Admin State            : UP
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>  Link State             : UP
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>  MAC Address            : 76:7a:f0:30:39:43
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>  MTU                    : 1500 bytes
+<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a>  IPv6 Address           : fe80::747a:f0ff:fe30:3943/64 [link]
+<a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a>
+<a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a>  VXLAN Peers
+<a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a>  ----------------------------------------
+<a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a>a2:5c:9e:24:f0:75 master br1
+<a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a>a2:c9:10:5d:ea:bd master br1
+<a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a>76:7a:f0:30:39:43 vlan 1 master br1 permanent
+<a id="__codelineno-4-19" name="__codelineno-4-19" href="#__codelineno-4-19"></a>76:7a:f0:30:39:43 master br1 permanent
+<a id="__codelineno-4-20" name="__codelineno-4-20" href="#__codelineno-4-20"></a>a2:5c:9e:24:f0:75 dst 10.1.168.3 self
+<a id="__codelineno-4-21" name="__codelineno-4-21" href="#__codelineno-4-21"></a>a2:c9:10:5d:ea:bd dst 10.1.168.2 self
+<a id="__codelineno-4-22" name="__codelineno-4-22" href="#__codelineno-4-22"></a>
+<a id="__codelineno-4-23" name="__codelineno-4-23" href="#__codelineno-4-23"></a>  Physical Information
+<a id="__codelineno-4-24" name="__codelineno-4-24" href="#__codelineno-4-24"></a>  ----------------------------------------
+<a id="__codelineno-4-25" name="__codelineno-4-25" href="#__codelineno-4-25"></a>  Speed                  : Unknown!
+<a id="__codelineno-4-26" name="__codelineno-4-26" href="#__codelineno-4-26"></a>  Duplex                 : Unknown! (255)
+<a id="__codelineno-4-27" name="__codelineno-4-27" href="#__codelineno-4-27"></a>  Port Type              : Other
+<a id="__codelineno-4-28" name="__codelineno-4-28" href="#__codelineno-4-28"></a>  Auto-Negotiation       : off
+<a id="__codelineno-4-29" name="__codelineno-4-29" href="#__codelineno-4-29"></a>  Link Detected          : yes
+<a id="__codelineno-4-30" name="__codelineno-4-30" href="#__codelineno-4-30"></a>
+<a id="__codelineno-4-31" name="__codelineno-4-31" href="#__codelineno-4-31"></a>================================================================================
+<a id="__codelineno-4-32" name="__codelineno-4-32" href="#__codelineno-4-32"></a>VM-56#
 </code></pre></div>
-<p>EVPN <strong>type-2</strong> routes (<code>[2]</code>) carry MAC/IP bindings learned from each branch VTEP — confirming that remote MAC addresses are distributed via the control plane rather than flood-and-learn. EVPN <strong>type-3</strong> routes (<code>[3]</code>) are Inclusive Multicast Ethernet Tag (IMET) routes, advertising each VTEP's endpoint for BUM (Broadcast, Unknown-unicast, Multicast) traffic replication.</p>
-<p><strong>Test end-to-end Layer-2 reachability:</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>Gateway-1# ping 10.1.1.2 source 10.1.1.1
-<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>PING 10.1.1.2 (10.1.1.2) from 10.1.1.1 : 56(84) bytes of data.
-<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>64 bytes from 10.1.1.2: icmp_seq=1 ttl=64 time=1.36 ms
-<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>64 bytes from 10.1.1.2: icmp_seq=2 ttl=64 time=1.26 ms
-<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>64 bytes from 10.1.1.2: icmp_seq=3 ttl=64 time=1.21 ms
-<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>64 bytes from 10.1.1.2: icmp_seq=4 ttl=64 time=1.17 ms
-<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>64 bytes from 10.1.1.2: icmp_seq=5 ttl=64 time=1.26 ms
+<p>The VXLAN Peers table shows each branch VTEP IP (<code>10.1.168.2</code>, <code>10.1.168.3</code>) alongside the remote MAC address learned over the overlay. These entries confirm that the hub has established forwarding paths to each branch.</p>
+<h3 id="branch-routers">Branch Routers<a class="headerlink" href="#branch-routers" title="Permanent link">¶</a></h3>
+<p><strong>Check IPSec peer status:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>HSA-520# show ipsec status
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>================================================================================
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a> IPSec Status
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a> Uptime  : 20 minutes, since Apr 24 04:47:45 2026
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a> Local   : 10.18.18.94, Gateway: 10.194.71.166
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a> Peers   : 1 established, 0 connecting
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>================================================================================
 <a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>
-<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>--- 10.1.1.2 ping statistics ---
-<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a>5 packets transmitted, 5 received, 0% packet loss, time 4006ms
-<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a>rtt min/avg/max/mdev = 1.168/1.251/1.362/0.065 ms
-<a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a>Gateway-1# ping 10.1.1.3 source 10.1.1.1
-<a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a>PING 10.1.1.3 (10.1.1.3) from 10.1.1.1 : 56(84) bytes of data.
-<a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a>64 bytes from 10.1.1.3: icmp_seq=1 ttl=64 time=1.35 ms
-<a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a>64 bytes from 10.1.1.3: icmp_seq=2 ttl=64 time=1.13 ms
-<a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a>64 bytes from 10.1.1.3: icmp_seq=3 ttl=64 time=1.19 ms
-<a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a>64 bytes from 10.1.1.3: icmp_seq=4 ttl=64 time=1.29 ms
-<a id="__codelineno-5-18" name="__codelineno-5-18" href="#__codelineno-5-18"></a>64 bytes from 10.1.1.3: icmp_seq=5 ttl=64 time=1.15 ms
-<a id="__codelineno-5-19" name="__codelineno-5-19" href="#__codelineno-5-19"></a>
-<a id="__codelineno-5-20" name="__codelineno-5-20" href="#__codelineno-5-20"></a>--- 10.1.1.3 ping statistics ---
-<a id="__codelineno-5-21" name="__codelineno-5-21" href="#__codelineno-5-21"></a>5 packets transmitted, 5 received, 0% packet loss, time 4006ms
-<a id="__codelineno-5-22" name="__codelineno-5-22" href="#__codelineno-5-22"></a>rtt min/avg/max/mdev = 1.125/1.222/1.351/0.086 ms
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>Peer                                State          Local Net         Remote Net             Tx       Rx  Uptime      IKE(Auth)    ESP
+<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a>------------------------------------------------------------------------------------------------------------------------------------------------
+<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a>118.189.175.165 (118.189.175.165)   ESTABLISHED    10.1.168.2/32     10.1.168.1/32       2.0KB       0B  20 minutes  IKEv2(PSK)   AES-256/SHA256
+<a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a>
+<a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a>HSA-520#
 </code></pre></div>
-<p>Because all sites share the same Layer-2 segment, ARP resolution is transparent across the VXLAN overlay. The ARP table on the gateway bridge confirms MAC addresses learned from remote branches:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>Gateway-1# show arp
-<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>Address                  HWtype  HWaddress           Flags Mask            Iface
-<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>10.1.1.2                 ether   1e:cc:8b:49:fb:e7   C                     br1
-<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>10.1.1.3                 ether   4a:e4:80:5f:64:4f   C                     br1
-<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>Gateway-1#
+<p>Each branch should have exactly one <code>ESTABLISHED</code> IPSec peer pointing to the hub gateway.</p>
+<p><strong>Check bridge membership:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>HSA-520# show interface bridge
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>  Bridge                 : br-br1
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>  Bridge ID              : 7fff.a2c9105deabd
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>  STP                    : Disabled
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>  Member Interfaces      : vlan1 vxlan1
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>  Bridge                 : vxlan1
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>  STP                    : Disabled
+<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>
+<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a>HSA-520#
 </code></pre></div>
-<h3 id="branch-routers-verification">Branch Routers Verification<a class="headerlink" href="#branch-routers-verification" title="Permanent link">¶</a></h3>
-<p><strong>Check BGP EVPN peer state (Branch-2):</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>Branch-2# show ip bgp summary
-<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>
-<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>IPv4 Unicast Summary (VRF default):
-<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>BGP router identifier 10.18.18.169, local AS number 65051 vrf-id 0
-<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>BGP table version 0
-<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>RIB entries 0, using 0 bytes of memory
-<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>Peers 1, using 712 KiB of memory
-<a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a>Peer groups 1, using 32 bytes of memory
-<a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a>
-<a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a>Neighbor        V         AS   MsgRcvd   MsgSent   TblVer  InQ OutQ  Up/Down State/PfxRcd   PfxSnt Desc
-<a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a>10.1.172.1      4      65051      2972      2972        0    0    0 04:06:26            0        0 N/A
+<p><strong>Check VXLAN tunnel endpoint:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>HSA-520# show interface vxlan1
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>================================================================================
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>  Interface : vxlan1
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>================================================================================
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>  Network Information
+<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>  ----------------------------------------
+<a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a>  Admin State            : UP
+<a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a>  Link State             : UP
+<a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a>  MAC Address            : fe:6c:59:8e:30:e0
+<a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a>  MTU                    : 1500 bytes
 <a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a>
-<a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a>Total number of neighbors 1
-<a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a>Branch-2#
+<a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a>  VXLAN Peers
+<a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a>  ----------------------------------------
+<a id="__codelineno-7-15" name="__codelineno-7-15" href="#__codelineno-7-15"></a>fe:6c:59:8e:30:e0 master br-br1 permanent
+<a id="__codelineno-7-16" name="__codelineno-7-16" href="#__codelineno-7-16"></a>00:00:00:00:00:00 dst 10.1.168.1 self permanent
+<a id="__codelineno-7-17" name="__codelineno-7-17" href="#__codelineno-7-17"></a>
+<a id="__codelineno-7-18" name="__codelineno-7-18" href="#__codelineno-7-18"></a>  Physical Information
+<a id="__codelineno-7-19" name="__codelineno-7-19" href="#__codelineno-7-19"></a>  ----------------------------------------
+<a id="__codelineno-7-20" name="__codelineno-7-20" href="#__codelineno-7-20"></a>  Link Detected          : yes
+<a id="__codelineno-7-21" name="__codelineno-7-21" href="#__codelineno-7-21"></a>
+<a id="__codelineno-7-22" name="__codelineno-7-22" href="#__codelineno-7-22"></a>================================================================================
+<a id="__codelineno-7-23" name="__codelineno-7-23" href="#__codelineno-7-23"></a>HSA-520#
 </code></pre></div>
-<p>Branch routers peer only with the gateway (route-reflector). The single iBGP session to <code>10.1.172.1</code> carries all EVPN routes for the VPN instance.</p>
-<p><strong>Check EVPN routes (Branch-2):</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>Branch-2# show bgp l2vpn
-<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>BGP table version is 58, local router ID is 10.18.18.169
-<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>Status codes: s suppressed, d damped, h history, * valid, &gt; best, i - internal
-<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>Origin codes: i - IGP, e - EGP, ? - incomplete
-<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>EVPN type-1 prefix: [1]:[EthTag]:[ESI]:[IPlen]:[VTEP-IP]:[Frag-id]
-<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>EVPN type-2 prefix: [2]:[EthTag]:[MAClen]:[MAC]:[IPlen]:[IP]
-<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a>EVPN type-3 prefix: [3]:[EthTag]:[IPlen]:[OrigIP]
-<a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a>EVPN type-4 prefix: [4]:[ESI]:[IPlen]:[OrigIP]
-<a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a>EVPN type-5 prefix: [5]:[EthTag]:[IPlen]:[IP]
-<a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a>
-<a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a>   Network          Next Hop            Metric LocPrf Weight Path
-<a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a>Route Distinguisher: 10.18.18.169:2
-<a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a>*&gt; [2]:[0]:[48]:[00:40:9d:23:e9:cb]
-<a id="__codelineno-8-14" name="__codelineno-8-14" href="#__codelineno-8-14"></a>                    10.1.172.2                         32768 i
-<a id="__codelineno-8-15" name="__codelineno-8-15" href="#__codelineno-8-15"></a>                    ET:8 RT:65051:1
-<a id="__codelineno-8-16" name="__codelineno-8-16" href="#__codelineno-8-16"></a>*&gt; [2]:[0]:[48]:[00:90:0b:44:a6:73]
-<a id="__codelineno-8-17" name="__codelineno-8-17" href="#__codelineno-8-17"></a>                    10.1.172.2                         32768 i
-<a id="__codelineno-8-18" name="__codelineno-8-18" href="#__codelineno-8-18"></a>                    ET:8 RT:65051:1
-<a id="__codelineno-8-19" name="__codelineno-8-19" href="#__codelineno-8-19"></a>*&gt; [2]:[0]:[48]:[30:65:ec:6a:e7:55]
-<a id="__codelineno-8-20" name="__codelineno-8-20" href="#__codelineno-8-20"></a>                    10.1.172.2                         32768 i
-<a id="__codelineno-8-21" name="__codelineno-8-21" href="#__codelineno-8-21"></a>                    ET:8 RT:65051:1
-<a id="__codelineno-8-22" name="__codelineno-8-22" href="#__codelineno-8-22"></a>*&gt; [2]:[0]:[48]:[88:dc:96:87:3a:e2]
-<a id="__codelineno-8-23" name="__codelineno-8-23" href="#__codelineno-8-23"></a>                    10.1.172.2                         32768 i
-<a id="__codelineno-8-24" name="__codelineno-8-24" href="#__codelineno-8-24"></a>                    ET:8 RT:65051:1
-<a id="__codelineno-8-25" name="__codelineno-8-25" href="#__codelineno-8-25"></a>*&gt; [2]:[0]:[48]:[88:dc:96:87:3a:f6]
-<a id="__codelineno-8-26" name="__codelineno-8-26" href="#__codelineno-8-26"></a>                    10.1.172.2                         32768 i
-<a id="__codelineno-8-27" name="__codelineno-8-27" href="#__codelineno-8-27"></a>                    ET:8 RT:65051:1
-<a id="__codelineno-8-28" name="__codelineno-8-28" href="#__codelineno-8-28"></a>*&gt; [3]:[0]:[32]:[10.1.172.2]
-<a id="__codelineno-8-29" name="__codelineno-8-29" href="#__codelineno-8-29"></a>                    10.1.172.2                         32768 i
-<a id="__codelineno-8-30" name="__codelineno-8-30" href="#__codelineno-8-30"></a>                    ET:8 RT:65051:1
-<a id="__codelineno-8-31" name="__codelineno-8-31" href="#__codelineno-8-31"></a>Route Distinguisher: 10.18.18.194:2
-<a id="__codelineno-8-32" name="__codelineno-8-32" href="#__codelineno-8-32"></a>*&gt;i[3]:[0]:[32]:[10.1.172.1]
-<a id="__codelineno-8-33" name="__codelineno-8-33" href="#__codelineno-8-33"></a>                    10.1.172.1                    100      0 i
-<a id="__codelineno-8-34" name="__codelineno-8-34" href="#__codelineno-8-34"></a>                    RT:65051:1 ET:8
-<a id="__codelineno-8-35" name="__codelineno-8-35" href="#__codelineno-8-35"></a>Route Distinguisher: 10.18.18.251:2
-<a id="__codelineno-8-36" name="__codelineno-8-36" href="#__codelineno-8-36"></a>*&gt;i[3]:[0]:[32]:[10.1.172.3]
-<a id="__codelineno-8-37" name="__codelineno-8-37" href="#__codelineno-8-37"></a>                    10.1.172.3               0    100      0 i
-<a id="__codelineno-8-38" name="__codelineno-8-38" href="#__codelineno-8-38"></a>                    RT:65051:1 ET:8
-<a id="__codelineno-8-39" name="__codelineno-8-39" href="#__codelineno-8-39"></a>
-<a id="__codelineno-8-40" name="__codelineno-8-40" href="#__codelineno-8-40"></a>Displayed 8 out of 8 total prefixes
-<a id="__codelineno-8-41" name="__codelineno-8-41" href="#__codelineno-8-41"></a>Branch-2#
-</code></pre></div>
-<p><strong>Test end-to-end connectivity (Branch-2):</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>Branch-2# ping 10.1.1.1 source 10.1.1.2
-<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>PING 10.1.1.1 (10.1.1.1) from 10.1.1.2: 56 data bytes
-<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>64 bytes from 10.1.1.1: seq=0 ttl=64 time=1.486 ms
-<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>64 bytes from 10.1.1.1: seq=1 ttl=64 time=1.466 ms
-<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>64 bytes from 10.1.1.1: seq=2 ttl=64 time=1.300 ms
-<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>64 bytes from 10.1.1.1: seq=3 ttl=64 time=1.451 ms
-<a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a>64 bytes from 10.1.1.1: seq=4 ttl=64 time=1.314 ms
-<a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a>
-<a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a>--- 10.1.1.1 ping statistics ---
-<a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a>5 packets transmitted, 5 packets received, 0% packet loss
-<a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a>round-trip min/avg/max = 1.300/1.403/1.486 ms
-<a id="__codelineno-9-12" name="__codelineno-9-12" href="#__codelineno-9-12"></a>Branch-2# ping 10.1.1.3 source 10.1.1.2
-<a id="__codelineno-9-13" name="__codelineno-9-13" href="#__codelineno-9-13"></a>PING 10.1.1.3 (10.1.1.3) from 10.1.1.2: 56 data bytes
-<a id="__codelineno-9-14" name="__codelineno-9-14" href="#__codelineno-9-14"></a>64 bytes from 10.1.1.3: seq=0 ttl=64 time=2.813 ms
-<a id="__codelineno-9-15" name="__codelineno-9-15" href="#__codelineno-9-15"></a>64 bytes from 10.1.1.3: seq=1 ttl=64 time=2.249 ms
-<a id="__codelineno-9-16" name="__codelineno-9-16" href="#__codelineno-9-16"></a>64 bytes from 10.1.1.3: seq=2 ttl=64 time=2.587 ms
-<a id="__codelineno-9-17" name="__codelineno-9-17" href="#__codelineno-9-17"></a>64 bytes from 10.1.1.3: seq=3 ttl=64 time=2.234 ms
-<a id="__codelineno-9-18" name="__codelineno-9-18" href="#__codelineno-9-18"></a>64 bytes from 10.1.1.3: seq=4 ttl=64 time=2.479 ms
-<a id="__codelineno-9-19" name="__codelineno-9-19" href="#__codelineno-9-19"></a>
-<a id="__codelineno-9-20" name="__codelineno-9-20" href="#__codelineno-9-20"></a>--- 10.1.1.3 ping statistics ---
-<a id="__codelineno-9-21" name="__codelineno-9-21" href="#__codelineno-9-21"></a>5 packets transmitted, 5 packets received, 0% packet loss
-<a id="__codelineno-9-22" name="__codelineno-9-22" href="#__codelineno-9-22"></a>round-trip min/avg/max = 2.234/2.472/2.813 ms
-<a id="__codelineno-9-23" name="__codelineno-9-23" href="#__codelineno-9-23"></a>Branch-2# show arp
-<a id="__codelineno-9-24" name="__codelineno-9-24" href="#__codelineno-9-24"></a>IP address       HW type     Flags       HW address            Mask     Device
-<a id="__codelineno-9-25" name="__codelineno-9-25" href="#__codelineno-9-25"></a>10.1.1.1         0x1         0x2         7a:09:1e:a3:d1:a0     *        br-br1
-<a id="__codelineno-9-26" name="__codelineno-9-26" href="#__codelineno-9-26"></a>10.1.1.3         0x1         0x2         4a:e4:80:5f:64:4f     *        br-br1
-<a id="__codelineno-9-27" name="__codelineno-9-27" href="#__codelineno-9-27"></a>Branch-2#
-</code></pre></div>
-<hr>
-<h2 id="alternative-ipsec-encryption">Alternative: IPSec Encryption<a class="headerlink" href="#alternative-ipsec-encryption" title="Permanent link">¶</a></h2>
-<p>Some deployments require IPSec as the encryption protocol for regulatory compliance. Select <strong>IPSec</strong> as the VPN protocol in Step 2; mfusion will automatically generate IPSec IKE/ESP policies and peer configuration in place of WireGuard.</p>
-<h4 id="gateway-cli-reference">Gateway CLI Reference<a class="headerlink" href="#gateway-cli-reference" title="Permanent link">¶</a></h4>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>!
-<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>interface eth0
-<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a> description "Default connection to WAN"
-<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a> enable
-<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a> ip address dhcp
-<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a>!
-<a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a>interface gre1
-<a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a> tunnel local 10.1.168.1
-<a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a> enable
-<a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a> ip address 10.1.172.1/22
-<a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a> ip map 10.1.172.2 10.1.168.2
-<a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a> ip map 10.1.172.3 10.1.168.3
-<a id="__codelineno-10-13" name="__codelineno-10-13" href="#__codelineno-10-13"></a>!
-<a id="__codelineno-10-14" name="__codelineno-10-14" href="#__codelineno-10-14"></a>interface lo
-<a id="__codelineno-10-15" name="__codelineno-10-15" href="#__codelineno-10-15"></a> enable
-<a id="__codelineno-10-16" name="__codelineno-10-16" href="#__codelineno-10-16"></a> ip address 10.1.168.1/32
-<a id="__codelineno-10-17" name="__codelineno-10-17" href="#__codelineno-10-17"></a>!
-<a id="__codelineno-10-18" name="__codelineno-10-18" href="#__codelineno-10-18"></a>interface vxlan1
-<a id="__codelineno-10-19" name="__codelineno-10-19" href="#__codelineno-10-19"></a> description "Auto Interface from VPN (1)"
-<a id="__codelineno-10-20" name="__codelineno-10-20" href="#__codelineno-10-20"></a> vx-local 10.1.172.1
-<a id="__codelineno-10-21" name="__codelineno-10-21" href="#__codelineno-10-21"></a> enable
-<a id="__codelineno-10-22" name="__codelineno-10-22" href="#__codelineno-10-22"></a> bridge-group 1
-<a id="__codelineno-10-23" name="__codelineno-10-23" href="#__codelineno-10-23"></a>!
-<a id="__codelineno-10-24" name="__codelineno-10-24" href="#__codelineno-10-24"></a>interface vlan 1 1
-<a id="__codelineno-10-25" name="__codelineno-10-25" href="#__codelineno-10-25"></a> enable
-<a id="__codelineno-10-26" name="__codelineno-10-26" href="#__codelineno-10-26"></a> bridge-group 1
-<a id="__codelineno-10-27" name="__codelineno-10-27" href="#__codelineno-10-27"></a>!
-<a id="__codelineno-10-28" name="__codelineno-10-28" href="#__codelineno-10-28"></a>interface bridge br1
-<a id="__codelineno-10-29" name="__codelineno-10-29" href="#__codelineno-10-29"></a> description "Auto Interface from IPSec VPN (1)"
-<a id="__codelineno-10-30" name="__codelineno-10-30" href="#__codelineno-10-30"></a> enable
-<a id="__codelineno-10-31" name="__codelineno-10-31" href="#__codelineno-10-31"></a>!
-<a id="__codelineno-10-32" name="__codelineno-10-32" href="#__codelineno-10-32"></a>ipsec ike-policy 1
-<a id="__codelineno-10-33" name="__codelineno-10-33" href="#__codelineno-10-33"></a> authentication psk
-<a id="__codelineno-10-34" name="__codelineno-10-34" href="#__codelineno-10-34"></a> policy AES SHA 5
-<a id="__codelineno-10-35" name="__codelineno-10-35" href="#__codelineno-10-35"></a>!
-<a id="__codelineno-10-36" name="__codelineno-10-36" href="#__codelineno-10-36"></a>ipsec esp-policy 1
-<a id="__codelineno-10-37" name="__codelineno-10-37" href="#__codelineno-10-37"></a> policy AES SHA 5
-<a id="__codelineno-10-38" name="__codelineno-10-38" href="#__codelineno-10-38"></a>!
-<a id="__codelineno-10-39" name="__codelineno-10-39" href="#__codelineno-10-39"></a>ipsec peer b0-bb-8b-00-e7-a8
-<a id="__codelineno-10-40" name="__codelineno-10-40" href="#__codelineno-10-40"></a> local-net 10.1.168.1/32
-<a id="__codelineno-10-41" name="__codelineno-10-41" href="#__codelineno-10-41"></a> remote-id b0-bb-8b-00-e7-a8
-<a id="__codelineno-10-42" name="__codelineno-10-42" href="#__codelineno-10-42"></a> remote-ip any
-<a id="__codelineno-10-43" name="__codelineno-10-43" href="#__codelineno-10-43"></a> remote-net 10.1.168.2/32
-<a id="__codelineno-10-44" name="__codelineno-10-44" href="#__codelineno-10-44"></a> policy ike 1 esp 1
-<a id="__codelineno-10-45" name="__codelineno-10-45" href="#__codelineno-10-45"></a> psk xxx
-<a id="__codelineno-10-46" name="__codelineno-10-46" href="#__codelineno-10-46"></a>!
-<a id="__codelineno-10-47" name="__codelineno-10-47" href="#__codelineno-10-47"></a>ipsec peer b0-bb-8b-00-ea-20
-<a id="__codelineno-10-48" name="__codelineno-10-48" href="#__codelineno-10-48"></a> local-net 10.1.168.1/32
-<a id="__codelineno-10-49" name="__codelineno-10-49" href="#__codelineno-10-49"></a> remote-id b0-bb-8b-00-ea-20
-<a id="__codelineno-10-50" name="__codelineno-10-50" href="#__codelineno-10-50"></a> remote-ip any
-<a id="__codelineno-10-51" name="__codelineno-10-51" href="#__codelineno-10-51"></a> remote-net 10.1.168.3/32
-<a id="__codelineno-10-52" name="__codelineno-10-52" href="#__codelineno-10-52"></a> policy ike 1 esp 1
-<a id="__codelineno-10-53" name="__codelineno-10-53" href="#__codelineno-10-53"></a> psk xxx
-<a id="__codelineno-10-54" name="__codelineno-10-54" href="#__codelineno-10-54"></a>!
-<a id="__codelineno-10-55" name="__codelineno-10-55" href="#__codelineno-10-55"></a>router bgp 65051
-<a id="__codelineno-10-56" name="__codelineno-10-56" href="#__codelineno-10-56"></a> bgp timer 5 15
-<a id="__codelineno-10-57" name="__codelineno-10-57" href="#__codelineno-10-57"></a> neighbor 0168_RansNet_SSL2IPSEC_1 as-peer
-<a id="__codelineno-10-58" name="__codelineno-10-58" href="#__codelineno-10-58"></a> neighbor 0168_RansNet_SSL2IPSEC_1 as-remote 65051
-<a id="__codelineno-10-59" name="__codelineno-10-59" href="#__codelineno-10-59"></a> neighbor 0168_RansNet_SSL2IPSEC_1 next-hop-self
-<a id="__codelineno-10-60" name="__codelineno-10-60" href="#__codelineno-10-60"></a> neighbor 0168_RansNet_SSL2IPSEC_1 route-reflector-client
-<a id="__codelineno-10-61" name="__codelineno-10-61" href="#__codelineno-10-61"></a> neighbor 0168_RansNet_SSL2IPSEC_1 soft-reconfiguration
-<a id="__codelineno-10-62" name="__codelineno-10-62" href="#__codelineno-10-62"></a> neighbor 0168_RansNet_SSL2IPSEC_1 weight 0
-<a id="__codelineno-10-63" name="__codelineno-10-63" href="#__codelineno-10-63"></a> neighbor range 10.1.172.0/22 as-peer 0168_RansNet_SSL2IPSEC_1
-<a id="__codelineno-10-64" name="__codelineno-10-64" href="#__codelineno-10-64"></a> address-family-l2vpn
-<a id="__codelineno-10-65" name="__codelineno-10-65" href="#__codelineno-10-65"></a>  advertise-all-vni
-<a id="__codelineno-10-66" name="__codelineno-10-66" href="#__codelineno-10-66"></a>  neighbor 0168_RansNet_SSL2IPSEC_1 activate
-<a id="__codelineno-10-67" name="__codelineno-10-67" href="#__codelineno-10-67"></a>  neighbor 0168_RansNet_SSL2IPSEC_1 route-reflector-client
-<a id="__codelineno-10-68" name="__codelineno-10-68" href="#__codelineno-10-68"></a>  neighbor 0168_RansNet_SSL2IPSEC_1 soft-reconfiguration
-<a id="__codelineno-10-69" name="__codelineno-10-69" href="#__codelineno-10-69"></a>!
-</code></pre></div>
-<h4 id="branch-cli-reference">Branch CLI Reference<a class="headerlink" href="#branch-cli-reference" title="Permanent link">¶</a></h4>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>!
-<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>interface gre1
-<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a> tunnel local 10.1.168.2 remote 10.1.168.1
-<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a> enable
-<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a> ip address 10.1.172.2/22
-<a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a>!
-<a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a>interface lo
-<a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a> enable
-<a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a> ip address 10.1.168.2/32
-<a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a>!
-<a id="__codelineno-11-11" name="__codelineno-11-11" href="#__codelineno-11-11"></a>interface vxlan1
-<a id="__codelineno-11-12" name="__codelineno-11-12" href="#__codelineno-11-12"></a> description "Auto Interface from VPN (1)"
-<a id="__codelineno-11-13" name="__codelineno-11-13" href="#__codelineno-11-13"></a> vx-local 10.1.172.2
-<a id="__codelineno-11-14" name="__codelineno-11-14" href="#__codelineno-11-14"></a> enable
-<a id="__codelineno-11-15" name="__codelineno-11-15" href="#__codelineno-11-15"></a> bridge-group 1
-<a id="__codelineno-11-16" name="__codelineno-11-16" href="#__codelineno-11-16"></a>!
-<a id="__codelineno-11-17" name="__codelineno-11-17" href="#__codelineno-11-17"></a>interface vlan 1 1
-<a id="__codelineno-11-18" name="__codelineno-11-18" href="#__codelineno-11-18"></a> description "Default VLAN for all LAN ports"
-<a id="__codelineno-11-19" name="__codelineno-11-19" href="#__codelineno-11-19"></a> enable
-<a id="__codelineno-11-20" name="__codelineno-11-20" href="#__codelineno-11-20"></a> bridge-group 1
-<a id="__codelineno-11-21" name="__codelineno-11-21" href="#__codelineno-11-21"></a>!
-<a id="__codelineno-11-22" name="__codelineno-11-22" href="#__codelineno-11-22"></a>interface bridge br1
-<a id="__codelineno-11-23" name="__codelineno-11-23" href="#__codelineno-11-23"></a> description "Auto Interface from IPSec VPN (1)"
-<a id="__codelineno-11-24" name="__codelineno-11-24" href="#__codelineno-11-24"></a> bridge
-<a id="__codelineno-11-25" name="__codelineno-11-25" href="#__codelineno-11-25"></a> enable
-<a id="__codelineno-11-26" name="__codelineno-11-26" href="#__codelineno-11-26"></a>!
-<a id="__codelineno-11-27" name="__codelineno-11-27" href="#__codelineno-11-27"></a>ipsec ike-policy 1
-<a id="__codelineno-11-28" name="__codelineno-11-28" href="#__codelineno-11-28"></a> authentication psk
-<a id="__codelineno-11-29" name="__codelineno-11-29" href="#__codelineno-11-29"></a> policy AES SHA 5
-<a id="__codelineno-11-30" name="__codelineno-11-30" href="#__codelineno-11-30"></a>!
-<a id="__codelineno-11-31" name="__codelineno-11-31" href="#__codelineno-11-31"></a>ipsec esp-policy 1
-<a id="__codelineno-11-32" name="__codelineno-11-32" href="#__codelineno-11-32"></a> policy AES SHA 5
-<a id="__codelineno-11-33" name="__codelineno-11-33" href="#__codelineno-11-33"></a>!
-<a id="__codelineno-11-34" name="__codelineno-11-34" href="#__codelineno-11-34"></a>ipsec peer 10.18.18.194
-<a id="__codelineno-11-35" name="__codelineno-11-35" href="#__codelineno-11-35"></a> local-id b0-bb-8b-00-e7-a8
-<a id="__codelineno-11-36" name="__codelineno-11-36" href="#__codelineno-11-36"></a> local-net 10.1.168.2/32
-<a id="__codelineno-11-37" name="__codelineno-11-37" href="#__codelineno-11-37"></a> remote-net 10.1.168.1/32
-<a id="__codelineno-11-38" name="__codelineno-11-38" href="#__codelineno-11-38"></a> policy ike 1 esp 1
-<a id="__codelineno-11-39" name="__codelineno-11-39" href="#__codelineno-11-39"></a> psk xxx
-<a id="__codelineno-11-40" name="__codelineno-11-40" href="#__codelineno-11-40"></a>!
-<a id="__codelineno-11-41" name="__codelineno-11-41" href="#__codelineno-11-41"></a>router bgp 65051
-<a id="__codelineno-11-42" name="__codelineno-11-42" href="#__codelineno-11-42"></a> bgp timer 5 15
-<a id="__codelineno-11-43" name="__codelineno-11-43" href="#__codelineno-11-43"></a> neighbor 0168_RansNet_SSL2IPSEC_1 as-peer
-<a id="__codelineno-11-44" name="__codelineno-11-44" href="#__codelineno-11-44"></a> neighbor 0168_RansNet_SSL2IPSEC_1 as-remote 65051
-<a id="__codelineno-11-45" name="__codelineno-11-45" href="#__codelineno-11-45"></a> neighbor 0168_RansNet_SSL2IPSEC_1 next-hop-self
-<a id="__codelineno-11-46" name="__codelineno-11-46" href="#__codelineno-11-46"></a> neighbor 0168_RansNet_SSL2IPSEC_1 soft-reconfiguration
-<a id="__codelineno-11-47" name="__codelineno-11-47" href="#__codelineno-11-47"></a> neighbor 0168_RansNet_SSL2IPSEC_1 weight 0
-<a id="__codelineno-11-48" name="__codelineno-11-48" href="#__codelineno-11-48"></a> neighbor 10.1.172.1 as-peer 0168_RansNet_SSL2IPSEC_1
-<a id="__codelineno-11-49" name="__codelineno-11-49" href="#__codelineno-11-49"></a> address-family-l2vpn
-<a id="__codelineno-11-50" name="__codelineno-11-50" href="#__codelineno-11-50"></a>  advertise-all-vni
-<a id="__codelineno-11-51" name="__codelineno-11-51" href="#__codelineno-11-51"></a>  neighbor 0168_RansNet_SSL2IPSEC_1 activate
-<a id="__codelineno-11-52" name="__codelineno-11-52" href="#__codelineno-11-52"></a>  neighbor 0168_RansNet_SSL2IPSEC_1 route-reflector-client
-<a id="__codelineno-11-53" name="__codelineno-11-53" href="#__codelineno-11-53"></a>  neighbor 0168_RansNet_SSL2IPSEC_1 soft-reconfiguration
-</code></pre></div>
+<p>The entry <code>00:00:00:00:00:00 dst 10.1.168.1 self permanent</code> is the default VXLAN forwarding entry that directs all unknown-destination traffic to the hub VTEP (<code>10.1.168.1</code>). This is expected in hub-and-spoke — branches forward all overlay traffic to the hub rather than learning direct peer-to-peer VTEP routes.</p>
+<p><strong>End-to-end LAN device test:</strong></p>
+<p>Connect a PC to the branch router's VLAN 1 port. Configure it with an IP address in the same subnet as the gateway bridge interface (for example <code>10.0.0.2/24</code>) and ping the gateway bridge address (<code>10.0.0.1</code>). A successful response confirms that the Layer-2 path from the branch LAN through the VXLAN tunnel to the gateway bridge is fully operational.</p>
 
 
 

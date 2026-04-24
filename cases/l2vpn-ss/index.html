@@ -1,0 +1,4076 @@
+<!DOCTYPE html><html lang="en" class="no-js"><head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Technical guides for using RansNet products.">
+      
+      
+        <meta name="author" content="RansNet Singapore Pte Ltd">
+      
+      
+        <link rel="canonical" href="https://docs.ransnet.com/cases/l2vpn-ss/">
+      
+      
+        <link rel="prev" href="../l2vpn-hs/">
+      
+      
+        <link rel="next" href="../vrf/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../images/RansNet_logo.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>L2 Spoke-to-Spoke - RansNet Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
+        </style></head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#layer-2-sd-wan-spoke-to-spoke" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="RansNet Documentation" class="md-header__button md-logo" aria-label="RansNet Documentation" data-md-component="logo">
+      
+  <img src="../../images/RansNet_logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            RansNet Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              L2 Spoke-to-Spoke
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom" aria-label="Switch to dark mode" type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden="">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="custom" aria-label="Switch to light mode" type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden="">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required="">
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix="">
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="RansNet Documentation" class="md-nav__button md-logo" aria-label="RansNet Documentation" data-md-component="logo">
+      
+  <img src="../../images/RansNet_logo.png" alt="logo">
+
+    </a>
+    RansNet Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix="">
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../start/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_1" id="__nav_1_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Getting Started
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../start/overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Product Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_3">
+        
+          
+          <label class="md-nav__link" for="__nav_1_3" id="__nav_1_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    mfusion Overview
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    mfusion Overview
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../start/mfusion/features/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Features
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../start/mfusion/security/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../start/mfusion/admin/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Admin
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_4">
+        
+          
+          <label class="md-nav__link" for="__nav_1_4" id="__nav_1_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Device Setup
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Device Setup
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../start/device/bootstrap/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bootstrapping
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../start/device/provision/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Provisioning
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../start/device/onboard/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Onboarding
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../start/device/harden/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Hardening
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../monitor/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Device Monitoring
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Device Monitoring
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../monitor/dashboard/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Dashboard
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../monitor/hosts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Hosts
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../monitor/topo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Topology
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../monitor/wifi/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Wireless
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../monitor/netflow/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Netflow
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../monitor/alerts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Alerts
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../monitor/settings/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Settings
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../config/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Network Settings
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Network Settings
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2">
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Interfaces
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Interfaces
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../config/iface/ethernet/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ethernet
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../config/iface/vlaniface/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VLAN
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../config/iface/bridge/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bridge
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../config/iface/wwan/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    WWAN
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../config/iface/pppoe/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PPPoE
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../config/iface/switchport/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Switchport
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../config/iface/wifiwan/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    WiFi as WAN
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../config/iface/netflow/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Netflow Export
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../config/dhcp/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    DHCP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../config/dnsrewrite/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    DNS Rewrite
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_5">
+        
+          
+          <label class="md-nav__link" for="__nav_3_5" id="__nav_3_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Routing
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Routing
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../config/route/static/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Static Routes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../config/route/groups/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Network Groups
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../config/route/ospf/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Dynamic(OSPF)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../config/route/bgp/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Dynamic(BGP)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../config/vrrp/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VRRP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../config/wifi/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Wireless
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../config/tracking/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tracking
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4">
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SD-WAN
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    SD-WAN
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_1">
+        
+          
+          <label class="md-nav__link" for="__nav_4_1" id="__nav_4_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VPN Overlay
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    VPN Overlay
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sdwan/vpn/vpnintro/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VPN Protocols
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sdwan/vpn/topology/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VPN Topology
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sdwan/vpn/instance/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VPN Instance
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sdwan/mwan/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Multi-WAN
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sdwan/qos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Traffic Shaping
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5">
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Firewall &amp; Security
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Firewall &amp; Security
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_1">
+        
+          
+          <label class="md-nav__link" for="__nav_5_1" id="__nav_5_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Firewall
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Firewall
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../security/firewall/overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../security/firewall/policies/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Policies
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../security/firewall/objects/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Objects
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../security/firewall/templates/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Templates
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../security/webfilter/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Web Filtering
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../security/nf_collector/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Netflow Collector
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../hotspot/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HotSpot Gateway
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    HotSpot Gateway
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" checked="">
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Use Cases
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Use Cases
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../wanfailover/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    WAN Failover
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cloudsdwan/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cloud SD-WAN
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../l2vpn-hs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    L2 Hub-n-Spoke
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    L2 Spoke-to-Spoke
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    L2 Spoke-to-Spoke
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Overview
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuration-on-gateway" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configuration on Gateway
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Configuration on Gateway">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-configure-lan-interfaces" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 1 — Configure LAN Interfaces
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-configure-sd-wan-vpn-instance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 2 — Configure SD-WAN VPN Instance
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-assign-branch-routers-to-vpn-instance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 3 — Assign Branch Routers to VPN Instance
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cli-reference-gateway-wireguard" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CLI Reference (Gateway — WireGuard)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuration-on-branch-routers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configuration on Branch Routers
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Configuration on Branch Routers">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#gui-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GUI Configuration
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cli-reference-branch-wireguard" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CLI Reference (Branch — WireGuard)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#verification" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Verification
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Verification">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#gateway" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Gateway
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#branch-routers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Branch Routers
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#alternative-ipsec-encryption" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Alternative: IPSec Encryption
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Alternative: IPSec Encryption">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cli-reference-gateway-ipsec" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CLI Reference (Gateway — IPSec)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cli-reference-branch-ipsec" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CLI Reference (Branch — IPSec)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../vrf/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VRF over SD-WAN
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../crewwifi/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Crew WiFi Hotspot
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8">
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API Documentation
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    API Documentation
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../api/hotspot/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Hotspot API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../api/syslog/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Syslog API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../api/wispr/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    WISPr API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../api/netflow/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    NetFlow API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9">
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Support Matters
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Support Matters
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../support/packages/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Support Packages
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9_2">
+        
+          
+          <label class="md-nav__link" for="__nav_9_2" id="__nav_9_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Release Notes
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_9_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Release Notes
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../support/rn/branch/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Branch Series
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../support/rn/gateway/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Gateway Series
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9_3">
+        
+          
+          <label class="md-nav__link" for="__nav_9_3" id="__nav_9_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Troubleshooting
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_9_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Troubleshooting
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../support/ts/hotspot_onprem/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HotSpot (on-prem)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../support/ts/wifi_slow/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Wi-Fi Slow Issues
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Overview
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuration-on-gateway" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configuration on Gateway
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Configuration on Gateway">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-configure-lan-interfaces" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 1 — Configure LAN Interfaces
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-configure-sd-wan-vpn-instance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 2 — Configure SD-WAN VPN Instance
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-assign-branch-routers-to-vpn-instance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 3 — Assign Branch Routers to VPN Instance
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cli-reference-gateway-wireguard" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CLI Reference (Gateway — WireGuard)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuration-on-branch-routers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configuration on Branch Routers
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Configuration on Branch Routers">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#gui-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GUI Configuration
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cli-reference-branch-wireguard" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CLI Reference (Branch — WireGuard)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#verification" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Verification
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Verification">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#gateway" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Gateway
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#branch-routers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Branch Routers
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#alternative-ipsec-encryption" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Alternative: IPSec Encryption
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Alternative: IPSec Encryption">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cli-reference-gateway-ipsec" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CLI Reference (Gateway — IPSec)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cli-reference-branch-ipsec" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CLI Reference (Branch — IPSec)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="layer-2-sd-wan-spoke-to-spoke">Layer-2 SD-WAN (Spoke to Spoke)<a class="headerlink" href="#layer-2-sd-wan-spoke-to-spoke" title="Permanent link">¶</a></h1>
+<h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">¶</a></h2>
+<p>This guide covers the <strong><a href="../../sdwan/vpn/topology/#spoke-to-spoke-l2">Spoke-to-Spoke</a></strong> topology for L2VPN over SD-WAN. For background on L2VPN concepts, use cases, and benefits, see <a href="../l2vpn-hs/">Layer-2 SD-WAN (Hub and Spoke)</a>.</p>
+<p>In spoke-to-spoke topology, all branch routers participate in the same Layer-2 broadcast domain and can communicate with each other directly — not just with the hub. This is achieved by adding <strong>MP-BGP EVPN</strong> as a control plane above the encrypted underlay: each branch VTEP advertises its MAC/IP bindings to the gateway (acting as route-reflector), which redistributes them to all other branches. Branches then build direct VXLAN forwarding entries to remote VTEPs without relying on flood-and-learn.</p>
+<p><strong>Key Technologies</strong></p>
+<table>
+<thead>
+<tr>
+<th>Layer</th>
+<th>Technology</th>
+<th>Role</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Data plane</strong></td>
+<td>Multipoint VXLAN</td>
+<td>Encapsulates Ethernet frames (including broadcast and multicast) for transport across the overlay</td>
+</tr>
+<tr>
+<td><strong>Control plane</strong></td>
+<td>MP-BGP EVPN</td>
+<td>Distributes MAC/IP bindings (type-2) and BUM replication lists (type-3) between VTEPs; eliminates flood-and-learn</td>
+</tr>
+<tr>
+<td><strong>Overlay routing</strong></td>
+<td>GRE</td>
+<td>Provides a routable multipoint mesh (<code>10.1.172.x/22</code>) that VXLAN runs over; maps overlay addresses to underlay endpoints</td>
+</tr>
+<tr>
+<td><strong>Underlay encryption</strong></td>
+<td>WireGuard (default) or IPSec</td>
+<td>Encrypts the outer IP tunnel between sites</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The configuration examples in this guide use <strong>WireGuard</strong> as the encryption protocol. WireGuard is the recommended default for spoke-to-spoke deployments — it has lower overhead than IPSec and simplifies key distribution via mfusion. For IPSec-based deployments, see <a href="#alternative-ipsec-encryption">Alternative: IPSec Encryption</a>.</p>
+</div>
+<p>Below is an illustration of how the various layers fit together.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../images/l2vpn-1.png" data-desc-position="bottom"><img alt="Spoke-to-Spoke L2VPN architecture" src="../images/l2vpn-1.png"></a></p>
+<hr>
+<h2 id="configuration-on-gateway">Configuration on Gateway<a class="headerlink" href="#configuration-on-gateway" title="Permanent link">¶</a></h2>
+<p>Most configuration is performed on the gateway via mfusion. The resulting configuration is automatically compiled and pushed to assigned branch routers.</p>
+<p>This guide walks through the <strong><a href="../../sdwan/vpn/topology/#spoke-to-spoke-l2">Spoke-to-Spoke</a></strong> topology. In this topology:</p>
+<ul>
+<li>The <strong>system default routing table (underlay)</strong> is used to establish L2VPN tunnels over available WAN links. Configure WAN failover between links if redundancy is required.</li>
+<li>The <strong>VXLAN tunnel interface is bridged to the LAN interface</strong>, creating a flat Layer-2 network across all locations — a single broadcast domain spanning every site.</li>
+<li><strong>MP-BGP EVPN</strong> runs between the gateway (as route-reflector) and all branches, distributing MAC reachability so spokes can forward frames directly to each other.</li>
+</ul>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../images/l2vpn-2.png" data-desc-position="bottom"><img alt="Spoke-to-Spoke topology diagram" src="../images/l2vpn-2.png"></a></p>
+<h3 id="step-1-configure-lan-interfaces">Step 1 — Configure LAN Interfaces<a class="headerlink" href="#step-1-configure-lan-interfaces" title="Permanent link">¶</a></h3>
+<p>On both the gateway and each branch router, configure VLAN 1 as a Layer-2 interface (substitute VLAN 1 with your actual LAN or VLAN interface).</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>No IP address is required on the LAN/VLAN interface — it will be bridged into the VXLAN tunnel in the next step.</p>
+</div>
+<p>Navigate to <strong>Device → Interfaces → VLAN</strong> and create VLAN 1 without assigning an IP address.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../images/l2vpn-3.png" data-desc-position="bottom"><img alt="VLAN config" src="../images/l2vpn-3.png"></a></p>
+<h3 id="step-2-configure-sd-wan-vpn-instance">Step 2 — Configure SD-WAN VPN Instance<a class="headerlink" href="#step-2-configure-sd-wan-vpn-instance" title="Permanent link">¶</a></h3>
+<p>On the gateway, navigate to <strong>SD-WAN → VPN → Add VPN Instance</strong>. Select the VPN topology and encryption protocol.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../images/l2vpn-4.png" data-desc-position="bottom"><img alt="Add VPN instance" src="../images/l2vpn-4.png"></a></p>
+<p>Select <strong>Spoke-to-Spoke</strong> topology, <strong>Layer-2</strong> network mode, and <strong>WireGuard</strong> as the encryption protocol.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Spoke-to-Spoke permits Layer-2 traffic directly between branch VTEPs. Because all branches share a single broadcast domain, ensure broadcast storm control is configured for large deployments. For deployments where branches do not need to communicate directly, <a href="../l2vpn-hs/">Hub-and-Spoke</a> is the simpler and safer choice.</p>
+</div>
+<p>Then click <strong>Save and Apply Config</strong>.</p>
+<p>After the configuration is pushed, a <code>br1</code> bridge and <code>vxlan1</code> tunnel interface are automatically created on the gateway.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>For testing and verification, assign an IP address to the <code>br1</code> interface to ping across the bridge and validate LAN-to-LAN reachability. In production this is optional — LAN devices only need to be in the same subnet and will communicate as if attached to a single virtual Layer-2 switch.</p>
+</div>
+<h3 id="step-3-assign-branch-routers-to-vpn-instance">Step 3 — Assign Branch Routers to VPN Instance<a class="headerlink" href="#step-3-assign-branch-routers-to-vpn-instance" title="Permanent link">¶</a></h3>
+<p>Scroll down in the VPN instance configuration, go to <strong>VPN Branches → Add VPN Branch</strong>, and select the branch routers to include. Repeat for all branch routers.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../images/l2vpn-5.png" data-desc-position="bottom"><img alt="Assign branch routers to VPN instance" src="../images/l2vpn-5.png"></a></p>
+<p>mfusion compiles and pushes the VLAN, bridge, VXLAN, WireGuard, and BGP EVPN configuration to each branch automatically. Branch routers receive their VTEP address, tunnel endpoint configuration, and the gateway's overlay IP as the iBGP route-reflector peer. No further manual configuration is required on branch devices.</p>
+<h3 id="cli-reference-gateway-wireguard">CLI Reference (Gateway — WireGuard)<a class="headerlink" href="#cli-reference-gateway-wireguard" title="Permanent link">¶</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>SD-WAN configuration is generated automatically by mfusion. The CLI snippets below are provided for reference and troubleshooting only.</p>
+</div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>!
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>interface eth0
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a> description "Default connection to WAN"
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a> enable
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a> ip address dhcp
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>!
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>interface wg1
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a> enable
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a> ip address 10.1.168.1/32
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a> wg-peer b0-bb-8b-00-e7-a8
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>  remote-net 10.1.168.2/32
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a> wg-peer b0-bb-8b-00-ea-20
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>  remote-net 10.1.168.3/32
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>!
+<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>interface gre1
+<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a> tunnel local 10.1.168.1
+<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a> enable
+<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a> ip address 10.1.172.1/22
+<a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a> ip neigh 10.1.172.2 10.1.168.2
+<a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a> ip neigh 10.1.172.3 10.1.168.3
+<a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a>!
+<a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a>interface vxlan1
+<a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a> vx-local 10.1.172.1
+<a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a> enable
+<a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a> bridge-group 1
+<a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a>!
+<a id="__codelineno-0-27" name="__codelineno-0-27" href="#__codelineno-0-27"></a>interface vlan 1 1
+<a id="__codelineno-0-28" name="__codelineno-0-28" href="#__codelineno-0-28"></a> enable
+<a id="__codelineno-0-29" name="__codelineno-0-29" href="#__codelineno-0-29"></a> bridge-group 1
+<a id="__codelineno-0-30" name="__codelineno-0-30" href="#__codelineno-0-30"></a>!
+<a id="__codelineno-0-31" name="__codelineno-0-31" href="#__codelineno-0-31"></a>interface bridge br1
+<a id="__codelineno-0-32" name="__codelineno-0-32" href="#__codelineno-0-32"></a> description "Auto Interface from VPN (1)"
+<a id="__codelineno-0-33" name="__codelineno-0-33" href="#__codelineno-0-33"></a> enable
+<a id="__codelineno-0-34" name="__codelineno-0-34" href="#__codelineno-0-34"></a> ip address 10.1.1.1/24
+<a id="__codelineno-0-35" name="__codelineno-0-35" href="#__codelineno-0-35"></a>!
+<a id="__codelineno-0-36" name="__codelineno-0-36" href="#__codelineno-0-36"></a>router bgp 65051
+<a id="__codelineno-0-37" name="__codelineno-0-37" href="#__codelineno-0-37"></a> bgp timer 5 15
+<a id="__codelineno-0-38" name="__codelineno-0-38" href="#__codelineno-0-38"></a> neighbor 0168_RansNet_SSL2WG_1 as-peer
+<a id="__codelineno-0-39" name="__codelineno-0-39" href="#__codelineno-0-39"></a> neighbor 0168_RansNet_SSL2WG_1 as-remote 65051
+<a id="__codelineno-0-40" name="__codelineno-0-40" href="#__codelineno-0-40"></a> neighbor 0168_RansNet_SSL2WG_1 next-hop-self
+<a id="__codelineno-0-41" name="__codelineno-0-41" href="#__codelineno-0-41"></a> neighbor 0168_RansNet_SSL2WG_1 route-reflector-client
+<a id="__codelineno-0-42" name="__codelineno-0-42" href="#__codelineno-0-42"></a> neighbor 0168_RansNet_SSL2WG_1 soft-reconfiguration
+<a id="__codelineno-0-43" name="__codelineno-0-43" href="#__codelineno-0-43"></a> neighbor 0168_RansNet_SSL2WG_1 weight 0
+<a id="__codelineno-0-44" name="__codelineno-0-44" href="#__codelineno-0-44"></a> neighbor range 10.1.172.0/22 as-peer 0168_RansNet_SSL2WG_1
+<a id="__codelineno-0-45" name="__codelineno-0-45" href="#__codelineno-0-45"></a> address-family-l2vpn
+<a id="__codelineno-0-46" name="__codelineno-0-46" href="#__codelineno-0-46"></a>  advertise-all-vni
+<a id="__codelineno-0-47" name="__codelineno-0-47" href="#__codelineno-0-47"></a>  neighbor 0168_RansNet_SSL2WG_1 activate
+<a id="__codelineno-0-48" name="__codelineno-0-48" href="#__codelineno-0-48"></a>  neighbor 0168_RansNet_SSL2WG_1 route-reflector-client
+<a id="__codelineno-0-49" name="__codelineno-0-49" href="#__codelineno-0-49"></a>  neighbor 0168_RansNet_SSL2WG_1 soft-reconfiguration
+<a id="__codelineno-0-50" name="__codelineno-0-50" href="#__codelineno-0-50"></a>!
+</code></pre></div>
+<p><strong>Key points:</strong></p>
+<ul>
+<li><strong>WireGuard</strong> (<code>wg1</code>) encrypts the underlay using loopback IPs (<code>10.1.168.x/32</code>). Each branch is a WireGuard peer identified by its MAC address.</li>
+<li><strong>GRE</strong> (<code>gre1</code>) builds a multipoint overlay on top of WireGuard using <code>10.1.172.x/22</code> addresses. The gateway uses <code>ip neigh</code> to map each branch's overlay IP to its WireGuard endpoint.</li>
+<li><strong>VXLAN</strong> runs over the GRE overlay (<code>vx-local 10.1.172.1</code>), encapsulating Layer-2 frames for transport between VTEPs.</li>
+<li><strong>BGP EVPN</strong> runs within the <code>10.1.172.x/22</code> overlay. The gateway acts as the route-reflector (<code>route-reflector-client</code>), redistributing MAC/IP routes from each branch to all others. Dynamic neighbors are accepted from the <code>10.1.172.0/22</code> range.</li>
+<li><code>bridge-group 1</code> on both <code>vxlan1</code> and <code>vlan 1 1</code> places them into <code>br1</code>, creating the Layer-2 domain.</li>
+</ul>
+<hr>
+<h2 id="configuration-on-branch-routers">Configuration on Branch Routers<a class="headerlink" href="#configuration-on-branch-routers" title="Permanent link">¶</a></h2>
+<h3 id="gui-configuration">GUI Configuration<a class="headerlink" href="#gui-configuration" title="Permanent link">¶</a></h3>
+<p>Branch router GUI configuration follows <a href="#step-1--configure-lan-interfaces">Step 1</a> — configure VLAN 1 as a Layer-2 interface without assigning an IP address. mfusion automatically generates and pushes all remaining VXLAN, WireGuard, and BGP EVPN configuration to each assigned branch.</p>
+<h3 id="cli-reference-branch-wireguard">CLI Reference (Branch — WireGuard)<a class="headerlink" href="#cli-reference-branch-wireguard" title="Permanent link">¶</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Branch router configuration is auto-generated by mfusion. The CLI snippets below are provided for reference and troubleshooting only.</p>
+</div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>!
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>interface eth0
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a> description "Connection to WAN"
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a> enable
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a> ip address dhcp
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>!
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>interface wg1
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a> enable
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a> ip address 10.1.168.2/32
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a> wg-peer 00-60-e0-a3-59-f7
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>  remote-ip sdwan.ransnet.com
+<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>  remote-net 10.1.168.1/32
+<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>!
+<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>interface gre1
+<a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a> tunnel local 10.1.168.2 remote 10.1.168.1
+<a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a> enable
+<a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a> ip address 10.1.172.2/22
+<a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a>!
+<a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a>interface vxlan1
+<a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a> vx-local 10.1.172.2
+<a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a> enable
+<a id="__codelineno-1-22" name="__codelineno-1-22" href="#__codelineno-1-22"></a> bridge-group 1
+<a id="__codelineno-1-23" name="__codelineno-1-23" href="#__codelineno-1-23"></a>!
+<a id="__codelineno-1-24" name="__codelineno-1-24" href="#__codelineno-1-24"></a>interface vlan 1 1
+<a id="__codelineno-1-25" name="__codelineno-1-25" href="#__codelineno-1-25"></a> description "Default VLAN for all LAN ports"
+<a id="__codelineno-1-26" name="__codelineno-1-26" href="#__codelineno-1-26"></a> enable
+<a id="__codelineno-1-27" name="__codelineno-1-27" href="#__codelineno-1-27"></a> bridge-group 1
+<a id="__codelineno-1-28" name="__codelineno-1-28" href="#__codelineno-1-28"></a>!
+<a id="__codelineno-1-29" name="__codelineno-1-29" href="#__codelineno-1-29"></a>interface bridge br1
+<a id="__codelineno-1-30" name="__codelineno-1-30" href="#__codelineno-1-30"></a> description "Auto Interface from VPN (1)"
+<a id="__codelineno-1-31" name="__codelineno-1-31" href="#__codelineno-1-31"></a> bridge
+<a id="__codelineno-1-32" name="__codelineno-1-32" href="#__codelineno-1-32"></a> enable
+<a id="__codelineno-1-33" name="__codelineno-1-33" href="#__codelineno-1-33"></a>!
+<a id="__codelineno-1-34" name="__codelineno-1-34" href="#__codelineno-1-34"></a>router bgp 65051
+<a id="__codelineno-1-35" name="__codelineno-1-35" href="#__codelineno-1-35"></a> bgp timer 5 15
+<a id="__codelineno-1-36" name="__codelineno-1-36" href="#__codelineno-1-36"></a> neighbor 0168_RansNet_SSL2WG_1 as-peer
+<a id="__codelineno-1-37" name="__codelineno-1-37" href="#__codelineno-1-37"></a> neighbor 0168_RansNet_SSL2WG_1 as-remote 65051
+<a id="__codelineno-1-38" name="__codelineno-1-38" href="#__codelineno-1-38"></a> neighbor 0168_RansNet_SSL2WG_1 next-hop-self
+<a id="__codelineno-1-39" name="__codelineno-1-39" href="#__codelineno-1-39"></a> neighbor 0168_RansNet_SSL2WG_1 soft-reconfiguration
+<a id="__codelineno-1-40" name="__codelineno-1-40" href="#__codelineno-1-40"></a> neighbor 0168_RansNet_SSL2WG_1 weight 0
+<a id="__codelineno-1-41" name="__codelineno-1-41" href="#__codelineno-1-41"></a> neighbor 10.1.172.1 as-peer 0168_RansNet_SSL2WG_1
+<a id="__codelineno-1-42" name="__codelineno-1-42" href="#__codelineno-1-42"></a> address-family-l2vpn
+<a id="__codelineno-1-43" name="__codelineno-1-43" href="#__codelineno-1-43"></a>  advertise-all-vni
+<a id="__codelineno-1-44" name="__codelineno-1-44" href="#__codelineno-1-44"></a>  neighbor 0168_RansNet_SSL2WG_1 activate
+<a id="__codelineno-1-45" name="__codelineno-1-45" href="#__codelineno-1-45"></a>  neighbor 0168_RansNet_SSL2WG_1 soft-reconfiguration
+<a id="__codelineno-1-46" name="__codelineno-1-46" href="#__codelineno-1-46"></a>!
+</code></pre></div>
+<p><strong>Key points:</strong></p>
+<ul>
+<li>The branch WireGuard peer points to the gateway's public address (<code>remote-ip sdwan.ransnet.com</code>) with its loopback (<code>10.1.168.1/32</code>) as the allowed network.</li>
+<li>GRE is point-to-point from each branch to the gateway (<code>remote 10.1.168.1</code>). The gateway GRE then routes overlay frames onward to other branches via its <code>ip neigh</code> table.</li>
+<li>VXLAN is <code>vx-local 10.1.172.2</code> — the branch's GRE overlay IP. BGP EVPN distributes these VTEP addresses so all branches learn each other's reachability.</li>
+<li>The branch BGP peer is the gateway's overlay IP (<code>10.1.172.1</code>), which acts as the iBGP route-reflector.</li>
+<li>No IP address is configured on <code>br1</code> on the branch — the branch acts as a transparent L2 switch. The gateway <code>br1</code> holds the subnet's default gateway address.</li>
+</ul>
+<hr>
+<h2 id="verification">Verification<a class="headerlink" href="#verification" title="Permanent link">¶</a></h2>
+<h3 id="gateway">Gateway<a class="headerlink" href="#gateway" title="Permanent link">¶</a></h3>
+<p><strong>Check bridge membership:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>Gateway-1# show interface bridge
+</code></pre></div>
+<p>Verify that both <code>vxlan1</code> and <code>vlan1</code> appear as members of <code>br1</code>. This confirms that the VTEP and LAN segment are correctly bridged.</p>
+<p><strong>Check BGP EVPN session:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>Gateway-1# show ip bgp summary
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>IPv4 Unicast Summary (VRF default):
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>BGP router identifier 10.18.18.194, local AS number 65051 vrf-id 0
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>BGP table version 0
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>RIB entries 0, using 0 bytes of memory
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>Peers 2, using 1448 KiB of memory
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>Peer groups 1, using 64 bytes of memory
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>Neighbor        V         AS   MsgRcvd   MsgSent   TblVer  InQ OutQ  Up/Down State/PfxRcd   PfxSnt Desc
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>*10.1.172.2     4      65051      2845      2845        0    0    0 03:55:55            0        0 N/A
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>*10.1.172.3     4      65051       536       536        0    0    0 00:43:52            0        0 N/A
+<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>
+<a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a>Total number of neighbors 2
+<a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a>* - dynamic neighbor
+<a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a>2 dynamic neighbor(s), limit 2000
+<a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a>Gateway-1#
+</code></pre></div>
+<p>Both branch overlay IPs (<code>10.1.172.2</code>, <code>10.1.172.3</code>) should show an established iBGP session. The gateway acts as the BGP route-reflector, redistributing EVPN routes between all VTEPs. Dynamic neighbors (<code>*</code>) indicate branches registered from the <code>10.1.172.0/22</code> range.</p>
+<p><strong>Check EVPN MAC and VTEP routes:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>Gateway-1# show bgp l2vpn
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>BGP table version is 58, local router ID is 10.18.18.194
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>Status codes: s suppressed, d damped, h history, * valid, &gt; best, i - internal
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>Origin codes: i - IGP, e - EGP, ? - incomplete
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>EVPN type-2 prefix: [2]:[EthTag]:[MAClen]:[MAC]:[IPlen]:[IP]
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>EVPN type-3 prefix: [3]:[EthTag]:[IPlen]:[OrigIP]
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>   Network          Next Hop            Metric LocPrf Weight Path
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>Route Distinguisher: 10.18.18.169:2
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>*&gt;i[2]:[0]:[48]:[00:40:9d:23:e9:cb]
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>                    10.1.172.2                    100      0 i
+<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a>                    RT:65051:1 ET:8
+<a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a>*&gt;i[2]:[0]:[48]:[00:90:0b:44:a6:73]
+<a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a>                    10.1.172.2                    100      0 i
+<a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a>                    RT:65051:1 ET:8
+<a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a>*&gt;i[2]:[0]:[48]:[30:65:ec:6a:e7:55]
+<a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a>                    10.1.172.2                    100      0 i
+<a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a>                    RT:65051:1 ET:8
+<a id="__codelineno-4-19" name="__codelineno-4-19" href="#__codelineno-4-19"></a>*&gt;i[2]:[0]:[48]:[88:dc:96:87:3a:e2]
+<a id="__codelineno-4-20" name="__codelineno-4-20" href="#__codelineno-4-20"></a>                    10.1.172.2                    100      0 i
+<a id="__codelineno-4-21" name="__codelineno-4-21" href="#__codelineno-4-21"></a>                    RT:65051:1 ET:8
+<a id="__codelineno-4-22" name="__codelineno-4-22" href="#__codelineno-4-22"></a>*&gt;i[2]:[0]:[48]:[88:dc:96:87:3a:f6]
+<a id="__codelineno-4-23" name="__codelineno-4-23" href="#__codelineno-4-23"></a>                    10.1.172.2                    100      0 i
+<a id="__codelineno-4-24" name="__codelineno-4-24" href="#__codelineno-4-24"></a>                    RT:65051:1 ET:8
+<a id="__codelineno-4-25" name="__codelineno-4-25" href="#__codelineno-4-25"></a>*&gt;i[3]:[0]:[32]:[10.1.172.2]
+<a id="__codelineno-4-26" name="__codelineno-4-26" href="#__codelineno-4-26"></a>                    10.1.172.2                    100      0 i
+<a id="__codelineno-4-27" name="__codelineno-4-27" href="#__codelineno-4-27"></a>                    RT:65051:1 ET:8
+<a id="__codelineno-4-28" name="__codelineno-4-28" href="#__codelineno-4-28"></a>Route Distinguisher: 10.18.18.194:2
+<a id="__codelineno-4-29" name="__codelineno-4-29" href="#__codelineno-4-29"></a>*&gt; [3]:[0]:[32]:[10.1.172.1]
+<a id="__codelineno-4-30" name="__codelineno-4-30" href="#__codelineno-4-30"></a>                    10.1.172.1                         32768 i
+<a id="__codelineno-4-31" name="__codelineno-4-31" href="#__codelineno-4-31"></a>                    ET:8 RT:65051:1
+<a id="__codelineno-4-32" name="__codelineno-4-32" href="#__codelineno-4-32"></a>Route Distinguisher: 10.18.18.251:2
+<a id="__codelineno-4-33" name="__codelineno-4-33" href="#__codelineno-4-33"></a>*&gt;i[3]:[0]:[32]:[10.1.172.3]
+<a id="__codelineno-4-34" name="__codelineno-4-34" href="#__codelineno-4-34"></a>                    10.1.172.3                    100      0 i
+<a id="__codelineno-4-35" name="__codelineno-4-35" href="#__codelineno-4-35"></a>                    RT:65051:1 ET:8
+<a id="__codelineno-4-36" name="__codelineno-4-36" href="#__codelineno-4-36"></a>
+<a id="__codelineno-4-37" name="__codelineno-4-37" href="#__codelineno-4-37"></a>Displayed 8 out of 8 total prefixes
+<a id="__codelineno-4-38" name="__codelineno-4-38" href="#__codelineno-4-38"></a>Gateway-1#
+</code></pre></div>
+<p>EVPN <strong>type-2</strong> routes (<code>[2]</code>) carry MAC/IP bindings learned from each branch VTEP, confirming that remote MAC addresses are distributed via the control plane. EVPN <strong>type-3</strong> routes (<code>[3]</code>) advertise each VTEP as a BUM (Broadcast, Unknown-unicast, Multicast) replication endpoint — one per site in a spoke-to-spoke topology.</p>
+<p><strong>Test end-to-end Layer-2 reachability:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>Gateway-1# ping 10.1.1.2 source 10.1.1.1
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>PING 10.1.1.2 (10.1.1.2) from 10.1.1.1 : 56(84) bytes of data.
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>64 bytes from 10.1.1.2: icmp_seq=1 ttl=64 time=1.36 ms
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>64 bytes from 10.1.1.2: icmp_seq=2 ttl=64 time=1.26 ms
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>64 bytes from 10.1.1.2: icmp_seq=3 ttl=64 time=1.21 ms
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>64 bytes from 10.1.1.2: icmp_seq=4 ttl=64 time=1.17 ms
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>64 bytes from 10.1.1.2: icmp_seq=5 ttl=64 time=1.26 ms
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>--- 10.1.1.2 ping statistics ---
+<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a>5 packets transmitted, 5 received, 0% packet loss, time 4006ms
+<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a>rtt min/avg/max/mdev = 1.168/1.251/1.362/0.065 ms
+<a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a>Gateway-1# ping 10.1.1.3 source 10.1.1.1
+<a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a>PING 10.1.1.3 (10.1.1.3) from 10.1.1.1 : 56(84) bytes of data.
+<a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a>64 bytes from 10.1.1.3: icmp_seq=1 ttl=64 time=1.35 ms
+<a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a>64 bytes from 10.1.1.3: icmp_seq=2 ttl=64 time=1.13 ms
+<a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a>64 bytes from 10.1.1.3: icmp_seq=3 ttl=64 time=1.19 ms
+<a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a>64 bytes from 10.1.1.3: icmp_seq=4 ttl=64 time=1.29 ms
+<a id="__codelineno-5-18" name="__codelineno-5-18" href="#__codelineno-5-18"></a>64 bytes from 10.1.1.3: icmp_seq=5 ttl=64 time=1.15 ms
+<a id="__codelineno-5-19" name="__codelineno-5-19" href="#__codelineno-5-19"></a>
+<a id="__codelineno-5-20" name="__codelineno-5-20" href="#__codelineno-5-20"></a>--- 10.1.1.3 ping statistics ---
+<a id="__codelineno-5-21" name="__codelineno-5-21" href="#__codelineno-5-21"></a>5 packets transmitted, 5 received, 0% packet loss, time 4006ms
+<a id="__codelineno-5-22" name="__codelineno-5-22" href="#__codelineno-5-22"></a>rtt min/avg/max/mdev = 1.125/1.222/1.351/0.086 ms
+</code></pre></div>
+<p>Confirm that MAC addresses from all remote branches appear in the gateway's ARP table:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>Gateway-1# show arp
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>Address                  HWtype  HWaddress           Flags Mask            Iface
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>10.1.1.2                 ether   1e:cc:8b:49:fb:e7   C                     br1
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>10.1.1.3                 ether   4a:e4:80:5f:64:4f   C                     br1
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>Gateway-1#
+</code></pre></div>
+<h3 id="branch-routers">Branch Routers<a class="headerlink" href="#branch-routers" title="Permanent link">¶</a></h3>
+<p><strong>Check BGP EVPN session:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>Branch-2# show ip bgp summary
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>IPv4 Unicast Summary (VRF default):
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>BGP router identifier 10.18.18.169, local AS number 65051 vrf-id 0
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>BGP table version 0
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>RIB entries 0, using 0 bytes of memory
+<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>Peers 1, using 712 KiB of memory
+<a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a>Peer groups 1, using 32 bytes of memory
+<a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a>
+<a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a>Neighbor        V         AS   MsgRcvd   MsgSent   TblVer  InQ OutQ  Up/Down State/PfxRcd   PfxSnt Desc
+<a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a>10.1.172.1      4      65051      2972      2972        0    0    0 04:06:26            0        0 N/A
+<a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a>
+<a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a>Total number of neighbors 1
+<a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a>Branch-2#
+</code></pre></div>
+<p>Branch routers peer only with the gateway (route-reflector). The single iBGP session to <code>10.1.172.1</code> carries all EVPN routes for the VPN instance.</p>
+<p><strong>Check EVPN routes:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>Branch-2# show bgp l2vpn
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>BGP table version is 58, local router ID is 10.18.18.169
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>...
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>Route Distinguisher: 10.18.18.169:2
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>*&gt; [2]:[0]:[48]:[00:40:9d:23:e9:cb]
+<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>                    10.1.172.2                         32768 i
+<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a>                    ET:8 RT:65051:1
+<a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a>...
+<a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a>*&gt; [3]:[0]:[32]:[10.1.172.2]
+<a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a>                    10.1.172.2                         32768 i
+<a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a>                    ET:8 RT:65051:1
+<a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a>Route Distinguisher: 10.18.18.194:2
+<a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a>*&gt;i[3]:[0]:[32]:[10.1.172.1]
+<a id="__codelineno-8-14" name="__codelineno-8-14" href="#__codelineno-8-14"></a>                    10.1.172.1                    100      0 i
+<a id="__codelineno-8-15" name="__codelineno-8-15" href="#__codelineno-8-15"></a>                    RT:65051:1 ET:8
+<a id="__codelineno-8-16" name="__codelineno-8-16" href="#__codelineno-8-16"></a>Route Distinguisher: 10.18.18.251:2
+<a id="__codelineno-8-17" name="__codelineno-8-17" href="#__codelineno-8-17"></a>*&gt;i[3]:[0]:[32]:[10.1.172.3]
+<a id="__codelineno-8-18" name="__codelineno-8-18" href="#__codelineno-8-18"></a>                    10.1.172.3               0    100      0 i
+<a id="__codelineno-8-19" name="__codelineno-8-19" href="#__codelineno-8-19"></a>                    RT:65051:1 ET:8
+<a id="__codelineno-8-20" name="__codelineno-8-20" href="#__codelineno-8-20"></a>
+<a id="__codelineno-8-21" name="__codelineno-8-21" href="#__codelineno-8-21"></a>Displayed 8 out of 8 total prefixes
+<a id="__codelineno-8-22" name="__codelineno-8-22" href="#__codelineno-8-22"></a>Branch-2#
+</code></pre></div>
+<p>Each branch should see type-3 IMET routes for all other VTEPs (<code>10.1.172.1</code>, <code>10.1.172.3</code>). Type-2 MAC routes from remote branches confirm that MAC distribution is working and spoke-to-spoke forwarding is active.</p>
+<p><strong>Test spoke-to-spoke connectivity:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>Branch-2# ping 10.1.1.1 source 10.1.1.2
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>PING 10.1.1.1 (10.1.1.1) from 10.1.1.2: 56 data bytes
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>64 bytes from 10.1.1.1: seq=0 ttl=64 time=1.486 ms
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>64 bytes from 10.1.1.1: seq=1 ttl=64 time=1.466 ms
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>64 bytes from 10.1.1.1: seq=2 ttl=64 time=1.300 ms
+<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>64 bytes from 10.1.1.1: seq=3 ttl=64 time=1.451 ms
+<a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a>64 bytes from 10.1.1.1: seq=4 ttl=64 time=1.314 ms
+<a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a>
+<a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a>--- 10.1.1.1 ping statistics ---
+<a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a>5 packets transmitted, 5 packets received, 0% packet loss
+<a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a>round-trip min/avg/max = 1.300/1.403/1.486 ms
+<a id="__codelineno-9-12" name="__codelineno-9-12" href="#__codelineno-9-12"></a>Branch-2# ping 10.1.1.3 source 10.1.1.2
+<a id="__codelineno-9-13" name="__codelineno-9-13" href="#__codelineno-9-13"></a>PING 10.1.1.3 (10.1.1.3) from 10.1.1.2: 56 data bytes
+<a id="__codelineno-9-14" name="__codelineno-9-14" href="#__codelineno-9-14"></a>64 bytes from 10.1.1.3: seq=0 ttl=64 time=2.813 ms
+<a id="__codelineno-9-15" name="__codelineno-9-15" href="#__codelineno-9-15"></a>64 bytes from 10.1.1.3: seq=1 ttl=64 time=2.249 ms
+<a id="__codelineno-9-16" name="__codelineno-9-16" href="#__codelineno-9-16"></a>64 bytes from 10.1.1.3: seq=2 ttl=64 time=2.587 ms
+<a id="__codelineno-9-17" name="__codelineno-9-17" href="#__codelineno-9-17"></a>64 bytes from 10.1.1.3: seq=3 ttl=64 time=2.234 ms
+<a id="__codelineno-9-18" name="__codelineno-9-18" href="#__codelineno-9-18"></a>64 bytes from 10.1.1.3: seq=4 ttl=64 time=2.479 ms
+<a id="__codelineno-9-19" name="__codelineno-9-19" href="#__codelineno-9-19"></a>
+<a id="__codelineno-9-20" name="__codelineno-9-20" href="#__codelineno-9-20"></a>--- 10.1.1.3 ping statistics ---
+<a id="__codelineno-9-21" name="__codelineno-9-21" href="#__codelineno-9-21"></a>5 packets transmitted, 5 packets received, 0% packet loss
+<a id="__codelineno-9-22" name="__codelineno-9-22" href="#__codelineno-9-22"></a>round-trip min/avg/max = 2.234/2.472/2.813 ms
+<a id="__codelineno-9-23" name="__codelineno-9-23" href="#__codelineno-9-23"></a>Branch-2# show arp
+<a id="__codelineno-9-24" name="__codelineno-9-24" href="#__codelineno-9-24"></a>IP address       HW type     Flags       HW address            Mask     Device
+<a id="__codelineno-9-25" name="__codelineno-9-25" href="#__codelineno-9-25"></a>10.1.1.1         0x1         0x2         7a:09:1e:a3:d1:a0     *        br-br1
+<a id="__codelineno-9-26" name="__codelineno-9-26" href="#__codelineno-9-26"></a>10.1.1.3         0x1         0x2         4a:e4:80:5f:64:4f     *        br-br1
+<a id="__codelineno-9-27" name="__codelineno-9-27" href="#__codelineno-9-27"></a>Branch-2#
+</code></pre></div>
+<p>Ping <code>10.1.1.3</code> (another branch) from Branch-2 to confirm spoke-to-spoke Layer-2 reachability. Both gateway (<code>10.1.1.1</code>) and remote branches (<code>10.1.1.3</code>) should appear in the ARP table via <code>br-br1</code>.</p>
+<hr>
+<h2 id="alternative-ipsec-encryption">Alternative: IPSec Encryption<a class="headerlink" href="#alternative-ipsec-encryption" title="Permanent link">¶</a></h2>
+<p>Some deployments require IPSec as the encryption protocol for regulatory or compliance reasons. Select <strong>IPSec</strong> as the VPN protocol in Step 2; mfusion will automatically generate IPSec IKE/ESP policies and peer configuration in place of WireGuard.</p>
+<p>The architecture remains the same — WireGuard is replaced by IPSec, while GRE, VXLAN, and BGP EVPN layers are unchanged.</p>
+<h3 id="cli-reference-gateway-ipsec">CLI Reference (Gateway — IPSec)<a class="headerlink" href="#cli-reference-gateway-ipsec" title="Permanent link">¶</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>!
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>interface eth0
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a> description "Default connection to WAN"
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a> enable
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a> ip address dhcp
+<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a>!
+<a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a>interface lo
+<a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a> enable
+<a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a> ip address 10.1.168.1/32
+<a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a>!
+<a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a>interface gre1
+<a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a> tunnel local 10.1.168.1
+<a id="__codelineno-10-13" name="__codelineno-10-13" href="#__codelineno-10-13"></a> enable
+<a id="__codelineno-10-14" name="__codelineno-10-14" href="#__codelineno-10-14"></a> ip address 10.1.172.1/22
+<a id="__codelineno-10-15" name="__codelineno-10-15" href="#__codelineno-10-15"></a> ip map 10.1.172.2 10.1.168.2
+<a id="__codelineno-10-16" name="__codelineno-10-16" href="#__codelineno-10-16"></a> ip map 10.1.172.3 10.1.168.3
+<a id="__codelineno-10-17" name="__codelineno-10-17" href="#__codelineno-10-17"></a>!
+<a id="__codelineno-10-18" name="__codelineno-10-18" href="#__codelineno-10-18"></a>interface vxlan1
+<a id="__codelineno-10-19" name="__codelineno-10-19" href="#__codelineno-10-19"></a> description "Auto Interface from VPN (1)"
+<a id="__codelineno-10-20" name="__codelineno-10-20" href="#__codelineno-10-20"></a> vx-local 10.1.172.1
+<a id="__codelineno-10-21" name="__codelineno-10-21" href="#__codelineno-10-21"></a> enable
+<a id="__codelineno-10-22" name="__codelineno-10-22" href="#__codelineno-10-22"></a> bridge-group 1
+<a id="__codelineno-10-23" name="__codelineno-10-23" href="#__codelineno-10-23"></a>!
+<a id="__codelineno-10-24" name="__codelineno-10-24" href="#__codelineno-10-24"></a>interface vlan 1 1
+<a id="__codelineno-10-25" name="__codelineno-10-25" href="#__codelineno-10-25"></a> enable
+<a id="__codelineno-10-26" name="__codelineno-10-26" href="#__codelineno-10-26"></a> bridge-group 1
+<a id="__codelineno-10-27" name="__codelineno-10-27" href="#__codelineno-10-27"></a>!
+<a id="__codelineno-10-28" name="__codelineno-10-28" href="#__codelineno-10-28"></a>interface bridge br1
+<a id="__codelineno-10-29" name="__codelineno-10-29" href="#__codelineno-10-29"></a> description "Auto Interface from IPSec VPN (1)"
+<a id="__codelineno-10-30" name="__codelineno-10-30" href="#__codelineno-10-30"></a> enable
+<a id="__codelineno-10-31" name="__codelineno-10-31" href="#__codelineno-10-31"></a>!
+<a id="__codelineno-10-32" name="__codelineno-10-32" href="#__codelineno-10-32"></a>ipsec ike-policy 1
+<a id="__codelineno-10-33" name="__codelineno-10-33" href="#__codelineno-10-33"></a> authentication psk
+<a id="__codelineno-10-34" name="__codelineno-10-34" href="#__codelineno-10-34"></a> policy AES SHA 5
+<a id="__codelineno-10-35" name="__codelineno-10-35" href="#__codelineno-10-35"></a>!
+<a id="__codelineno-10-36" name="__codelineno-10-36" href="#__codelineno-10-36"></a>ipsec esp-policy 1
+<a id="__codelineno-10-37" name="__codelineno-10-37" href="#__codelineno-10-37"></a> policy AES SHA 5
+<a id="__codelineno-10-38" name="__codelineno-10-38" href="#__codelineno-10-38"></a>!
+<a id="__codelineno-10-39" name="__codelineno-10-39" href="#__codelineno-10-39"></a>ipsec peer b0-bb-8b-00-e7-a8
+<a id="__codelineno-10-40" name="__codelineno-10-40" href="#__codelineno-10-40"></a> local-net 10.1.168.1/32
+<a id="__codelineno-10-41" name="__codelineno-10-41" href="#__codelineno-10-41"></a> remote-id b0-bb-8b-00-e7-a8
+<a id="__codelineno-10-42" name="__codelineno-10-42" href="#__codelineno-10-42"></a> remote-ip any
+<a id="__codelineno-10-43" name="__codelineno-10-43" href="#__codelineno-10-43"></a> remote-net 10.1.168.2/32
+<a id="__codelineno-10-44" name="__codelineno-10-44" href="#__codelineno-10-44"></a> policy ike 1 esp 1
+<a id="__codelineno-10-45" name="__codelineno-10-45" href="#__codelineno-10-45"></a> psk xxx
+<a id="__codelineno-10-46" name="__codelineno-10-46" href="#__codelineno-10-46"></a>!
+<a id="__codelineno-10-47" name="__codelineno-10-47" href="#__codelineno-10-47"></a>ipsec peer b0-bb-8b-00-ea-20
+<a id="__codelineno-10-48" name="__codelineno-10-48" href="#__codelineno-10-48"></a> local-net 10.1.168.1/32
+<a id="__codelineno-10-49" name="__codelineno-10-49" href="#__codelineno-10-49"></a> remote-id b0-bb-8b-00-ea-20
+<a id="__codelineno-10-50" name="__codelineno-10-50" href="#__codelineno-10-50"></a> remote-ip any
+<a id="__codelineno-10-51" name="__codelineno-10-51" href="#__codelineno-10-51"></a> remote-net 10.1.168.3/32
+<a id="__codelineno-10-52" name="__codelineno-10-52" href="#__codelineno-10-52"></a> policy ike 1 esp 1
+<a id="__codelineno-10-53" name="__codelineno-10-53" href="#__codelineno-10-53"></a> psk xxx
+<a id="__codelineno-10-54" name="__codelineno-10-54" href="#__codelineno-10-54"></a>!
+<a id="__codelineno-10-55" name="__codelineno-10-55" href="#__codelineno-10-55"></a>router bgp 65051
+<a id="__codelineno-10-56" name="__codelineno-10-56" href="#__codelineno-10-56"></a> bgp timer 5 15
+<a id="__codelineno-10-57" name="__codelineno-10-57" href="#__codelineno-10-57"></a> neighbor 0168_RansNet_SSL2IPSEC_1 as-peer
+<a id="__codelineno-10-58" name="__codelineno-10-58" href="#__codelineno-10-58"></a> neighbor 0168_RansNet_SSL2IPSEC_1 as-remote 65051
+<a id="__codelineno-10-59" name="__codelineno-10-59" href="#__codelineno-10-59"></a> neighbor 0168_RansNet_SSL2IPSEC_1 next-hop-self
+<a id="__codelineno-10-60" name="__codelineno-10-60" href="#__codelineno-10-60"></a> neighbor 0168_RansNet_SSL2IPSEC_1 route-reflector-client
+<a id="__codelineno-10-61" name="__codelineno-10-61" href="#__codelineno-10-61"></a> neighbor 0168_RansNet_SSL2IPSEC_1 soft-reconfiguration
+<a id="__codelineno-10-62" name="__codelineno-10-62" href="#__codelineno-10-62"></a> neighbor 0168_RansNet_SSL2IPSEC_1 weight 0
+<a id="__codelineno-10-63" name="__codelineno-10-63" href="#__codelineno-10-63"></a> neighbor range 10.1.172.0/22 as-peer 0168_RansNet_SSL2IPSEC_1
+<a id="__codelineno-10-64" name="__codelineno-10-64" href="#__codelineno-10-64"></a> address-family-l2vpn
+<a id="__codelineno-10-65" name="__codelineno-10-65" href="#__codelineno-10-65"></a>  advertise-all-vni
+<a id="__codelineno-10-66" name="__codelineno-10-66" href="#__codelineno-10-66"></a>  neighbor 0168_RansNet_SSL2IPSEC_1 activate
+<a id="__codelineno-10-67" name="__codelineno-10-67" href="#__codelineno-10-67"></a>  neighbor 0168_RansNet_SSL2IPSEC_1 route-reflector-client
+<a id="__codelineno-10-68" name="__codelineno-10-68" href="#__codelineno-10-68"></a>  neighbor 0168_RansNet_SSL2IPSEC_1 soft-reconfiguration
+<a id="__codelineno-10-69" name="__codelineno-10-69" href="#__codelineno-10-69"></a>!
+</code></pre></div>
+<h3 id="cli-reference-branch-ipsec">CLI Reference (Branch — IPSec)<a class="headerlink" href="#cli-reference-branch-ipsec" title="Permanent link">¶</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>!
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>interface lo
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a> enable
+<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a> ip address 10.1.168.2/32
+<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>!
+<a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a>interface gre1
+<a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a> tunnel local 10.1.168.2 remote 10.1.168.1
+<a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a> enable
+<a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a> ip address 10.1.172.2/22
+<a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a>!
+<a id="__codelineno-11-11" name="__codelineno-11-11" href="#__codelineno-11-11"></a>interface vxlan1
+<a id="__codelineno-11-12" name="__codelineno-11-12" href="#__codelineno-11-12"></a> description "Auto Interface from VPN (1)"
+<a id="__codelineno-11-13" name="__codelineno-11-13" href="#__codelineno-11-13"></a> vx-local 10.1.172.2
+<a id="__codelineno-11-14" name="__codelineno-11-14" href="#__codelineno-11-14"></a> enable
+<a id="__codelineno-11-15" name="__codelineno-11-15" href="#__codelineno-11-15"></a> bridge-group 1
+<a id="__codelineno-11-16" name="__codelineno-11-16" href="#__codelineno-11-16"></a>!
+<a id="__codelineno-11-17" name="__codelineno-11-17" href="#__codelineno-11-17"></a>interface vlan 1 1
+<a id="__codelineno-11-18" name="__codelineno-11-18" href="#__codelineno-11-18"></a> description "Default VLAN for all LAN ports"
+<a id="__codelineno-11-19" name="__codelineno-11-19" href="#__codelineno-11-19"></a> enable
+<a id="__codelineno-11-20" name="__codelineno-11-20" href="#__codelineno-11-20"></a> bridge-group 1
+<a id="__codelineno-11-21" name="__codelineno-11-21" href="#__codelineno-11-21"></a>!
+<a id="__codelineno-11-22" name="__codelineno-11-22" href="#__codelineno-11-22"></a>interface bridge br1
+<a id="__codelineno-11-23" name="__codelineno-11-23" href="#__codelineno-11-23"></a> description "Auto Interface from IPSec VPN (1)"
+<a id="__codelineno-11-24" name="__codelineno-11-24" href="#__codelineno-11-24"></a> bridge
+<a id="__codelineno-11-25" name="__codelineno-11-25" href="#__codelineno-11-25"></a> enable
+<a id="__codelineno-11-26" name="__codelineno-11-26" href="#__codelineno-11-26"></a>!
+<a id="__codelineno-11-27" name="__codelineno-11-27" href="#__codelineno-11-27"></a>ipsec ike-policy 1
+<a id="__codelineno-11-28" name="__codelineno-11-28" href="#__codelineno-11-28"></a> authentication psk
+<a id="__codelineno-11-29" name="__codelineno-11-29" href="#__codelineno-11-29"></a> policy AES SHA 5
+<a id="__codelineno-11-30" name="__codelineno-11-30" href="#__codelineno-11-30"></a>!
+<a id="__codelineno-11-31" name="__codelineno-11-31" href="#__codelineno-11-31"></a>ipsec esp-policy 1
+<a id="__codelineno-11-32" name="__codelineno-11-32" href="#__codelineno-11-32"></a> policy AES SHA 5
+<a id="__codelineno-11-33" name="__codelineno-11-33" href="#__codelineno-11-33"></a>!
+<a id="__codelineno-11-34" name="__codelineno-11-34" href="#__codelineno-11-34"></a>ipsec peer 10.18.18.194
+<a id="__codelineno-11-35" name="__codelineno-11-35" href="#__codelineno-11-35"></a> local-id b0-bb-8b-00-e7-a8
+<a id="__codelineno-11-36" name="__codelineno-11-36" href="#__codelineno-11-36"></a> local-net 10.1.168.2/32
+<a id="__codelineno-11-37" name="__codelineno-11-37" href="#__codelineno-11-37"></a> remote-net 10.1.168.1/32
+<a id="__codelineno-11-38" name="__codelineno-11-38" href="#__codelineno-11-38"></a> policy ike 1 esp 1
+<a id="__codelineno-11-39" name="__codelineno-11-39" href="#__codelineno-11-39"></a> psk xxx
+<a id="__codelineno-11-40" name="__codelineno-11-40" href="#__codelineno-11-40"></a>!
+<a id="__codelineno-11-41" name="__codelineno-11-41" href="#__codelineno-11-41"></a>router bgp 65051
+<a id="__codelineno-11-42" name="__codelineno-11-42" href="#__codelineno-11-42"></a> bgp timer 5 15
+<a id="__codelineno-11-43" name="__codelineno-11-43" href="#__codelineno-11-43"></a> neighbor 0168_RansNet_SSL2IPSEC_1 as-peer
+<a id="__codelineno-11-44" name="__codelineno-11-44" href="#__codelineno-11-44"></a> neighbor 0168_RansNet_SSL2IPSEC_1 as-remote 65051
+<a id="__codelineno-11-45" name="__codelineno-11-45" href="#__codelineno-11-45"></a> neighbor 0168_RansNet_SSL2IPSEC_1 next-hop-self
+<a id="__codelineno-11-46" name="__codelineno-11-46" href="#__codelineno-11-46"></a> neighbor 0168_RansNet_SSL2IPSEC_1 soft-reconfiguration
+<a id="__codelineno-11-47" name="__codelineno-11-47" href="#__codelineno-11-47"></a> neighbor 0168_RansNet_SSL2IPSEC_1 weight 0
+<a id="__codelineno-11-48" name="__codelineno-11-48" href="#__codelineno-11-48"></a> neighbor 10.1.172.1 as-peer 0168_RansNet_SSL2IPSEC_1
+<a id="__codelineno-11-49" name="__codelineno-11-49" href="#__codelineno-11-49"></a> address-family-l2vpn
+<a id="__codelineno-11-50" name="__codelineno-11-50" href="#__codelineno-11-50"></a>  advertise-all-vni
+<a id="__codelineno-11-51" name="__codelineno-11-51" href="#__codelineno-11-51"></a>  neighbor 0168_RansNet_SSL2IPSEC_1 activate
+<a id="__codelineno-11-52" name="__codelineno-11-52" href="#__codelineno-11-52"></a>  neighbor 0168_RansNet_SSL2IPSEC_1 soft-reconfiguration
+<a id="__codelineno-11-53" name="__codelineno-11-53" href="#__codelineno-11-53"></a>!
+</code></pre></div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden="">
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"></path></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      © 2026 RansNet Singapore Pte Ltd. All Rights Reserved.
+    </div>
+  
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+    <a href="mailto:support@ransnet.com" target="_blank" rel="noopener" title="support@ransnet.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4l208 156a48 48 0 0 0 57.6 0l208-156c12.1-9.1 19.2-23.3 19.2-38.4 0-26.5-21.5-48-48-48zM0 196v188c0 35.3 28.7 64 64 64h384c35.3 0 64-28.7 64-64V196L313.6 344.8c-34.1 25.6-81.1 25.6-115.2 0z"></path></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="https://www.ransnet.com" target="_blank" rel="noopener" title="www.ransnet.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M351.9 280H161c2.9 64.5 17.2 123.9 37.5 167.4 11.4 24.5 23.7 41.8 35.1 52.4 11.2 10.5 18.9 12.2 22.9 12.2s11.7-1.7 22.9-12.2c11.4-10.6 23.7-28 35.1-52.4 20.3-43.5 34.6-102.9 37.5-167.4zm-191-48h190.9c-2.8-64.5-17.1-123.9-37.4-167.4-11.4-24.4-23.7-41.8-35.1-52.4C268.1 1.7 260.4 0 256.4 0s-11.7 1.7-22.9 12.2c-11.4 10.6-23.7 28-35.1 52.4-20.3 43.5-34.6 102.9-37.5 167.4m-48 0c3.5-85.6 25.6-165.1 57.9-217.3C78.7 47.3 10.9 131.2 1.5 232zM1.5 280c9.4 100.8 77.2 184.7 169.3 217.3-32.3-52.2-54.4-131.7-57.9-217.3zm398.4 0c-3.5 85.6-25.6 165.1-57.9 217.3 92.1-32.7 159.9-116.5 169.3-217.3zm111.4-48C501.9 131.2 434.1 47.3 342 14.7c32.3 52.2 54.4 131.7 57.9 217.3z"></path></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.indexes", "navigation.path", "navigation.top", "search.highlight", "search.suggest", "content.code.copy", "content.tabs.link", "content.action.edit", "toc.follow"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(()=>{ lightbox.reload(); });
+</script></body></html>

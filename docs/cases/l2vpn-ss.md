@@ -1,41 +1,26 @@
-# Layer-2 SD-WAN (L2VPN)
+# Layer-2 SD-WAN (Spoke to Spoke)
 
 ## Overview
 
-For most enterprises with many distributed remote offices or outlets, remote sites are connected back to the HQ or data centre network via Layer-3 IP networks — through the public Internet, 4G/5G, MPLS, or private leased lines. Traditional SD-WAN solutions are optimised for Layer-3 (IP) connectivity. However, some deployments require Layer-2 extension across geographically distributed sites, such as:
+This guide covers the **[Spoke-to-Spoke](../sdwan/vpn/topology.md#spoke-to-spoke-l2)** topology for L2VPN over SD-WAN. For background on L2VPN concepts, use cases, and benefits, see [Layer-2 SD-WAN (Hub and Spoke)](l2vpn-hs.md).
 
-- Extending VLANs across branches
-- Preserving broadcast-based services (DHCP, mDNS, legacy protocols)
-- Supporting VM mobility or live migration across sites
-- Supporting industrial automation and OT networks that do not support TCP/IP routing
-
-"L2 over SD-WAN" (also known as "L2VPN over SD-WAN" or "Ethernet VPN") addresses these requirements by encapsulating Ethernet frames inside **VXLAN** tunnels, while using **MP-BGP EVPN** as the control plane to dynamically distribute MAC and VLAN reachability information across sites. It also creates traffic isolation and enhances network security by logically separating WAN and LAN traffic — WAN links use the default routing table (underlay) to establish tunnel connectivity, while LAN devices communicate through a private VLAN segment that is isolated from external reachability (similar to "VRF over SD-WAN" but operating at Layer 2).
-
-Common use cases for "L2 over SD-WAN" include:
-
-- Factory automation and OT (Operational Technology) networks
-- IoT or retail chains with centralised services
-- Maritime and transportation systems
-- VM or container mobility across data centres or sites
-
-Additionally, L2VPN simplifies large distributed deployments in several ways:
-
-- **No per-site address planning** — unlike Layer-3 SD-WAN, there is no need to allocate subnets or manage routing per location. All sites share the same Layer-2 broadcast domain.
-- **Seamless device roaming** — branch routers are transparent to LAN devices (acting as L2 switches in the data path). No IP reconfiguration is needed when devices move between sites or when hardware is swapped.
-- **Centralised firewall and policy** — all LAN devices use the central gateway as their default gateway, enabling centralised inter-VLAN routing, firewall enforcement, and traffic inspection at the hub.
-- **Reduced attack surface** — branch routers have no routable IP exposed to internal LAN networks, making them invisible to network scanners and harder to exploit.
+In spoke-to-spoke topology, all branch routers participate in the same Layer-2 broadcast domain and can communicate with each other directly — not just with the hub. This is achieved by adding **MP-BGP EVPN** as a control plane above the encrypted underlay: each branch VTEP advertises its MAC/IP bindings to the gateway (acting as route-reflector), which redistributes them to all other branches. Branches then build direct VXLAN forwarding entries to remote VTEPs without relying on flood-and-learn.
 
 **Key Technologies**
 
 | Layer | Technology | Role |
 |---|---|---|
-| **Data plane encapsulation** | Multipoint VXLAN | Encapsulates Ethernet frames (including broadcast and multicast) for transport across the IP underlay |
-| **Control plane** | MP-BGP EVPN | Distributes MAC/IP binding (type-2) and BUM replication (type-3) routes between VTEPs; eliminates flood-and-learn |
-| **Underlay encryption** | WireGuard or IPSec | Encrypts the outer IP tunnel between VXLAN Tunnel Endpoints (VTEPs) |
+| **Data plane** | Multipoint VXLAN | Encapsulates Ethernet frames (including broadcast and multicast) for transport across the overlay |
+| **Control plane** | MP-BGP EVPN | Distributes MAC/IP bindings (type-2) and BUM replication lists (type-3) between VTEPs; eliminates flood-and-learn |
+| **Overlay routing** | GRE | Provides a routable multipoint mesh (`10.1.172.x/22`) that VXLAN runs over; maps overlay addresses to underlay endpoints |
+| **Underlay encryption** | WireGuard (default) or IPSec | Encrypts the outer IP tunnel between sites |
+
+!!! note
+    The configuration examples in this guide use **WireGuard** as the encryption protocol. WireGuard is the recommended default for spoke-to-spoke deployments — it has lower overhead than IPSec and simplifies key distribution via mfusion. For IPSec-based deployments, see [Alternative: IPSec Encryption](#alternative-ipsec-encryption).
 
 Below is an illustration of how the various layers fit together.
 
-![L2VPN](./images/l2vpn-1.png)
+![Spoke-to-Spoke L2VPN architecture](./images/l2vpn-1.png)
 
 ---
 
@@ -43,51 +28,55 @@ Below is an illustration of how the various layers fit together.
 
 Most configuration is performed on the gateway via mfusion. The resulting configuration is automatically compiled and pushed to assigned branch routers.
 
-We will use this topology to walk through the configuration guide. 
-
-![L2VPN](./images/l2vpn-2.png)
-
-In this scenario:
+This guide walks through the **[Spoke-to-Spoke](../sdwan/vpn/topology.md#spoke-to-spoke-l2)** topology. In this topology:
 
 - The **system default routing table (underlay)** is used to establish L2VPN tunnels over available WAN links. Configure WAN failover between links if redundancy is required.
-- The **VPN tunnel interface (VXLAN) is bridged to the LAN interface**, establishing a flat Layer-2 network — a single broadcast domain — across all locations.
-- Both **hub-and-spoke** (branch ↔ gateway) and **spoke-to-spoke** (branch ↔ branch) access patterns are supported, selectable per VPN instance.
+- The **VXLAN tunnel interface is bridged to the LAN interface**, creating a flat Layer-2 network across all locations — a single broadcast domain spanning every site.
+- **MP-BGP EVPN** runs between the gateway (as route-reflector) and all branches, distributing MAC reachability so spokes can forward frames directly to each other.
+
+![Spoke-to-Spoke topology diagram](./images/l2vpn-2.png)
 
 ### Step 1 — Configure LAN Interfaces
 
-On both the gateway and each branch router, configure VLAN 1 as a Layer-2 interface. No IP address is required at this stage — the interface will be bridged into the VXLAN tunnel in the next step.
+On both the gateway and each branch router, configure VLAN 1 as a Layer-2 interface (substitute VLAN 1 with your actual LAN or VLAN interface).
+
+!!! note
+    No IP address is required on the LAN/VLAN interface — it will be bridged into the VXLAN tunnel in the next step.
 
 Navigate to **Device → Interfaces → VLAN** and create VLAN 1 without assigning an IP address.
 
-![L2VPN](./images/l2vpn-3.png)
+![VLAN config](./images/l2vpn-3.png)
 
 ### Step 2 — Configure SD-WAN VPN Instance
 
-On the gateway, navigate to **SD-WAN → VPN → Add VPN Instance**. Select the VPN topology and encryption protocol according to your requirements.
+On the gateway, navigate to **SD-WAN → VPN → Add VPN Instance**. Select the VPN topology and encryption protocol.
 
-![L2VPN](./images/l2vpn-4.png)
+![Add VPN instance](./images/l2vpn-4.png)
 
-In this example, we select **Spoke-to-Spoke** topology with **WireGuard** as the encryption protocol. Spoke-to-spoke permits Layer-2 traffic directly between branch VTEPs, but the broadcast domain size is constrained by broadcast storm control limits. For most deployments where branches do not need to communicate directly, **Hub-and-Spoke** topology with **IPSec** is the common choice.
-
-Save and Apply Config.
-
-After the configuration is pushed, a `br1` and `vxlan1` interface are automatically created on the gateway.
-
-!!! tip
-    For testing and verification, you can assign an IP address to the `br1` interface so you can ping routers directly over the bridge interface to validate LAN-to-LAN reachability. In production deployments, this is not required — LAN devices only need to be in the same subnet, and they will communicate directly as if attached to a large virtual Layer-2 switch.
-
-### Step 3 — Assign Branch Routers
-
-Scroll down in the gateway VPN instance configuration, go to **VPN Branches → Add VPN Branch**, and select the branch routers to include in the VPN instance.
-
-![L2VPN](./images/l2vpn-5.png)
-
-mfusion compiles and pushes the bridge, VXLAN, WireGuard, and BGP EVPN configuration to each branch automatically. Branch routers receive their VTEP address, tunnel endpoint configuration, and the gateway's overlay IP as the iBGP route-reflector peer. No manual CLI configuration is required on branch devices.
-
-### CLI Reference (WireGuard)
+Select **Spoke-to-Spoke** topology, **Layer-2** network mode, and **WireGuard** as the encryption protocol.
 
 !!! note
-    CLI configuration for SD-WAN is complex and generated automatically by mfusion. It is strongly recommended to use mfusion for all SD-WAN orchestration. The CLI snippets below are provided for reference and troubleshooting only (spoke-to-spoke setup, generated by mfusion).
+    Spoke-to-Spoke permits Layer-2 traffic directly between branch VTEPs. Because all branches share a single broadcast domain, ensure broadcast storm control is configured for large deployments. For deployments where branches do not need to communicate directly, [Hub-and-Spoke](l2vpn-hs.md) is the simpler and safer choice.
+
+Then click **Save and Apply Config**.
+
+After the configuration is pushed, a `br1` bridge and `vxlan1` tunnel interface are automatically created on the gateway.
+
+!!! tip
+    For testing and verification, assign an IP address to the `br1` interface to ping across the bridge and validate LAN-to-LAN reachability. In production this is optional — LAN devices only need to be in the same subnet and will communicate as if attached to a single virtual Layer-2 switch.
+
+### Step 3 — Assign Branch Routers to VPN Instance
+
+Scroll down in the VPN instance configuration, go to **VPN Branches → Add VPN Branch**, and select the branch routers to include. Repeat for all branch routers.
+
+![Assign branch routers to VPN instance](./images/l2vpn-5.png)
+
+mfusion compiles and pushes the VLAN, bridge, VXLAN, WireGuard, and BGP EVPN configuration to each branch automatically. Branch routers receive their VTEP address, tunnel endpoint configuration, and the gateway's overlay IP as the iBGP route-reflector peer. No further manual configuration is required on branch devices.
+
+### CLI Reference (Gateway — WireGuard)
+
+!!! note
+    SD-WAN configuration is generated automatically by mfusion. The CLI snippets below are provided for reference and troubleshooting only.
 
 ```
 !
@@ -95,6 +84,14 @@ interface eth0
  description "Default connection to WAN"
  enable
  ip address dhcp
+!
+interface wg1
+ enable
+ ip address 10.1.168.1/32
+ wg-peer b0-bb-8b-00-e7-a8
+  remote-net 10.1.168.2/32
+ wg-peer b0-bb-8b-00-ea-20
+  remote-net 10.1.168.3/32
 !
 interface gre1
  tunnel local 10.1.168.1
@@ -108,20 +105,12 @@ interface vxlan1
  enable
  bridge-group 1
 !
-interface wg1
- enable
- ip address 10.1.168.1/32
- wg-peer b0-bb-8b-00-e7-a8
-  remote-net 10.1.168.2/32
- wg-peer b0-bb-8b-00-ea-20
-  remote-net 10.1.168.3/32
-!
 interface vlan 1 1
  enable
  bridge-group 1
 !
 interface bridge br1
- description "Auto Interface from IPSec VPN (1)"
+ description "Auto Interface from VPN (1)"
  enable
  ip address 10.1.1.1/24
 !
@@ -142,21 +131,40 @@ router bgp 65051
 !
 ```
 
+**Key points:**
+
+- **WireGuard** (`wg1`) encrypts the underlay using loopback IPs (`10.1.168.x/32`). Each branch is a WireGuard peer identified by its MAC address.
+- **GRE** (`gre1`) builds a multipoint overlay on top of WireGuard using `10.1.172.x/22` addresses. The gateway uses `ip neigh` to map each branch's overlay IP to its WireGuard endpoint.
+- **VXLAN** runs over the GRE overlay (`vx-local 10.1.172.1`), encapsulating Layer-2 frames for transport between VTEPs.
+- **BGP EVPN** runs within the `10.1.172.x/22` overlay. The gateway acts as the route-reflector (`route-reflector-client`), redistributing MAC/IP routes from each branch to all others. Dynamic neighbors are accepted from the `10.1.172.0/22` range.
+- `bridge-group 1` on both `vxlan1` and `vlan 1 1` places them into `br1`, creating the Layer-2 domain.
+
 ---
 
 ## Configuration on Branch Routers
 
 ### GUI Configuration
 
-On each branch router, configure VLAN 1 as a Layer-2 interface (Step 1 above). All other SD-WAN configuration — VXLAN VTEP, WireGuard tunnel, and BGP EVPN peering — is automatically generated from the gateway VPN instance and pushed to branch routers by mfusion. No further manual configuration is required on branch devices.
+Branch router GUI configuration follows [Step 1](#step-1--configure-lan-interfaces) — configure VLAN 1 as a Layer-2 interface without assigning an IP address. mfusion automatically generates and pushes all remaining VXLAN, WireGuard, and BGP EVPN configuration to each assigned branch.
 
-### CLI Reference (WireGuard)
+### CLI Reference (Branch — WireGuard)
+
+!!! note
+    Branch router configuration is auto-generated by mfusion. The CLI snippets below are provided for reference and troubleshooting only.
 
 ```
+!
 interface eth0
  description "Connection to WAN"
  enable
  ip address dhcp
+!
+interface wg1
+ enable
+ ip address 10.1.168.2/32
+ wg-peer 00-60-e0-a3-59-f7
+  remote-ip sdwan.ransnet.com
+  remote-net 10.1.168.1/32
 !
 interface gre1
  tunnel local 10.1.168.2 remote 10.1.168.1
@@ -168,23 +176,15 @@ interface vxlan1
  enable
  bridge-group 1
 !
-interface wg1
- enable
- ip address 10.1.168.2/32
- wg-peer 00-60-e0-a3-59-f7
-  remote-ip sdwan.ransnet.com
-  remote-net 10.1.168.1/32
-!
 interface vlan 1 1
  description "Default VLAN for all LAN ports"
  enable
  bridge-group 1
 !
 interface bridge br1
- description "Auto Interface from IPSec VPN (1)"
+ description "Auto Interface from VPN (1)"
  bridge
  enable
- ip address 10.1.1.2/24
 !
 router bgp 65051
  bgp timer 5 15
@@ -197,27 +197,33 @@ router bgp 65051
  address-family-l2vpn
   advertise-all-vni
   neighbor 0168_RansNet_SSL2WG_1 activate
-  neighbor 0168_RansNet_SSL2WG_1 route-reflector-client
   neighbor 0168_RansNet_SSL2WG_1 soft-reconfiguration
 !
-
 ```
+
+**Key points:**
+
+- The branch WireGuard peer points to the gateway's public address (`remote-ip sdwan.ransnet.com`) with its loopback (`10.1.168.1/32`) as the allowed network.
+- GRE is point-to-point from each branch to the gateway (`remote 10.1.168.1`). The gateway GRE then routes overlay frames onward to other branches via its `ip neigh` table.
+- VXLAN is `vx-local 10.1.172.2` — the branch's GRE overlay IP. BGP EVPN distributes these VTEP addresses so all branches learn each other's reachability.
+- The branch BGP peer is the gateway's overlay IP (`10.1.172.1`), which acts as the iBGP route-reflector.
+- No IP address is configured on `br1` on the branch — the branch acts as a transparent L2 switch. The gateway `br1` holds the subnet's default gateway address.
 
 ---
 
 ## Verification
 
-### Gateway Verification
+### Gateway
 
-**Check bridge members:**
+**Check bridge membership:**
 
 ```
-show interface bridge
+Gateway-1# show interface bridge
 ```
 
-Verify that both `vxlan1` and `vlan 1` appear as members of `br1`. This confirms the VTEP and LAN segment are correctly bridged.
+Verify that both `vxlan1` and `vlan1` appear as members of `br1`. This confirms that the VTEP and LAN segment are correctly bridged.
 
-**Check BGP EVPN peer state:**
+**Check BGP EVPN session:**
 
 ```
 Gateway-1# show ip bgp summary
@@ -239,20 +245,17 @@ Total number of neighbors 2
 Gateway-1#
 ```
 
-All branch overlay IPs (`10.1.172.2`, `10.1.172.3`) should show an established iBGP session. The gateway acts as the BGP route-reflector, redistributing EVPN routes between all VTEPs.
+Both branch overlay IPs (`10.1.172.2`, `10.1.172.3`) should show an established iBGP session. The gateway acts as the BGP route-reflector, redistributing EVPN routes between all VTEPs. Dynamic neighbors (`*`) indicate branches registered from the `10.1.172.0/22` range.
 
-**Check EVPN MAC/VLAN routes:**
+**Check EVPN MAC and VTEP routes:**
 
 ```
 Gateway-1# show bgp l2vpn
 BGP table version is 58, local router ID is 10.18.18.194
 Status codes: s suppressed, d damped, h history, * valid, > best, i - internal
 Origin codes: i - IGP, e - EGP, ? - incomplete
-EVPN type-1 prefix: [1]:[EthTag]:[ESI]:[IPlen]:[VTEP-IP]:[Frag-id]
 EVPN type-2 prefix: [2]:[EthTag]:[MAClen]:[MAC]:[IPlen]:[IP]
 EVPN type-3 prefix: [3]:[EthTag]:[IPlen]:[OrigIP]
-EVPN type-4 prefix: [4]:[ESI]:[IPlen]:[OrigIP]
-EVPN type-5 prefix: [5]:[EthTag]:[IPlen]:[IP]
 
    Network          Next Hop            Metric LocPrf Weight Path
 Route Distinguisher: 10.18.18.169:2
@@ -287,7 +290,7 @@ Displayed 8 out of 8 total prefixes
 Gateway-1#
 ```
 
-EVPN **type-2** routes (`[2]`) carry MAC/IP bindings learned from each branch VTEP — confirming that remote MAC addresses are distributed via the control plane rather than flood-and-learn. EVPN **type-3** routes (`[3]`) are Inclusive Multicast Ethernet Tag (IMET) routes, advertising each VTEP's endpoint for BUM (Broadcast, Unknown-unicast, Multicast) traffic replication.
+EVPN **type-2** routes (`[2]`) carry MAC/IP bindings learned from each branch VTEP, confirming that remote MAC addresses are distributed via the control plane. EVPN **type-3** routes (`[3]`) advertise each VTEP as a BUM (Broadcast, Unknown-unicast, Multicast) replication endpoint — one per site in a spoke-to-spoke topology.
 
 **Test end-to-end Layer-2 reachability:**
 
@@ -316,7 +319,7 @@ PING 10.1.1.3 (10.1.1.3) from 10.1.1.1 : 56(84) bytes of data.
 rtt min/avg/max/mdev = 1.125/1.222/1.351/0.086 ms
 ```
 
-Because all sites share the same Layer-2 segment, ARP resolution is transparent across the VXLAN overlay. The ARP table on the gateway bridge confirms MAC addresses learned from remote branches:
+Confirm that MAC addresses from all remote branches appear in the gateway's ARP table:
 
 ```
 Gateway-1# show arp
@@ -326,9 +329,9 @@ Address                  HWtype  HWaddress           Flags Mask            Iface
 Gateway-1#
 ```
 
-### Branch Routers Verification
+### Branch Routers
 
-**Check BGP EVPN peer state (Branch-2):**
+**Check BGP EVPN session:**
 
 ```
 Branch-2# show ip bgp summary
@@ -349,36 +352,17 @@ Branch-2#
 
 Branch routers peer only with the gateway (route-reflector). The single iBGP session to `10.1.172.1` carries all EVPN routes for the VPN instance.
 
-**Check EVPN routes (Branch-2):**
+**Check EVPN routes:**
 
 ```
 Branch-2# show bgp l2vpn
 BGP table version is 58, local router ID is 10.18.18.169
-Status codes: s suppressed, d damped, h history, * valid, > best, i - internal
-Origin codes: i - IGP, e - EGP, ? - incomplete
-EVPN type-1 prefix: [1]:[EthTag]:[ESI]:[IPlen]:[VTEP-IP]:[Frag-id]
-EVPN type-2 prefix: [2]:[EthTag]:[MAClen]:[MAC]:[IPlen]:[IP]
-EVPN type-3 prefix: [3]:[EthTag]:[IPlen]:[OrigIP]
-EVPN type-4 prefix: [4]:[ESI]:[IPlen]:[OrigIP]
-EVPN type-5 prefix: [5]:[EthTag]:[IPlen]:[IP]
-
-   Network          Next Hop            Metric LocPrf Weight Path
+...
 Route Distinguisher: 10.18.18.169:2
 *> [2]:[0]:[48]:[00:40:9d:23:e9:cb]
                     10.1.172.2                         32768 i
                     ET:8 RT:65051:1
-*> [2]:[0]:[48]:[00:90:0b:44:a6:73]
-                    10.1.172.2                         32768 i
-                    ET:8 RT:65051:1
-*> [2]:[0]:[48]:[30:65:ec:6a:e7:55]
-                    10.1.172.2                         32768 i
-                    ET:8 RT:65051:1
-*> [2]:[0]:[48]:[88:dc:96:87:3a:e2]
-                    10.1.172.2                         32768 i
-                    ET:8 RT:65051:1
-*> [2]:[0]:[48]:[88:dc:96:87:3a:f6]
-                    10.1.172.2                         32768 i
-                    ET:8 RT:65051:1
+...
 *> [3]:[0]:[32]:[10.1.172.2]
                     10.1.172.2                         32768 i
                     ET:8 RT:65051:1
@@ -395,7 +379,9 @@ Displayed 8 out of 8 total prefixes
 Branch-2#
 ```
 
-**Test end-to-end connectivity (Branch-2):**
+Each branch should see type-3 IMET routes for all other VTEPs (`10.1.172.1`, `10.1.172.3`). Type-2 MAC routes from remote branches confirm that MAC distribution is working and spoke-to-spoke forwarding is active.
+
+**Test spoke-to-spoke connectivity:**
 
 ```
 Branch-2# ping 10.1.1.1 source 10.1.1.2
@@ -427,13 +413,17 @@ IP address       HW type     Flags       HW address            Mask     Device
 Branch-2#
 ```
 
+Ping `10.1.1.3` (another branch) from Branch-2 to confirm spoke-to-spoke Layer-2 reachability. Both gateway (`10.1.1.1`) and remote branches (`10.1.1.3`) should appear in the ARP table via `br-br1`.
+
 ---
 
 ## Alternative: IPSec Encryption
 
-Some deployments require IPSec as the encryption protocol for regulatory compliance. Select **IPSec** as the VPN protocol in Step 2; mfusion will automatically generate IPSec IKE/ESP policies and peer configuration in place of WireGuard.
+Some deployments require IPSec as the encryption protocol for regulatory or compliance reasons. Select **IPSec** as the VPN protocol in Step 2; mfusion will automatically generate IPSec IKE/ESP policies and peer configuration in place of WireGuard.
 
-#### Gateway CLI Reference
+The architecture remains the same — WireGuard is replaced by IPSec, while GRE, VXLAN, and BGP EVPN layers are unchanged.
+
+### CLI Reference (Gateway — IPSec)
 
 ```
 !
@@ -442,16 +432,16 @@ interface eth0
  enable
  ip address dhcp
 !
+interface lo
+ enable
+ ip address 10.1.168.1/32
+!
 interface gre1
  tunnel local 10.1.168.1
  enable
  ip address 10.1.172.1/22
  ip map 10.1.172.2 10.1.168.2
  ip map 10.1.172.3 10.1.168.3
-!
-interface lo
- enable
- ip address 10.1.168.1/32
 !
 interface vxlan1
  description "Auto Interface from VPN (1)"
@@ -507,18 +497,18 @@ router bgp 65051
 !
 ```
 
-#### Branch CLI Reference
+### CLI Reference (Branch — IPSec)
 
 ```
+!
+interface lo
+ enable
+ ip address 10.1.168.2/32
 !
 interface gre1
  tunnel local 10.1.168.2 remote 10.1.168.1
  enable
  ip address 10.1.172.2/22
-!
-interface lo
- enable
- ip address 10.1.168.2/32
 !
 interface vxlan1
  description "Auto Interface from VPN (1)"
@@ -561,7 +551,6 @@ router bgp 65051
  address-family-l2vpn
   advertise-all-vni
   neighbor 0168_RansNet_SSL2IPSEC_1 activate
-  neighbor 0168_RansNet_SSL2IPSEC_1 route-reflector-client
   neighbor 0168_RansNet_SSL2IPSEC_1 soft-reconfiguration
-
+!
 ```
